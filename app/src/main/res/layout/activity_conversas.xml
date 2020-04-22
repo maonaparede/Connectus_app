@@ -7,41 +7,6 @@
     tools:context=".Conversas">
 
 
-    <EditText
-        android:id="@+id/buscar"
-        android:layout_width="343dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="60dp"
-        android:background="@android:color/transparent"
-        android:ems="10"
-        android:fontFamily="@font/changa_light"
-        android:inputType="textPersonName"
-        android:singleLine="true"
-
-        app:layout_constraintBottom_toTopOf="@+id/recycler"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Buscar" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="43dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        android:background="@android:color/transparent"
-
-        app:layout_constraintBottom_toBottomOf="@+id/buscar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/buscar"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_search_black_24dp"
-        tools:ignore="MissingConstraints,VectorDrawableCompat" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="386dp"
@@ -56,6 +21,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="400dp"
+        android:layout_height="51dp"
+        app:layout_constraintBottom_toTopOf="@+id/recycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.968">
+
+        <EditText
+            android:id="@+id/buscar"
+            android:layout_width="345dp"
+            android:layout_height="46dp"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:fontFamily="@font/changa_light"
+            android:inputType="textPersonName"
+            android:singleLine="true"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintHorizontal_bias="0.28"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Buscar" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="43dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="8dp"
+
+            android:layout_marginRight="8dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.6"
+            app:srcCompat="@drawable/ic_search_black_24dp"
+            tools:ignore="MissingConstraints,VectorDrawableCompat" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
