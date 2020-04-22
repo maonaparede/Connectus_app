@@ -4,6 +4,143 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Tela_Register">
+    android:background="@drawable/background_tela_registro"
+    tools:context=".Tela_Register"
+    >
 
+
+    <TextView
+        android:id="@+id/text_Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Não tem uma conta? Cadastre-se"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="@+id/button_Register"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/button_Register"
+        app:layout_constraintTop_toBottomOf="@+id/button_Register" />
+
+    <Button
+        android:id="@+id/button_Register"
+        android:layout_width="700px"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/linear_background"
+        android:bottomLeftRadius="20dp"
+        android:bottomRightRadius="20dp"
+        android:text="Cadastrar"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="@+id/register_confirmPassword"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/register_confirmPassword"
+        app:layout_constraintTop_toBottomOf="@+id/register_confirmPassword"
+        tools:visibility="visible" />
+
+    <EditText
+        android:id="@+id/register_Email"
+        android:layout_width="700px"
+        android:layout_height="120px"
+        android:layout_marginTop="4dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="E-mail"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="@+id/register_User"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/register_User"
+        app:layout_constraintTop_toBottomOf="@+id/register_User" />
+
+    <EditText
+        android:id="@+id/register_User"
+        android:layout_width="700px"
+        android:layout_height="120px"
+        android:layout_marginTop="136dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="Nome de Usuário"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/nameProjectRegister_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/changa_light"
+        android:lineSpacingExtra="14sp"
+        android:text="ConnectUs"
+        android:textColor="#FFFFFF"
+        android:textSize="44sp"
+        android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/register_Password"
+        android:layout_width="700px"
+        android:layout_height="120px"
+        android:layout_marginTop="4dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="@+id/register_Email"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/register_Email"
+        app:layout_constraintTop_toBottomOf="@+id/register_Email" />
+
+    <EditText
+        android:id="@+id/register_confirmPassword"
+        android:layout_width="700px"
+        android:layout_height="120px"
+        android:layout_marginTop="4dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="Confirmar Senha"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="@+id/register_Password"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/register_Password"
+        app:layout_constraintTop_toBottomOf="@+id/register_Password" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="128dp"
+        android:layout_height="111dp"
+        app:layout_constraintEnd_toEndOf="@+id/nameProjectRegister_id"
+        app:layout_constraintStart_toStartOf="@+id/nameProjectRegister_id"
+        app:layout_constraintTop_toBottomOf="@+id/nameProjectRegister_id"
+        app:srcCompat="@android:drawable/toast_frame" />
 </androidx.constraintlayout.widget.ConstraintLayout>
