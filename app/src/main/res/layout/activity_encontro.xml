@@ -15,7 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+      />
 
     <TextView
         android:id="@+id/textView5"
@@ -38,7 +39,7 @@
         android:layout_marginTop="56dp"
         android:fontFamily="@font/quicksand_bold"
         android:text="Titulo"
-        android:textSize="25sp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +53,7 @@
         android:text="Data"
 
         android:textColor="#47236D"
-        android:textSize="20sp"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.303"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +67,7 @@
         android:text="descrição"
         android:lineSpacingExtra="-10dp"
         android:textColor="#979797"
-        android:textSize="16sp"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.328"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,7 +96,7 @@
         android:fontFamily="@font/changa_light"
         android:text="Sair"
         android:textColor="#FFFFFF"
-        android:textSize="10sp"
+        android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 

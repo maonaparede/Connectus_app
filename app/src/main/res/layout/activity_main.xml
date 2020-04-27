@@ -81,7 +81,7 @@
         android:layout_width="272dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
-        android:background="@drawable/linear_background"
+        android:background="@drawable/gradient_background"
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
         android:text="Log In"
