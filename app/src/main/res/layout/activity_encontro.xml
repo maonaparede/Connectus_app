@@ -92,7 +92,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:background="@drawable/linear_background"
+        android:background="@drawable/linear_negative_background"
         android:fontFamily="@font/changa_light"
         android:text="Sair"
         android:textColor="#FFFFFF"
