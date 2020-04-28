@@ -3,5 +3,6 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/changa_light</item>
         <item>@font/changa_semibold</item>
+        <item>@font/quicksand_bold</item>
     </array>
 </resources>

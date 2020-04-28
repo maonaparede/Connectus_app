@@ -24,10 +24,10 @@
 
     <Button
         android:id="@+id/button_Register"
-        android:layout_width="700px"
+        android:layout_width="272dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:background="@layout/linear_background"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/linear_background"
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
         android:text="Cadastrar"
@@ -44,8 +44,8 @@
 
     <EditText
         android:id="@+id/register_Email"
-        android:layout_width="700px"
-        android:layout_height="120px"
+        android:layout_width="272dp"
+        android:layout_height="46dp"
         android:layout_marginTop="4dp"
         android:background="#FFFFFF"
         android:ems="10"
@@ -63,8 +63,8 @@
 
     <EditText
         android:id="@+id/register_User"
-        android:layout_width="700px"
-        android:layout_height="120px"
+        android:layout_width="272dp"
+        android:layout_height="46dp"
         android:layout_marginTop="136dp"
         android:background="#FFFFFF"
         android:ems="10"
@@ -98,8 +98,8 @@
 
     <EditText
         android:id="@+id/register_Password"
-        android:layout_width="700px"
-        android:layout_height="120px"
+        android:layout_width="272dp"
+        android:layout_height="46dp"
         android:layout_marginTop="4dp"
         android:background="#FFFFFF"
         android:ems="10"
@@ -117,8 +117,8 @@
 
     <EditText
         android:id="@+id/register_confirmPassword"
-        android:layout_width="700px"
-        android:layout_height="120px"
+        android:layout_width="272dp"
+        android:layout_height="46dp"
         android:layout_marginTop="4dp"
         android:background="#FFFFFF"
         android:ems="10"
