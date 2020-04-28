@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_tela_inicial"
+    android:background="@layout/background_tela_inicial"
     tools:context=".MainActivity">
 
     <TextView
@@ -81,7 +81,7 @@
         android:layout_width="700px"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
-        android:background="@drawable/linear_background"
+        android:background="@layout/linear_background"
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
         android:text="Log In"
