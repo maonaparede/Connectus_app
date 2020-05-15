@@ -8,12 +8,12 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="409dp"
-        android:layout_height="59dp"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_chat"
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="62dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView3"
@@ -21,6 +21,7 @@
             android:layout_height="24dp"
             android:fontFamily="@font/changa_semibold"
             android:text="TextView"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/textView4"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,9 +33,11 @@
         <TextView
             android:id="@+id/textView4"
             android:layout_width="272dp"
-            android:layout_height="17dp"
-            android:layout_marginBottom="12dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/changa_light"
             android:text="TextView"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.309"
@@ -42,8 +45,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView2"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="4dp"
@@ -52,46 +55,51 @@
             tools:srcCompat="@tools:sample/avatars" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_chat"
-        android:layout_width="405dp"
-        android:layout_height="620dp"
-        android:layout_marginBottom="8dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.572" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.0">
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="352dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:background="@android:color/transparent"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_chat"
-        app:layout_constraintVertical_bias="0.529"
-        tools:text="Mensagem" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_chat"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/editText3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="47dp"
-        android:layout_height="48dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="@+id/editText3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/editText3"
-        app:layout_constraintTop_toTopOf="@+id/editText3"
-        app:layout_constraintVertical_bias="0.666"
-        app:srcCompat="@drawable/ic_send_black_24dp"
-        tools:ignore="VectorDrawableCompat" />
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="361dp"
+            android:layout_height="34dp"
+            android:layout_marginBottom="4dp"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Mensagem" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="47dp"
+            android:layout_height="34dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/editText3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_chat"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/ic_send_black_24dp"
+            tools:ignore="VectorDrawableCompat" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
