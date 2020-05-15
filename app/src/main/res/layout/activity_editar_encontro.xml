@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Editar_perfil">
+
+    <Button
+        android:id="@+id/ExcluirE"
+        android:layout_width="78dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/linear_negative_background"
+        android:ems="1"
+        android:fontFamily="@font/changa_light"
+        android:text="Excluir "
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewEE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewEE" />
+
+    <Button
+        android:id="@+id/cancelarE"
+        android:layout_width="78dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/linear_negative_background"
+        android:ems="1"
+        android:fontFamily="@font/changa_light"
+        android:text="Cancelar"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewEE"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewEE" />
+
+    <EditText
+        android:id="@+id/horarioE"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageButton8"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Horario" />
+
+    <EditText
+        android:id="@+id/descricaoE"
+        android:layout_width="272dp"
+        android:layout_height="95dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="@font/changa"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/nomeE"
+        app:layout_constraintStart_toStartOf="@+id/nomeE"
+        app:layout_constraintTop_toBottomOf="@+id/nomeE"
+        tools:text="Descrição" />
+
+    <EditText
+        android:id="@+id/dataE"
+        android:layout_width="272dp"
+        android:layout_height="45dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:textColor="#0B0707"
+        android:fontFamily="@font/changa"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/descricaoE"
+        app:layout_constraintStart_toStartOf="@+id/descricaoE"
+        app:layout_constraintTop_toBottomOf="@+id/descricaoE"
+        tools:text="Data" />
+
+    <EditText
+        android:id="@+id/nomeE"
+        android:layout_width="272dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="36dp"
+        android:background="#FFFFFF"
+        android:fontFamily="@font/changa"
+        android:ems="10"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewEE"
+        tools:text="Nome Encontro" />
+
+    <EditText
+        android:id="@+id/localE"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="@font/changa"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton7"
+        app:layout_constraintStart_toEndOf="@+id/imageButton7"
+        app:layout_constraintTop_toTopOf="@+id/imageButton7"
+        tools:text="Local" />
+
+    <Button
+        android:id="@+id/addRemMembro"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:background="@drawable/linear_background"
+        android:bottomLeftRadius="20dp"
+        android:fontFamily="@font/changa"
+        android:bottomRightRadius="20dp"
+        android:text="Adicionar / Remover Membro"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataE" />
+
+    <Button
+        android:id="@+id/Salvar"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/linear_background"
+        android:bottomLeftRadius="20dp"
+        android:fontFamily="@font/changa"
+        android:bottomRightRadius="20dp"
+        android:text="Adicionar / Remover Membro"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addRemMembro"
+        app:layout_constraintVertical_bias="0.236" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/horarioE"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="@+id/imageButton7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.724"
+        app:srcCompat="@drawable/ic_access_time_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.002"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.724"
+        app:srcCompat="@drawable/ic_location_on_black_24dp" />
+
+    <ImageView
+        android:id="@+id/imageViewEE"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/linear_background"
+        app:layout_constraintEnd_toStartOf="@+id/ExcluirE"
+        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintStart_toEndOf="@+id/cancelarE"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/toast_frame" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

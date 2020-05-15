@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Editar_perfil">
+
+    <ImageButton
+        android:id="@+id/hobbieSalvar"
+        android:layout_width="45dp"
+        android:layout_height="46dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/hobbieEP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/hobbieEP"
+        app:layout_constraintTop_toTopOf="@+id/hobbieEP"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
+
+    <Button
+        android:id="@+id/salvarEP"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/linear_background"
+        android:bottomLeftRadius="20dp"
+        android:bottomRightRadius="20dp"
+        android:text="Salvar"
+        android:fontFamily="@font/changa"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/hobbieEP"
+        android:layout_width="272dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:paddingLeft="10dp"
+        android:textColor="#0B0707"
+        android:fontFamily="@font/changa"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricaoEP"
+        tools:text="Hobbies (MAX 6)" />
+
+    <EditText
+        android:id="@+id/descricaoEP"
+        android:layout_width="272dp"
+        android:layout_height="90dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:paddingLeft="10dp"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        android:fontFamily="@font/changa"
+        app:layout_constraintEnd_toEndOf="@+id/nomeEP"
+        app:layout_constraintStart_toStartOf="@+id/nomeEP"
+        app:layout_constraintTop_toBottomOf="@+id/nomeEP"
+        tools:text="Descrição" />
+
+    <EditText
+        android:id="@+id/nomeEP"
+        android:layout_width="272dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="64dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="@font/changa"
+        android:paddingLeft="10dp"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewEP"
+        tools:text="Nome de Usuário" />
+
+    <TextView
+        android:id="@+id/hobbie1E"
+        android:layout_width="136dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/changa_light"
+        android:text="Hobbie 1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hobbieEP" />
+
+    <TextView
+        android:id="@+id/hobbie2E"
+        android:layout_width="136dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:fontFamily="@font/changa_light"
+        android:text="Hobbie 2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hobbie1E" />
+
+    <TextView
+        android:id="@+id/hobbie5E"
+        android:layout_width="136dp"
+        android:layout_height="24dp"
+        android:fontFamily="@font/changa_light"
+        android:text="Hobbie 5"
+        app:layout_constraintBottom_toBottomOf="@+id/hobbie2E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/hobbie2E"
+        app:layout_constraintTop_toTopOf="@+id/hobbie2E"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/hobbie6E"
+        android:layout_width="136dp"
+        android:layout_height="24dp"
+        android:fontFamily="@font/changa_light"
+        android:text="Hobbie 6"
+        app:layout_constraintBottom_toBottomOf="@+id/hobbie3E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/hobbie3E" />
+
+    <TextView
+        android:id="@+id/hobbie3E"
+        android:layout_width="136dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/changa_light"
+        android:text="Hobbie 3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hobbie1E" />
+
+    <TextView
+        android:id="@+id/hobbie4E"
+        android:layout_width="136dp"
+        android:layout_height="24dp"
+        android:fontFamily="@font/changa_light"
+        android:text="Hobbie 4"
+        app:layout_constraintBottom_toBottomOf="@+id/hobbie1E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/hobbie1E"
+        app:layout_constraintTop_toTopOf="@+id/hobbie1E"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageViewEP"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/toast_frame" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

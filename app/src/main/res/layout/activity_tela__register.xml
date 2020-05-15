@@ -17,13 +17,13 @@
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="@+id/button_Register"
+        app:layout_constraintEnd_toEndOf="@+id/addRemMembro"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/button_Register"
-        app:layout_constraintTop_toBottomOf="@+id/button_Register" />
+        app:layout_constraintStart_toStartOf="@+id/addRemMembro"
+        app:layout_constraintTop_toBottomOf="@+id/addRemMembro" />
 
     <Button
-        android:id="@+id/button_Register"
+        android:id="@+id/addRemMembro"
         android:layout_width="272dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
@@ -43,7 +43,7 @@
         tools:visibility="visible" />
 
     <EditText
-        android:id="@+id/register_Email"
+        android:id="@+id/email"
         android:layout_width="272dp"
         android:layout_height="46dp"
         android:layout_marginTop="4dp"
@@ -56,13 +56,13 @@
         android:textColorHint="#090505"
         android:textSize="15sp"
         android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="@+id/register_User"
+        app:layout_constraintEnd_toEndOf="@+id/user_Name"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/register_User"
-        app:layout_constraintTop_toBottomOf="@+id/register_User" />
+        app:layout_constraintStart_toStartOf="@+id/user_Name"
+        app:layout_constraintTop_toBottomOf="@+id/user_Name" />
 
     <EditText
-        android:id="@+id/register_User"
+        android:id="@+id/user_Name"
         android:layout_width="272dp"
         android:layout_height="46dp"
         android:layout_marginTop="136dp"
@@ -110,10 +110,10 @@
         android:textColorHint="#090505"
         android:textSize="15sp"
         android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="@+id/register_Email"
+        app:layout_constraintEnd_toEndOf="@+id/email"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/register_Email"
-        app:layout_constraintTop_toBottomOf="@+id/register_Email" />
+        app:layout_constraintStart_toStartOf="@+id/email"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <EditText
         android:id="@+id/register_confirmPassword"
