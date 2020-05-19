@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/fotoP"
+        android:layout_width="136dp"
+        android:layout_height="136dp"
+
+        android:layout_marginTop="84dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/toast_frame" />
+
+    <TextView
+        android:id="@+id/hobbieP6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hobbie"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintStart_toEndOf="@+id/fotoP"
+        app:layout_constraintTop_toTopOf="@+id/fotoP" />
+
+    <TextView
+        android:id="@+id/hobbieP3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Hobbie"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/fotoP"
+        app:layout_constraintEnd_toStartOf="@+id/fotoP"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hobbieP2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/hobbieP2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Hobbie"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/fotoP"
+        app:layout_constraintHorizontal_bias="0.88"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hobbieP" />
+
+    <TextView
+        android:id="@+id/hobbieP4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hobbie"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/fotoP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintStart_toEndOf="@+id/fotoP"
+        app:layout_constraintTop_toBottomOf="@+id/hobbieP5"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/hobbieP5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Hobbie"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintStart_toEndOf="@+id/fotoP"
+        app:layout_constraintTop_toBottomOf="@+id/hobbieP6" />
+
+    <TextView
+        android:id="@+id/hobbieP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hobbie"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/fotoP"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fotoP" />
+
+    <TextView
+        android:id="@+id/nomeP"
+        android:layout_width="272dp"
+        android:layout_height="47dp"
+        android:fontFamily="@font/quicksand"
+        android:gravity="center_horizontal"
+        android:text="Nome"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/fotoP"
+        app:layout_constraintStart_toStartOf="@+id/fotoP"
+        app:layout_constraintTop_toBottomOf="@+id/fotoP" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="249dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="4dp"
+        android:background="#F4F5F2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nomeP" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="90dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/linear_background"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/nomeP" />
+
+    <TextView
+        android:id="@+id/descricaoP"
+        android:layout_width="275dp"
+        android:layout_height="57dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:gravity="center_horizontal"
+        android:text="Descrição"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/linear_background"
+        android:fontFamily="@font/changa"
+        android:text="Button"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricaoP" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
