@@ -32,7 +32,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/titulo"
+        android:id="@+id/tituloE"
         android:layout_width="330dp"
         android:layout_height="65dp"
         android:layout_marginTop="56dp"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/dataE"
         android:layout_width="276dp"
         android:layout_height="35dp"
         android:fontFamily="@font/changa_light"
@@ -56,10 +56,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.303"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo" />
+        app:layout_constraintTop_toBottomOf="@+id/tituloE" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/descricaoE"
         android:layout_width="286dp"
         android:layout_height="47dp"
         android:fontFamily="@font/changa_light"
@@ -70,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.328"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/dataE" />
 
     <Button
         android:id="@+id/button2"
@@ -82,7 +82,7 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/descricaoE" />
 
     <Button
         android:id="@+id/button"
@@ -108,7 +108,7 @@
         android:layout_marginBottom="4dp"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toEndOf="@+id/localE"
         app:srcCompat="@drawable/ic_access_time_black_24dp" />
 
     <ImageButton
@@ -124,7 +124,7 @@
         app:srcCompat="@drawable/ic_location_on_black_24dp" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/localE"
         android:layout_width="135dp"
         android:layout_height="44dp"
         android:layout_marginBottom="4dp"
@@ -136,7 +136,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/horarioE"
         android:layout_width="135dp"
         android:layout_height="44dp"
         android:layout_marginBottom="4dp"
@@ -154,11 +154,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintBottom_toTopOf="@+id/descricaoE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/titulo"
+        app:layout_constraintStart_toEndOf="@+id/dataE"
+        app:layout_constraintTop_toBottomOf="@+id/tituloE"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
 
@@ -168,11 +168,11 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:scaleX="-1"
-        app:layout_constraintBottom_toBottomOf="@+id/textView7"
-        app:layout_constraintEnd_toStartOf="@+id/textView7"
+        app:layout_constraintBottom_toBottomOf="@+id/dataE"
+        app:layout_constraintEnd_toStartOf="@+id/dataE"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo"
+        app:layout_constraintTop_toBottomOf="@+id/tituloE"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
 
