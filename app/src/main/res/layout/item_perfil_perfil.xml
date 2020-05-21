@@ -10,9 +10,9 @@
         android:layout_width="136dp"
         android:layout_height="136dp"
 
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/toast_frame" />
