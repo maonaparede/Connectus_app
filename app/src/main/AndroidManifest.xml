@@ -9,14 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Comentarios_Posts"></activity>
+        <activity android:name=".Home"></activity>
+        <activity android:name=".Comentarios_Posts" />
         <activity android:name=".Perfil" />
         <activity android:name=".Editar_perfil" />
         <activity android:name=".Encontro" />
         <activity android:name=".Friend_Request" />
         <activity android:name=".Chat" />
         <activity android:name=".Conversas" />
-        <activity android:name=".Tela_Register" />
+        <activity android:name=".Registrar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
