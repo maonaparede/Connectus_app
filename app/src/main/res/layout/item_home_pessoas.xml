@@ -11,8 +11,8 @@
         android:layout_width="95dp"
         android:layout_height="95dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
 
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/toast_frame" />
 </androidx.constraintlayout.widget.ConstraintLayout>
