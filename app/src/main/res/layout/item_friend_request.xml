@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#e6e6e6"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#e6e6e6">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView"
+        android:id="@+id/foto_friend_request"
         android:layout_width="73dp"
         android:layout_height="73dp"
         android:layout_marginLeft="16dp"
@@ -20,7 +19,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/nome_friend_request"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -29,34 +28,34 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintStart_toEndOf="@+id/foto_friend_request"
+        app:layout_constraintTop_toTopOf="@+id/foto_friend_request" />
 
     <Button
-        android:id="@+id/rejeitar"
+        android:id="@+id/rejeitar_friend_request"
         android:layout_width="133dp"
         android:layout_height="26dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
         android:background="@drawable/linear_negative_background"
         android:fontFamily="@font/changa_light"
         android:text="Rejeitar"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/socializar_friend_request"
+        app:layout_constraintTop_toBottomOf="@+id/nome_friend_request" />
 
     <Button
-        android:id="@+id/socializar"
+        android:id="@+id/socializar_friend_request"
         android:layout_width="133dp"
         android:layout_height="26dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:background="@drawable/linear_background"
         android:fontFamily="@font/changa_light"
         android:text="Socializar"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/rejeitar"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toEndOf="@+id/foto_friend_request"
+        app:layout_constraintTop_toBottomOf="@+id/nome_friend_request" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

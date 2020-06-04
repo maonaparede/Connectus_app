@@ -6,64 +6,134 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="16"
-8-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml
+8-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml
+9-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml
 10
-11    <resources>
-11-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:5:5-7:17
-12        <color android:name="colorAccent" />
-12-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:6:9-51
-12-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:6:16-42
-13    </resources>
+11    <uses-permission android:name="android.permission.INTERNET" /> <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+11-->[com.firebase:geofire-android:3.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\635208a8bbcb1a9d8d285e591c9430e0\jetified-geofire-android-3.0.0\AndroidManifest.xml:11:5-67
+11-->[com.firebase:geofire-android:3.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\635208a8bbcb1a9d8d285e591c9430e0\jetified-geofire-android-3.0.0\AndroidManifest.xml:11:22-64
+12    <!-- <uses-sdk android:minSdkVersion="14"/> -->
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->[com.google.firebase:firebase-database:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\ea2b8b729e15272cf0ebfd330a284a8f\jetified-firebase-database-17.0.0\AndroidManifest.xml:25:5-79
+13-->[com.google.firebase:firebase-database:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\ea2b8b729e15272cf0ebfd330a284a8f\jetified-firebase-database-17.0.0\AndroidManifest.xml:25:22-76
 14
 15    <application
-15-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:9:5-30:19
+15-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:6:5-34:19
 16        android:allowBackup="true"
-16-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:10:9-35
+16-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:7:9-35
 17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-17-->[androidx.core:core:1.1.0] C:\Users\Gabriel\.gradle\caches\transforms-2\files-2.1\34b4ab0d8b65ac74ddd00d45b26dd963\core-1.1.0\AndroidManifest.xml:24:18-86
+17-->[androidx.core:core:1.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\34b4ab0d8b65ac74ddd00d45b26dd963\core-1.1.0\AndroidManifest.xml:24:18-86
 18        android:debuggable="true"
 19        android:icon="@mipmap/ic_launcher"
-19-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:11:9-43
+19-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:8:9-43
 20        android:label="@string/app_name"
-20-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:12:9-41
+20-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:9:9-41
 21        android:roundIcon="@mipmap/ic_launcher_round"
-21-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:13:9-54
+21-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:10:9-54
 22        android:supportsRtl="true"
-22-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:14:9-35
-23        android:theme="@style/AppTheme" >
-23-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:15:9-40
-24        <activity android:name="com.example.telas_background.Chat" />
-24-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:16:9-41
-24-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:16:19-39
-25        <activity android:name="com.example.telas_background.Conversas" />
-25-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:17:9-47
-25-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:17:19-44
-26        <activity android:name="com.example.telas_background.Tela_Register" />
-26-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:18:9-51
-26-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:18:19-48
-27        <activity android:name="com.example.telas_background.MainActivity" >
-27-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:19:9-25:20
-27-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:19:19-47
-28            <intent-filter>
-28-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:20:13-24:29
-29                <action android:name="android.intent.action.MAIN" />
-29-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:21:17-69
-29-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:21:25-66
-30
-31                <category android:name="android.intent.category.LAUNCHER" />
-31-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:23:17-77
-31-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:23:27-74
-32            </intent-filter>
-33        </activity>
-34
-35        <meta-data
-35-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:27:9-29:57
-36            android:name="preloaded_fonts"
-36-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:28:13-43
-37            android:resource="@array/preloaded_fonts" />
-37-->C:\Users\Gabriel\Telas_background\app\src\main\AndroidManifest.xml:29:13-54
-38    </application>
+22-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:11:9-35
+23        android:testOnly="true"
+24        android:theme="@style/AppTheme" >
+24-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:12:9-40
+25        <activity
+25-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:13:9-14:65
+26            android:name="com.example.telas_background.Home"
+26-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:13:19-39
+27            android:screenOrientation="nosensor" />
+27-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:14:17-53
+28        <activity android:name="com.example.telas_background.Comentarios_Posts" />
+28-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:15:9-55
+28-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:15:19-52
+29        <activity android:name="com.example.telas_background.Perfil" />
+29-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:16:9-44
+29-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:16:19-41
+30        <activity android:name="com.example.telas_background.Editar_perfil" />
+30-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:17:9-51
+30-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:17:19-48
+31        <activity android:name="com.example.telas_background.Encontro" />
+31-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:18:9-46
+31-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:18:19-43
+32        <activity android:name="com.example.telas_background.Friend_Request" />
+32-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:19:9-52
+32-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:19:19-49
+33        <activity android:name="com.example.telas_background.Chat" />
+33-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:20:9-42
+33-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:20:19-39
+34        <activity android:name="com.example.telas_background.Conversas" />
+34-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:21:9-47
+34-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:21:19-44
+35        <activity android:name="com.example.telas_background.Registrar" />
+35-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:22:9-47
+35-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:22:19-44
+36        <activity android:name="com.example.telas_background.MainActivity" >
+36-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:23:9-29:20
+36-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:23:19-47
+37            <intent-filter>
+37-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:24:13-28:29
+38                <action android:name="android.intent.action.MAIN" />
+38-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:25:17-69
+38-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:25:25-66
 39
-40</manifest>
+40                <category android:name="android.intent.category.LAUNCHER" />
+40-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:27:17-77
+40-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:27:27-74
+41            </intent-filter>
+42        </activity>
+43
+44        <meta-data
+44-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:31:9-33:57
+45            android:name="preloaded_fonts"
+45-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:32:13-43
+46            android:resource="@array/preloaded_fonts" />
+46-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:33:13-54
+47
+48        <provider
+48-->[com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\a5914b625473ee1ac22fd2752acebaef\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
+49            android:name="com.squareup.picasso.PicassoProvider"
+49-->[com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\a5914b625473ee1ac22fd2752acebaef\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
+50            android:authorities="com.example.telas_background.com.squareup.picasso"
+50-->[com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\a5914b625473ee1ac22fd2752acebaef\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
+51            android:exported="false" />
+51-->[com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\a5914b625473ee1ac22fd2752acebaef\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
+52
+53        <service android:name="com.google.firebase.components.ComponentDiscoveryService" >
+53-->[com.google.firebase:firebase-database:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\ea2b8b729e15272cf0ebfd330a284a8f\jetified-firebase-database-17.0.0\AndroidManifest.xml:29:9-33:19
+53-->[com.google.firebase:firebase-database:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\ea2b8b729e15272cf0ebfd330a284a8f\jetified-firebase-database-17.0.0\AndroidManifest.xml:29:18-89
+54            <meta-data
+54-->[com.google.firebase:firebase-database:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\ea2b8b729e15272cf0ebfd330a284a8f\jetified-firebase-database-17.0.0\AndroidManifest.xml:30:13-32:85
+55                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+55-->[com.google.firebase:firebase-database:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\ea2b8b729e15272cf0ebfd330a284a8f\jetified-firebase-database-17.0.0\AndroidManifest.xml:31:17-109
+56                android:value="com.google.firebase.components.ComponentRegistrar" />
+56-->[com.google.firebase:firebase-database:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\ea2b8b729e15272cf0ebfd330a284a8f\jetified-firebase-database-17.0.0\AndroidManifest.xml:32:17-82
+57        </service>
+58
+59        <activity
+59-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\5a5831fbcd2648e2f695c574a51b8fc4\jetified-play-services-base-16.0.1\AndroidManifest.xml:23:9-26:75
+60            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+60-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\5a5831fbcd2648e2f695c574a51b8fc4\jetified-play-services-base-16.0.1\AndroidManifest.xml:24:13-79
+61            android:exported="false"
+61-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\5a5831fbcd2648e2f695c574a51b8fc4\jetified-play-services-base-16.0.1\AndroidManifest.xml:25:13-37
+62            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+62-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\5a5831fbcd2648e2f695c574a51b8fc4\jetified-play-services-base-16.0.1\AndroidManifest.xml:26:13-72
+63
+64        <provider
+64-->[com.google.firebase:firebase-common:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d6caf3708beddd6edde4e8ab2388c168\jetified-firebase-common-17.0.0\AndroidManifest.xml:12:9-16:39
+65            android:name="com.google.firebase.provider.FirebaseInitProvider"
+65-->[com.google.firebase:firebase-common:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d6caf3708beddd6edde4e8ab2388c168\jetified-firebase-common-17.0.0\AndroidManifest.xml:13:13-77
+66            android:authorities="com.example.telas_background.firebaseinitprovider"
+66-->[com.google.firebase:firebase-common:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d6caf3708beddd6edde4e8ab2388c168\jetified-firebase-common-17.0.0\AndroidManifest.xml:14:13-72
+67            android:exported="false"
+67-->[com.google.firebase:firebase-common:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d6caf3708beddd6edde4e8ab2388c168\jetified-firebase-common-17.0.0\AndroidManifest.xml:15:13-37
+68            android:initOrder="100" />
+68-->[com.google.firebase:firebase-common:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d6caf3708beddd6edde4e8ab2388c168\jetified-firebase-common-17.0.0\AndroidManifest.xml:16:13-36
+69
+70        <meta-data
+70-->[com.google.android.gms:play-services-basement:16.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\389e539f3f485b3660a99ae17a0491f1\jetified-play-services-basement-16.1.0\AndroidManifest.xml:23:9-25:69
+71            android:name="com.google.android.gms.version"
+71-->[com.google.android.gms:play-services-basement:16.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\389e539f3f485b3660a99ae17a0491f1\jetified-play-services-basement-16.1.0\AndroidManifest.xml:24:13-58
+72            android:value="@integer/google_play_services_version" />
+72-->[com.google.android.gms:play-services-basement:16.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\389e539f3f485b3660a99ae17a0491f1\jetified-play-services-basement-16.1.0\AndroidManifest.xml:25:13-66
+73    </application>
+74
+75</manifest>

@@ -75,10 +75,10 @@
         android:textColorHint="#090505"
         android:textSize="15sp"
         android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/foto_conversa"
         app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="@+id/foto_conversa"
+        app:layout_constraintTop_toBottomOf="@+id/foto_conversa" />
 
     <TextView
         android:id="@+id/nameProjectRegister_id"
@@ -135,7 +135,7 @@
         app:layout_constraintTop_toBottomOf="@+id/register_Password" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/foto_conversa"
         android:layout_width="128dp"
         android:layout_height="111dp"
         app:layout_constraintEnd_toEndOf="@+id/nameProjectRegister_id"

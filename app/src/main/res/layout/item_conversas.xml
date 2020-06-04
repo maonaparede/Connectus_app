@@ -3,46 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="80dp"
     android:background="#e6e6e6">
 
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/nome_conversa"
         android:layout_width="283dp"
         android:layout_height="35dp"
         android:fontFamily="@font/changa_semibold"
         android:text="TextView"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        />
+        app:layout_constraintStart_toEndOf="@+id/foto_conversa"
+        app:layout_constraintTop_toTopOf="@+id/foto_conversa" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/ultima_conversa"
         android:layout_width="272dp"
         android:layout_height="17dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="8dp"
         android:text="TextView"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2" />
+        app:layout_constraintEnd_toEndOf="@+id/nome_conversa"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/nome_conversa"
+        app:layout_constraintTop_toBottomOf="@+id/nome_conversa" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView"
+        android:id="@+id/foto_conversa"
         android:layout_width="73dp"
         android:layout_height="73dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
