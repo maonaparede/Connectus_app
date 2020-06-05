@@ -15,7 +15,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.025"
-        app:layout_constraintStart_toEndOf="@+id/fotoP"
+        app:layout_constraintStart_toEndOf="@+id/foto_perfil"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -28,12 +28,12 @@
         android:text="TextView"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/fotoP"
+        app:layout_constraintStart_toEndOf="@+id/foto_perfil"
         app:layout_constraintTop_toBottomOf="@+id/nome_post"
         app:layout_constraintVertical_bias="0.0" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/fotoP"
+        android:id="@+id/foto_perfil"
         android:layout_width="47dp"
         android:layout_height="47dp"
 

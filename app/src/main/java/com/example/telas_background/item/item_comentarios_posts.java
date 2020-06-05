@@ -31,7 +31,7 @@ public class item_comentarios_posts extends Item<ViewHolder> {
         TextView comentario1 = viewHolder.itemView.findViewById(R.id.comentario_post);
         comentario1.setText(comentario);
 
-        ImageView foto = viewHolder.itemView.findViewById(R.id.fotoP);
+        ImageView foto = viewHolder.itemView.findViewById(R.id.foto_perfil);
         Picasso.get().load(imagem).into(foto);
 
     }

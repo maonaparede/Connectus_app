@@ -1,4 +1,4 @@
-#Thu Jun 04 20:06:57 BRT 2020
+#Fri Jun 05 00:30:16 BRT 2020
 base.0=C\:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\dex\\debug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

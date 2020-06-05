@@ -7,58 +7,50 @@
 
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/fotoPost"
+        android:id="@+id/foto_perfil_post"
         android:layout_width="47dp"
         android:layout_height="47dp"
 
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        app:layout_constraintEnd_toStartOf="@+id/nome_chat"
-        app:layout_constraintHorizontal_bias="0.4"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nome_chat" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/nome_chat"
+        android:id="@+id/nome_post"
         android:layout_width="wrap_content"
         android:layout_height="22dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="296dp"
-        android:layout_marginRight="296dp"
         android:fontFamily="@font/changa"
         android:text="TextView"
         android:textColor="#757575"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/foto_perfil_post"
+        app:layout_constraintTop_toTopOf="@+id/foto_perfil_post" />
 
     <TextView
-        android:id="@+id/msg_chat"
+        android:id="@+id/descricao_post"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
         android:fontFamily="@font/changa"
         android:text="TextView"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/fotoPost"
-        app:layout_constraintTop_toBottomOf="@+id/nome_chat" />
+        app:layout_constraintStart_toEndOf="@+id/foto_perfil_post"
+        app:layout_constraintTop_toBottomOf="@+id/nome_post" />
 
     <ImageView
-        android:id="@+id/postImg"
+        android:id="@+id/img_post"
         android:layout_width="411dp"
         android:layout_height="411dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/msg_chat"
+        app:layout_constraintTop_toBottomOf="@+id/descricao_post"
         app:srcCompat="@drawable/linear_background" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/imageButton9_post"
         android:layout_width="30dp"
         android:layout_height="25dp"
         android:layout_marginStart="16dp"
@@ -67,33 +59,33 @@
         android:background="@android:color/transparent"
         android:scaleX="-1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postImg"
+        app:layout_constraintTop_toBottomOf="@+id/img_post"
         app:srcCompat="@drawable/ic_chat_bubble_outline_black_24dp" />
 
     <TextView
-        android:id="@+id/comentarios"
+        android:id="@+id/comentarios_post"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginStart="180dp"
         android:layout_marginLeft="180dp"
         android:text="Comentarios"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/comentar"
-        app:layout_constraintStart_toEndOf="@+id/comentar"
-        app:layout_constraintTop_toTopOf="@+id/comentar"
+        app:layout_constraintBottom_toBottomOf="@+id/comentar_post"
+        app:layout_constraintStart_toEndOf="@+id/comentar_post"
+        app:layout_constraintTop_toTopOf="@+id/comentar_post"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/comentar"
+        android:id="@+id/comentar_post"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:text="Comentar"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton9"
-        app:layout_constraintStart_toEndOf="@+id/imageButton9"
-        app:layout_constraintTop_toTopOf="@+id/imageButton9"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton9_post"
+        app:layout_constraintStart_toEndOf="@+id/imageButton9_post"
+        app:layout_constraintTop_toTopOf="@+id/imageButton9_post"
         app:layout_constraintVertical_bias="0.0" />
 
     <View
@@ -101,7 +93,7 @@
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="#757575"
-        app:layout_constraintBottom_toTopOf="@+id/fotoPost"
+        app:layout_constraintBottom_toTopOf="@+id/foto_perfil_post"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

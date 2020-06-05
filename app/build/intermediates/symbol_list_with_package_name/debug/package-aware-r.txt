@@ -867,9 +867,9 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
-id comentar
+id comentar_post
 id comentario_post
-id comentarios
+id comentarios_post
 id constraintLayout
 id constraintLayout3
 id content
@@ -882,7 +882,8 @@ id decor_content_parent
 id default_activity_button
 id descricaoE
 id descricaoEP
-id descricaoP
+id descricao_perfil
+id descricao_post
 id dialog_button
 id dimensions
 id direct
@@ -898,10 +899,10 @@ id fill
 id fill_horizontal
 id fill_vertical
 id forever
-id fotoP
-id fotoPost
 id foto_conversa
 id foto_friend_request
+id foto_perfil
+id foto_perfil_post
 id gone
 id group_divider
 id groups
@@ -934,7 +935,7 @@ id imageButton5
 id imageButton6
 id imageButton7
 id imageButton8
-id imageButton9
+id imageButton9_post
 id imageButtonEhome
 id imageButton_conversas
 id imageButton_request
@@ -942,6 +943,7 @@ id imageView2
 id imageView3
 id imageViewEE
 id imageViewEP
+id img_post
 id info
 id invisible
 id italic
@@ -967,10 +969,10 @@ id nameProjectRegister_id
 id never
 id nomeE
 id nomeEP
-id nomeP
 id nome_chat
 id nome_conversa
 id nome_friend_request
+id nome_perfil
 id nome_post
 id none
 id normal
@@ -984,7 +986,6 @@ id parent
 id parentPanel
 id percent
 id pessoahome
-id postImg
 id progress_circular
 id progress_horizontal
 id radio
@@ -1022,6 +1023,7 @@ id showHome
 id showTitle
 id socializarButton
 id socializar_friend_request
+id socializar_perfila
 id spacer
 id split_action_bar
 id spread
