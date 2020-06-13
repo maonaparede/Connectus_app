@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">533459476354-vj55v43rl19ogd3gpoka8k8ij06pldu2.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://connecus-43b08.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">533459476354</string>
+    <string name="google_api_key" translatable="false">AIzaSyADQtNKFHhLKIFBFf6yTVW8IvLo2JNQWZs</string>
+    <string name="google_app_id" translatable="false">1:533459476354:android:2176d7c38761e4a6ccf99b</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyADQtNKFHhLKIFBFf6yTVW8IvLo2JNQWZs</string>
+    <string name="google_storage_bucket" translatable="false">connecus-43b08.appspot.com</string>
+    <string name="project_id" translatable="false">connecus-43b08</string>
+</resources>

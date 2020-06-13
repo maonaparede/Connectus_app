@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Não tem uma conta? Cadastre-se"
+        android:text="Já tem uma conta? Faça Login"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         android:typeface="monospace"
@@ -30,20 +30,21 @@
         android:background="@drawable/linear_background"
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
+        android:onClick="botaoClick"
         android:text="Cadastrar"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:topLeftRadius="20dp"
         android:topRightRadius="20dp"
         android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="@+id/register_confirmPassword"
+        app:layout_constraintEnd_toEndOf="@+id/confirmar_senha_registrar"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/register_confirmPassword"
-        app:layout_constraintTop_toBottomOf="@+id/register_confirmPassword"
+        app:layout_constraintStart_toStartOf="@+id/confirmar_senha_registrar"
+        app:layout_constraintTop_toBottomOf="@+id/confirmar_senha_registrar"
         tools:visibility="visible" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/email_registrar"
         android:layout_width="272dp"
         android:layout_height="46dp"
         android:layout_marginTop="4dp"
@@ -56,16 +57,16 @@
         android:textColorHint="#090505"
         android:textSize="15sp"
         android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="@+id/user_Name"
+        app:layout_constraintEnd_toEndOf="@+id/nome_registar"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/user_Name"
-        app:layout_constraintTop_toBottomOf="@+id/user_Name" />
+        app:layout_constraintStart_toStartOf="@+id/nome_registar"
+        app:layout_constraintTop_toBottomOf="@+id/nome_registar" />
 
     <EditText
-        android:id="@+id/user_Name"
+        android:id="@+id/nome_registar"
         android:layout_width="272dp"
         android:layout_height="46dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="16dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:hint="Nome de Usuário"
@@ -75,10 +76,9 @@
         android:textColorHint="#090505"
         android:textSize="15sp"
         android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="@+id/foto_conversa"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="@+id/foto_conversa"
-        app:layout_constraintTop_toBottomOf="@+id/foto_conversa" />
+        app:layout_constraintEnd_toEndOf="@+id/foto_registrar"
+        app:layout_constraintStart_toStartOf="@+id/foto_registrar"
+        app:layout_constraintTop_toBottomOf="@+id/foto_registrar" />
 
     <TextView
         android:id="@+id/nameProjectRegister_id"
@@ -97,7 +97,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/register_Password"
+        android:id="@+id/senha_registrar"
         android:layout_width="272dp"
         android:layout_height="46dp"
         android:layout_marginTop="4dp"
@@ -110,13 +110,13 @@
         android:textColorHint="#090505"
         android:textSize="15sp"
         android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="@+id/email_registrar"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/email"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintStart_toStartOf="@+id/email_registrar"
+        app:layout_constraintTop_toBottomOf="@+id/email_registrar" />
 
     <EditText
-        android:id="@+id/register_confirmPassword"
+        android:id="@+id/confirmar_senha_registrar"
         android:layout_width="272dp"
         android:layout_height="46dp"
         android:layout_marginTop="4dp"
@@ -129,17 +129,18 @@
         android:textColorHint="#090505"
         android:textSize="15sp"
         android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="@+id/register_Password"
+        app:layout_constraintEnd_toEndOf="@+id/senha_registrar"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/register_Password"
-        app:layout_constraintTop_toBottomOf="@+id/register_Password" />
+        app:layout_constraintStart_toStartOf="@+id/senha_registrar"
+        app:layout_constraintTop_toBottomOf="@+id/senha_registrar" />
 
-    <ImageView
-        android:id="@+id/foto_conversa"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/foto_registrar"
         android:layout_width="128dp"
         android:layout_height="111dp"
+        android:background="@drawable/linear_background"
+        android:onClick="imagemClick"
         app:layout_constraintEnd_toEndOf="@+id/nameProjectRegister_id"
         app:layout_constraintStart_toStartOf="@+id/nameProjectRegister_id"
-        app:layout_constraintTop_toBottomOf="@+id/nameProjectRegister_id"
-        app:srcCompat="@android:drawable/toast_frame" />
+        app:layout_constraintTop_toBottomOf="@+id/nameProjectRegister_id" />
 </androidx.constraintlayout.widget.ConstraintLayout>

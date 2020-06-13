@@ -18,6 +18,7 @@
         <activity android:name=".Encontro" />
         <activity android:name=".Friend_Request" />
         <activity android:name=".Chat" />
+        <activity android:name=".Editar_encontro" />
         <activity android:name=".Conversas" />
         <activity android:name=".Registrar" />
         <activity android:name=".MainActivity">

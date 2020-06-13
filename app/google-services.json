@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "533459476354",
+    "firebase_url": "https://connecus-43b08.firebaseio.com",
+    "project_id": "connecus-43b08",
+    "storage_bucket": "connecus-43b08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533459476354:android:2176d7c38761e4a6ccf99b",
+        "android_client_info": {
+          "package_name": "com.example.telas_background"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533459476354-vj55v43rl19ogd3gpoka8k8ij06pldu2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADQtNKFHhLKIFBFf6yTVW8IvLo2JNQWZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533459476354-vj55v43rl19ogd3gpoka8k8ij06pldu2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

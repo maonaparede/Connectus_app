@@ -11,6 +11,7 @@
         android:layout_width="45dp"
         android:layout_height="46dp"
         android:background="@android:color/transparent"
+        android:onClick="hobbieBotao"
         app:layout_constraintBottom_toBottomOf="@+id/hobbieEP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,20 +24,20 @@
         android:id="@+id/salvarEP"
         android:layout_width="272dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/linear_background"
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
-        android:text="Salvar"
         android:fontFamily="@font/changa"
+        android:text="Salvar"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:topLeftRadius="20dp"
         android:topRightRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hobbie2E" />
 
     <EditText
         android:id="@+id/hobbieEP"
@@ -46,14 +47,14 @@
         android:layout_marginLeft="68dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:paddingLeft="10dp"
-        android:textColor="#0B0707"
         android:fontFamily="@font/changa"
+        android:paddingLeft="10dp"
+        android:text="Hobbies (MAX 6)"
+        android:textColor="#0B0707"
         android:textColorHint="#090505"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descricaoEP"
-        tools:text="Hobbies (MAX 6)" />
+        app:layout_constraintTop_toBottomOf="@+id/descricaoEP" />
 
     <EditText
         android:id="@+id/descricaoEP"
@@ -61,11 +62,11 @@
         android:layout_height="90dp"
         android:background="#FFFFFF"
         android:ems="10"
+        android:fontFamily="@font/changa"
         android:paddingLeft="10dp"
         android:textColor="#0B0707"
         android:textColorHint="#090505"
         android:textSize="15sp"
-        android:fontFamily="@font/changa"
         app:layout_constraintEnd_toEndOf="@+id/nomeEP"
         app:layout_constraintStart_toStartOf="@+id/nomeEP"
         app:layout_constraintTop_toBottomOf="@+id/nomeEP"
@@ -75,7 +76,7 @@
         android:id="@+id/nomeEP"
         android:layout_width="272dp"
         android:layout_height="45dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:fontFamily="@font/changa"
@@ -85,17 +86,28 @@
         android:textSize="15sp"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewEP"
         tools:text="Nome de Usuário" />
 
     <TextView
+        android:id="@+id/hobbie2E"
+        android:layout_width="136dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:fontFamily="@font/changa_light"
+        android:text="Hobbie 2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hobbie1E" />
+
+    <TextView
         android:id="@+id/hobbie1E"
         android:layout_width="136dp"
         android:layout_height="24dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/changa_light"
         android:text="Hobbie 1"
@@ -103,28 +115,16 @@
         app:layout_constraintTop_toBottomOf="@+id/hobbieEP" />
 
     <TextView
-        android:id="@+id/hobbie2E"
+        android:id="@+id/hobbie3E"
         android:layout_width="136dp"
         android:layout_height="24dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/changa_light"
-        android:text="Hobbie 2"
+        android:text="Hobbie 3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hobbie1E" />
-
-    <TextView
-        android:id="@+id/hobbie5E"
-        android:layout_width="136dp"
-        android:layout_height="24dp"
-        android:fontFamily="@font/changa_light"
-        android:text="Hobbie 5"
-        app:layout_constraintBottom_toBottomOf="@+id/hobbie2E"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/hobbie2E"
-        app:layout_constraintTop_toTopOf="@+id/hobbie2E"
-        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/hobbie6E"
@@ -134,20 +134,8 @@
         android:text="Hobbie 6"
         app:layout_constraintBottom_toBottomOf="@+id/hobbie3E"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.034"
         app:layout_constraintStart_toEndOf="@+id/hobbie3E" />
-
-    <TextView
-        android:id="@+id/hobbie3E"
-        android:layout_width="136dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/changa_light"
-        android:text="Hobbie 3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hobbie1E" />
 
     <TextView
         android:id="@+id/hobbie4E"
@@ -157,16 +145,29 @@
         android:text="Hobbie 4"
         app:layout_constraintBottom_toBottomOf="@+id/hobbie1E"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.034"
         app:layout_constraintStart_toEndOf="@+id/hobbie1E"
         app:layout_constraintTop_toTopOf="@+id/hobbie1E"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/hobbie5E"
+        android:layout_width="136dp"
+        android:layout_height="24dp"
+        android:fontFamily="@font/changa_light"
+        android:text="Hobbie 5"
+        app:layout_constraintBottom_toBottomOf="@+id/hobbie2E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintStart_toEndOf="@+id/hobbie2E"
+        app:layout_constraintTop_toTopOf="@+id/hobbie2E"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageViewEP"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

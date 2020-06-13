@@ -11,7 +11,6 @@
         android:id="@+id/NameProject_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="192dp"
         android:fontFamily="@font/changa_light"
         android:lineSpacingExtra="14sp"
         android:text="Connect"
@@ -19,7 +18,6 @@
         android:textSize="64sp"
         android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,7 +37,7 @@
         app:layout_constraintTop_toTopOf="@+id/NameProject_id" />
 
     <EditText
-        android:id="@+id/Login_Email"
+        android:id="@+id/login_email"
         android:layout_width="272dp"
         android:layout_height="46dp"
         android:layout_marginTop="28dp"
@@ -58,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@+id/NameProject_id2" />
 
     <EditText
-        android:id="@+id/Login_Password"
+        android:id="@+id/login_password"
         android:layout_width="272dp"
         android:layout_height="46dp"
         android:layout_marginTop="28dp"
@@ -71,10 +69,10 @@
         android:textColorHint="#090505"
         android:textSize="15sp"
         android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="@+id/Login_Email"
+        app:layout_constraintEnd_toEndOf="@+id/login_email"
         app:layout_constraintHorizontal_bias="0.479"
-        app:layout_constraintStart_toStartOf="@+id/Login_Email"
-        app:layout_constraintTop_toBottomOf="@+id/Login_Email" />
+        app:layout_constraintStart_toStartOf="@+id/login_email"
+        app:layout_constraintTop_toBottomOf="@+id/login_email" />
 
     <Button
         android:id="@+id/Button_Login"
@@ -84,16 +82,17 @@
         android:background="@drawable/linear_background"
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
+        android:onClick="login"
         android:text="Log In"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:topLeftRadius="20dp"
         android:topRightRadius="20dp"
         android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="@+id/Login_Password"
+        app:layout_constraintEnd_toEndOf="@+id/login_password"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/Login_Password"
-        app:layout_constraintTop_toBottomOf="@+id/Login_Password"
+        app:layout_constraintStart_toStartOf="@+id/login_password"
+        app:layout_constraintTop_toBottomOf="@+id/login_password"
         tools:visibility="visible" />
 
     <TextView
@@ -101,6 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:onClick="cadastrar"
         android:text="Não tem uma conta? Cadastre-se"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
