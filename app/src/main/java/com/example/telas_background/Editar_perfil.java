@@ -40,7 +40,7 @@ public class Editar_perfil extends AppCompatActivity {
         if(contador == 4){hobbie4.setText(hobbieTexto.getText());}
         if(contador == 5){hobbie5.setText(hobbieTexto.getText());}
         if(contador == 6){hobbie6.setText(hobbieTexto.getText());}
-        if(contador > 6) { contador = 0; }
+        if(contador > 6) {contador = 0;}
         contador++;
     }
 

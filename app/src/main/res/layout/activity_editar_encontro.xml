@@ -48,14 +48,14 @@
         android:layout_marginRight="4dp"
         android:background="#FFFFFF"
         android:ems="10"
+        android:hint="Horario"
         android:textColor="#0B0707"
         android:textColorHint="#090505"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageButton8"
-        app:layout_constraintVertical_bias="0.0"
-        tools:text="Horario" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/descricaoE"
@@ -64,13 +64,13 @@
         android:background="#FFFFFF"
         android:ems="10"
         android:fontFamily="@font/changa"
+        android:hint="Descrição"
         android:textColor="#0B0707"
         android:textColorHint="#090505"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/nomeE"
         app:layout_constraintStart_toStartOf="@+id/nomeE"
-        app:layout_constraintTop_toBottomOf="@+id/nomeE"
-        tools:text="Descrição" />
+        app:layout_constraintTop_toBottomOf="@+id/nomeE" />
 
     <EditText
         android:id="@+id/dataE"
@@ -78,14 +78,14 @@
         android:layout_height="45dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:textColor="#0B0707"
         android:fontFamily="@font/changa"
+        android:hint="Data"
+        android:textColor="#0B0707"
         android:textColorHint="#090505"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/descricaoE"
         app:layout_constraintStart_toStartOf="@+id/descricaoE"
-        app:layout_constraintTop_toBottomOf="@+id/descricaoE"
-        tools:text="Data" />
+        app:layout_constraintTop_toBottomOf="@+id/descricaoE" />
 
     <EditText
         android:id="@+id/nomeE"
@@ -93,16 +93,16 @@
         android:layout_height="45dp"
         android:layout_marginTop="36dp"
         android:background="#FFFFFF"
-        android:fontFamily="@font/changa"
         android:ems="10"
+        android:fontFamily="@font/changa"
+        android:hint="Nome Encontro"
         android:textColor="#0B0707"
         android:textColorHint="#090505"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewEE"
-        tools:text="Nome Encontro" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewEE" />
 
     <EditText
         android:id="@+id/localE"
@@ -111,13 +111,13 @@
         android:background="#FFFFFF"
         android:ems="10"
         android:fontFamily="@font/changa"
+        android:hint="Local"
         android:textColor="#0B0707"
         android:textColorHint="#090505"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton7"
         app:layout_constraintStart_toEndOf="@+id/imageButton7"
-        app:layout_constraintTop_toTopOf="@+id/imageButton7"
-        tools:text="Local" />
+        app:layout_constraintTop_toTopOf="@+id/imageButton7" />
 
     <Button
         android:id="@+id/addRemMembro"

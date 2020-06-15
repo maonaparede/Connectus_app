@@ -46,6 +46,7 @@ public class Registrar extends AppCompatActivity {
     private String uidUser;
     private String nomeUser;
     private StorageTask<UploadTask.TaskSnapshot> uploadTask;
+    private FirebaseUser conta;
 
 
     @Override
@@ -107,9 +108,6 @@ public class Registrar extends AppCompatActivity {
         }
     }
 
-
-    //Parte do BD
-
     public void updateUI(FirebaseUser account){
         if(account != null){
             NotificaHelper.mostrarToast(this, "Registrado Com Sucesso");
@@ -118,6 +116,12 @@ public class Registrar extends AppCompatActivity {
             NotificaHelper.mostrarToast (this,"Você não foi Registrado");
         }
     }
+
+
+
+    //Parte do BD
+
+
 
 
     private void registrar(String email, String password) {
