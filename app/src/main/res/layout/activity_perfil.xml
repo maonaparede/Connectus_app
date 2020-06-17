@@ -17,7 +17,7 @@
 
 
     <Button
-        android:id="@+id/socializar_perfila"
+        android:id="@+id/socializar_botao_perfil"
         android:layout_width="255dp"
         android:layout_height="33dp"
         android:layout_marginBottom="16dp"

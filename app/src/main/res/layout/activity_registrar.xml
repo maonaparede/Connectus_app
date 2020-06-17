@@ -47,7 +47,7 @@
         android:id="@+id/email_registrar"
         android:layout_width="272dp"
         android:layout_height="46dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="100dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:hint="E-mail"
@@ -57,28 +57,9 @@
         android:textColorHint="#090505"
         android:textSize="15sp"
         android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="@+id/nome_registar"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/nome_registar"
-        app:layout_constraintTop_toBottomOf="@+id/nome_registar" />
-
-    <EditText
-        android:id="@+id/nome_registar"
-        android:layout_width="272dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="16dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:hint="Nome de Usuário"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="10dp"
-        android:textColor="#0B0707"
-        android:textColorHint="#090505"
-        android:textSize="15sp"
-        android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="@+id/foto_registrar"
-        app:layout_constraintStart_toStartOf="@+id/foto_registrar"
-        app:layout_constraintTop_toBottomOf="@+id/foto_registrar" />
+        app:layout_constraintEnd_toEndOf="@+id/nameProjectRegister_id"
+        app:layout_constraintStart_toStartOf="@+id/nameProjectRegister_id"
+        app:layout_constraintTop_toBottomOf="@+id/nameProjectRegister_id" />
 
     <TextView
         android:id="@+id/nameProjectRegister_id"
@@ -134,13 +115,4 @@
         app:layout_constraintStart_toStartOf="@+id/senha_registrar"
         app:layout_constraintTop_toBottomOf="@+id/senha_registrar" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/foto_registrar"
-        android:layout_width="128dp"
-        android:layout_height="111dp"
-        android:background="@drawable/linear_background"
-        android:onClick="imagemClick"
-        app:layout_constraintEnd_toEndOf="@+id/nameProjectRegister_id"
-        app:layout_constraintStart_toStartOf="@+id/nameProjectRegister_id"
-        app:layout_constraintTop_toBottomOf="@+id/nameProjectRegister_id" />
 </androidx.constraintlayout.widget.ConstraintLayout>

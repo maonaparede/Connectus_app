@@ -19,9 +19,9 @@
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewEE"
+        app:layout_constraintBottom_toBottomOf="@+id/imagemEE"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewEE" />
+        app:layout_constraintTop_toTopOf="@+id/imagemEE" />
 
     <Button
         android:id="@+id/cancelarE"
@@ -36,9 +36,9 @@
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewEE"
+        app:layout_constraintBottom_toBottomOf="@+id/imagemEE"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageViewEE" />
+        app:layout_constraintTop_toTopOf="@+id/imagemEE" />
 
     <EditText
         android:id="@+id/horarioE"
@@ -102,7 +102,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewEE" />
+        app:layout_constraintTop_toBottomOf="@+id/imagemEE" />
 
     <EditText
         android:id="@+id/localE"
@@ -145,9 +145,9 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/linear_background"
         android:bottomLeftRadius="20dp"
-        android:fontFamily="@font/changa"
         android:bottomRightRadius="20dp"
-        android:text="Adicionar / Remover Membro"
+        android:fontFamily="@font/changa"
+        android:text="Salvar"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:topLeftRadius="20dp"
@@ -186,7 +186,7 @@
         app:srcCompat="@drawable/ic_location_on_black_24dp" />
 
     <ImageView
-        android:id="@+id/imageViewEE"
+        android:id="@+id/imagemEE"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginTop="76dp"

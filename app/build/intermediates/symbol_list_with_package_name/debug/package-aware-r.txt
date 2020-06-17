@@ -836,7 +836,6 @@ id buscar_conversas
 id buscar_request
 id button
 id button2
-id button3
 id buttonPanel
 id cancelarE
 id center_vertical
@@ -861,6 +860,7 @@ id decor_content_parent
 id default_activity_button
 id descricaoE
 id descricaoEP
+id descricao_chat
 id descricao_perfil
 id descricao_post
 id dialog_button
@@ -874,11 +874,12 @@ id end
 id expand_activities_button
 id expanded_menu
 id forever
+id fotoChat
+id fotoEP
 id foto_conversa
 id foto_friend_request
 id foto_perfil
 id foto_perfil_post
-id foto_registrar
 id gone
 id group_divider
 id groups
@@ -915,10 +916,8 @@ id imageButton9_post
 id imageButtonEhome
 id imageButton_conversas
 id imageButton_request
-id imageView2
 id imageView3
-id imageViewEE
-id imageViewEP
+id imagemEE
 id img_post
 id info
 id invisible
@@ -944,6 +943,7 @@ id msg_chat
 id multiply
 id nameProjectRegister_id
 id never
+id nomeChat
 id nomeE
 id nomeEP
 id nome_chat
@@ -951,7 +951,6 @@ id nome_conversa
 id nome_friend_request
 id nome_perfil
 id nome_post
-id nome_registar
 id none
 id normal
 id notification_background
@@ -998,9 +997,9 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
-id socializarButton
+id socializarButton_home
+id socializar_botao_perfil
 id socializar_friend_request
-id socializar_perfila
 id spacer
 id split_action_bar
 id spread
@@ -1026,7 +1025,6 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textView10
-id textView3
 id textView5
 id textView7
 id textView8

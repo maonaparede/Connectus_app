@@ -19,12 +19,13 @@
         tools:orientation="horizontal" />
 
     <Button
-        android:id="@+id/socializarButton"
+        android:id="@+id/socializarButton_home"
         android:layout_width="255dp"
         android:layout_height="35dp"
         android:background="@drawable/linear_background"
         android:fontFamily="@font/changa"
-        android:text="Criar"
+        android:onClick="imagemClick"
+        android:text="Criar Encontro"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/recyclerViewEncontro"
@@ -39,7 +40,7 @@
         android:fontFamily="@font/quicksand_bold"
         android:text="Encontros"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/socializarButton"
+        app:layout_constraintBottom_toTopOf="@+id/socializarButton_home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.015"
         app:layout_constraintStart_toStartOf="parent" />

@@ -29,6 +29,7 @@
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
         android:fontFamily="@font/changa"
+        android:onClick="salvar"
         android:text="Salvar"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
@@ -89,7 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewEP"
+        app:layout_constraintTop_toBottomOf="@+id/fotoEP"
         tools:text="Nome de Usuário" />
 
     <TextView
@@ -165,10 +166,12 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageViewEP"
+        android:id="@+id/fotoEP"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/linear_background"
+        android:onClick="imagemClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

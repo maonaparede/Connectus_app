@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/nomeChat"
             android:layout_width="294dp"
             android:layout_height="24dp"
             android:fontFamily="@font/changa_semibold"
@@ -46,12 +46,12 @@
             app:layout_constraintBottom_toTopOf="@+id/ultima_conversa"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.244"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toEndOf="@+id/fotoChat"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/ultima_conversa"
+            android:id="@+id/descricao_chat"
             android:layout_width="272dp"
             android:layout_height="0dp"
             android:layout_marginBottom="4dp"
@@ -61,10 +61,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.309"
-            app:layout_constraintStart_toEndOf="@+id/imageView2" />
+            app:layout_constraintStart_toEndOf="@+id/fotoChat" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/fotoChat"
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:layout_marginStart="16dp"

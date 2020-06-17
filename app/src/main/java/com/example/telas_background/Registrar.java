@@ -36,42 +36,34 @@ import java.util.Map;
 public class Registrar extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private EditText nome1;
     private EditText email1;
     private EditText senha2;
     private EditText senha3;
-    private ImageView foto;
     private Uri uri;
-    private String urlfoto;
-    private String uidUser;
-    private String nomeUser;
-    private StorageTask<UploadTask.TaskSnapshot> uploadTask;
-    private FirebaseUser conta;
+    private FirebaseUser user;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
-
-        nome1 = findViewById(R.id.nome_registar);
         email1 = findViewById(R.id.email_registrar);
         senha2 = findViewById(R.id.senha_registrar);
         senha3 = findViewById(R.id.confirmar_senha_registrar);
-        foto = findViewById(R.id.foto_registrar);
     }
 
 
 
     //Verifica se os parametros estão preenchidos e se a senha está igual
     public void botaoClick(View view){
-        String nome = nome1.getText().toString();
+
         String email = email1 .getText().toString().trim();
         String senha = senha2.getText().toString();
         String senha1 = senha3.getText().toString();
 
-        if ( nome == null || nome.isEmpty()  || email == null || email.isEmpty()
-                || senha == null || senha.isEmpty() || senha1 == null || senha1.isEmpty()){
+        if (email == null || email.isEmpty() || senha == null || senha.isEmpty()
+                || senha1 == null || senha1.isEmpty()){
+
             NotificaHelper.mostrarToast(this , "Campos não preenchidos!");
             return;
         }
@@ -84,44 +76,23 @@ public class Registrar extends AppCompatActivity {
             NotificaHelper.mostrarToast(this , "A senha deve ser de no mínimo 6 caracteres");
             return;
         }
-        nomeUser = nome;
 
         registrar(email , senha);
     }
 
 
-    //abre a tela para escolher as imgs
-    public void imagemClick(View view){
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        startActivityForResult(intent, 0);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 0 && resultCode == RESULT_OK && data!= null && data.getData() != null) {
-            uri = data.getData();
-
-            Picasso.get().load(uri).into(foto);
-        }
-    }
 
     public void updateUI(FirebaseUser account){
         if(account != null){
             NotificaHelper.mostrarToast(this, "Registrado Com Sucesso");
-            startActivity(new Intent( this , Home.class));
+            startActivity(new Intent( this , Editar_perfil.class));
         }else {
             NotificaHelper.mostrarToast (this,"Você não foi Registrado");
         }
     }
 
 
-
     //Parte do BD
-
-
 
 
     private void registrar(String email, String password) {
@@ -138,11 +109,8 @@ public class Registrar extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.i("Registrar", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            //metodo cria pasta no Firestore, pasta perfil e upa a ft
-                            uidUser = user.getUid().toString();
-                            uparfotoperfil();
-                            //
                             updateUI(user);
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("Registrar", "createUserWithEmail:failure", task.getException());
@@ -153,63 +121,6 @@ public class Registrar extends AppCompatActivity {
                     }
                 });
 
-    }
-
-    private void uparfotoperfil(){
-        StorageReference mStorageRef;
-        mStorageRef = FirebaseStorage.getInstance().getReference( "/perfil/" + uidUser);
-        final StorageReference reference = mStorageRef.child(uidUser);
-
-         uploadTask = reference.putFile(uri);
-
-        Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-            @Override
-            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                if (!task.isSuccessful()) {
-                    throw task.getException();
-                }
-
-                // Continue with the task to get the download URL
-                return reference.getDownloadUrl();
-            }
-        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-            @Override
-            public void onComplete(@NonNull Task<Uri> task) {
-                if (task.isSuccessful()) {
-                    urlfoto = task.getResult().toString();
-                    criarPastaFirestore();
-                } else {
-                    // Handle failures
-                    // ...
-                }
-            }
-        });
-    }
-
-
-    private void criarPastaFirestore(){
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference documentReference = db.collection("Perfil").document(uidUser);
-
-        //Botando no Firestore
-        Map<String, Object> userSend = new HashMap<>();
-        userSend.put("id", uidUser);
-        userSend.put("nome", nomeUser);
-        userSend.put("foto", urlfoto);
-
-        documentReference.set(userSend)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.i("Registrar", "Pasta :success");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("Registrar", "Pasta :Failuire");
-                    }
-                });
     }
 
 

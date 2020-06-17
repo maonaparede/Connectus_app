@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "533459476354-7uogga6o889bs1qn3rv4l8dg2ji13210.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.telas_background",
+            "certificate_hash": "b527793d8273b4cd6be4573959a37b1c2138c69b"
+          }
+        },
+        {
           "client_id": "533459476354-vj55v43rl19ogd3gpoka8k8ij06pldu2.apps.googleusercontent.com",
           "client_type": 3
         }
