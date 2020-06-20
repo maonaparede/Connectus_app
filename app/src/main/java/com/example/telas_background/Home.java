@@ -3,18 +3,23 @@ package com.example.telas_background;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.telas_background.Classes.Classe_perfil_post;
+import com.example.telas_background.Classes.Classe_user;
 import com.example.telas_background.firebase.Perfil_firebase;
 import com.example.telas_background.item.item_home_encontros;
 import com.example.telas_background.item.item_home_pessoas;
 import com.google.firebase.database.annotations.Nullable;
 import com.xwray.groupie.GroupAdapter;
+import com.xwray.groupie.Item;
+import com.xwray.groupie.OnItemClickListener;
 
 public class Home extends AppCompatActivity {
 
@@ -36,6 +41,7 @@ public class Home extends AppCompatActivity {
         encontrosRecycler = findViewById(R.id.recyclerViewEncontro);
         pessoasRecycler = findViewById(R.id.recyclerViewPessoas);
 
+
         encontrosAdapter = new GroupAdapter();
         pessoasAdapter = new GroupAdapter();
 
@@ -45,12 +51,25 @@ public class Home extends AppCompatActivity {
         encontrosRecycler.setAdapter(encontrosAdapter);
         pessoasRecycler.setAdapter(pessoasAdapter);
 
+        pessoasAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(@NonNull Item item, @NonNull View view) {
+                Intent intent = new Intent(Home.this, Perfil.class);
+                Bundle bundle = new Bundle();
+
+                item_home_pessoas pessoas = (item_home_pessoas) item;
+                bundle.putString("user", pessoas.user.getId().toString());
+
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
 
         encontrosAdapter.add(new item_home_encontros("Teste normal" , "https://cdnb.artstation.com/p/assets/images/images/027/258/167/small/mushk-rizvi-terrasglow.jpg?1591056874"));
         encontrosAdapter.add(new item_home_encontros("Teste hard" , "https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327"));
 
-        pessoasAdapter.add(new item_home_pessoas("https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327"));
-        pessoasAdapter.add(new item_home_pessoas("https://cdnb.artstation.com/p/assets/images/images/027/070/401/large/reza-abedi-chunli.jpg?1590510318"));
+        pessoasAdapter.add(new item_home_pessoas(
+                new Classe_user("https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327" , "82uTsGEmDsW5BQteFyFEjprPOZG2" , "")));
     }
 
     public void criarEncontro(View view){
@@ -88,4 +107,6 @@ public class Home extends AppCompatActivity {
 
         }
     }
+
+
 }

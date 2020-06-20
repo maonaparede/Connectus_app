@@ -6,6 +6,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.example.telas_background.Classes.Classe_perfil_perfil;
+import com.example.telas_background.Classes.Classe_user;
 import com.example.telas_background.R;
 import com.squareup.picasso.Picasso;
 import com.xwray.groupie.Item;
@@ -14,9 +15,11 @@ import com.xwray.groupie.ViewHolder;
 public class item_perfil_perfil extends Item<ViewHolder> {
 
     private final Classe_perfil_perfil perfil;
+    private final Classe_user user;
 
-    public item_perfil_perfil(Classe_perfil_perfil perfil) {
+    public item_perfil_perfil(Classe_user user, Classe_perfil_perfil perfil) {
         this.perfil = perfil;
+        this.user = user;
     }
 
 
@@ -24,13 +27,13 @@ public class item_perfil_perfil extends Item<ViewHolder> {
     public void bind(@NonNull ViewHolder viewHolder, int position) {
 
        TextView nome1 = viewHolder.itemView.findViewById(R.id.nome_perfil);
-        nome1.setText(perfil.getNome());
+        nome1.setText(user.getNome());
 
         TextView descricao1 = viewHolder.itemView.findViewById(R.id.descricao_perfil);
        descricao1.setText(perfil.getDescricao());
 
         ImageView foto = viewHolder.itemView.findViewById(R.id.foto_perfil);
-        Picasso.get().load(perfil.getFoto()).into(foto);
+        Picasso.get().load(user.getFoto()).into(foto);
 
         //hobbie
 

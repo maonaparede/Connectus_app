@@ -2,9 +2,7 @@ package com.example.telas_background.Classes;
 
 public class Classe_perfil_perfil {
 
-    private String foto;
-    private String id;
-    private String nome;
+
     private String descricao;
     private String h1;
     private String h2;
@@ -14,18 +12,6 @@ public class Classe_perfil_perfil {
     private String h6;
 
 
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
 
     public String getDescricao() {
         return descricao;
@@ -55,17 +41,6 @@ public class Classe_perfil_perfil {
         return h6;
     }
 
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;

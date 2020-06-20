@@ -64,7 +64,7 @@ public class Editar_perfil_firebase {
         }else {
 
             StorageReference mStorageRef;
-            mStorageRef = FirebaseStorage.getInstance().getReference("/perfil/" + uidUser);
+            mStorageRef = FirebaseStorage.getInstance().getReference("/user/" + uidUser);
             final StorageReference reference = mStorageRef.child(uidUser);
 
             uploadTask = reference.putFile(uri);
@@ -95,15 +95,12 @@ public class Editar_perfil_firebase {
     }
 
 
-    private void criarPastaFirestore(){
+    private void criarPastaFirestore() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference documentReference = db.collection("perfil").document(uidUser);
 
 
         Map<String, Object> userSend = new HashMap<>();
-        userSend.put("id", uidUser);
-        userSend.put("nome", nomeUser);
-        userSend.put("foto", urlfoto);
         userSend.put("descricao", descricaoUser);
         userSend.put("h1", hobbie1);
         userSend.put("h2", hobbie2);
@@ -125,7 +122,27 @@ public class Editar_perfil_firebase {
                         Log.d("EditarPerfil", "Pasta :Failuire");
                     }
                 });
+
+
+        DocumentReference documentReference1 = db.collection("user").document(uidUser);
+
+        Map<String, Object> userSend1 = new HashMap<>();
+        userSend1.put("id", uidUser);
+        userSend1.put("nome", nomeUser);
+        userSend1.put("foto", urlfoto);
+
+        documentReference1.set(userSend1)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.i("EditarPerfil", "Pasta :success");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("EditarPerfil", "Pasta :Failuire");
+                    }
+                });
     }
-
-
 }

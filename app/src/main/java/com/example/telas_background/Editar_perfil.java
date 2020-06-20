@@ -95,6 +95,7 @@ public class Editar_perfil extends AppCompatActivity {
         updatePerfil.uparfotoperfil();
 
         NotificaHelper.mostrarToast(this , "Perfil Atualizado");
+        startActivity(new Intent(this , Home.class));
     }
 
 }
