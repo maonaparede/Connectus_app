@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.telas_background.Classes.Classe_perfil_perfil;
 import com.example.telas_background.Classes.Classe_perfil_post;
 import com.example.telas_background.Classes.Classe_user;
+import com.example.telas_background.firebase.Socializar_firebase;
 import com.example.telas_background.item.item_perfil_perfil;
 import com.example.telas_background.item.item_post;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -75,15 +76,14 @@ public class Perfil extends AppCompatActivity {
 
         }
         if (estado_botao == 1){ //Enviar Friend Request
-
+            Socializar_firebase socializarFirebase = new Socializar_firebase(idUser);
+            socializarFirebase.enviar_request();
         }
 
     }
 
 
     private void pegarPerfil(){
-
-        user = FirebaseAuth.getInstance().getCurrentUser();
 
         //user
         DocumentReference docRef1 = FirebaseFirestore.getInstance().collection("user").document(idUser);

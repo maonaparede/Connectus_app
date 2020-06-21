@@ -22,7 +22,7 @@ import com.google.firebase.storage.UploadTask;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Perfil_firebase{
+public class Post_firebase {
 
     private FirebaseAuth mAuth;
     private String urlfoto;
@@ -32,7 +32,7 @@ public class Perfil_firebase{
 
     private StorageTask<UploadTask.TaskSnapshot> uploadTask;
 
-    public Perfil_firebase(Classe_perfil_post post, Uri uri) {
+    public Post_firebase(Classe_perfil_post post, Uri uri) {
         this.post = post;
         this.uri = uri;
 

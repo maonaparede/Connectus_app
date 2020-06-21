@@ -3,7 +3,6 @@ package com.example.telas_background;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -13,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.telas_background.Classes.Classe_perfil_post;
 import com.example.telas_background.Classes.Classe_user;
-import com.example.telas_background.firebase.Perfil_firebase;
+import com.example.telas_background.firebase.Post_firebase;
 import com.example.telas_background.item.item_home_encontros;
 import com.example.telas_background.item.item_home_pessoas;
 import com.google.firebase.database.annotations.Nullable;
@@ -100,7 +99,7 @@ public class Home extends AppCompatActivity {
 
 
             Classe_perfil_post b = new Classe_perfil_post("ll", "Salve", "10");
-            Perfil_firebase a = new Perfil_firebase(b , uri);
+            Post_firebase a = new Post_firebase(b , uri);
 
             a.uparFotoCriarPost();
 
