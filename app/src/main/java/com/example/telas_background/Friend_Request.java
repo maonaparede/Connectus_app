@@ -57,7 +57,7 @@ public class Friend_Request extends AppCompatActivity {
 
 
     public void click(View view){
-       // requestAdapter.getItem()
+       // a requestAdapter.getItem()
     }
 
 
