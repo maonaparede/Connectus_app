@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.telas_background.Classes.Classe_chat_msg;
-import com.example.telas_background.item.item_chat;
+import com.example.telas_background.Classes_instanciadas.Classe_chat_msg;
+import com.example.telas_background.item.Item_chat;
 import com.xwray.groupie.GroupAdapter;
 
 public class Chat extends AppCompatActivity {
@@ -34,7 +34,7 @@ public class Chat extends AppCompatActivity {
         Classe_chat_msg a = new Classe_chat_msg
                 ("Jefff", "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "aaaa");
 
-        chatAdapter.add(new item_chat(a));
+        chatAdapter.add(new Item_chat(a));
 
     }
 

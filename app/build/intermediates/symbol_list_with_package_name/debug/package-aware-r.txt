@@ -726,6 +726,7 @@ drawable common_google_signin_btn_text_light_normal_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_access_time_black_24dp
+drawable ic_baseline_add_a_photo_24
 drawable ic_chat_bubble_outline_black_24dp
 drawable ic_create_black_24dp
 drawable ic_launcher_background
@@ -863,7 +864,10 @@ id descricaoEP
 id descricao_chat
 id descricao_perfil
 id descricao_post
+id dialogImagemButton
 id dialog_button
+id dialog_descricao
+id dialog_imageView
 id dimensions
 id direct
 id disableHome
@@ -963,6 +967,7 @@ id parent
 id parentPanel
 id percent
 id pessoahome
+id postarDialog
 id progress_circular
 id progress_horizontal
 id radio
@@ -1024,6 +1029,7 @@ id text
 id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
+id textView
 id textView10
 id textView5
 id textView7
@@ -1095,6 +1101,7 @@ layout abc_tooltip
 layout activity_chat
 layout activity_comentarios__posts
 layout activity_conversas
+layout activity_criar_post
 layout activity_editar_encontro
 layout activity_editar_perfil
 layout activity_encontro

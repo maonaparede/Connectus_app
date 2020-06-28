@@ -10,8 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Home"
-                android:screenOrientation="nosensor"></activity>
+        <activity android:name=".CriarPost"></activity>
+        <activity
+            android:name=".Home"
+            android:screenOrientation="nosensor" />
         <activity android:name=".Comentarios_Posts" />
         <activity android:name=".Perfil" />
         <activity android:name=".Editar_perfil" />

@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.telas_background.item.item_conversas;
+import com.example.telas_background.item.Item_conversas;
 import com.xwray.groupie.GroupAdapter;
 
 public class Conversas extends AppCompatActivity {
@@ -27,7 +27,7 @@ public class Conversas extends AppCompatActivity {
 
         conversasRecycler.setAdapter(conversasAdapter);
 
-        conversasAdapter.add(new item_conversas("Meu pai",
+        conversasAdapter.add(new Item_conversas("Meu pai",
                 "https://cdnb.artstation.com/p/assets/images/images/027/070/401/large/reza-abedi-chunli.jpg?1590510318"
                 , "Boa"));
     }

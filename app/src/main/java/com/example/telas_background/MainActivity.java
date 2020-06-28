@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     public void updateUI(FirebaseUser account){
         if(account != null){
             NotificaHelper.mostrarToast(this, "Logado Com Sucesso");
-            startActivity(new Intent( this , Home.class));
+            startActivity(new Intent( this , Friend_Request.class));
         }else {
             NotificaHelper.mostrarToast (this,"Você não foi Logado");
         }

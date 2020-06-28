@@ -124,6 +124,10 @@
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\layout\\item_post.xml"
     },
     {
+        "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_criar_post.xml.flat",
+        "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\layout\\activity_criar_post.xml"
+    },
+    {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_chat_bubble_outline_black_24dp.xml.flat",
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable\\ic_chat_bubble_outline_black_24dp.xml"
     },
@@ -138,6 +142,10 @@
     {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_editar_perfil.xml.flat",
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\layout\\activity_editar_perfil.xml"
+    },
+    {
+        "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_add_a_photo_24.xml.flat",
+        "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable\\ic_baseline_add_a_photo_24.xml"
     },
     {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_registrar.xml.flat",

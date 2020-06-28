@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.telas_background.item.item_comentarios_posts;
+import com.example.telas_background.item.Item_comentarios_posts;
 import com.xwray.groupie.GroupAdapter;
 
 public class Comentarios_Posts extends AppCompatActivity {
@@ -27,7 +27,7 @@ public class Comentarios_Posts extends AppCompatActivity {
 
         comentariosRecycler.setAdapter(comentariosAdapter);
 
-        comentariosAdapter.add(new item_comentarios_posts("Meu pai",
+        comentariosAdapter.add(new Item_comentarios_posts("Meu pai",
                 "https://cdnb.artstation.com/p/assets/images/images/027/070/401/large/reza-abedi-chunli.jpg?1590510318"
                 , "Boa"));
 
