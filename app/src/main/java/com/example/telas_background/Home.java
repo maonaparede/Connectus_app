@@ -55,6 +55,7 @@ public class Home extends AppCompatActivity {
 
                 Item_home_pessoas pessoas = (Item_home_pessoas) item;
                 bundle.putString("user", pessoas.user.getId().toString());
+                bundle.putInt("estado", 1);
 
                 intent.putExtras(bundle);
                 startActivity(intent);

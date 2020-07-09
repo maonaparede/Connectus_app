@@ -58,10 +58,8 @@ public class CriarPost extends AppCompatActivity {
 
             return;
         }else {
-
             Classe_perfil_post post;
             post = new Classe_perfil_post("", descricao, "Breve");
-
             Post_firebase postar = new Post_firebase(post, uri);
             postar.uparFotoCriarPost();
 

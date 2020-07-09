@@ -45,7 +45,7 @@ public class Perfil extends AppCompatActivity {
     private Classe_perfil_perfil perfil;
     private Classe_user classUser;
     private String idPerfil;
-    private Integer estado_botao = 1;
+    private Integer estado_botao = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,15 +64,24 @@ public class Perfil extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
             idPerfil = bundle.getString("user");
+            estado_botao = bundle.getInt("estado");
         }else{
             idPerfil = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
         }
 
 
-         if(idPerfil.equals(idUser)){
-            botaoSocializar.setText("Criar Post");
-            estado_botao = 0;
+         switch (estado_botao){
+             case 0:
+                 botaoSocializar.setText("Criar Post");
+                 break;
+             case 1:
+                 botaoSocializar.setText("Socializar");
+                 break;
+             default:
+                 botaoSocializar.setVisibility(View.INVISIBLE);
+                 break;
          }
+
         //perfil
        pegarPerfil();
 
@@ -95,6 +104,8 @@ public class Perfil extends AppCompatActivity {
                 startActivity(new Intent( this , Home.class));
             }
         }
+
+
     }
 
 
