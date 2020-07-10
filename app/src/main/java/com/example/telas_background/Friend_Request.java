@@ -46,6 +46,12 @@ public class Friend_Request extends AppCompatActivity{
 
         requestRecycler.setAdapter(requestAdapter);
 
+
+        Classe_user_tela user = new Classe_user_tela( "https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327"
+                , "30FT22MK5dVcJhEqYuBFUqNnPoo1", "teste ee");
+
+        requestAdapter.add(new Item_friend_request(user));
+
         pegarRequest();
 
         context = this;

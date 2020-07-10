@@ -39,7 +39,7 @@ public class Perfil extends AppCompatActivity {
     private String idUser;
     private Uri uri;
 
-    private Button botaoSocializar;
+    public Button botaoSocializar;
     private Dialog dialog;
 
     private Classe_perfil_perfil perfil;
@@ -88,25 +88,25 @@ public class Perfil extends AppCompatActivity {
 
     }
 
-    public void verificarBotao(View v){
-        if (estado_botao == 0){ //CriarPost
-            startActivity(new Intent( this , CriarPost.class));
-        }
+    public void verificarBotao(View v) {
 
-        if (estado_botao == 1){ //Enviar Friend Request
-            Socializar_firebase socializarFirebase = new Socializar_firebase(idPerfil);
-
-            if(socializarFirebase.enviar_request()){
-                NotificaHelper.mostrarToast(this , "Solicitação enviada");
-                startActivity(new Intent( this , Home.class));
-            }else{
-                NotificaHelper.mostrarToast(this , "Solicitação não pode ser enviada");
-                startActivity(new Intent( this , Home.class));
+        switch (estado_botao) {
+            case 0:
+                //Caso for dono do perfil CriarPost
+                startActivity(new Intent(this, CriarPost.class));
+                break;
+            case 1:
+                //Caso não for amigo Enviar Friend Request
+                Socializar_firebase socializarFirebase = new Socializar_firebase(idPerfil);
+                socializarFirebase.enviar_request(this);
+                if(socializarFirebase.verificar) {
+                    botaoSocializar.setVisibility(View.INVISIBLE);
+                }
+                break;
+            default:
+                break;
             }
         }
-
-
-    }
 
 
     private void pegarPerfil(){

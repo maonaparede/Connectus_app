@@ -3,6 +3,7 @@ package com.example.telas_background;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.telas_background.Classes.User_principal;
 import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
 import com.example.telas_background.item.Item_home_encontros;
 import com.example.telas_background.item.Item_home_pessoas;
@@ -76,13 +78,20 @@ public class Home extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
 
-        startActivity(new Intent(this , Editar_encontro.class));
+        startActivity(intent);
     }
 
 
 
     public void perfil(View view){
-        startActivity(new Intent(this , Perfil.class));
+        try {
+            User_principal.userPrincipal_user();
+            Log.d("foto" , User_principal.getFoto());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //startActivity(new Intent(this , Friend_Request.class));
     }
 
 
