@@ -42,11 +42,10 @@ public class Post_firebase {
 
 
     public void uparFotoCriarPost(){
-
+        //se a foto for Nula cria o post sem ft
         if(uri == null){
             criarPost();
-        }else {
-
+        }else{
             StorageReference mStorageRef;
             mStorageRef = FirebaseStorage.getInstance().getReference("/post/" + uidUser);
             final StorageReference reference = mStorageRef.child(uidUser);
@@ -80,7 +79,6 @@ public class Post_firebase {
 
 
     private void criarPost(){
-
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference documentReference = db.collection("post").document(uidUser)
                 .collection("post").document();

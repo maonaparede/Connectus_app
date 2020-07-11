@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,11 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
-import com.example.telas_background.firebase.Friend_request_firebase_functions;
+import com.example.telas_background.firebase.Friend_request_firebase;
 import com.example.telas_background.item.Item_friend_request;
 import com.example.telas_background.notificaHelper.NotificaHelper;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -31,7 +29,6 @@ public class Friend_Request extends AppCompatActivity{
     private static GroupAdapter requestAdapter;
     private String idUser;
     private static Context context;
-    private Button socializar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +44,10 @@ public class Friend_Request extends AppCompatActivity{
         requestRecycler.setAdapter(requestAdapter);
 
 
-        Classe_user_tela user = new Classe_user_tela( "https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327"
+       /* Classe_user_tela user = new Classe_user_tela( "https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327"
                 , "30FT22MK5dVcJhEqYuBFUqNnPoo1", "teste ee");
 
-        requestAdapter.add(new Item_friend_request(user));
+        requestAdapter.add(new Item_friend_request(user)); */
 
         pegarRequest();
 
@@ -59,23 +56,19 @@ public class Friend_Request extends AppCompatActivity{
 
     }
 
+
     public static void botaoItemRecycler(Item item , Integer estado , final Integer positon){
 
         Item_friend_request pessoa = (Item_friend_request) item;
-
         switch (estado){
             case 0:
                 NotificaHelper.mostrarToast(context , "Socializar");
-                Friend_request_firebase_functions.addTeste(pessoa.user.getId())
-                        .addOnCompleteListener(new OnCompleteListener<String>() {
-                    @Override
-                    public void onComplete(@NonNull Task<String> task) {
-                        requestAdapter.removeGroup(positon);
-                    }
-                });
+                Friend_request_firebase.friendAddFirebaseFunctionCall(pessoa.user.getId());
+                requestAdapter.removeGroup(positon);
                 break;
             case 1:
                 NotificaHelper.mostrarToast(context , "Rejeitar");
+                Friend_request_firebase.denyRequest(pessoa.user.getId());
                 requestAdapter.removeGroup(positon);
                 break;
             default:
@@ -92,7 +85,6 @@ public class Friend_Request extends AppCompatActivity{
                 break;
         }
     }
-
 
     private void pegarRequest(){
 

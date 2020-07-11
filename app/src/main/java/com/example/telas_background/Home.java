@@ -11,8 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.telas_background.Classes.User_principal;
+import com.example.telas_background.Classes_estaticas.User_principal;
 import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
+import com.example.telas_background.firebase.Get_user_principal;
 import com.example.telas_background.item.Item_home_encontros;
 import com.example.telas_background.item.Item_home_pessoas;
 import com.xwray.groupie.GroupAdapter;
@@ -84,14 +85,8 @@ public class Home extends AppCompatActivity {
 
 
     public void perfil(View view){
-        try {
-            User_principal.userPrincipal_user();
-            Log.d("foto" , User_principal.getFoto());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
-        //startActivity(new Intent(this , Friend_Request.class));
+        startActivity(new Intent(this , Friends.class));
     }
 
 

@@ -833,6 +833,7 @@ id barrier
 id beginning
 id blocking
 id bottom
+id buscar_amigo
 id buscar_conversas
 id buscar_request
 id button
@@ -880,6 +881,7 @@ id expanded_menu
 id forever
 id fotoChat
 id fotoEP
+id foto_amigo
 id foto_conversa
 id foto_friend_request
 id foto_perfil
@@ -918,6 +920,7 @@ id imageButton7
 id imageButton8
 id imageButton9_post
 id imageButtonEhome
+id imageButton_amigo
 id imageButton_conversas
 id imageButton_request
 id imageView3
@@ -935,7 +938,9 @@ id linearLayout
 id linearLayout2
 id linearLayout3
 id linearLayout4
+id linearLayout5
 id linearLayoutop
+id linearLayoutop1
 id listMode
 id list_item
 id localE
@@ -950,6 +955,7 @@ id never
 id nomeChat
 id nomeE
 id nomeEP
+id nome_amigo
 id nome_chat
 id nome_conversa
 id nome_friend_request
@@ -974,9 +980,11 @@ id radio
 id recyclerP
 id recyclerViewEncontro
 id recyclerViewPessoas
+id recycler_amigo
 id recycler_chat
 id recycler_conversas
 id recycler_request
+id rejeitar_amigo
 id rejeitar_friend_request
 id right
 id right_icon
@@ -1003,6 +1011,7 @@ id showCustom
 id showHome
 id showTitle
 id socializarButton_home
+id socializar_amigo
 id socializar_botao_perfil
 id socializar_friend_request
 id spacer
@@ -1106,11 +1115,13 @@ layout activity_editar_encontro
 layout activity_editar_perfil
 layout activity_encontro
 layout activity_friend__request
+layout activity_friends
 layout activity_home
 layout activity_main
 layout activity_perfil
 layout activity_registrar
 layout custom_dialog
+layout item_amigo
 layout item_comentarios_post
 layout item_conversas
 layout item_friend_request

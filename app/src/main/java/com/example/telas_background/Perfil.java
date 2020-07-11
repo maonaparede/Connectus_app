@@ -1,6 +1,7 @@
 package com.example.telas_background;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,15 +17,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.telas_background.Classes_instanciadas.Classe_perfil_perfil;
 import com.example.telas_background.Classes_instanciadas.Classe_perfil_post;
 import com.example.telas_background.Classes_instanciadas.Classe_user;
-import com.example.telas_background.firebase.Socializar_firebase;
+import com.example.telas_background.firebase.Friend_request_firebase;
 import com.example.telas_background.item.Item_perfil_perfil;
 import com.example.telas_background.item.Item_post;
 import com.example.telas_background.notificaHelper.NotificaHelper;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -46,6 +47,7 @@ public class Perfil extends AppCompatActivity {
     private Classe_user classUser;
     private String idPerfil;
     private Integer estado_botao = 0;
+    private static Context context1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,16 +61,17 @@ public class Perfil extends AppCompatActivity {
         perfilRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         perfilRecycler.setAdapter(perfilAdapter);
 
+        context1 = this;
+
         idUser = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
             idPerfil = bundle.getString("user");
             estado_botao = bundle.getInt("estado");
-        }else{
+        }else if(idPerfil == idUser){
             idPerfil = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
         }
-
 
          switch (estado_botao){
              case 0:
@@ -81,11 +84,8 @@ public class Perfil extends AppCompatActivity {
                  botaoSocializar.setVisibility(View.INVISIBLE);
                  break;
          }
-
         //perfil
        pegarPerfil();
-
-
     }
 
     public void verificarBotao(View v) {
@@ -97,13 +97,11 @@ public class Perfil extends AppCompatActivity {
                 break;
             case 1:
                 //Caso não for amigo Enviar Friend Request
-                Socializar_firebase socializarFirebase = new Socializar_firebase(idPerfil);
-                socializarFirebase.enviar_request(this);
-                if(socializarFirebase.verificar) {
-                    botaoSocializar.setVisibility(View.INVISIBLE);
-                }
+                botaoSocializar.setVisibility(View.INVISIBLE);
+                Friend_request_firebase.sendFriendRequest(idPerfil);
                 break;
             default:
+                botaoSocializar.setVisibility(View.INVISIBLE);
                 break;
             }
         }
