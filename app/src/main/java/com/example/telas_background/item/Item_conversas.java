@@ -5,6 +5,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.example.telas_background.Classes_estaticas.User_principal;
+import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
 import com.example.telas_background.R;
 import com.squareup.picasso.Picasso;
 import com.xwray.groupie.Item;
@@ -12,27 +14,28 @@ import com.xwray.groupie.ViewHolder;
 
 public class Item_conversas extends Item<ViewHolder> {
 
-    private final String imagem;
-    private final String nome;
-    private final String ultimaMsg;
+    public Classe_user_tela user;
+  private String ultimaMsg;
+  public String path;
 
-    public Item_conversas(String nome , String imagem , String ultimaMsg) {
-        this.nome = nome;
-        this.imagem = imagem;
+    public Item_conversas(Classe_user_tela user, String ultimaMsg, String path) {
+        this.user = user;
         this.ultimaMsg = ultimaMsg;
+        this.path = path;
     }
 
     @Override
     public void bind(@NonNull ViewHolder viewHolder, int position) {
 
         TextView nome1 = viewHolder.itemView.findViewById(R.id.nome_conversa);
-        nome1.setText(nome);
+        nome1.setText(user.getNome());
 
         TextView ultimaMsg1 = viewHolder.itemView.findViewById(R.id.ultima_conversa);
         ultimaMsg1.setText(ultimaMsg);
 
         ImageView foto = viewHolder.itemView.findViewById(R.id.foto_conversa);
-        Picasso.get().load(imagem).into(foto);
+        Picasso.get().load(user.getFoto()).into(foto);
+
 
     }
 

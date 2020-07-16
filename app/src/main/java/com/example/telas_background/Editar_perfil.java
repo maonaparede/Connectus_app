@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.telas_background.firebase.Editar_perfil_firebase;
-import com.example.telas_background.notificaHelper.NotificaHelper;
+import com.example.telas_background.utils_helper.MakeToast;
 import com.google.firebase.database.annotations.Nullable;
 import com.squareup.picasso.Picasso;
 
@@ -94,7 +94,7 @@ public class Editar_perfil extends AppCompatActivity {
 
         updatePerfil.uparfotoperfil();
 
-        NotificaHelper.mostrarToast(this , "Perfil Atualizado");
+        MakeToast.makeToast(this , "Perfil Atualizado");
         startActivity(new Intent(this , Home.class));
     }
 

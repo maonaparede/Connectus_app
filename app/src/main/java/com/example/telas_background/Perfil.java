@@ -20,9 +20,7 @@ import com.example.telas_background.Classes_instanciadas.Classe_user;
 import com.example.telas_background.firebase.Friend_request_firebase;
 import com.example.telas_background.item.Item_perfil_perfil;
 import com.example.telas_background.item.Item_post;
-import com.example.telas_background.notificaHelper.NotificaHelper;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -69,7 +67,10 @@ public class Perfil extends AppCompatActivity {
         if(bundle != null) {
             idPerfil = bundle.getString("user");
             estado_botao = bundle.getInt("estado");
-        }else if(idPerfil == idUser){
+        }
+
+        if(idUser.equals(idPerfil)){
+            estado_botao = 0;
             idPerfil = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
         }
 

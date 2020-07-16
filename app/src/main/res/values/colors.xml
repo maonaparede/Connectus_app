@@ -5,4 +5,9 @@
     <color name="colorAccent">#D81B60</color>
     <color name="bgColor">#f9f9f9</color>
     <color name="gray">#E0E0E0</color>
+    <color name="azulLinear">#4D5ACA</color>
+    <color name="roxoLinear">#8A50C9</color>
+    <color name="rosaLinear">#C95083</color>
+    <color name="vermelhoLinear">#CA4D4D</color>
+    <color name="azulRoxeado">#7381F4</color>
 </resources>

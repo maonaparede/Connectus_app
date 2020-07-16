@@ -9,29 +9,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 
-import com.example.telas_background.notificaHelper.NotificaHelper;
-import com.google.android.gms.tasks.Continuation;
+import com.example.telas_background.utils_helper.MakeToast;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.annotations.Nullable;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
-import com.google.firebase.storage.StorageTask;
-import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class Registrar extends AppCompatActivity {
 
@@ -64,16 +48,16 @@ public class Registrar extends AppCompatActivity {
         if (email == null || email.isEmpty() || senha == null || senha.isEmpty()
                 || senha1 == null || senha1.isEmpty()){
 
-            NotificaHelper.mostrarToast(this , "Campos não preenchidos!");
+            MakeToast.makeToast(this , "Campos não preenchidos!");
             return;
         }
         if(!senha.equals(senha1)){
-            NotificaHelper.mostrarToast(this , "As senhas fornecidas não são iguais!");
+            MakeToast.makeToast(this , "As senhas fornecidas não são iguais!");
             return;
         }
         if (senha.length() < 6){
             //obrigatório pro Auth do firebase
-            NotificaHelper.mostrarToast(this , "A senha deve ser de no mínimo 6 caracteres");
+            MakeToast.makeToast(this , "A senha deve ser de no mínimo 6 caracteres");
             return;
         }
 
@@ -84,10 +68,10 @@ public class Registrar extends AppCompatActivity {
 
     public void updateUI(FirebaseUser account){
         if(account != null){
-            NotificaHelper.mostrarToast(this, "Registrado Com Sucesso");
+            MakeToast.makeToast(this, "Registrado Com Sucesso");
             startActivity(new Intent( this , Editar_perfil.class));
         }else {
-            NotificaHelper.mostrarToast (this,"Você não foi Registrado");
+            MakeToast.makeToast(this,"Você não foi Registrado");
         }
     }
 
@@ -114,7 +98,7 @@ public class Registrar extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("Registrar", "createUserWithEmail:failure", task.getException());
-                            NotificaHelper.mostrarToast( Registrar.this , "Authentication failed.");
+                            MakeToast.makeToast( Registrar.this , "Authentication failed.");
                             updateUI(null);
                         }
                         // ...

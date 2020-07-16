@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.telas_background.firebase.Get_user_principal;
-import com.example.telas_background.notificaHelper.NotificaHelper;
+import com.example.telas_background.utils_helper.MakeToast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -73,11 +73,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateUI(FirebaseUser account){
         if(account != null){
-            NotificaHelper.mostrarToast(this, "Logado Com Sucesso");
+            MakeToast.makeToast(this, "Logado Com Sucesso");
             new Get_user_principal();
             startActivity(new Intent( this , Home.class));
         }else {
-            NotificaHelper.mostrarToast (this,"Você não foi Logado");
+            MakeToast.makeToast(this,"Você não foi Logado");
         }
     }
 

@@ -56,7 +56,7 @@
         android:layout_marginLeft="16dp"
         android:background="@drawable/linear_background"
         android:fontFamily="@font/changa_light"
-        android:text="Chat"
+        android:text="Perfil"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toEndOf="@+id/foto_amigo"
         app:layout_constraintTop_toBottomOf="@+id/nome_amigo" />

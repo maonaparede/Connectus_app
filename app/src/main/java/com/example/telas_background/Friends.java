@@ -12,9 +12,9 @@ import android.util.Log;
 
 import com.example.telas_background.Classes_estaticas.User_principal;
 import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
-import com.example.telas_background.firebase.Friend_request_firebase;
 import com.example.telas_background.item.Item_amigo;
-import com.example.telas_background.notificaHelper.NotificaHelper;
+import com.example.telas_background.utils_helper.DialogFriendRemove;
+import com.example.telas_background.utils_helper.MakeToast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -54,6 +54,8 @@ public class Friends extends AppCompatActivity {
 
  */
 
+
+
         pegarTodosAmigos();
 
         context = this;
@@ -67,19 +69,26 @@ public class Friends extends AppCompatActivity {
 
         switch (estado){
             case 0:
-                NotificaHelper.mostrarToast(context , "Socializar");
+                MakeToast.makeToast(context , "Conversar");
+                Intent intent1 = new Intent(context, Chat.class);
+                Bundle bundle1 = new Bundle();
+
+                bundle1.putString("id", pessoa.user.getId());
+                bundle1.putInt("estado", 3);
+
+                intent1.putExtras(bundle1);
+                context.startActivity(intent1);
 
                 break;
             case 1:
-                NotificaHelper.mostrarToast(context , "Rejeitar");
-                Friend_request_firebase.removeFriend(pessoa.user.getId());
+                MakeToast.makeToast(context , "Remover");
+                DialogFriendRemove.createDialogOkCancel(context, pessoa.user.getId());
                 friendAdapter.removeGroup(positon);
                 break;
             default:
-                NotificaHelper.mostrarToast(context , "Perfil");
+                MakeToast.makeToast(context , "Perfil");
                 Intent intent = new Intent(context, Perfil.class);
                 Bundle bundle = new Bundle();
-
 
                 bundle.putString("user", pessoa.user.getId());
                 bundle.putInt("estado", 3);
@@ -101,7 +110,7 @@ public class Friends extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
-                               addItemAdapter(document);
+                               addItemRecyclerView(document);
 
                             }
                         } else {
@@ -111,8 +120,7 @@ public class Friends extends AppCompatActivity {
                 });
     }
 
-
-    private void addItemAdapter(final QueryDocumentSnapshot docpath){
+    private void addItemRecyclerView(final QueryDocumentSnapshot docpath){
 
         FirebaseFirestore.getInstance().collection("user").
                 document(docpath.getId()).get()

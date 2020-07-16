@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.example.telas_background.Classes_instanciadas.Classe_perfil_post;
 import com.example.telas_background.firebase.Post_firebase;
-import com.example.telas_background.notificaHelper.NotificaHelper;
+import com.example.telas_background.utils_helper.MakeToast;
 import com.google.firebase.database.annotations.Nullable;
 import com.squareup.picasso.Picasso;
 
@@ -54,7 +54,7 @@ public class CriarPost extends AppCompatActivity {
 
         if(descricao.isEmpty() && uri == null){
 
-            NotificaHelper.mostrarToast(this , "O post não pode estar em branco!!");
+            MakeToast.makeToast(this , "O post não pode estar em branco!!");
 
             return;
         }else {

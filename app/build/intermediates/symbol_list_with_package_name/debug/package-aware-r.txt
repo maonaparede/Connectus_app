@@ -411,6 +411,8 @@ color abc_tint_spinner
 color abc_tint_switch_track
 color accent_material_dark
 color accent_material_light
+color azulLinear
+color azulRoxeado
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
@@ -473,6 +475,8 @@ color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
 color ripple_material_dark
 color ripple_material_light
+color rosaLinear
+color roxoLinear
 color secondary_text_default_material_dark
 color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
@@ -485,6 +489,7 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color tooltip_background_dark
 color tooltip_background_light
+color vermelhoLinear
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -723,6 +728,8 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable custom_button_linear
+drawable custom_button_linear_negative
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_access_time_black_24dp
@@ -735,6 +742,7 @@ drawable ic_location_on_black_24dp
 drawable ic_play_arrow_black_24dp
 drawable ic_search_black_24dp
 drawable ic_send_black_24dp
+drawable item_chat_to
 drawable linear_background
 drawable linear_negative_background
 drawable linear_top_background_gradient
@@ -839,6 +847,7 @@ id buscar_request
 id button
 id button2
 id buttonPanel
+id cancel_dialog
 id cancelarE
 id center_vertical
 id chains
@@ -851,9 +860,10 @@ id comentario_post
 id comentarios_post
 id confirmar_senha_registrar
 id constraintLayout
-id constraintLayout3
 id content
 id contentPanel
+id conteudo_dialog
+id conteudo_dialog_ok
 id custom
 id customPanel
 id dark
@@ -862,7 +872,6 @@ id decor_content_parent
 id default_activity_button
 id descricaoE
 id descricaoEP
-id descricao_chat
 id descricao_perfil
 id descricao_post
 id dialogImagemButton
@@ -872,7 +881,7 @@ id dialog_imageView
 id dimensions
 id direct
 id disableHome
-id editText3
+id editText_chat
 id edit_query
 id email_registrar
 id end
@@ -911,7 +920,7 @@ id icon_group
 id icon_only
 id ifRoom
 id image
-id imageButton2
+id imageButton2_chat
 id imageButton3
 id imageButton4
 id imageButton5
@@ -967,6 +976,8 @@ id notification_background
 id notification_main_column
 id notification_main_column_container
 id off
+id ok_dialog
+id ok_dialog_ok
 id on
 id packed
 id parent
@@ -1051,6 +1062,8 @@ id titleDividerNoCustom
 id title_template
 id tituloE
 id tituloEhome
+id titulo_dialog
+id titulo_dialog_ok
 id top
 id topPanel
 id ultima_conversa
@@ -1121,6 +1134,8 @@ layout activity_main
 layout activity_perfil
 layout activity_registrar
 layout custom_dialog
+layout dialog_ok
+layout dialog_ok_cancel
 layout item_amigo
 layout item_comentarios_post
 layout item_conversas
@@ -1189,6 +1204,7 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string content_dialog_friend_remove
 string default_web_client_id
 string firebase_database_url
 string gcm_defaultSenderId
@@ -1199,6 +1215,8 @@ string google_storage_bucket
 string project_id
 string search_menu_title
 string status_bar_notification_info_overflow
+string title_dialog_friend_remove
+string voce
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

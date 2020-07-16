@@ -4,14 +4,13 @@ public class Classe_chat_msg {
 
     private String nome;
     private String mensagem;
-    private String uid;
+    private String id;
 
-    public Classe_chat_msg(String nome, String mensagem, String uid) {
+    public Classe_chat_msg(String nome, String mensagem, String id) {
         this.nome = nome;
         this.mensagem = mensagem;
-        this.uid = uid;
+        this.id = id;
     }
-
 
     public String getNome() {
         return nome;
@@ -21,7 +20,7 @@ public class Classe_chat_msg {
         return mensagem;
     }
 
-    public String getUid() {
-        return uid;
+    public String getId() {
+        return id;
     }
 }

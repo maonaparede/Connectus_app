@@ -1,9 +1,9 @@
 package com.example.telas_background;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -11,11 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.telas_background.Classes_estaticas.User_principal;
 import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
-import com.example.telas_background.firebase.Get_user_principal;
 import com.example.telas_background.item.Item_home_encontros;
 import com.example.telas_background.item.Item_home_pessoas;
+import com.example.telas_background.utils_helper.DialogFriendRemove;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
@@ -27,6 +26,7 @@ public class Home extends AppCompatActivity {
 
     private RecyclerView pessoasRecycler;
     private GroupAdapter pessoasAdapter;
+    Context context;
     Uri uri;
     String urlFoto;
 
@@ -70,6 +70,8 @@ public class Home extends AppCompatActivity {
 
         pessoasAdapter.add(new Item_home_pessoas(
                 new Classe_user_tela("https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327" , "30FT22MK5dVcJhEqYuBFUqNnPoo1" , "")));
+
+        context = this;
     }
 
     public void criarEncontro(View view){
@@ -86,7 +88,10 @@ public class Home extends AppCompatActivity {
 
     public void perfil(View view){
 
-        startActivity(new Intent(this , Friends.class));
+        //PopUp.createDialogOkCancel(this, "Porque?", "Você vai cortar relações com esse usuário")
+
+
+        startActivity(new Intent(this , Conversas.class));
     }
 
 

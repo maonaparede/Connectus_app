@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
 import com.example.telas_background.firebase.Friend_request_firebase;
 import com.example.telas_background.item.Item_friend_request;
-import com.example.telas_background.notificaHelper.NotificaHelper;
+import com.example.telas_background.utils_helper.MakeToast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -62,17 +62,17 @@ public class Friend_Request extends AppCompatActivity{
         Item_friend_request pessoa = (Item_friend_request) item;
         switch (estado){
             case 0:
-                NotificaHelper.mostrarToast(context , "Socializar");
+                MakeToast.makeToast(context , "Socializar");
                 Friend_request_firebase.friendAddFirebaseFunctionCall(pessoa.user.getId());
                 requestAdapter.removeGroup(positon);
                 break;
             case 1:
-                NotificaHelper.mostrarToast(context , "Rejeitar");
+                MakeToast.makeToast(context , "Rejeitar");
                 Friend_request_firebase.denyRequest(pessoa.user.getId());
                 requestAdapter.removeGroup(positon);
                 break;
             default:
-                NotificaHelper.mostrarToast(context , "Perfil");
+                MakeToast.makeToast(context , "Perfil");
                 Intent intent = new Intent(context, Perfil.class);
                 Bundle bundle = new Bundle();
 

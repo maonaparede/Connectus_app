@@ -14,9 +14,11 @@ import com.xwray.groupie.ViewHolder;
 public class Item_chat extends Item<ViewHolder> {
 
     private final Classe_chat_msg chat_msg;
+    private Boolean to;
 
     public Item_chat(Classe_chat_msg chat_msg) {
         this.chat_msg = chat_msg;
+        to = false;
     }
 
 
@@ -34,14 +36,17 @@ public class Item_chat extends Item<ViewHolder> {
     @Override
     public int getLayout() {
 
-        return chat_msg.getUid().equals(FirebaseAuth.getInstance().getUid().toString())
-                ? R.layout.item_from_chat : R.layout.item_to_chat;
-
-
-       /* if(to){
+       /* if (chat_msg.getNome() == String.valueOf(R.string.voce)) {
             return R.layout.item_to_chat;
-        }else{
+        } else {
             return R.layout.item_from_chat;
-        } */
+        }
+
+
+        */
+
+
+         return chat_msg.getId().equals(FirebaseAuth.getInstance().getUid().toString())
+               ? R.layout.item_from_chat : R.layout.item_to_chat;
     }
 }
