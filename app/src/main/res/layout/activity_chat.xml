@@ -9,24 +9,6 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="0dp"
-        android:layout_height="628dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_chat"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="62dp"
@@ -38,30 +20,21 @@
         <TextView
             android:id="@+id/nomeChat"
             android:layout_width="294dp"
-            android:layout_height="24dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/changa_semibold"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingLeft="5dp"
             android:text="TextView"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/ultima_conversa"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.244"
+            app:layout_constraintHorizontal_bias="0.387"
             app:layout_constraintStart_toEndOf="@+id/fotoChat"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/descricao_chat"
-            android:layout_width="272dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="@font/changa_light"
-            android:text="TextView"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.309"
-            app:layout_constraintStart_toEndOf="@+id/fotoChat" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/fotoChat"
@@ -75,41 +48,40 @@
             tools:srcCompat="@tools:sample/avatars" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageButton
+        android:id="@+id/imageButton2_chat"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+
+        android:background="@android:color/transparent"
+        android:onClick="enviar"
+        app:layout_constraintStart_toEndOf="@+id/editText_chat"
+        app:layout_constraintTop_toTopOf="@+id/editText_chat"
+        app:srcCompat="@drawable/ic_send_black_24dp"
+        tools:ignore="VectorDrawableCompat" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_chat"
+        android:layout_width="348dp"
+        android:layout_height="532dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-        <EditText
-            android:id="@+id/editText3"
-            android:layout_width="361dp"
-            android:layout_height="34dp"
-            android:background="@android:color/transparent"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton2"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:text="Mensagem" />
+    </androidx.recyclerview.widget.RecyclerView>
 
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="47dp"
-            android:layout_height="34dp"
-            android:background="@android:color/transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/editText3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/ic_send_black_24dp"
-            tools:ignore="VectorDrawableCompat" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/editText_chat"
+        android:layout_width="322dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="#aaa"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_chat"
+        tools:text="Mensagem" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

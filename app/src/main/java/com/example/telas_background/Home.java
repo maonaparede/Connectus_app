@@ -69,7 +69,7 @@ public class Home extends AppCompatActivity {
         encontrosAdapter.add(new Item_home_encontros("Teste hard" , "https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327"));
 
         pessoasAdapter.add(new Item_home_pessoas(
-                new Classe_user_tela("https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327" , "30FT22MK5dVcJhEqYuBFUqNnPoo1" , "")));
+                new Classe_user_tela("https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327" , "07NBvaK87iO20JvVnWEqTE0AOSB2" , "")));
 
         context = this;
     }

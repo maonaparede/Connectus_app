@@ -476,6 +476,7 @@ color primary_text_disabled_material_light
 color ripple_material_dark
 color ripple_material_light
 color rosaLinear
+color roxoClaro
 color roxoLinear
 color secondary_text_default_material_dark
 color secondary_text_default_material_light
@@ -709,6 +710,8 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable chat_from_frame
+drawable chat_to_frame
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -742,7 +745,6 @@ drawable ic_location_on_black_24dp
 drawable ic_play_arrow_black_24dp
 drawable ic_search_black_24dp
 drawable ic_send_black_24dp
-drawable item_chat_to
 drawable linear_background
 drawable linear_negative_background
 drawable linear_top_background_gradient
@@ -930,7 +932,6 @@ id imageButton8
 id imageButton9_post
 id imageButtonEhome
 id imageButton_amigo
-id imageButton_conversas
 id imageButton_request
 id imageView3
 id imagemEE

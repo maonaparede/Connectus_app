@@ -25,26 +25,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
+        <SearchView
             android:id="@+id/buscar_conversas"
-            android:layout_width="310dp"
-            android:layout_height="46dp"
-            android:background="@android:color/transparent"
-            android:ems="10"
-            android:fontFamily="@font/changa_light"
-
-            android:inputType="textPersonName"
-            android:singleLine="true"
-            tools:text="Buscar" />
-
-        <ImageButton
-            android:id="@+id/imageButton_conversas"
-            android:layout_width="43dp"
-            android:layout_height="46dp"
-
-            android:background="@android:color/transparent"
-            app:srcCompat="@drawable/ic_search_black_24dp"
-            tools:ignore="MissingConstraints,VectorDrawableCompat" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
