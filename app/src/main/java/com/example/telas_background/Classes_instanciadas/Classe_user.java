@@ -1,6 +1,6 @@
 package com.example.telas_background.Classes_instanciadas;
 
-public class Classe_user {
+public class Classe_user{
 
     private String foto;
     private String id;

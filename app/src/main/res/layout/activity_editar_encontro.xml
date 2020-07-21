@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Editar_perfil">
+    tools:context=".Editar_encontro">
 
     <Button
         android:id="@+id/ExcluirE"
@@ -126,8 +126,8 @@
         android:layout_marginTop="124dp"
         android:background="@drawable/linear_background"
         android:bottomLeftRadius="20dp"
-        android:fontFamily="@font/changa"
         android:bottomRightRadius="20dp"
+        android:fontFamily="@font/changa"
         android:text="Adicionar / Remover Membro"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
@@ -147,6 +147,7 @@
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
         android:fontFamily="@font/changa"
+        android:onClick="verificarBotao1"
         android:text="Salvar"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
@@ -189,10 +190,11 @@
         android:id="@+id/imagemEE"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/linear_background"
+        android:onClick="imagemClick1"
         app:layout_constraintEnd_toStartOf="@+id/ExcluirE"
-        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toEndOf="@+id/cancelarE"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/toast_frame" />

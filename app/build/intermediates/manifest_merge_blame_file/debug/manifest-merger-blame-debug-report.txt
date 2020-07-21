@@ -26,7 +26,7 @@
 16-->[com.google.firebase:firebase-iid:20.0.1] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\0f2d1e20663da87649bc73d3f9f51b7f\jetified-firebase-iid-20.0.1\AndroidManifest.xml:26:22-79
 17
 18    <application
-18-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:6:5-39:19
+18-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:6:5-38:19
 19        android:name="androidx.multidex.MultiDexApplication"
 20        android:allowBackup="true"
 20-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:7:9-35
@@ -44,66 +44,66 @@
 27        android:testOnly="true"
 28        android:theme="@style/AppTheme" >
 28-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:12:9-40
-29        <activity android:name="com.example.telas_background.Friends" />
-29-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:13:9-44
-29-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:13:19-42
-30        <activity android:name="com.example.telas_background.CriarPost" />
-30-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:14:9-47
-30-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:14:19-44
-31        <activity
-31-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:15:9-17:52
-32            android:name="com.example.telas_background.Home"
-32-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:16:13-33
-33            android:screenOrientation="nosensor" />
-33-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:17:13-49
-34        <activity android:name="com.example.telas_background.Comentarios_Posts" />
-34-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:18:9-55
-34-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:18:19-52
-35        <activity android:name="com.example.telas_background.Perfil" />
-35-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:19:9-44
-35-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:19:19-41
-36        <activity android:name="com.example.telas_background.Editar_perfil" />
-36-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:20:9-51
-36-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:20:19-48
-37        <activity android:name="com.example.telas_background.Encontro" />
-37-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:21:9-46
-37-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:21:19-43
-38        <activity android:name="com.example.telas_background.Friend_Request" />
-38-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:22:9-52
-38-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:22:19-49
-39        <activity android:name="com.example.telas_background.Chat" />
-39-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:23:9-42
-39-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:23:19-39
-40        <activity android:name="com.example.telas_background.Editar_encontro" />
-40-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:24:9-53
-40-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:24:19-50
+29        <activity android:name="com.example.telas_background.Editar_encontro" />
+29-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:13:9-62
+29-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:13:19-50
+30        <activity android:name="com.example.telas_background.Friends" />
+30-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:14:9-45
+30-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:14:19-42
+31        <activity android:name="com.example.telas_background.CriarPost" />
+31-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:15:9-47
+31-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:15:19-44
+32        <activity
+32-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:16:9-18:52
+33            android:name="com.example.telas_background.Home"
+33-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:17:13-33
+34            android:screenOrientation="nosensor" />
+34-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:18:13-49
+35        <activity android:name="com.example.telas_background.Comentarios_Posts" />
+35-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:19:9-55
+35-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:19:19-52
+36        <activity android:name="com.example.telas_background.Perfil" />
+36-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:20:9-44
+36-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:20:19-41
+37        <activity android:name="com.example.telas_background.Editar_perfil" />
+37-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:21:9-51
+37-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:21:19-48
+38        <activity android:name="com.example.telas_background.Encontro" />
+38-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:22:9-46
+38-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:22:19-43
+39        <activity android:name="com.example.telas_background.Friend_Request" />
+39-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:23:9-52
+39-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:23:19-49
+40        <activity android:name="com.example.telas_background.Chat" />
+40-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:24:9-42
+40-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:24:19-39
 41        <activity android:name="com.example.telas_background.Conversas" />
-41-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:26:9-47
-41-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:26:19-44
+41-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:25:9-47
+41-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:25:19-44
 42        <activity android:name="com.example.telas_background.Registrar" />
-42-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:27:9-47
-42-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:27:19-44
+42-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:26:9-47
+42-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:26:19-44
 43        <activity android:name="com.example.telas_background.MainActivity" >
-43-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:28:9-34:20
-43-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:28:19-47
+43-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:27:9-33:20
+43-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:27:19-47
 44            <intent-filter>
-44-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:29:13-33:29
+44-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:28:13-32:29
 45                <action android:name="android.intent.action.MAIN" />
-45-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:30:17-69
-45-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:30:25-66
+45-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:29:17-69
+45-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:29:25-66
 46
 47                <category android:name="android.intent.category.LAUNCHER" />
-47-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:32:17-77
-47-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:32:27-74
+47-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:31:17-77
+47-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:31:27-74
 48            </intent-filter>
 49        </activity>
 50
 51        <meta-data
-51-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:36:9-38:57
+51-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:35:9-37:57
 52            android:name="preloaded_fonts"
-52-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:37:13-43
+52-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:36:13-43
 53            android:resource="@array/preloaded_fonts" />
-53-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:38:13-54
+53-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:37:13-54
 54
 55        <activity
 55-->[com.google.firebase:firebase-auth:19.3.1] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\35d59384e5f94fa3a8b66cea2c1872ae\jetified-firebase-auth-19.3.1\AndroidManifest.xml:24:9-31:50

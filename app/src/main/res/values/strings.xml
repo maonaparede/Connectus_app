@@ -4,4 +4,5 @@
     <string name="title_dialog_friend_remove">Quer desfazer essa conexão?</string>
     <string name="content_dialog_friend_remove">Quer desfazer essa conexão</string>
     <string name="voce">Você</string>
+    <string name="enviar_request_membro">Enviar Request do Encontro</string>
 </resources>

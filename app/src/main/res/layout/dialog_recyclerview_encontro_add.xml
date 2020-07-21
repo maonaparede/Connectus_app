@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/titulo_dialog_recycler"
+        android:layout_width="314dp"
+        android:layout_height="40dp"
+        android:background="@drawable/linear_background"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="Ação"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_encontro_add"
+        android:layout_width="314dp"
+        android:layout_height="550dp" />
+
+    <Button
+        android:id="@+id/cancel_dialog_encontro_add"
+        android:layout_width="314dp"
+        android:layout_height="40dp"
+        android:layout_margin="2dp"
+        android:background="@drawable/custom_button_linear_negative"
+        android:text="Cancelar"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
+
+</LinearLayout>

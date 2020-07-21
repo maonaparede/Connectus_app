@@ -850,6 +850,7 @@ id button
 id button2
 id buttonPanel
 id cancel_dialog
+id cancel_dialog_encontro_add
 id cancelarE
 id center_vertical
 id chains
@@ -992,6 +993,7 @@ id radio
 id recyclerP
 id recyclerViewEncontro
 id recyclerViewPessoas
+id recyclerView_encontro_add
 id recycler_amigo
 id recycler_chat
 id recycler_conversas
@@ -1065,6 +1067,7 @@ id tituloE
 id tituloEhome
 id titulo_dialog
 id titulo_dialog_ok
+id titulo_dialog_recycler
 id top
 id topPanel
 id ultima_conversa
@@ -1137,6 +1140,7 @@ layout activity_registrar
 layout custom_dialog
 layout dialog_ok
 layout dialog_ok_cancel
+layout dialog_recyclerview_encontro_add
 layout item_amigo
 layout item_comentarios_post
 layout item_conversas
@@ -1207,6 +1211,7 @@ string common_signin_button_text
 string common_signin_button_text_long
 string content_dialog_friend_remove
 string default_web_client_id
+string enviar_request_membro
 string firebase_database_url
 string gcm_defaultSenderId
 string google_api_key

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
 import com.example.telas_background.item.Item_home_encontros;
 import com.example.telas_background.item.Item_home_pessoas;
+import com.example.telas_background.utils_helper.DialogEncontroAddRemove;
 import com.example.telas_background.utils_helper.DialogFriendRemove;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
@@ -90,8 +91,8 @@ public class Home extends AppCompatActivity {
 
         //PopUp.createDialogOkCancel(this, "Porque?", "Você vai cortar relações com esse usuário")
 
-
-        startActivity(new Intent(this , Conversas.class));
+        DialogEncontroAddRemove.createDialogOkAddRemove(this , 0);
+       // startActivity(new Intent(this , Editar_encontro.class));
     }
 
 
