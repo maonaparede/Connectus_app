@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -11,11 +12,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.telas_background.Classes_estaticas.User_principal;
 import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
 import com.example.telas_background.item.Item_home_encontros;
 import com.example.telas_background.item.Item_home_pessoas;
 import com.example.telas_background.utils_helper.DialogEncontroAddRemove;
-import com.example.telas_background.utils_helper.DialogFriendRemove;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
@@ -27,7 +36,7 @@ public class Home extends AppCompatActivity {
 
     private RecyclerView pessoasRecycler;
     private GroupAdapter pessoasAdapter;
-    Context context;
+    private static Context context;
     Uri uri;
     String urlFoto;
 
@@ -51,28 +60,30 @@ public class Home extends AppCompatActivity {
         encontrosRecycler.setAdapter(encontrosAdapter);
         pessoasRecycler.setAdapter(pessoasAdapter);
 
-        pessoasAdapter.setOnItemClickListener(new OnItemClickListener() {
+        encontrosAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NonNull Item item, @NonNull View view) {
-                Intent intent = new Intent(Home.this, Perfil.class);
+                Intent intent = new Intent(Home.this, Encontro.class);
                 Bundle bundle = new Bundle();
 
-                Item_home_pessoas pessoas = (Item_home_pessoas) item;
-                bundle.putString("user", pessoas.user.getId().toString());
-                bundle.putInt("estado", 1);
+                Item_home_encontros encontro = (Item_home_encontros) item;
+                bundle.putString("encontro", encontro.getPath());
 
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
 
-        encontrosAdapter.add(new Item_home_encontros("Teste normal" , "https://cdnb.artstation.com/p/assets/images/images/027/258/167/small/mushk-rizvi-terrasglow.jpg?1591056874"));
-        encontrosAdapter.add(new Item_home_encontros("Teste hard" , "https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327"));
+
+
+      //  encontrosAdapter.add(new Item_home_encontros("Teste normal" , "https://cdnb.artstation.com/p/assets/images/images/027/258/167/small/mushk-rizvi-terrasglow.jpg?1591056874"));
+       // encontrosAdapter.add(new Item_home_encontros("Teste hard" , "https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327"));
 
         pessoasAdapter.add(new Item_home_pessoas(
                 new Classe_user_tela("https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327" , "07NBvaK87iO20JvVnWEqTE0AOSB2" , "")));
 
         context = this;
+        pegarTodosEncontros();
     }
 
     public void criarEncontro(View view){
@@ -91,9 +102,78 @@ public class Home extends AppCompatActivity {
 
         //PopUp.createDialogOkCancel(this, "Porque?", "Você vai cortar relações com esse usuário")
 
-        DialogEncontroAddRemove.createDialogOkAddRemove(this , 0);
-       // startActivity(new Intent(this , Editar_encontro.class));
+        //DialogEncontroAddRemove.createDialogOkAddRemove(this , 0);
+        startActivity(new Intent(this , Editar_encontro.class));
+    }
+
+    private void pegarTodosEncontros(){
+
+        FirebaseFirestore.getInstance().collection("caminho_encontro").
+                document(User_principal.getId()).collection("encontro").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                pegarEncontro(document);
+                               //  Log.d("Perfil" ,document.getId() + " => " + document.getData());
+                            }
+                        } else {
+                            Log.d("Perfil ", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
+
+    private void pegarEncontro(final QueryDocumentSnapshot docAmigo) {
+
+        DocumentReference docRef1 = FirebaseFirestore.getInstance().collection("encontro")
+                .document(docAmigo.get("dono").toString()).collection("atributos")
+                .document("atributos");
+
+        docRef1.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                if (documentSnapshot.exists()) {
+
+                   Item_home_encontros item = new Item_home_encontros(documentSnapshot.get("nome").toString()
+                                    , documentSnapshot.get("foto").toString(), documentSnapshot.get("path").toString(),
+                           documentSnapshot.get("dono").toString());
+
+                    encontrosAdapter.add(item);
+
+
+                   // Log.d("foto" , documentSnapshot.get("foto").toString());
+                   // pegarLastMsg( docAmigo.get("path").toString() , documentSnapshot);
+                }
+            }
+        });
     }
 
 
+    public static void telaEncontro(Item item){
+        Intent intent = new Intent(context, Encontro.class);
+        Bundle bundle = new Bundle();
+
+        Item_home_encontros encontro = (Item_home_encontros) item;
+        bundle.putString("encontro", encontro.getPath());
+        bundle.putString("dono" , encontro.getDono());
+
+        intent.putExtras(bundle);
+        context.startActivity(intent);
+    }
+
+    public static void telaPerfil(Item item){
+        Intent intent = new Intent(context, Perfil.class);
+        Bundle bundle = new Bundle();
+
+        Item_home_pessoas pessoas = (Item_home_pessoas) item;
+        bundle.putString("user", pessoas.user.getId().toString());
+        bundle.putInt("estado", 1);
+
+        intent.putExtras(bundle);
+        context.startActivity(intent);
+    }
 }

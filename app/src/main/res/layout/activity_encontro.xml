@@ -7,13 +7,14 @@
     tools:context=".Encontro">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageView3_fotoE"
         android:layout_width="412dp"
         android:layout_height="343dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/linear_negative_background"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,11 +25,11 @@
         android:layout_marginEnd="208dp"
         android:layout_marginRight="208dp"
         android:text="Encontro"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintBottom_toBottomOf="@+id/Exit_ButtonE"
+        app:layout_constraintEnd_toStartOf="@+id/Exit_ButtonE"
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button"
+        app:layout_constraintTop_toTopOf="@+id/Exit_ButtonE"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -42,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3_fotoE" />
 
     <TextView
         android:id="@+id/dataE"
@@ -73,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@+id/dataE" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/Chat_button_E"
         android:layout_width="260dp"
         android:layout_height="46dp"
         android:layout_marginTop="4dp"
@@ -85,7 +86,7 @@
         app:layout_constraintTop_toBottomOf="@+id/descricaoE" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/Exit_ButtonE"
         android:layout_width="58dp"
         android:layout_height="23dp"
         android:layout_marginTop="16dp"
@@ -93,11 +94,12 @@
         android:layout_marginRight="16dp"
         android:background="@drawable/linear_negative_background"
         android:fontFamily="@font/changa_light"
+        android:onClick="sairEditar"
         android:text="Sair"
         android:textColor="#FFFFFF"
         android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3_fotoE" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -132,7 +134,7 @@
         android:textColor="#8A50C9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton4"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/Chat_button_E"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
@@ -146,7 +148,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageButton3"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/Chat_button_E"
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton

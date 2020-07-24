@@ -770,7 +770,9 @@ font quicksand_bold
 id ALT
 id Button_Login
 id CTRL
+id Chat_button_E
 id ExcluirE
+id Exit_ButtonE
 id FUNCTION
 id META
 id NameProject_id
@@ -845,9 +847,8 @@ id blocking
 id bottom
 id buscar_amigo
 id buscar_conversas
+id buscar_conversas_dialog_add
 id buscar_request
-id button
-id button2
 id buttonPanel
 id cancel_dialog
 id cancel_dialog_encontro_add
@@ -884,6 +885,7 @@ id dialog_imageView
 id dimensions
 id direct
 id disableHome
+id dono_encontro_request
 id editText_chat
 id edit_query
 id email_registrar
@@ -893,8 +895,10 @@ id expanded_menu
 id forever
 id fotoChat
 id fotoEP
+id foto_add_user_encontro
 id foto_amigo
 id foto_conversa
+id foto_encontro_request
 id foto_friend_request
 id foto_perfil
 id foto_perfil_post
@@ -923,7 +927,9 @@ id icon_group
 id icon_only
 id ifRoom
 id image
+id imageButton1_dialog_add_encontro
 id imageButton2_chat
+id imageButton2_dialog_add_encontro
 id imageButton3
 id imageButton4
 id imageButton5
@@ -934,7 +940,7 @@ id imageButton9_post
 id imageButtonEhome
 id imageButton_amigo
 id imageButton_request
-id imageView3
+id imageView3_fotoE
 id imagemEE
 id img_post
 id info
@@ -955,6 +961,8 @@ id linearLayoutop1
 id listMode
 id list_item
 id localE
+id local_encontro_request
+id local_encontro_request3
 id login_email
 id login_password
 id message
@@ -966,9 +974,11 @@ id never
 id nomeChat
 id nomeE
 id nomeEP
+id nome_add_user_encontro
 id nome_amigo
 id nome_chat
 id nome_conversa
+id nome_encontro_request
 id nome_friend_request
 id nome_perfil
 id nome_post
@@ -999,6 +1009,7 @@ id recycler_chat
 id recycler_conversas
 id recycler_request
 id rejeitar_amigo
+id rejeitar_encontro_request
 id rejeitar_friend_request
 id right
 id right_icon
@@ -1025,8 +1036,10 @@ id showCustom
 id showHome
 id showTitle
 id socializarButton_home
+id socializar_add_user_encontro
 id socializar_amigo
 id socializar_botao_perfil
+id socializar_encontro_request
 id socializar_friend_request
 id spacer
 id split_action_bar
@@ -1141,9 +1154,11 @@ layout custom_dialog
 layout dialog_ok
 layout dialog_ok_cancel
 layout dialog_recyclerview_encontro_add
+layout item_add_user_encontro
 layout item_amigo
 layout item_comentarios_post
 layout item_conversas
+layout item_encontro_request_add
 layout item_friend_request
 layout item_from_chat
 layout item_home_encontros

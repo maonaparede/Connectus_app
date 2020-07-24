@@ -1,23 +1,31 @@
 package com.example.telas_background.item;
 
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.example.telas_background.Home;
 import com.example.telas_background.R;
 import com.squareup.picasso.Picasso;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.ViewHolder;
 
-public class Item_home_encontros extends Item<ViewHolder> {
+public class Item_home_encontros extends Item<ViewHolder> implements View.OnClickListener {
+
+    private Integer position;
 
     private final String nome;
     private final String imagem;
+    private String path;
+    private String dono;
 
-    public Item_home_encontros(String nome , String imagem) {
+    public Item_home_encontros(String nome , String imagem, String path, String dono) {
         this.nome = nome;
         this.imagem = imagem;
+        this.path = path;
+        this.dono = dono;
     }
 
     @Override
@@ -27,9 +35,32 @@ public class Item_home_encontros extends Item<ViewHolder> {
         TextView encontro = viewHolder.itemView.findViewById(R.id.tituloEhome);
 
         Picasso.get().load(imagem).into(foto);
+        this.position = position;
+
+        foto.setOnClickListener(this);
+        encontro.setOnClickListener(this);
 
         encontro.setText(nome);
 
+    }
+
+    @NonNull
+    @Override
+    public Item getItem(int position) {
+        return super.getItem(position);
+    }
+
+
+
+    public String getPath() {
+        return path;
+    }
+
+    public String getDono() {return dono; }
+
+    @Override
+    public void onClick(View v) {
+        Home.telaEncontro(getItem(position));
     }
 
     @Override

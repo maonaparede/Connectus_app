@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.telas_background.Classes_instanciadas.Classe_perfil_perfil;
 import com.example.telas_background.Classes_instanciadas.Classe_perfil_post;
 import com.example.telas_background.Classes_instanciadas.Classe_user;
+import com.example.telas_background.firebase.Friend_request_firebase;
 import com.example.telas_background.item.Item_perfil_perfil;
 import com.example.telas_background.item.Item_post;
 import com.example.telas_background.utils_helper.MakeToast;
@@ -101,7 +102,7 @@ public class Perfil extends AppCompatActivity {
                 //Caso não for amigo Enviar Friend Request
                 //botaoSocializar.setClickable(false);
                 botaoSocializar.setVisibility(View.INVISIBLE);
-                //Friend_request_firebase.sendFriendRequest(idPerfil);
+                Friend_request_firebase.sendFriendRequest(idPerfil);
                 MakeToast.makeToast(this , "Teste");
                 break;
             default:
