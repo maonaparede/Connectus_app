@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
-import com.example.telas_background.Friend_Request;
 import com.example.telas_background.R;
 import com.example.telas_background.utils_helper.DialogEncontroAddRemove;
 import com.squareup.picasso.Picasso;
@@ -19,6 +18,7 @@ public class Item_add_user_encontro extends Item<ViewHolder> implements View.OnC
 
     public final Classe_user_tela user;
     private Integer positionRequest;
+    private Item item;
 
     public Item_add_user_encontro(Classe_user_tela user) {
         this.user = user;
@@ -34,29 +34,29 @@ public class Item_add_user_encontro extends Item<ViewHolder> implements View.OnC
         ImageView foto = viewHolder.itemView.findViewById(R.id.foto_add_user_encontro);
         Picasso.get().load(user.getFoto()).into(foto);
 
-        positionRequest = position;
+        positionRequest = viewHolder.getAdapterPosition();
+        item = viewHolder.getItem();
 
         viewHolder.itemView.findViewById(R.id.socializar_add_user_encontro).setOnClickListener(this);
         viewHolder.itemView.findViewById(R.id.nome_add_user_encontro).setOnClickListener(this);
         viewHolder.itemView.findViewById(R.id.foto_add_user_encontro).setOnClickListener(this);
+
+
     }
 
-    @NonNull
-    @Override
-    public Item getItem(int position) {
-        return super.getItem(position);
-    }
+
+
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.socializar_add_user_encontro:
-                DialogEncontroAddRemove.botaoItemRecyclerEncontroAdd(getItem(positionRequest), 0 , positionRequest);
-                Log.d("Add encontro" , "Enviar");
+               DialogEncontroAddRemove.botaoItemRecyclerEncontroAdd(item, 0 , positionRequest);
+                Log.d("Add encontro" , "Enviar " + item);
                 break;
 
             default:
-                DialogEncontroAddRemove.botaoItemRecyclerEncontroAdd(getItem(positionRequest), 2, positionRequest);
+                DialogEncontroAddRemove.botaoItemRecyclerEncontroAdd(item, 3, positionRequest);
                 Log.d("Add encontro" , "Default");
                 break;
         }

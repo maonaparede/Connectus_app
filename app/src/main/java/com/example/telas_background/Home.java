@@ -16,7 +16,6 @@ import com.example.telas_background.Classes_estaticas.User_principal;
 import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
 import com.example.telas_background.item.Item_home_encontros;
 import com.example.telas_background.item.Item_home_pessoas;
-import com.example.telas_background.utils_helper.DialogEncontroAddRemove;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -80,7 +79,7 @@ public class Home extends AppCompatActivity {
        // encontrosAdapter.add(new Item_home_encontros("Teste hard" , "https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327"));
 
         pessoasAdapter.add(new Item_home_pessoas(
-                new Classe_user_tela("https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327" , "07NBvaK87iO20JvVnWEqTE0AOSB2" , "")));
+                new Classe_user_tela("https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327" , "sPDdPbX7juTtGUDTN95uMlTEjes1" , "")));
 
         context = this;
         pegarTodosEncontros();
@@ -103,7 +102,7 @@ public class Home extends AppCompatActivity {
         //PopUp.createDialogOkCancel(this, "Porque?", "Você vai cortar relações com esse usuário")
 
         //DialogEncontroAddRemove.createDialogOkAddRemove(this , 0);
-        startActivity(new Intent(this , Editar_encontro.class));
+        startActivity(new Intent(this , Request.class));
     }
 
     private void pegarTodosEncontros(){

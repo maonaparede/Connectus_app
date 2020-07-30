@@ -15,6 +15,7 @@ import com.xwray.groupie.ViewHolder;
 public class Item_home_encontros extends Item<ViewHolder> implements View.OnClickListener {
 
     private Integer position;
+    private Item item;
 
     private final String nome;
     private final String imagem;
@@ -34,8 +35,14 @@ public class Item_home_encontros extends Item<ViewHolder> implements View.OnClic
         ImageButton foto = viewHolder.itemView.findViewById(R.id.imageButtonEhome);
         TextView encontro = viewHolder.itemView.findViewById(R.id.tituloEhome);
 
+        if(imagem.isEmpty()){
+            Picasso.get().load(R.drawable.linear_background).into(foto);
+        }else{
         Picasso.get().load(imagem).into(foto);
-        this.position = position;
+        }
+
+        this.position = viewHolder.getAdapterPosition();
+        item = viewHolder.getItem();
 
         foto.setOnClickListener(this);
         encontro.setOnClickListener(this);
@@ -44,11 +51,6 @@ public class Item_home_encontros extends Item<ViewHolder> implements View.OnClic
 
     }
 
-    @NonNull
-    @Override
-    public Item getItem(int position) {
-        return super.getItem(position);
-    }
 
 
 
@@ -60,7 +62,7 @@ public class Item_home_encontros extends Item<ViewHolder> implements View.OnClic
 
     @Override
     public void onClick(View v) {
-        Home.telaEncontro(getItem(position));
+        Home.telaEncontro(item);
     }
 
     @Override

@@ -18,7 +18,9 @@ public class Item_amigo extends Item<ViewHolder> implements View.OnClickListener
 
     public final Classe_user_tela user;
     private String path;
+
     private Integer positionRequest;
+    private Item item;
 
     public Item_amigo(Classe_user_tela user , String path) {
         this.user = user;
@@ -35,7 +37,8 @@ public class Item_amigo extends Item<ViewHolder> implements View.OnClickListener
         ImageView foto = viewHolder.itemView.findViewById(R.id.foto_amigo);
         Picasso.get().load(user.getFoto()).into(foto);
 
-        positionRequest = position;
+        positionRequest = viewHolder.getAdapterPosition();
+        item = viewHolder.getItem();
 
         viewHolder.itemView.findViewById(R.id.socializar_amigo).setOnClickListener(this);
         viewHolder.itemView.findViewById(R.id.rejeitar_amigo).setOnClickListener(this);
@@ -53,16 +56,16 @@ public class Item_amigo extends Item<ViewHolder> implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.socializar_amigo:
-                Friends.botaoItemRecycler(getItem(positionRequest), 0 , positionRequest);
+                Friends.botaoItemRecycler(item, 0 , positionRequest);
                 Log.d("amigo" , "Socializar");
                 break;
 
             case R.id.rejeitar_amigo:
-                Friends.botaoItemRecycler(getItem(positionRequest), 1, positionRequest);
+                Friends.botaoItemRecycler(item, 1, positionRequest);
                 Log.d("amigo" , "Rejeitar");
                 break;
             default:
-                Friends.botaoItemRecycler(getItem(positionRequest), 2, positionRequest);
+                Friends.botaoItemRecycler(item, 2, positionRequest);
                 Log.d("amigo" , "Default");
                 break;
         }

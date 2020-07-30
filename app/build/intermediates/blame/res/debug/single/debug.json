@@ -164,6 +164,10 @@
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable\\ic_chat_bubble_outline_black_24dp.xml"
     },
     {
+        "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_rem_user_encontro.xml.flat",
+        "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\layout\\item_rem_user_encontro.xml"
+    },
+    {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_linear_background.xml.flat",
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable-v24\\linear_background.xml"
     },
@@ -200,16 +204,16 @@
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable\\custom_button_linear_negative.xml"
     },
     {
-        "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_friend__request.xml.flat",
-        "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\layout\\activity_friend__request.xml"
-    },
-    {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_custom_button_linear.xml.flat",
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable\\custom_button_linear.xml"
     },
     {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_home_encontros.xml.flat",
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\layout\\item_home_encontros.xml"
+    },
+    {
+        "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_request.xml.flat",
+        "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\layout\\activity_request.xml"
     },
     {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_access_time_black_24dp.xml.flat",

@@ -41,32 +41,4 @@ public class Classe_perfil_perfil {
         return h6;
     }
 
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public void setH1(String h1) {
-        this.h1 = h1;
-    }
-
-    public void setH2(String h2) {
-        this.h2 = h2;
-    }
-
-    public void setH3(String h3) {
-        this.h3 = h3;
-    }
-
-    public void setH4(String h4) {
-        this.h4 = h4;
-    }
-
-    public void setH5(String h5) {
-        this.h5 = h5;
-    }
-
-    public void setH6(String h6) {
-        this.h6 = h6;
-    }
 }

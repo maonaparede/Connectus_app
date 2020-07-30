@@ -21,7 +21,6 @@ import com.example.telas_background.Perfil;
 import com.example.telas_background.R;
 import com.example.telas_background.firebase.Encontro_firebase;
 import com.example.telas_background.item.Item_add_user_encontro;
-import com.example.telas_background.item.Item_friend_request;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -39,18 +38,21 @@ public class DialogEncontroAddRemove {
 
     public static Button ok;
     public static Button cancel;
+    public static String path;
     public static TextView title;
     private static Context context;
     public static RecyclerView pessoasRecycler;
     public static GroupAdapter pessoasAdapter;
 
-    private static ArrayList<Item_add_user_encontro> mExampleList;
+    private static ArrayList<Item_add_user_encontro> listAdd;
+
     private static SearchView filter;
 
-    public static void createDialogOkAddRemove(final Context context1, Integer estado) {
+    public static void createDialogOkAddRemove(final Context context1, String path1 ,Integer estado) {
 
         context = context1;
-        mExampleList = new ArrayList<Item_add_user_encontro>();
+        listAdd = new ArrayList<Item_add_user_encontro>();
+        path = path1;
 
 
         LayoutInflater inflater = LayoutInflater.from(context1);
@@ -88,8 +90,19 @@ public class DialogEncontroAddRemove {
             }
         });
 
-        pegarTodosAmigosDialog();
+        switch (estado) {
+            case 0:
+            pegarTodosAmigosDialog();
+            break;
 
+            case 1:
+                //paga membros do encontro
+              //  MakeToast.makeToast(c);
+                break;
+
+            default:
+                break;
+        }
 
         mBuilder.setView(view1);
         final AlertDialog dialog = mBuilder.create();
@@ -113,9 +126,15 @@ public class DialogEncontroAddRemove {
         Item_add_user_encontro pessoa = (Item_add_user_encontro) item;
         switch (estado) {
             case 0:
-                MakeToast.makeToast(context, "Enviar Request");
+                MakeToast.makeToast(context, "Enviar Request ");
+                Log.d("Dialog" , path);
                 Encontro_firebase.sendRequestEncontro(pessoa.user.getId());
-                pessoasAdapter.removeGroup(positon);
+                pessoasAdapter.removeGroup(pessoa.getPosition(item));
+                //pessoasAdapter.notifyDataSetChanged();
+                break;
+
+            case 1:
+                //remover membro
                 break;
 
             default:
@@ -169,7 +188,7 @@ public class DialogEncontroAddRemove {
 
                     Log.d("foto", documentSnapshot.get("foto").toString());
 
-                    mExampleList.add(new Item_add_user_encontro(userTela));
+                    listAdd.add(new Item_add_user_encontro(userTela));
                     pessoasAdapter.add(new Item_add_user_encontro(userTela));
 
                 }
@@ -183,7 +202,7 @@ public class DialogEncontroAddRemove {
         if (!text.isEmpty()){
 
             ArrayList<Item_add_user_encontro> filteredList = new ArrayList<>();
-            for (Item_add_user_encontro item : mExampleList) {
+            for (Item_add_user_encontro item : listAdd) {
                 if (item.getNome().toLowerCase().contains(text.toLowerCase())) {
                     Log.d("lista item", "top "+ item.getNome());
                     filteredList.add(item);
@@ -195,7 +214,7 @@ public class DialogEncontroAddRemove {
     }
 
     private static void filterReset() {
-        pessoasAdapter.update(mExampleList);
+        pessoasAdapter.update(listAdd);
     }
 
 

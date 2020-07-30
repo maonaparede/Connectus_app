@@ -835,6 +835,7 @@ id actions
 id activity_chooser_view_content
 id add
 id addRemMembro
+id add_editar_encontro
 id adjust_height
 id adjust_width
 id alertTitle
@@ -922,6 +923,7 @@ id hobbieSalvar
 id home
 id homeAsUp
 id horarioE
+id horario_encontro_request
 id icon
 id icon_group
 id icon_only
@@ -962,7 +964,6 @@ id listMode
 id list_item
 id localE
 id local_encontro_request
-id local_encontro_request3
 id login_email
 id login_password
 id message
@@ -1011,6 +1012,7 @@ id recycler_request
 id rejeitar_amigo
 id rejeitar_encontro_request
 id rejeitar_friend_request
+id remove_editar_encontro
 id right
 id right_icon
 id right_side
@@ -1144,12 +1146,12 @@ layout activity_criar_post
 layout activity_editar_encontro
 layout activity_editar_perfil
 layout activity_encontro
-layout activity_friend__request
 layout activity_friends
 layout activity_home
 layout activity_main
 layout activity_perfil
 layout activity_registrar
+layout activity_request
 layout custom_dialog
 layout dialog_ok
 layout dialog_ok_cancel
@@ -1165,6 +1167,7 @@ layout item_home_encontros
 layout item_home_pessoas
 layout item_perfil_perfil
 layout item_post
+layout item_rem_user_encontro
 layout item_to_chat
 layout notification_action
 layout notification_action_tombstone

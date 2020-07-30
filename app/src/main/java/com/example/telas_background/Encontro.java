@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.telas_background.Classes_estaticas.User_principal;
@@ -17,6 +18,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.squareup.picasso.Picasso;
 
 public class Encontro extends AppCompatActivity {
 
@@ -27,6 +29,8 @@ public class Encontro extends AppCompatActivity {
     private TextView data1;
     private TextView horario1;
     private TextView local1;
+    private ImageView imagem1;
+    private String imagem;
 
     private Button sair;
 
@@ -47,6 +51,7 @@ public class Encontro extends AppCompatActivity {
         horario1 = findViewById(R.id.horarioE);
         local1 = findViewById(R.id.localE);
         sair = findViewById(R.id.Exit_ButtonE);
+        imagem1 = findViewById(R.id.imageView3_fotoE);
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
@@ -79,8 +84,8 @@ public class Encontro extends AppCompatActivity {
                     horario1.setText(documentSnapshot.get("horario").toString());
                     local1.setText(documentSnapshot.get("local").toString());
                     pathMsg = documentSnapshot.get("path").toString();
-
-
+                    imagem = documentSnapshot.get("foto").toString();
+                    Picasso.get().load(imagem).into(imagem1);
                     // Log.d("foto" , documentSnapshot.get("foto").toString());
                     // pegarLastMsg( docAmigo.get("path").toString() , documentSnapshot);
                 }
@@ -93,17 +98,17 @@ public class Encontro extends AppCompatActivity {
     public void sairEditar(View v){
         switch (estado){
             case 0:
-                //abre dialog sait encontro
+                //abre dialog sai do encontro
                 MakeToast.makeToast(this , "teste");
             case 1:
                 Intent intent = new Intent(this, Editar_encontro.class);
                 Bundle bundle = new Bundle();
 
+                bundle.putString("encontro", pathEncontro);
                 bundle.putInt("estado", 1);
 
                 intent.putExtras(bundle);
                 startActivity(intent);
-
         }
     }
 

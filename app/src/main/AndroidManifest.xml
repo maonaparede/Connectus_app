@@ -16,11 +16,10 @@
         <activity
             android:name=".Home"
             android:screenOrientation="nosensor" />
-        <activity android:name=".Comentarios_Posts" />
         <activity android:name=".Perfil" />
         <activity android:name=".Editar_perfil" />
         <activity android:name=".Encontro" />
-        <activity android:name=".Friend_Request" />
+        <activity android:name=".Request" />
         <activity android:name=".Chat" />
         <activity android:name=".Conversas" />
         <activity android:name=".Registrar" />

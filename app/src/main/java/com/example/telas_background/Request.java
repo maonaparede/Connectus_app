@@ -10,8 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.telas_background.Classes_instanciadas.Classe_encontro_request;
 import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
+import com.example.telas_background.firebase.Encontro_firebase;
 import com.example.telas_background.firebase.Friend_request_firebase;
+import com.example.telas_background.firebase.Get_user_by_id;
+import com.example.telas_background.item.Item_encontro_request;
 import com.example.telas_background.item.Item_friend_request;
 import com.example.telas_background.utils_helper.MakeToast;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,7 +27,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 
-public class Friend_Request extends AppCompatActivity{
+public class Request extends AppCompatActivity{
 
     private RecyclerView requestRecycler;
     private static GroupAdapter requestAdapter;
@@ -33,7 +37,7 @@ public class Friend_Request extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_friend__request);
+        setContentView(R.layout.activity_request);
 
         requestRecycler = findViewById(R.id.recycler_request);
 
@@ -43,21 +47,14 @@ public class Friend_Request extends AppCompatActivity{
 
         requestRecycler.setAdapter(requestAdapter);
 
-
-       /* Classe_user_tela user = new Classe_user_tela( "https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327"
-                , "30FT22MK5dVcJhEqYuBFUqNnPoo1", "teste ee");
-
-        requestAdapter.add(new Item_friend_request(user)); */
-
-        pegarRequest();
+        pegarEncontroRequest();
+        pegarUserRequest();
 
         context = this;
-
-
     }
 
 
-    public static void botaoItemRecycler(Item item , Integer estado , final Integer positon){
+    public static void botaoItemUserRecycler(Item item , Integer estado , final Integer positon){
 
         Item_friend_request pessoa = (Item_friend_request) item;
         switch (estado){
@@ -65,11 +62,13 @@ public class Friend_Request extends AppCompatActivity{
                 MakeToast.makeToast(context , "Socializar");
                 Friend_request_firebase.friendAddFirebaseFunctionCall(pessoa.user.getId());
                 requestAdapter.removeGroup(positon);
+                requestAdapter.notifyItemChanged(positon);
                 break;
             case 1:
                 MakeToast.makeToast(context , "Rejeitar");
                 Friend_request_firebase.denyRequest(pessoa.user.getId());
                 requestAdapter.removeGroup(positon);
+                requestAdapter.notifyItemChanged(positon);
                 break;
             default:
                 MakeToast.makeToast(context , "Perfil");
@@ -86,7 +85,29 @@ public class Friend_Request extends AppCompatActivity{
         }
     }
 
-    private void pegarRequest(){
+    public static void botaoItemEncontroRecycler(Item item , Integer estado , final Integer positon){
+
+        Item_encontro_request request = (Item_encontro_request) item;
+        switch (estado){
+            case 0:
+                MakeToast.makeToast(context , "Aceitou!");
+                Encontro_firebase.acceptRequestEncontro(request.request.getDono());
+                requestAdapter.removeGroup(positon);
+                requestAdapter.notifyItemChanged(positon);
+                break;
+            case 1:
+                MakeToast.makeToast(context , "Rejeitar");
+                Encontro_firebase.denyRequestEncontro(request.request.getDono());
+                requestAdapter.removeGroup(positon);
+                requestAdapter.notifyItemChanged(positon);
+                break;
+            default:
+                MakeToast.makeToast(context , "Encontro");
+                break;
+        }
+    }
+
+    private void pegarUserRequest(){
 
         idUser = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
 
@@ -103,6 +124,34 @@ public class Friend_Request extends AppCompatActivity{
                                         , document.get("id").toString(), document.get("nome").toString());
 
                                 requestAdapter.add(new Item_friend_request(user));
+                                // Log.d("Perfil" ,document.getId() + " => " + document.getData());
+                            }
+                        } else {
+                            Log.d("FriendRequest ", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
+
+    private void pegarEncontroRequest(){
+
+        idUser = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
+
+        FirebaseFirestore.getInstance().collection("request_encontro").
+                document(idUser).collection("request").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                //tem q colocar o nome do criador como parametro na criação do encontro
+                                //pra depois puxar aqui
+                                Classe_encontro_request encontro = new Classe_encontro_request(document.get("nome").toString()
+                                        , (document.get("dono").toString()), document.get("local").toString(),
+                                        document.get("dia").toString(), document.get("horario").toString(), document.get("foto").toString());
+
+                                requestAdapter.add(new Item_encontro_request(encontro));
                                 // Log.d("Perfil" ,document.getId() + " => " + document.getData());
                             }
                         } else {

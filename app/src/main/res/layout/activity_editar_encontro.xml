@@ -44,11 +44,12 @@
         android:id="@+id/horarioE"
         android:layout_width="150dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:hint="Horario"
+        android:paddingLeft="5dp"
         android:textColor="#0B0707"
         android:textColorHint="#090505"
         android:textSize="15sp"
@@ -112,37 +113,19 @@
         android:ems="10"
         android:fontFamily="@font/changa"
         android:hint="Local"
+        android:paddingLeft="5dp"
         android:textColor="#0B0707"
         android:textColorHint="#090505"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton7"
-        app:layout_constraintStart_toEndOf="@+id/imageButton7"
-        app:layout_constraintTop_toTopOf="@+id/imageButton7" />
-
-    <Button
-        android:id="@+id/addRemMembro"
-        android:layout_width="272dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:background="@drawable/linear_background"
-        android:bottomLeftRadius="20dp"
-        android:bottomRightRadius="20dp"
-        android:fontFamily="@font/changa"
-        android:text="Adicionar / Remover Membro"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:topLeftRadius="20dp"
-        android:topRightRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dataE" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton8"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton8"
+        app:layout_constraintTop_toTopOf="@+id/imageButton8"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/Salvar"
         android:layout_width="272dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:background="@drawable/linear_background"
         android:bottomLeftRadius="20dp"
         android:bottomRightRadius="20dp"
@@ -157,20 +140,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addRemMembro"
-        app:layout_constraintVertical_bias="0.236" />
+        app:layout_constraintTop_toBottomOf="@+id/add_editar_encontro"
+        app:layout_constraintVertical_bias="0.382" />
 
     <ImageButton
         android:id="@+id/imageButton8"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        android:layout_marginTop="24dp"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/horarioE"
-        app:layout_constraintHorizontal_bias="0.578"
-        app:layout_constraintStart_toStartOf="@+id/imageButton7"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.724"
+        app:layout_constraintEnd_toStartOf="@+id/horarioE"
+        app:layout_constraintTop_toBottomOf="@+id/dataE"
         app:srcCompat="@drawable/ic_access_time_black_24dp" />
 
     <ImageButton
@@ -178,12 +158,9 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.002"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.724"
+        app:layout_constraintBottom_toBottomOf="@+id/localE"
+        app:layout_constraintEnd_toStartOf="@+id/localE"
+        app:layout_constraintTop_toTopOf="@+id/localE"
         app:srcCompat="@drawable/ic_location_on_black_24dp" />
 
     <ImageView
@@ -193,10 +170,42 @@
         android:layout_marginTop="36dp"
         android:background="@drawable/linear_background"
         android:onClick="imagemClick1"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toStartOf="@+id/ExcluirE"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toEndOf="@+id/cancelarE"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/toast_frame" />
+
+    <Button
+        android:id="@+id/remove_editar_encontro"
+        android:layout_width="133dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/linear_negative_background"
+        android:fontFamily="@font/changa_light"
+        android:onClick="addRemMembro"
+        android:text="Remover Membro"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/add_editar_encontro"
+        app:layout_constraintStart_toEndOf="@+id/add_editar_encontro"
+        app:layout_constraintTop_toTopOf="@+id/add_editar_encontro"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/add_editar_encontro"
+        android:layout_width="133dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/linear_background"
+        android:fontFamily="@font/changa_light"
+        android:onClick="addRemMembro"
+        android:text="Add Membro"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/localE" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,15 +46,12 @@ public class Criar_encontro_firebase {
 
     public void uparfotoEncontro(){
 
-        Long time = System.currentTimeMillis();
-        String tempo = time.toString();
-
         if(uri == null){
             createEncontro();
         }else {
             StorageReference mStorageRef;
             mStorageRef = FirebaseStorage.getInstance().getReference("/encontro/" + User_principal.getId());
-            final StorageReference reference = mStorageRef.child(tempo);
+            final StorageReference reference = mStorageRef.child(User_principal.getId());
 
             uploadTask = reference.putFile(uri);
 

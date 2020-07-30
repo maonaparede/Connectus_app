@@ -15,7 +15,7 @@ import com.xwray.groupie.ViewHolder;
 public class Item_home_pessoas extends Item<ViewHolder> implements View.OnClickListener {
 
     private Integer position;
-
+    private Item item;
     public final Classe_user_tela user;
 
     public Item_home_pessoas(Classe_user_tela user) {
@@ -27,7 +27,8 @@ public class Item_home_pessoas extends Item<ViewHolder> implements View.OnClickL
 
         ImageView foto = viewHolder.itemView.findViewById(R.id.pessoahome);
 
-        this.position = position;
+        this.position = viewHolder.getAdapterPosition();
+        item = viewHolder.getItem();
 
         foto.setOnClickListener(this);
 
@@ -44,7 +45,7 @@ public class Item_home_pessoas extends Item<ViewHolder> implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        Home.telaPerfil(getItem(position));
+        Home.telaPerfil(item);
     }
 
     @Override
