@@ -59,25 +59,6 @@ public class Home extends AppCompatActivity {
         encontrosRecycler.setAdapter(encontrosAdapter);
         pessoasRecycler.setAdapter(pessoasAdapter);
 
-        encontrosAdapter.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(@NonNull Item item, @NonNull View view) {
-                Intent intent = new Intent(Home.this, Encontro.class);
-                Bundle bundle = new Bundle();
-
-                Item_home_encontros encontro = (Item_home_encontros) item;
-                bundle.putString("encontro", encontro.getPath());
-
-                intent.putExtras(bundle);
-                startActivity(intent);
-            }
-        });
-
-
-
-      //  encontrosAdapter.add(new Item_home_encontros("Teste normal" , "https://cdnb.artstation.com/p/assets/images/images/027/258/167/small/mushk-rizvi-terrasglow.jpg?1591056874"));
-       // encontrosAdapter.add(new Item_home_encontros("Teste hard" , "https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327"));
-
         pessoasAdapter.add(new Item_home_pessoas(
                 new Classe_user_tela("https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327" , "sPDdPbX7juTtGUDTN95uMlTEjes1" , "")));
 
@@ -107,6 +88,7 @@ public class Home extends AppCompatActivity {
 
     private void pegarTodosEncontros(){
 
+
         FirebaseFirestore.getInstance().collection("caminho_encontro").
                 document(User_principal.getId()).collection("encontro").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -116,19 +98,19 @@ public class Home extends AppCompatActivity {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
                                 pegarEncontro(document);
-                               //  Log.d("Perfil" ,document.getId() + " => " + document.getData());
+                              //   Log.d("Perfil" ,document.getId() + " => " + document.getData());
                             }
                         } else {
-                            Log.d("Perfil ", "Error getting documents: ", task.getException());
+                            Log.d("Home ", "Error getting documents: ", task.getException());
                         }
                     }
                 });
     }
 
-    private void pegarEncontro(final QueryDocumentSnapshot docAmigo) {
+    private void pegarEncontro(final QueryDocumentSnapshot docA) {
 
         DocumentReference docRef1 = FirebaseFirestore.getInstance().collection("encontro")
-                .document(docAmigo.get("dono").toString()).collection("atributos")
+                .document(docA.get("dono").toString()).collection("atributos")
                 .document("atributos");
 
         docRef1.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -137,14 +119,16 @@ public class Home extends AppCompatActivity {
 
                 if (documentSnapshot.exists()) {
 
+                    Log.d("foto" , documentSnapshot.get("foto").toString());
+
                    Item_home_encontros item = new Item_home_encontros(documentSnapshot.get("nome").toString()
-                                    , documentSnapshot.get("foto").toString(), documentSnapshot.get("path").toString(),
+                                    , documentSnapshot.get("foto").toString(), docA.get("path").toString(),
                            documentSnapshot.get("dono").toString());
 
                     encontrosAdapter.add(item);
 
 
-                   // Log.d("foto" , documentSnapshot.get("foto").toString());
+
                    // pegarLastMsg( docAmigo.get("path").toString() , documentSnapshot);
                 }
             }
@@ -157,7 +141,6 @@ public class Home extends AppCompatActivity {
         Bundle bundle = new Bundle();
 
         Item_home_encontros encontro = (Item_home_encontros) item;
-        bundle.putString("encontro", encontro.getPath());
         bundle.putString("dono" , encontro.getDono());
 
         intent.putExtras(bundle);

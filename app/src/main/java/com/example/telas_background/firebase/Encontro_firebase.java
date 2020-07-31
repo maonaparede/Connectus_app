@@ -22,12 +22,15 @@ public class Encontro_firebase {
 
     public static Task<String> sendRequestEncontro(String user) {
 
+        Get_user_principal a = new Get_user_principal();
+
         FirebaseFunctions mFunctions;
         mFunctions = FirebaseFunctions.getInstance();
 
         // Create the arguments to the callable function.
         Map<String, Object> data = new HashMap<>();
         data.put("user", user);
+        data.put("nome", User_principal.getNome());
 
         return mFunctions
                 .getHttpsCallable("sendRequestEncontro")

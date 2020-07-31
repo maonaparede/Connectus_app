@@ -10,11 +10,11 @@
         android:id="@+id/imageView3_fotoE"
         android:layout_width="412dp"
         android:layout_height="343dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/linear_negative_background"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,6 +79,7 @@
         android:layout_height="46dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/linear_background"
+        android:onClick="toChat"
         android:text="Chat Encontro"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"

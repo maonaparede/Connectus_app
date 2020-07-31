@@ -20,6 +20,7 @@ import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
 import com.example.telas_background.Perfil;
 import com.example.telas_background.R;
 import com.example.telas_background.firebase.Encontro_firebase;
+import com.example.telas_background.firebase.Get_user_principal;
 import com.example.telas_background.item.Item_add_user_encontro;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -122,6 +123,7 @@ public class DialogEncontroAddRemove {
     }
 
     public static void botaoItemRecyclerEncontroAdd(Item item, Integer estado, final Integer positon) {
+
 
         Item_add_user_encontro pessoa = (Item_add_user_encontro) item;
         switch (estado) {

@@ -14,7 +14,6 @@ import com.example.telas_background.Classes_instanciadas.Classe_encontro_request
 import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
 import com.example.telas_background.firebase.Encontro_firebase;
 import com.example.telas_background.firebase.Friend_request_firebase;
-import com.example.telas_background.firebase.Get_user_by_id;
 import com.example.telas_background.item.Item_encontro_request;
 import com.example.telas_background.item.Item_friend_request;
 import com.example.telas_background.utils_helper.MakeToast;
@@ -147,9 +146,10 @@ public class Request extends AppCompatActivity{
 
                                 //tem q colocar o nome do criador como parametro na criação do encontro
                                 //pra depois puxar aqui
-                                Classe_encontro_request encontro = new Classe_encontro_request(document.get("nome").toString()
+                                Classe_encontro_request encontro = new Classe_encontro_request(document.get("titulo").toString()
                                         , (document.get("dono").toString()), document.get("local").toString(),
-                                        document.get("dia").toString(), document.get("horario").toString(), document.get("foto").toString());
+                                        document.get("dia").toString(), document.get("horario").toString(),
+                                        document.get("foto").toString() , document.get("nome").toString());
 
                                 requestAdapter.add(new Item_encontro_request(encontro));
                                 // Log.d("Perfil" ,document.getId() + " => " + document.getData());

@@ -43,7 +43,6 @@ public class Chat extends AppCompatActivity {
     private ImageView fotoChat;
     private TextView nomeChat;
     private EditText mensagem;
-    private String idFriend;
     private String idUser;
     private String fotoUser;
     private String nomeUser;
@@ -63,7 +62,6 @@ public class Chat extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
-            idFriend = bundle.getString("id");
             fotoUser = bundle.getString("foto");
             nomeUser = bundle.getString("nome");
             pathUser = bundle.getString("path");
@@ -103,13 +101,9 @@ public class Chat extends AppCompatActivity {
                         for (DocumentChange dc : snapshots.getDocumentChanges()) {
                             switch (dc.getType()) {
                                 case ADDED:
-                                    String nome;
-                                    if(dc.getDocument().get("id").toString().equals(idUser)){
-                                        nome = nomeUser;
-                                    }else {
-                                        nome = getString(R.string.voce);
-                                    }
-                                    Classe_chat_msg classeChatMsg = new Classe_chat_msg(nome , dc.getDocument().get("msg").toString(),
+
+                                    Classe_chat_msg classeChatMsg = new Classe_chat_msg(dc.getDocument().get("nome").toString()
+                                            , dc.getDocument().get("msg").toString(),
                                             dc.getDocument().get("id").toString());
 
                                     chatAdapter.add(new Item_chat(classeChatMsg));
@@ -142,7 +136,8 @@ public class Chat extends AppCompatActivity {
 
 
             Map<String, Object> userSend = new HashMap<>();
-            userSend.put("id", idFriend);
+            userSend.put("id", idUser);
+            userSend.put("nome", User_principal.getNome());
             userSend.put("msg", msg);
             userSend.put("tempo", time);
 

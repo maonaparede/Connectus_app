@@ -19,13 +19,11 @@ public class Item_home_encontros extends Item<ViewHolder> implements View.OnClic
 
     private final String nome;
     private final String imagem;
-    private String path;
     private String dono;
 
     public Item_home_encontros(String nome , String imagem, String path, String dono) {
         this.nome = nome;
         this.imagem = imagem;
-        this.path = path;
         this.dono = dono;
     }
 
@@ -51,12 +49,6 @@ public class Item_home_encontros extends Item<ViewHolder> implements View.OnClic
 
     }
 
-
-
-
-    public String getPath() {
-        return path;
-    }
 
     public String getDono() {return dono; }
 

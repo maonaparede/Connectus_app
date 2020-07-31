@@ -61,6 +61,16 @@ public class Editar_encontro extends AppCompatActivity {
         horarioE = findViewById(R.id.horarioE);
         imagem1 = findViewById(R.id.imagemEE);
 
+
+    }
+
+    @Override
+    protected void onStart() {
+        if(estado == 0){
+            addButton.setVisibility(View.INVISIBLE);
+            remButton.setVisibility(View.INVISIBLE);
+        }
+        super.onStart();
     }
 
     public void imagemClick1(View view){

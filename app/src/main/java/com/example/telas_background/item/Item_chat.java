@@ -47,6 +47,6 @@ public class Item_chat extends Item<ViewHolder> {
 
 
          return chat_msg.getId().equals(FirebaseAuth.getInstance().getUid().toString())
-               ? R.layout.item_from_chat : R.layout.item_to_chat;
+               ? R.layout.item_to_chat : R.layout.item_from_chat;
     }
 }

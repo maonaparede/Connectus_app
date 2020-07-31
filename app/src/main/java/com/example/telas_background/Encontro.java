@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -55,8 +56,8 @@ public class Encontro extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
-            pathEncontro = bundle.getString("encontro");
             donoEncontro = bundle.getString("dono");
+            pathEncontro = "encontro/"+donoEncontro;
 
             if(donoEncontro.equals(User_principal.getId())){
                 sair.setText("Editar");
@@ -83,16 +84,29 @@ public class Encontro extends AppCompatActivity {
                     data1.setText(documentSnapshot.get("dia").toString());
                     horario1.setText(documentSnapshot.get("horario").toString());
                     local1.setText(documentSnapshot.get("local").toString());
-                    pathMsg = documentSnapshot.get("path").toString();
                     imagem = documentSnapshot.get("foto").toString();
                     Picasso.get().load(imagem).into(imagem1);
-                    // Log.d("foto" , documentSnapshot.get("foto").toString());
+                     Log.d("foto" , documentSnapshot.get("foto").toString() + " " + imagem);
                     // pegarLastMsg( docAmigo.get("path").toString() , documentSnapshot);
                 }
             }
         });
+
+
     }
 
+    public void toChat(View v){
+        Intent intent = new Intent(this, Chat.class);
+        Bundle bundle = new Bundle();
+
+        bundle.putString("nome", titulo1.getText().toString());
+        bundle.putString("foto", imagem);
+        bundle.putString("path", pathEncontro);
+
+        intent.putExtras(bundle);
+        startActivity(intent);
+
+    }
 
 
     public void sairEditar(View v){

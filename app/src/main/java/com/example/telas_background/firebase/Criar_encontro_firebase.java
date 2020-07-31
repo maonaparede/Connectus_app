@@ -96,7 +96,6 @@ public class Criar_encontro_firebase {
         userSend.put("local", local);
         userSend.put("horario", horario);
         userSend.put("foto", urlfoto);
-        userSend.put("path", "encontro/"+User_principal.getId());
         userSend.put("dono", User_principal.getId());
 
 

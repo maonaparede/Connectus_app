@@ -61,7 +61,6 @@ public class Conversas extends AppCompatActivity {
                 Bundle bundle = new Bundle();
 
                 Item_conversas conversas= (Item_conversas) item;
-                bundle.putString("id", conversas.conversa.getId());
                 bundle.putString("nome", conversas.conversa.getNome());
                 bundle.putString("foto", conversas.conversa.getFoto());
                 bundle.putString("path", conversas.conversa.getPath());
