@@ -11,7 +11,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.telas_background.firebase.Criar_encontro_firebase;
+import com.example.telas_background.firebase.Encontro_firebase;
 import com.example.telas_background.utils_helper.DialogEncontroAddRemove;
+import com.example.telas_background.utils_helper.DialogRemoveConfirmation;
 import com.example.telas_background.utils_helper.MakeToast;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.annotations.Nullable;
@@ -43,6 +45,7 @@ public class Editar_encontro extends AppCompatActivity {
 
         addButton = findViewById(R.id.add_editar_encontro);
         remButton = findViewById(R.id.remove_editar_encontro);
+
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
@@ -91,24 +94,22 @@ public class Editar_encontro extends AppCompatActivity {
     }
 
 
-    public void verificarBotao1(View view){
+    public void verificarBotaoSalvar(View view){
 
-        switch(estado){
-            case 0:
                 Criar_encontro_firebase encontro = new Criar_encontro_firebase(nomeE.getText().toString() , descricaoE.getText().toString(),
                         dataE.getText().toString(), localE.getText().toString(), horarioE.getText().toString(), uri);
 
                 encontro.uparfotoEncontro();
 
-                MakeToast.makeToast(this , "Criado!");
+                if(estado == 0) {
+                    MakeToast.makeToast(this, "Criado!");
+                }else {
+                    MakeToast.makeToast(this, "Atualizado!");
+                }
+
                 startActivity(new Intent(this , Home.class));
-                break;
-            case 1:
-                //editar Encontro
-                break;
-            default:
-                break;
-        }
+
+
     }
 
 
@@ -152,4 +153,13 @@ public class Editar_encontro extends AppCompatActivity {
                 break;
         }
         }
+
+        public void excludeEncontroButton(View v){
+            DialogRemoveConfirmation.createDialogRemoveConfirmation(this ,
+                    "Quer Excluir o Encontro?" , "Excluir o Encontro" , 1);
+        }
+
+    public static void excludeEncontro(){
+        Encontro_firebase.excludeEncontro();
+    }
 }

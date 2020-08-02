@@ -16,7 +16,7 @@ public class MakeDialogGeneric {
     public static TextView title;
     public static TextView content;
 
-    public static void createDialogOkCancel(final Context context, String content1 , String title1){
+    public static void createDialogOk(final Context context, String content1 , String title1){
 
 
         LayoutInflater inflater =  LayoutInflater.from(context);

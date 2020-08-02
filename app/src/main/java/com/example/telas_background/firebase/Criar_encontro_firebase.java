@@ -47,6 +47,8 @@ public class Criar_encontro_firebase {
     public void uparfotoEncontro(){
 
         if(uri == null){
+            //v de vazio, void
+            urlfoto = "v";
             createEncontro();
         }else {
             StorageReference mStorageRef;
@@ -95,7 +97,9 @@ public class Criar_encontro_firebase {
         userSend.put("dia", data);
         userSend.put("local", local);
         userSend.put("horario", horario);
-        userSend.put("foto", urlfoto);
+        if(!urlfoto.equals("v")) {
+            userSend.put("foto", urlfoto);
+        }
         userSend.put("dono", User_principal.getId());
 
 

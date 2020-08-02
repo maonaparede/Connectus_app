@@ -71,6 +71,30 @@ public class Encontro_firebase {
                 });
     }
 
+    public static Task<String> exitEncontro(String dono) {
+
+        FirebaseFunctions mFunctions;
+        mFunctions = FirebaseFunctions.getInstance();
+
+        // Create the arguments to the callable function.
+        Map<String, Object> data = new HashMap<>();
+        data.put("dono", dono);
+
+        return mFunctions
+                .getHttpsCallable("exitEncontro")
+                .call(data)
+                .continueWith(new Continuation<HttpsCallableResult, String>() {
+                    @Override
+                    public String then(@NonNull Task<HttpsCallableResult> task) throws Exception {
+                        // This continuation runs on either success or failure, but if the task
+                        // has failed then getResult() will throw an Exception which will be
+                        // propagated down.
+                        String result = (String) task.getResult().getData();
+                        return result;
+                    }
+                });
+    }
+
     public static void denyRequestEncontro(String dono){
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -91,5 +115,24 @@ public class Encontro_firebase {
                     }
                 });
 
+    }
+
+    public static void excludeEncontro(){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference documentReference = db.collection("encontro").document(User_principal.getId());
+
+        documentReference.delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("excludeEncontro", "DocumentSnapshot successfully deleted!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("excludeEncontro", "Error deleting document", e);
+                    }
+                });
     }
 }

@@ -16,6 +16,7 @@ import com.example.telas_background.Classes_estaticas.User_principal;
 import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
 import com.example.telas_background.item.Item_home_encontros;
 import com.example.telas_background.item.Item_home_pessoas;
+import com.example.telas_background.utils_helper.DialogRemoveConfirmation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -119,7 +120,7 @@ public class Home extends AppCompatActivity {
 
                 if (documentSnapshot.exists()) {
 
-                    Log.d("foto" , documentSnapshot.get("foto").toString());
+                //    Log.d("foto" , documentSnapshot.get("foto").toString());
 
                    Item_home_encontros item = new Item_home_encontros(documentSnapshot.get("nome").toString()
                                     , documentSnapshot.get("foto").toString(), docA.get("path").toString(),

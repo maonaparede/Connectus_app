@@ -56,6 +56,7 @@ public class Editar_perfil_firebase {
     public void uparfotoperfil(){
 
         if(uri == null){
+            urlfoto = "v";
             criarPastaFirestore();
         }else {
 

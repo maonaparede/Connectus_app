@@ -2,6 +2,7 @@ package com.example.telas_background;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,8 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.telas_background.Classes_estaticas.User_principal;
+import com.example.telas_background.firebase.Encontro_firebase;
 import com.example.telas_background.item.Item_home_encontros;
 import com.example.telas_background.item.Item_home_pessoas;
+import com.example.telas_background.utils_helper.DialogRemoveConfirmation;
 import com.example.telas_background.utils_helper.MakeToast;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -37,8 +40,9 @@ public class Encontro extends AppCompatActivity {
 
     private String pathMsg;
 
+    private static Context context;
     private String pathEncontro;
-    private String donoEncontro;
+    private static String donoEncontro;
 
 
     @Override
@@ -66,6 +70,8 @@ public class Encontro extends AppCompatActivity {
 
             pegarEncontro();
         }
+
+        context = this;
     }
 
     private void pegarEncontro() {
@@ -113,7 +119,9 @@ public class Encontro extends AppCompatActivity {
         switch (estado){
             case 0:
                 //abre dialog sai do encontro
-                MakeToast.makeToast(this , "teste");
+                DialogRemoveConfirmation.createDialogRemoveConfirmation(this ,
+                        "Quer Sair do Encontro?" , "Sair do Encontro" , 0);
+                break;
             case 1:
                 Intent intent = new Intent(this, Editar_encontro.class);
                 Bundle bundle = new Bundle();
@@ -123,7 +131,17 @@ public class Encontro extends AppCompatActivity {
 
                 intent.putExtras(bundle);
                 startActivity(intent);
+                break;
+
+            case 2:
+                break;
         }
+    }
+
+    public static void exitEncontro(){
+            Encontro_firebase.exitEncontro(donoEncontro);
+            //context.startActivity(new Intent(context, Home.class));
+
     }
 
 }

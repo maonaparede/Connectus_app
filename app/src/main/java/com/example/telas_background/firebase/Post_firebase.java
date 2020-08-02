@@ -44,6 +44,7 @@ public class Post_firebase {
     public void uparFotoCriarPost(){
         //se a foto for Nula cria o post sem ft
         if(uri == null){
+            urlfoto = "v";
             criarPost();
         }else{
             StorageReference mStorageRef;
