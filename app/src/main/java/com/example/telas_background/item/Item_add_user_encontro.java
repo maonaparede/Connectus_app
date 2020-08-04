@@ -46,7 +46,6 @@ public class Item_add_user_encontro extends Item<ViewHolder> implements View.OnC
 
 
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -56,7 +55,7 @@ public class Item_add_user_encontro extends Item<ViewHolder> implements View.OnC
                 break;
 
             default:
-                DialogEncontroAddRemove.botaoItemRecyclerEncontroAdd(item, 3, positionRequest);
+                DialogEncontroAddRemove.botaoItemRecyclerEncontroAdd(item, 2, positionRequest);
                 Log.d("Add encontro" , "Default");
                 break;
         }

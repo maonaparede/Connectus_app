@@ -20,8 +20,8 @@ import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
 import com.example.telas_background.Perfil;
 import com.example.telas_background.R;
 import com.example.telas_background.firebase.Encontro_firebase;
-import com.example.telas_background.firebase.Get_user_principal;
 import com.example.telas_background.item.Item_add_user_encontro;
+import com.example.telas_background.item.Item_rem_user_encontro;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -38,6 +38,7 @@ import java.util.ArrayList;
 public class DialogEncontroAddRemove {
 
     public static Button ok;
+    private static Integer estado;
     public static Button cancel;
     public static String path;
     public static TextView title;
@@ -46,14 +47,17 @@ public class DialogEncontroAddRemove {
     public static GroupAdapter pessoasAdapter;
 
     private static ArrayList<Item_add_user_encontro> listAdd;
+    private static ArrayList<Item_rem_user_encontro> listRem;
 
     private static SearchView filter;
 
-    public static void createDialogOkAddRemove(final Context context1, String path1 ,Integer estado) {
+    public static void createDialogOkAddRemove(final Context context1, String path1 , final Integer estado1) {
 
         context = context1;
         listAdd = new ArrayList<Item_add_user_encontro>();
+        listRem = new ArrayList<Item_rem_user_encontro>();
         path = path1;
+        estado = estado1;
 
 
         LayoutInflater inflater = LayoutInflater.from(context1);
@@ -83,22 +87,30 @@ public class DialogEncontroAddRemove {
             @Override
             public boolean onQueryTextChange(String newText) {
                 if(!newText.trim().isEmpty()) {
-                    filterDialog(newText);
+                    switch (estado1) {
+                        case 0:
+                        filterDialogAdd(newText);
+                        break;
+                        case 1:
+                        filterDialogRem(newText);
+                            break;
+                    }
                 }else{
-                    filterReset();
+                    filterResetAdd();
+                    filterResetRem();
                 }
                 return false;
             }
         });
 
-        switch (estado) {
+        switch (estado1) {
             case 0:
             pegarTodosAmigosDialog();
             break;
 
             case 1:
-                //paga membros do encontro
-              //  MakeToast.makeToast(c);
+             //paga membros do encontro
+             pegarTodosMembrosDialog();
                 break;
 
             default:
@@ -125,30 +137,30 @@ public class DialogEncontroAddRemove {
     public static void botaoItemRecyclerEncontroAdd(Item item, Integer estado, final Integer positon) {
 
 
-        Item_add_user_encontro pessoa = (Item_add_user_encontro) item;
+
+
         switch (estado) {
             case 0:
-                MakeToast.makeToast(context, "Enviar Request ");
-                Log.d("Dialog" , path);
-                Encontro_firebase.sendRequestEncontro(pessoa.user.getId());
-                pessoasAdapter.removeGroup(pessoa.getPosition(item));
-                //pessoasAdapter.notifyDataSetChanged();
+                Item_add_user_encontro userAdd = (Item_add_user_encontro) item;
+                int a = userAdd.getPosition(item);
+                MakeToast.makeToast(context, "Request Enviada");
+                Encontro_firebase.sendRequestEncontro(userAdd.user.getId());
+                pessoasAdapter.removeGroup(positon);
+                pessoasAdapter.notifyItemRemoved(positon);
+                listAdd.remove(a);
                 break;
 
             case 1:
-                //remover membro
+                Item_rem_user_encontro userRem = (Item_rem_user_encontro) item;
+                int b = userRem.getPosition(item);
+                MakeToast.makeToast(context, "Membro Removido");
+                Encontro_firebase.removeMemberEncontro(userRem.user.getId());
+                pessoasAdapter.removeGroup(positon);
+                pessoasAdapter.notifyItemRemoved(positon);
+                listRem.remove(b);
                 break;
-
             default:
-                MakeToast.makeToast(context, "Perfil");
-                Intent intent = new Intent(context, Perfil.class);
-                Bundle bundle = new Bundle();
 
-                bundle.putString("user", pessoa.user.getId());
-                bundle.putInt("estado", 3);
-
-                intent.putExtras(bundle);
-                context.startActivity(intent);
                 break;
         }
     }
@@ -164,7 +176,7 @@ public class DialogEncontroAddRemove {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                pegarAmigoDialog(document);
+                                pegarUserAddDialog(document);
 
                                 // Log.d("Perfil" ,document.getId() + " => " + document.getData());
                             }
@@ -175,7 +187,7 @@ public class DialogEncontroAddRemove {
                 });
     }
 
-    private static void pegarAmigoDialog(final QueryDocumentSnapshot docAmigo) {
+    private static void pegarUserAddDialog(final QueryDocumentSnapshot docAmigo) {
         DocumentReference docRef1 = FirebaseFirestore.getInstance().collection("user")
                 .document(docAmigo.get("id").toString());
 
@@ -188,21 +200,58 @@ public class DialogEncontroAddRemove {
                     Classe_user_tela userTela = new Classe_user_tela(documentSnapshot.get("foto").toString(),
                             documentSnapshot.get("id").toString(), documentSnapshot.get("nome").toString());
 
-                    Log.d("foto", documentSnapshot.get("foto").toString());
+                        listAdd.add(new Item_add_user_encontro(userTela));
+                        pessoasAdapter.add(new Item_add_user_encontro(userTela));
+                }
+            }
+        });
+    }
 
-                    listAdd.add(new Item_add_user_encontro(userTela));
-                    pessoasAdapter.add(new Item_add_user_encontro(userTela));
+    private static void pegarTodosMembrosDialog() {
+
+        FirebaseFirestore.getInstance().collection("encontro").
+                document(User_principal.getId()).collection("membros").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                pegarUserRemDialog(document);
+
+                                // Log.d("Perfil" ,document.getId() + " => " + document.getData());
+                            }
+                        } else {
+                            Log.d("Perfil ", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
+
+    private static void pegarUserRemDialog(final QueryDocumentSnapshot docAmigo) {
+        DocumentReference docRef1 = FirebaseFirestore.getInstance().collection("user")
+                .document(docAmigo.get("id").toString());
+
+        docRef1.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                if (documentSnapshot.exists()) {
+
+                    Classe_user_tela userTela = new Classe_user_tela(documentSnapshot.get("foto").toString(),
+                            documentSnapshot.get("id").toString(), documentSnapshot.get("nome").toString());
+
+
+                            listRem.add(new Item_rem_user_encontro(userTela));
+                            pessoasAdapter.add(new Item_rem_user_encontro(userTela));
 
                 }
             }
         });
     }
 
-
-    private static void filterDialog(String text) {
-
+    private static void filterDialogAdd(String text) {
         if (!text.isEmpty()){
-
             ArrayList<Item_add_user_encontro> filteredList = new ArrayList<>();
             for (Item_add_user_encontro item : listAdd) {
                 if (item.getNome().toLowerCase().contains(text.toLowerCase())) {
@@ -211,11 +260,27 @@ public class DialogEncontroAddRemove {
                 }
             }
             pessoasAdapter.update(filteredList);
-
         }
     }
 
-    private static void filterReset() {
+    private static void filterResetAdd() {
+        pessoasAdapter.update(listAdd);
+    }
+
+    private static void filterDialogRem(String text) {
+        if (!text.isEmpty()){
+            ArrayList<Item_rem_user_encontro> filteredList = new ArrayList<>();
+            for (Item_rem_user_encontro item : listRem) {
+                if (item.getNome().toLowerCase().contains(text.toLowerCase())) {
+                    Log.d("lista item", "top "+ item.getNome());
+                    filteredList.add(item);
+                }
+            }
+            pessoasAdapter.update(filteredList);
+        }
+    }
+
+    private static void filterResetRem() {
         pessoasAdapter.update(listAdd);
     }
 

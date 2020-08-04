@@ -16,6 +16,7 @@ import com.example.telas_background.Classes_estaticas.User_principal;
 import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
 import com.example.telas_background.item.Item_home_encontros;
 import com.example.telas_background.item.Item_home_pessoas;
+import com.example.telas_background.utils_helper.DialogEncontroAddRemove;
 import com.example.telas_background.utils_helper.DialogRemoveConfirmation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -83,8 +84,8 @@ public class Home extends AppCompatActivity {
 
         //PopUp.createDialogOkCancel(this, "Porque?", "Você vai cortar relações com esse usuário")
 
-        //DialogEncontroAddRemove.createDialogOkAddRemove(this , 0);
-        startActivity(new Intent(this , Request.class));
+        //DialogEncontroAddRemove.createDialogOkAddRemove(context , "a " , 0);
+        startActivity(new Intent(this , Editar_encontro.class));
     }
 
     private void pegarTodosEncontros(){
@@ -149,7 +150,7 @@ public class Home extends AppCompatActivity {
     }
 
     public static void telaPerfil(Item item){
-        Intent intent = new Intent(context, Perfil.class);
+        Intent intent = new Intent(context, Request.class);
         Bundle bundle = new Bundle();
 
         Item_home_pessoas pessoas = (Item_home_pessoas) item;

@@ -84,6 +84,7 @@ public class Friends extends AppCompatActivity {
                 MakeToast.makeToast(context , "Remover");
                 DialogFriendRemove.createDialogOkCancel(context, pessoa.user.getId());
                 friendAdapter.removeGroup(positon);
+                friendAdapter.notifyItemRemoved(positon);
                 break;
             default:
                 MakeToast.makeToast(context , "Perfil");
