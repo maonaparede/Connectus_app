@@ -5,8 +5,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.example.telas_background.Classes_instanciadas.Classe_perfil_perfil;
-import com.example.telas_background.Classes_instanciadas.Classe_user;
+import com.example.telas_background.instanceClasses.ClassPerfilPerfil;
+import com.example.telas_background.instanceClasses.ClassUser;
 import com.example.telas_background.R;
 import com.squareup.picasso.Picasso;
 import com.xwray.groupie.Item;
@@ -14,10 +14,10 @@ import com.xwray.groupie.ViewHolder;
 
 public class Item_perfil_perfil extends Item<ViewHolder> {
 
-    private final Classe_perfil_perfil perfil;
-    private final Classe_user user;
+    private final ClassPerfilPerfil perfil;
+    private final ClassUser user;
 
-    public Item_perfil_perfil(Classe_user user, Classe_perfil_perfil perfil) {
+    public Item_perfil_perfil(ClassUser user, ClassPerfilPerfil perfil) {
         this.perfil = perfil;
         this.user = user;
     }
@@ -26,33 +26,33 @@ public class Item_perfil_perfil extends Item<ViewHolder> {
     @Override
     public void bind(@NonNull ViewHolder viewHolder, int position) {
 
-        TextView descricao1 = viewHolder.itemView.findViewById(R.id.descricao_perfil);
-       descricao1.setText(perfil.getDescricao());
+        TextView description = viewHolder.itemView.findViewById(R.id.item_perfil_perfil_textview_description);
+       description.setText(perfil.getDescription());
 
-        TextView nome1 = viewHolder.itemView.findViewById(R.id.nome_perfil);
-        nome1.setText(user.getNome());
+        TextView name = viewHolder.itemView.findViewById(R.id.item_perfil_perfil_textview_name);
+        name.setText(user.getName());
 
-        ImageView foto = viewHolder.itemView.findViewById(R.id.foto_perfil);
-        Picasso.get().load(user.getFoto()).into(foto);
+        ImageView imageView = viewHolder.itemView.findViewById(R.id.item_perfil_perfil_imageview_image);
+        Picasso.get().load(user.getImage()).into(imageView);
 
         //hobbie
 
-        TextView hobbie = viewHolder.itemView.findViewById(R.id.hobbieP);
+        TextView hobbie = viewHolder.itemView.findViewById(R.id.item_perfil_perfil_textview_hobbieP);
         hobbie.setText(perfil.getH1());
 
-        TextView Hhobbie2 = viewHolder.itemView.findViewById(R.id.hobbieP2);
+        TextView Hhobbie2 = viewHolder.itemView.findViewById(R.id.item_perfil_perfil_textview_hobbieP2);
         Hhobbie2.setText(perfil.getH2());
 
-        TextView Hhobbie3 = viewHolder.itemView.findViewById(R.id.hobbieP3);
+        TextView Hhobbie3 = viewHolder.itemView.findViewById(R.id.item_perfil_perfil_textview_hobbieP3);
         Hhobbie3.setText(perfil.getH3());
 
-        TextView Hhobbie4 = viewHolder.itemView.findViewById(R.id.hobbieP4);
+        TextView Hhobbie4 = viewHolder.itemView.findViewById(R.id.item_perfil_perfil_textview_hobbieP4);
         Hhobbie4.setText(perfil.getH4());
 
-        TextView Hhobbie5 = viewHolder.itemView.findViewById(R.id.hobbieP5);
+        TextView Hhobbie5 = viewHolder.itemView.findViewById(R.id.item_perfil_perfil_textview_hobbieP5);
         Hhobbie5.setText(perfil.getH5());
 
-        TextView Hhobbie6 = viewHolder.itemView.findViewById(R.id.hobbieP6);
+        TextView Hhobbie6 = viewHolder.itemView.findViewById(R.id.item_perfil_perfil_textview_hobbieP6);
         Hhobbie6.setText(perfil.getH6());
 
     }

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/foto_perfil"
+        android:id="@+id/item_perfil_perfil_imageview_image"
         android:layout_width="136dp"
         android:layout_height="136dp"
 
@@ -18,57 +18,57 @@
         app:srcCompat="@android:drawable/toast_frame" />
 
     <TextView
-        android:id="@+id/hobbieP6"
+        android:id="@+id/item_perfil_perfil_textview_hobbieP6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hobbie"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.021"
-        app:layout_constraintStart_toEndOf="@+id/foto_perfil"
-        app:layout_constraintTop_toTopOf="@+id/foto_perfil" />
+        app:layout_constraintStart_toEndOf="@+id/item_perfil_perfil_imageview_image"
+        app:layout_constraintTop_toTopOf="@+id/item_perfil_perfil_imageview_image" />
 
     <TextView
-        android:id="@+id/hobbieP3"
+        android:id="@+id/item_perfil_perfil_textview_hobbieP3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Hobbie"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/foto_perfil"
-        app:layout_constraintEnd_toStartOf="@+id/foto_perfil"
+        app:layout_constraintBottom_toBottomOf="@+id/item_perfil_perfil_imageview_image"
+        app:layout_constraintEnd_toStartOf="@+id/item_perfil_perfil_imageview_image"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hobbieP2"
+        app:layout_constraintTop_toBottomOf="@+id/item_perfil_perfil_textview_hobbieP2"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/hobbieP2"
+        android:id="@+id/item_perfil_perfil_textview_hobbieP2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="Hobbie"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/foto_perfil"
+        app:layout_constraintEnd_toStartOf="@+id/item_perfil_perfil_imageview_image"
         app:layout_constraintHorizontal_bias="0.88"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hobbieP" />
+        app:layout_constraintTop_toBottomOf="@+id/item_perfil_perfil_textview_hobbieP" />
 
     <TextView
-        android:id="@+id/hobbieP4"
+        android:id="@+id/item_perfil_perfil_textview_hobbieP4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hobbie"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/foto_perfil"
+        app:layout_constraintBottom_toBottomOf="@+id/item_perfil_perfil_imageview_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.021"
-        app:layout_constraintStart_toEndOf="@+id/foto_perfil"
-        app:layout_constraintTop_toBottomOf="@+id/hobbieP5"
+        app:layout_constraintStart_toEndOf="@+id/item_perfil_perfil_imageview_image"
+        app:layout_constraintTop_toBottomOf="@+id/item_perfil_perfil_textview_hobbieP5"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/hobbieP5"
+        android:id="@+id/item_perfil_perfil_textview_hobbieP5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -76,55 +76,55 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.129"
-        app:layout_constraintStart_toEndOf="@+id/foto_perfil"
-        app:layout_constraintTop_toBottomOf="@+id/hobbieP6" />
+        app:layout_constraintStart_toEndOf="@+id/item_perfil_perfil_imageview_image"
+        app:layout_constraintTop_toBottomOf="@+id/item_perfil_perfil_textview_hobbieP6" />
 
     <TextView
-        android:id="@+id/hobbieP"
+        android:id="@+id/item_perfil_perfil_textview_hobbieP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hobbie"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/foto_perfil"
+        app:layout_constraintEnd_toStartOf="@+id/item_perfil_perfil_imageview_image"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/foto_perfil" />
+        app:layout_constraintTop_toTopOf="@+id/item_perfil_perfil_imageview_image" />
 
     <TextView
-        android:id="@+id/nome_perfil"
+        android:id="@+id/item_perfil_perfil_textview_name"
         android:layout_width="272dp"
         android:layout_height="47dp"
         android:fontFamily="@font/quicksand"
         android:gravity="center_horizontal"
         android:text="Nome"
         android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="@+id/foto_perfil"
-        app:layout_constraintStart_toStartOf="@+id/foto_perfil"
-        app:layout_constraintTop_toBottomOf="@+id/foto_perfil" />
+        app:layout_constraintEnd_toEndOf="@+id/item_perfil_perfil_imageview_image"
+        app:layout_constraintStart_toStartOf="@+id/item_perfil_perfil_imageview_image"
+        app:layout_constraintTop_toBottomOf="@+id/item_perfil_perfil_imageview_image" />
 
     <View
-        android:id="@+id/view2"
+        android:id="@+id/item_perfil_perfil_view_view2"
         android:layout_width="249dp"
         android:layout_height="3dp"
         android:layout_marginTop="4dp"
         android:background="#F4F5F2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nome_perfil" />
+        app:layout_constraintTop_toBottomOf="@+id/item_perfil_perfil_textview_name" />
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/item_perfil_perfil_view_view1"
         android:layout_width="90dp"
         android:layout_height="5dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/linear_background"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/item_perfil_perfil_view_view2"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/nome_perfil" />
+        app:layout_constraintStart_toStartOf="@+id/item_perfil_perfil_view_view2"
+        app:layout_constraintTop_toBottomOf="@+id/item_perfil_perfil_textview_name" />
 
     <TextView
-        android:id="@+id/descricao_perfil"
+        android:id="@+id/item_perfil_perfil_textview_description"
         android:layout_width="275dp"
         android:layout_height="57dp"
         android:fontFamily="@font/quicksand_bold"
@@ -133,6 +133,6 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2" />
+        app:layout_constraintTop_toBottomOf="@+id/item_perfil_perfil_view_view2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

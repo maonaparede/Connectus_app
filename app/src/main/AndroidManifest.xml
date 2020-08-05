@@ -10,19 +10,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Editar_encontro"></activity>
+        <activity android:name=".MeetingEdit"/>
         <activity android:name=".Friends" />
-        <activity android:name=".CriarPost" />
+        <activity android:name=".PostCreate" />
         <activity
             android:name=".Home"
             android:screenOrientation="nosensor" />
         <activity android:name=".Perfil" />
-        <activity android:name=".Editar_perfil" />
-        <activity android:name=".Encontro" />
+        <activity android:name=".PerfilEdit" />
+        <activity android:name=".Meeting" />
         <activity android:name=".Request" />
         <activity android:name=".Chat" />
-        <activity android:name=".Conversas" />
-        <activity android:name=".Registrar" />
+        <activity android:name=".Contact" />
+        <activity android:name=".Register" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

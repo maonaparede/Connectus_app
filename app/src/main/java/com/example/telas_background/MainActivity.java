@@ -10,8 +10,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.telas_background.firebase.Get_user_principal;
-import com.example.telas_background.utils_helper.MakeToast;
+import com.example.telas_background.firebase.GetUserPrincipal;
+import com.example.telas_background.dialog_toast.MakeToast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private EditText email1;
-    private EditText senha1;
+    private EditText password1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,23 +32,23 @@ public class MainActivity extends AppCompatActivity {
 
         //startActivity(new Intent(this , Perfil.class));
 
-        email1 = findViewById(R.id.login_email);
-        senha1 = findViewById(R.id.login_password);
+        email1 = findViewById(R.id.login_edittext_email);
+        password1 = findViewById(R.id.login_edittext_password);
     }
 
     public void cadastrar(View view){
-        startActivity(new Intent(this , Registrar.class));
+        startActivity(new Intent(this , Register.class));
     }
 
 
     public void login(View v){
 
         String email = email1.getText().toString();
-        String senha = senha1.getText().toString();
+        String password = password1.getText().toString();
 
         mAuth = FirebaseAuth.getInstance();
 
-        mAuth.signInWithEmailAndPassword(email  , senha)
+        mAuth.signInWithEmailAndPassword(email  , password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     public void updateUI(FirebaseUser account){
         if(account != null){
             MakeToast.makeToast(this, "Logado Com Sucesso");
-            new Get_user_principal();
+            new GetUserPrincipal();
             startActivity(new Intent( this , Home.class));
         }else {
             MakeToast.makeToast(this,"Você não foi Logado");

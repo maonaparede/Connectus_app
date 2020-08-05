@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.example.telas_background.Classes_instanciadas.Classe_user_tela;
+import com.example.telas_background.instanceClasses.ClassUserScreen;
 import com.example.telas_background.Request;
 import com.example.telas_background.R;
 import com.squareup.picasso.Picasso;
@@ -17,47 +17,46 @@ import com.xwray.groupie.ViewHolder;
 
 public class Item_friend_request extends Item<ViewHolder> implements View.OnClickListener {
 
-    public final Classe_user_tela user;
+    public final ClassUserScreen user;
     private Integer positionRequest;
     private Item item;
 
-    public Item_friend_request(Classe_user_tela user) {
+    public Item_friend_request(ClassUserScreen user) {
         this.user = user;
     }
 
     @Override
     public void bind(@NonNull ViewHolder viewHolder, int position) {
 
-        TextView nome1 = viewHolder.itemView.findViewById(R.id.nome_friend_request);
-        nome1.setText(user.getNome());
+        TextView name = viewHolder.itemView.findViewById(R.id.item_friend_request_textview_title);
+        name.setText(user.getName());
 
-
-        ImageView foto = viewHolder.itemView.findViewById(R.id.foto_friend_request);
-        Picasso.get().load(user.getFoto()).into(foto);
+        ImageView image = viewHolder.itemView.findViewById(R.id.item_friend_request_imageview_image);
+        Picasso.get().load(user.getImage()).into(image);
 
         positionRequest = position;
         item = viewHolder.getItem();
 
-        viewHolder.itemView.findViewById(R.id.socializar_friend_request).setOnClickListener(this);
-        viewHolder.itemView.findViewById(R.id.rejeitar_friend_request).setOnClickListener(this);
-        viewHolder.itemView.findViewById(R.id.nome_friend_request).setOnClickListener(this);
-        viewHolder.itemView.findViewById(R.id.foto_friend_request).setOnClickListener(this);
+        viewHolder.itemView.findViewById(R.id.item_friend_request_button_connect).setOnClickListener(this);
+        viewHolder.itemView.findViewById(R.id.item_friend_request_button_reject).setOnClickListener(this);
+        viewHolder.itemView.findViewById(R.id.item_friend_request_textview_title).setOnClickListener(this);
+        viewHolder.itemView.findViewById(R.id.item_friend_request_imageview_image).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.socializar_friend_request:
-                Request.botaoItemUserRecycler(item, 0 , positionRequest);
+            case R.id.item_friend_request_button_connect:
+                Request.fromItemFriendRequest(item, 0 , positionRequest);
                 Log.d("Request" , "Socializar");
                 break;
 
-            case R.id.rejeitar_friend_request:
-                Request.botaoItemUserRecycler(item, 1, positionRequest);
+            case R.id.item_friend_request_button_reject:
+                Request.fromItemFriendRequest(item, 1, positionRequest);
                 Log.d("Request" , "Rejeitar");
                 break;
             default:
-                Request.botaoItemUserRecycler(item, 2, positionRequest);
+                Request.fromItemFriendRequest(item, 2, positionRequest);
                 Log.d("Request" , "Default");
                 break;
         }

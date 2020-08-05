@@ -12,23 +12,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.telas_background.Classes_estaticas.User_principal;
-import com.example.telas_background.Classes_instanciadas.Classe_chat_msg;
+import com.example.telas_background.Classes_estaticas.UserPrincipal;
+import com.example.telas_background.instanceClasses.ClassChatMsg;
 import com.example.telas_background.item.Item_chat;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.annotations.Nullable;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
 import com.xwray.groupie.GroupAdapter;
@@ -38,55 +33,48 @@ import java.util.Map;
 
 public class Chat extends AppCompatActivity {
 
-    private RecyclerView chatRecycler;
-    private GroupAdapter chatAdapter;
-    private ImageView fotoChat;
-    private TextView nomeChat;
-    private EditText mensagem;
+    private RecyclerView recycler;
+    private GroupAdapter adapter;
+    private ImageView imageView;
+    private TextView nameChat;
+    private EditText msg;
     private String idUser;
-    private String fotoUser;
-    private String nomeUser;
+    private String imageUser;
+    private String nameUser;
     private String pathUser;
 
-    private ListenerRegistration listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        fotoChat = findViewById(R.id.fotoChat);
-        nomeChat = findViewById(R.id.nomeChat);
-        mensagem = findViewById(R.id.editText_chat);
-        idUser = User_principal.getId();
+        imageView = findViewById(R.id.chat_imageview_user);
+        nameChat = findViewById(R.id.chat_textview_name);
+        msg = findViewById(R.id.chat_edittext_msg);
+        idUser = UserPrincipal.getId();
+
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
-            fotoUser = bundle.getString("foto");
-            nomeUser = bundle.getString("nome");
+            imageUser = bundle.getString("foto");
+            nameUser = bundle.getString("nome");
             pathUser = bundle.getString("path");
+
+            Picasso.get().load(imageUser).into(imageView);
+            nameChat.setText(nameUser);
         }
 
-            Picasso.get().load(fotoUser).into(fotoChat);
-            nomeChat.setText(nomeUser);
+        recycler = findViewById(R.id.chat_recyclerview);
+        adapter = new GroupAdapter();
+        recycler.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+        recycler.setAdapter(adapter);
 
-        chatRecycler = findViewById(R.id.recycler_chat);
-
-        chatAdapter = new GroupAdapter();
-
-        chatRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
-
-        chatRecycler.setAdapter(chatAdapter);
-
-         //
-
-       pegarMsgRealtime();
+        getfMsgRealtime();
     }
 
-    //liestener OnStart
 
-
-    private void pegarMsgRealtime(){
+    private void getfMsgRealtime(){
             FirebaseFirestore.getInstance().collection(pathUser+"/mensagens")
                 .orderBy("tempo" , Query.Direction.ASCENDING)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -97,16 +85,14 @@ public class Chat extends AppCompatActivity {
                             Log.w("TAG", "listen:error", e);
                             return;
                         }
-
                         for (DocumentChange dc : snapshots.getDocumentChanges()) {
                             switch (dc.getType()) {
                                 case ADDED:
-
-                                    Classe_chat_msg classeChatMsg = new Classe_chat_msg(dc.getDocument().get("nome").toString()
+                                    ClassChatMsg classChatMsg = new ClassChatMsg(dc.getDocument().get("nome").toString()
                                             , dc.getDocument().get("msg").toString(),
                                             dc.getDocument().get("id").toString());
 
-                                    chatAdapter.add(new Item_chat(classeChatMsg));
+                                    adapter.add(new Item_chat(classChatMsg));
                                     scrollRecyclerView();
                                     break;
                                 case MODIFIED:
@@ -117,27 +103,22 @@ public class Chat extends AppCompatActivity {
                                     break;
                             }
                         }
-
                     }
                 });
-
     }
 
-    public void enviar(View v){
-
-        String msg = mensagem.getText().toString();
+    public void sendMsg(View v){
+        String msg = this.msg.getText().toString();
 
         if(!msg.trim().equals("")) {
 
             Long time = System.currentTimeMillis();
-
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             DocumentReference documentReference = db.collection(pathUser + "/mensagens").document();
 
-
             Map<String, Object> userSend = new HashMap<>();
             userSend.put("id", idUser);
-            userSend.put("nome", User_principal.getNome());
+            userSend.put("nome", UserPrincipal.getNome());
             userSend.put("msg", msg);
             userSend.put("tempo", time);
 
@@ -155,13 +136,13 @@ public class Chat extends AppCompatActivity {
                         }
                     });
 
-            mensagem.setText("");
+            this.msg.setText("");
         }
     }
 
 
     private void scrollRecyclerView(){
-        chatRecycler.smoothScrollToPosition(chatAdapter.getItemCount() - 1);
+        recycler.smoothScrollToPosition(adapter.getItemCount() - 1);
     }
 
     // trigger no app pra atualizar as 2 pastas dos users

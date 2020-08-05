@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.example.telas_background.Classes_instanciadas.Classe_perfil_post;
+import com.example.telas_background.instanceClasses.ClassPerfilPost;
 import com.example.telas_background.R;
 import com.squareup.picasso.Picasso;
 import com.xwray.groupie.Item;
@@ -13,35 +13,32 @@ import com.xwray.groupie.ViewHolder;
 
 public class Item_post extends Item<ViewHolder> {
 
-    private final String imagemPerfil;
-    private final String nome;
-    private final Classe_perfil_post classe_perfil_post;
+    private final String image;
+    private final String name;
+    private final ClassPerfilPost post;
 
 
-    public Item_post(String nome, String imagemPerfil, Classe_perfil_post post) {
-        this.nome = nome;
-        this.imagemPerfil = imagemPerfil;
-        this.classe_perfil_post = post;
+    public Item_post(String name, String image, ClassPerfilPost post) {
+        this.name = name;
+        this.image = image;
+        this.post = post;
 
     }
 
     @Override
     public void bind(@NonNull ViewHolder viewHolder, int position) {
 
-        TextView nome1 = viewHolder.itemView.findViewById(R.id.nome_post);
-        nome1.setText(nome);
+        TextView name1 = viewHolder.itemView.findViewById(R.id.item_post_textview_name);
+        name1.setText(name);
 
-        TextView descricao1 = viewHolder.itemView.findViewById(R.id.descricao_post);
-        descricao1.setText(classe_perfil_post.getDescricao());
+        TextView description = viewHolder.itemView.findViewById(R.id.item_post_textview_post_description);
+        description.setText(post.getDescription());
 
-        TextView numComentario1 = viewHolder.itemView.findViewById(R.id.comentarios_post);
-        numComentario1.setText(classe_perfil_post.getComentarios() + " Comentários");
+        ImageView imagePerfil = viewHolder.itemView.findViewById(R.id.item_post_imageview_image);
+        Picasso.get().load(image).into(imagePerfil);
 
-        ImageView imagemPerfil1 = viewHolder.itemView.findViewById(R.id.foto_perfil_post);
-        Picasso.get().load(imagemPerfil).into(imagemPerfil1);
-
-        ImageView imagemPost1 = viewHolder.itemView.findViewById(R.id.img_post);
-        Picasso.get().load(classe_perfil_post.getImagemPost()).into(imagemPost1);
+        ImageView imagePost = viewHolder.itemView.findViewById(R.id.item_post_imageview_post_image);
+        Picasso.get().load(post.getImage()).into(imagePost);
 
     }
 

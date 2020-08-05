@@ -1,9 +1,7 @@
 package com.example.telas_background;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,13 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.telas_background.Classes_instanciadas.Classe_perfil_perfil;
-import com.example.telas_background.Classes_instanciadas.Classe_perfil_post;
-import com.example.telas_background.Classes_instanciadas.Classe_user;
-import com.example.telas_background.firebase.Friend_request_firebase;
+import com.example.telas_background.instanceClasses.ClassPerfilPerfil;
+import com.example.telas_background.instanceClasses.ClassPerfilPost;
+import com.example.telas_background.instanceClasses.ClassUser;
+import com.example.telas_background.firebase.FriendRequestFirebase;
 import com.example.telas_background.item.Item_perfil_perfil;
 import com.example.telas_background.item.Item_post;
-import com.example.telas_background.utils_helper.MakeToast;
+import com.example.telas_background.dialog_toast.MakeToast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -34,119 +32,86 @@ import com.xwray.groupie.GroupAdapter;
 
 public class Perfil extends AppCompatActivity {
 
-    private RecyclerView perfilRecycler;
-    private GroupAdapter perfilAdapter;
+    private RecyclerView recycler;
+    private GroupAdapter adapter;
+    public Button buttonConnect;
+
     private String idUser;
-    private Uri uri;
-
-    public Button botaoSocializar;
-    private Dialog dialog;
-
-    private Classe_perfil_perfil perfil;
-    private Classe_user classUser;
+    private ClassPerfilPerfil perfil;
+    private ClassUser classUser;
     private String idPerfil;
-    private Integer estado_botao = 0;
-    private static Context context1;
+    private Integer buttonConnectstate = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
-        perfilRecycler = findViewById(R.id.recyclerP);
-        botaoSocializar = findViewById(R.id.socializar_botao_perfil);
+        recycler = findViewById(R.id.recyclerP);
+        buttonConnect = findViewById(R.id.socializar_botao_perfil);
 
-        perfilAdapter = new GroupAdapter();
-        perfilRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
-        perfilRecycler.setAdapter(perfilAdapter);
-
-        context1 = this;
+        adapter = new GroupAdapter();
+        recycler.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+        recycler.setAdapter(adapter);
 
         idUser = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
+         Bundle bundle = getIntent().getExtras();
 
-        Bundle bundle = getIntent().getExtras();
+         if(idUser.equals(idPerfil)){
+            buttonConnectstate = 0;
+            idPerfil = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
+         }else
         if(bundle != null) {
             idPerfil = bundle.getString("user");
-            estado_botao = bundle.getInt("estado");
-            
+            buttonConnectstate = bundle.getInt("estado");
+
+        }else{
+            idPerfil = idUser;
         }
 
-        if(idUser.equals(idPerfil)){
-            estado_botao = 0;
-            idPerfil = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
-        }
 
-         switch (estado_botao){
+         switch (buttonConnectstate){
              case 0:
-                 botaoSocializar.setText("Criar Post");
+                 buttonConnect.setText("Criar Post");
                  break;
              case 1:
-                 botaoSocializar.setText("Socializar");
+                 buttonConnect.setText("Socializar");
                  break;
              default:
-                 botaoSocializar.setVisibility(View.INVISIBLE);
+                 buttonConnect.setVisibility(View.INVISIBLE);
                  break;
          }
-        //perfil
-       pegarPerfil();
+
+       getfPerfil();
     }
 
-    public void verificarBotao(View v) {
 
-        switch (estado_botao) {
-            case 0:
-                //Caso for dono do perfil CriarPost
-                startActivity(new Intent(this, CriarPost.class));
-                break;
-            case 1:
-                //Caso não for amigo Enviar Friend Request
-                //botaoSocializar.setClickable(false);
-                botaoSocializar.setVisibility(View.INVISIBLE);
-                Friend_request_firebase.sendFriendRequest(idPerfil);
-                MakeToast.makeToast(this , "Teste");
-                break;
-            default:
-                botaoSocializar.setVisibility(View.INVISIBLE);
-                break;
-            }
-        }
-
-
-    private void pegarPerfil(){
-
-        Log.d("IDzao" , "id " + idPerfil);
-
-        //user
-        DocumentReference docRef1 = FirebaseFirestore.getInstance().collection("user").document(idPerfil);
-        docRef1.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+    private void getfPerfil(){
+        FirebaseFirestore.getInstance().collection("user").document(idPerfil).get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
 
                 if(documentSnapshot.exists()) {
-                    classUser = new Classe_user(documentSnapshot.get("foto").toString(),
+                    classUser = new ClassUser(documentSnapshot.get("foto").toString(),
                             documentSnapshot.get("id").toString(), documentSnapshot.get("nome").toString());
 
                     //perfil
-                    DocumentReference docRef = FirebaseFirestore.getInstance().collection("perfil").document(idPerfil);
-                    docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    FirebaseFirestore.getInstance().collection("perfil").document(idPerfil)
+                            .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
                         public void onSuccess(DocumentSnapshot documentSnapshot) {
-                            perfil = documentSnapshot.toObject(Classe_perfil_perfil.class);
-                            perfilAdapter.add( new Item_perfil_perfil( classUser , perfil));
-                            pegarPosts();
+                            perfil = documentSnapshot.toObject(ClassPerfilPerfil.class);
+                            adapter.add( new Item_perfil_perfil( classUser , perfil));
+                            getfPosts();
                         }
                     });
                 }
                 }
         });
-
-
-
-
     }
 
-    private void pegarPosts(){
-
+    private void getfPosts(){
         FirebaseFirestore.getInstance().collection("post").
                 document(idPerfil).collection("post").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -155,12 +120,10 @@ public class Perfil extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
+                                ClassPerfilPost post = new ClassPerfilPost(document.get("imagemPost").toString()
+                                        , document.get("descricao").toString());
 
-                                Classe_perfil_post post = new Classe_perfil_post(document.get("imagemPost").toString()
-                                        , document.get("descricao").toString(), document.get("comentarios").toString());
-
-                                perfilAdapter.add(new Item_post(classUser.getNome() , classUser.getFoto(), post));
-                               // Log.d("Perfil" ,document.getId() + " => " + document.getData());
+                                adapter.add(new Item_post(classUser.getName() , classUser.getImage(), post));
                             }
                         } else {
                             Log.d("Perfil ", "Error getting documents: ", task.getException());
@@ -169,5 +132,21 @@ public class Perfil extends AppCompatActivity {
                 });
     }
 
-
+    public void verifyButton(View v) {
+        switch (buttonConnectstate) {
+            //Caso for dono do perfil CriarPost
+            case 0:
+                startActivity(new Intent(this, PostCreate.class));
+                break;
+            //Caso não for amigo Enviar Friend Request
+            case 1:
+                buttonConnect.setVisibility(View.INVISIBLE);
+                FriendRequestFirebase.sendFriendRequest(idPerfil);
+                MakeToast.makeToast(this , "Teste");
+                break;
+            default:
+                buttonConnect.setVisibility(View.INVISIBLE);
+                break;
+        }
+    }
 }

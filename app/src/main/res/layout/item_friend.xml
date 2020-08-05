@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout5"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/item_friend_imageview_image"
+        android:layout_width="73dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/item_friend_textview_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:fontFamily="@font/changa_semibold"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/item_friend_imageview_image"
+        app:layout_constraintTop_toTopOf="@+id/item_friend_imageview_image" />
+
+    <Button
+        android:id="@+id/item_friend_button_disconect"
+        android:layout_width="133dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:background="@drawable/linear_negative_background"
+        android:fontFamily="@font/changa_light"
+        android:text="Desconectar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/item_friend_button_perfil"
+        app:layout_constraintTop_toBottomOf="@+id/item_friend_textview_name" />
+
+    <Button
+        android:id="@+id/item_friend_button_perfil"
+        android:layout_width="133dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/linear_background"
+        android:fontFamily="@font/changa_light"
+        android:text="Perfil"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/item_friend_imageview_image"
+        app:layout_constraintTop_toBottomOf="@+id/item_friend_textview_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/item_meeting_user_imageview_image"
+        android:layout_width="73dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/item_meeting_user_textview_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:fontFamily="@font/changa_semibold"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/item_meeting_user_imageview_image"
+        app:layout_constraintTop_toTopOf="@+id/item_meeting_user_imageview_image" />
+
+    <Button
+        android:id="@+id/item_meeting_user_button_send_request"
+        android:layout_width="200dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/linear_background"
+        android:fontFamily="@font/changa_light"
+        android:text="Enviar Request"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.368"
+        app:layout_constraintStart_toStartOf="@+id/item_meeting_user_textview_name"
+        app:layout_constraintTop_toBottomOf="@+id/item_meeting_user_textview_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

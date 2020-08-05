@@ -23,7 +23,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/linear_background"
         android:fontFamily="@font/changa"
-        android:onClick="verificarBotao"
+        android:onClick="verifyButton"
         android:text="Socializar"
         android:textColor="#FFFFFF"
         android:textSize="15sp"

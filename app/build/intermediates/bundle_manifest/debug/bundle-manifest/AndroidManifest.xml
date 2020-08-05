@@ -26,19 +26,19 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.example.telas_background.Editar_encontro" />
+        <activity android:name="com.example.telas_background.MeetingEdit" />
         <activity android:name="com.example.telas_background.Friends" />
-        <activity android:name="com.example.telas_background.CriarPost" />
+        <activity android:name="com.example.telas_background.PostCreate" />
         <activity
             android:name="com.example.telas_background.Home"
             android:screenOrientation="nosensor" />
         <activity android:name="com.example.telas_background.Perfil" />
-        <activity android:name="com.example.telas_background.Editar_perfil" />
-        <activity android:name="com.example.telas_background.Encontro" />
+        <activity android:name="com.example.telas_background.PerfilEdit" />
+        <activity android:name="com.example.telas_background.Meeting" />
         <activity android:name="com.example.telas_background.Request" />
         <activity android:name="com.example.telas_background.Chat" />
-        <activity android:name="com.example.telas_background.Conversas" />
-        <activity android:name="com.example.telas_background.Registrar" />
+        <activity android:name="com.example.telas_background.Contact" />
+        <activity android:name="com.example.telas_background.Register" />
         <activity android:name="com.example.telas_background.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

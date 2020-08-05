@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/item_meeting_request_imageview_image"
+        android:layout_width="66dp"
+        android:layout_height="119dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/azulRoxeado"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/item_meeting_request_textview_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:fontFamily="@font/changa_semibold"
+        android:text="TextView"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/item_meeting_request_imageview_image"
+        app:layout_constraintTop_toTopOf="@+id/item_meeting_request_imageview_image" />
+
+    <TextView
+        android:id="@+id/item_meeting_request_textview_owner"
+        android:layout_width="326dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/changa_semibold"
+        android:text="TextView"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/item_meeting_request_textview_title"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/item_meeting_request_textview_title"
+        app:layout_constraintTop_toBottomOf="@+id/item_meeting_request_textview_title"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/item_meeting_request_textview_local"
+        android:layout_width="120dp"
+        android:layout_height="37dp"
+        android:fontFamily="@font/changa_semibold"
+        android:paddingLeft="5dp"
+        android:text="TextView"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_meeting_request_imagebutton_local"
+        app:layout_constraintStart_toEndOf="@+id/item_meeting_request_imagebutton_local" />
+
+    <TextView
+        android:id="@+id/item_meeting_request_textview_hour"
+        android:layout_width="120dp"
+        android:layout_height="37dp"
+        android:fontFamily="@font/changa_semibold"
+        android:paddingLeft="5dp"
+        android:text="TextView"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_meeting_request_imagebutton_hour"
+        app:layout_constraintStart_toEndOf="@+id/item_meeting_request_imagebutton_hour" />
+
+    <Button
+        android:id="@+id/item_meeting_request_button_accept"
+        android:layout_width="133dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/linear_background"
+        android:fontFamily="@font/changa_light"
+        android:text="Participar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/item_meeting_request_imageview_image"
+        app:layout_constraintTop_toBottomOf="@+id/item_meeting_request_imagebutton_hour" />
+
+    <Button
+        android:id="@+id/item_meeting_request_button_reject"
+        android:layout_width="133dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/linear_negative_background"
+        android:fontFamily="@font/changa_light"
+        android:text="Rejeitar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/item_meeting_request_button_accept"
+        app:layout_constraintTop_toBottomOf="@+id/item_meeting_request_textview_hour" />
+
+    <ImageButton
+        android:id="@+id/item_meeting_request_imagebutton_local"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toEndOf="@+id/item_meeting_request_imageview_image"
+        app:layout_constraintTop_toBottomOf="@+id/item_meeting_request_textview_owner"
+        app:srcCompat="@drawable/ic_location_on_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/item_meeting_request_imagebutton_hour"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toEndOf="@+id/item_meeting_request_textview_local"
+        app:layout_constraintTop_toBottomOf="@+id/item_meeting_request_textview_owner"
+        app:srcCompat="@drawable/ic_access_time_black_24dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

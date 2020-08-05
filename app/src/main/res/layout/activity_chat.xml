@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/nomeChat"
+            android:id="@+id/chat_textview_name"
             android:layout_width="294dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -29,15 +29,15 @@
             android:text="TextView"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/ultima_conversa"
+            app:layout_constraintBottom_toTopOf="@+id/item_contact_textview_last_msg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.387"
-            app:layout_constraintStart_toEndOf="@+id/fotoChat"
+            app:layout_constraintStart_toEndOf="@+id/chat_imageview_user"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/fotoChat"
+            android:id="@+id/chat_imageview_user"
             android:layout_width="52dp"
             android:layout_height="52dp"
             android:layout_marginStart="16dp"
@@ -49,19 +49,19 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
-        android:id="@+id/imageButton2_chat"
+        android:id="@+id/chat_imagebutton_send"
         android:layout_width="45dp"
         android:layout_height="30dp"
 
         android:background="@android:color/transparent"
-        android:onClick="enviar"
-        app:layout_constraintStart_toEndOf="@+id/editText_chat"
-        app:layout_constraintTop_toTopOf="@+id/editText_chat"
+        android:onClick="sendMsg"
+        app:layout_constraintStart_toEndOf="@+id/chat_edittext_msg"
+        app:layout_constraintTop_toTopOf="@+id/chat_edittext_msg"
         app:srcCompat="@drawable/ic_send_black_24dp"
         tools:ignore="VectorDrawableCompat" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_chat"
+        android:id="@+id/chat_recyclerview"
         android:layout_width="348dp"
         android:layout_height="532dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +71,7 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <EditText
-        android:id="@+id/editText_chat"
+        android:id="@+id/chat_edittext_msg"
         android:layout_width="322dp"
         android:layout_height="31dp"
         android:layout_marginStart="16dp"
@@ -80,7 +80,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_chat"
+        app:layout_constraintTop_toBottomOf="@+id/chat_recyclerview"
         tools:text="Mensagem" />
 
 

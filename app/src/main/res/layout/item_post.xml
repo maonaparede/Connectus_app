@@ -7,7 +7,7 @@
 
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/foto_perfil_post"
+        android:id="@+id/item_post_imageview_image"
         android:layout_width="47dp"
         android:layout_height="47dp"
 
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/nome_post"
+        android:id="@+id/item_post_textview_name"
         android:layout_width="wrap_content"
         android:layout_height="22dp"
         android:fontFamily="@font/changa"
@@ -26,74 +26,36 @@
         android:textColor="#757575"
         android:textSize="12sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/foto_perfil_post"
-        app:layout_constraintTop_toTopOf="@+id/foto_perfil_post" />
+        app:layout_constraintStart_toEndOf="@+id/item_post_imageview_image"
+        app:layout_constraintTop_toTopOf="@+id/item_post_imageview_image" />
 
     <TextView
-        android:id="@+id/descricao_post"
+        android:id="@+id/item_post_textview_post_description"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/changa"
         android:text="TextView"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/foto_perfil_post"
-        app:layout_constraintTop_toBottomOf="@+id/nome_post" />
+        app:layout_constraintStart_toEndOf="@+id/item_post_imageview_image"
+        app:layout_constraintTop_toBottomOf="@+id/item_post_textview_name" />
 
     <ImageView
-        android:id="@+id/img_post"
+        android:id="@+id/item_post_imageview_post_image"
         android:layout_width="411dp"
-        android:layout_height="411dp"
+        android:layout_height="wrap_content"
+        android:maxHeight="411dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descricao_post"
+        app:layout_constraintTop_toBottomOf="@+id/item_post_textview_post_description"
         app:srcCompat="@drawable/linear_background" />
-
-    <ImageButton
-        android:id="@+id/imageButton9_post"
-        android:layout_width="30dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="4dp"
-        android:background="@android:color/transparent"
-        android:scaleX="-1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_post"
-        app:srcCompat="@drawable/ic_chat_bubble_outline_black_24dp" />
-
-    <TextView
-        android:id="@+id/comentarios_post"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginStart="180dp"
-        android:layout_marginLeft="180dp"
-        android:text="Comentarios"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/comentar_post"
-        app:layout_constraintStart_toEndOf="@+id/comentar_post"
-        app:layout_constraintTop_toTopOf="@+id/comentar_post"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/comentar_post"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="Comentar"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton9_post"
-        app:layout_constraintStart_toEndOf="@+id/imageButton9_post"
-        app:layout_constraintTop_toTopOf="@+id/imageButton9_post"
-        app:layout_constraintVertical_bias="0.0" />
 
     <View
         android:id="@+id/view"
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="#757575"
-        app:layout_constraintBottom_toTopOf="@+id/foto_perfil_post"
+        app:layout_constraintBottom_toTopOf="@+id/item_post_imageview_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

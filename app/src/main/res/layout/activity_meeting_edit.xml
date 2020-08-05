@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MeetingEdit">
+
+    <Button
+        android:id="@+id/meeting_edit_button_exclude"
+        android:layout_width="78dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/linear_negative_background"
+        android:ems="1"
+        android:fontFamily="@font/changa_light"
+        android:onClick="excludeEncontroButton"
+        android:text="Excluir "
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/meeting_edit_imageview_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/meeting_edit_imageview_image" />
+
+    <Button
+        android:id="@+id/meeting_edit_button_cancel"
+        android:layout_width="78dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/linear_negative_background"
+        android:ems="1"
+        android:fontFamily="@font/changa_light"
+        android:text="Cancelar"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/meeting_edit_imageview_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/meeting_edit_imageview_image" />
+
+    <EditText
+        android:id="@+id/meeting_edit_textview_hour"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="Horario"
+        android:paddingLeft="5dp"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/meeting_edit_imagebutton_hour"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/meeting_edit_imagebutton_hour"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/meeting_edit_textview_description"
+        android:layout_width="272dp"
+        android:layout_height="95dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="@font/changa"
+        android:hint="Descrição"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/meeting_edit_edittext_name"
+        app:layout_constraintStart_toStartOf="@+id/meeting_edit_edittext_name"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_edit_edittext_name" />
+
+    <EditText
+        android:id="@+id/meeting_edit_textview_day"
+        android:layout_width="272dp"
+        android:layout_height="45dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="@font/changa"
+        android:hint="Data"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/meeting_edit_textview_description"
+        app:layout_constraintStart_toStartOf="@+id/meeting_edit_textview_description"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_edit_textview_description" />
+
+    <EditText
+        android:id="@+id/meeting_edit_edittext_name"
+        android:layout_width="272dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="36dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="@font/changa"
+        android:hint="Nome Encontro"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_edit_imageview_image" />
+
+    <EditText
+        android:id="@+id/meeting_edit_textview_local"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:fontFamily="@font/changa"
+        android:hint="Local"
+        android:paddingLeft="5dp"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/meeting_edit_imagebutton_hour"
+        app:layout_constraintEnd_toStartOf="@+id/meeting_edit_imagebutton_hour"
+        app:layout_constraintTop_toTopOf="@+id/meeting_edit_imagebutton_hour"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/meeting_edit_button_save"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/linear_background"
+        android:bottomLeftRadius="20dp"
+        android:bottomRightRadius="20dp"
+        android:fontFamily="@font/changa"
+        android:onClick="saveOrCreateMeeting"
+        android:text="Salvar"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_edit_button_add_member"
+        app:layout_constraintVertical_bias="0.382" />
+
+    <ImageButton
+        android:id="@+id/meeting_edit_imagebutton_hour"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/meeting_edit_textview_hour"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_edit_textview_day"
+        app:srcCompat="@drawable/ic_access_time_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/meeting_edit_imagebutton_local"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/meeting_edit_textview_local"
+        app:layout_constraintEnd_toStartOf="@+id/meeting_edit_textview_local"
+        app:layout_constraintTop_toTopOf="@+id/meeting_edit_textview_local"
+        app:srcCompat="@drawable/ic_location_on_black_24dp" />
+
+    <ImageView
+        android:id="@+id/meeting_edit_imageview_image"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/linear_background"
+        android:onClick="imagemClick1"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@+id/meeting_edit_button_exclude"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toEndOf="@+id/meeting_edit_button_cancel"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/toast_frame" />
+
+    <Button
+        android:id="@+id/meeting_edit_button_remove_member"
+        android:layout_width="133dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/linear_negative_background"
+        android:fontFamily="@font/changa_light"
+        android:onClick="toDialogMeeting"
+        android:text="Remover Membro"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/meeting_edit_button_add_member"
+        app:layout_constraintStart_toEndOf="@+id/meeting_edit_button_add_member"
+        app:layout_constraintTop_toTopOf="@+id/meeting_edit_button_add_member"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/meeting_edit_button_add_member"
+        android:layout_width="133dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/linear_background"
+        android:fontFamily="@font/changa_light"
+        android:onClick="toDialogMeeting"
+        android:text="Add Membro"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_edit_textview_local" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

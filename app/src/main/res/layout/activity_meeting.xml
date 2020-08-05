@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Meeting">
+
+    <ImageView
+        android:id="@+id/meeting_imageview_image"
+        android:layout_width="412dp"
+        android:layout_height="343dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/linear_negative_background"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/meeting_textview_meeting"
+        android:layout_width="69dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="208dp"
+        android:layout_marginRight="208dp"
+        android:text="Encontro"
+        app:layout_constraintBottom_toBottomOf="@+id/meeting_button_exit"
+        app:layout_constraintEnd_toStartOf="@+id/meeting_button_exit"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/meeting_button_exit"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/meeting_textview_title"
+        android:layout_width="330dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Titulo"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_imageview_image" />
+
+    <TextView
+        android:id="@+id/meeting_textview_day"
+        android:layout_width="276dp"
+        android:layout_height="35dp"
+        android:fontFamily="@font/changa_light"
+        android:text="Data"
+
+        android:textColor="#47236D"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_textview_title" />
+
+    <TextView
+        android:id="@+id/meeting_textview_description"
+        android:layout_width="286dp"
+        android:layout_height="47dp"
+        android:fontFamily="@font/changa_light"
+        android:lineSpacingExtra="-10dp"
+        android:text="descrição"
+        android:textColor="#979797"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.328"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_textview_day" />
+
+    <Button
+        android:id="@+id/meeting_button_chat"
+        android:layout_width="260dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/linear_background"
+        android:onClick="toChat"
+        android:text="Chat Encontro"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_textview_description" />
+
+    <Button
+        android:id="@+id/meeting_button_exit"
+        android:layout_width="58dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/linear_negative_background"
+        android:fontFamily="@font/changa_light"
+        android:onClick="toEditOrExit"
+        android:text="Sair"
+        android:textColor="#FFFFFF"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_imageview_image" />
+
+    <ImageButton
+        android:id="@+id/meeting_imagebutton_hour"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="4dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/meeting_textview_local"
+        app:srcCompat="@drawable/ic_access_time_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/meeting_imagebutton_local"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginBottom="4dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_location_on_black_24dp" />
+
+    <TextView
+        android:id="@+id/meeting_textview_local"
+        android:layout_width="135dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="4dp"
+        android:text="Local"
+        android:textColor="#8A50C9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/meeting_imagebutton_local"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_button_chat"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/meeting_textview_hour"
+        android:layout_width="135dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="4dp"
+        android:text="Horario"
+        android:textColor="#8A50C9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/meeting_imagebutton_hour"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_button_chat"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/meeting_imagebutton_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/meeting_textview_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/meeting_textview_day"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_textview_title"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/meeting_imagebutton_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:scaleX="-1"
+        app:layout_constraintBottom_toBottomOf="@+id/meeting_textview_day"
+        app:layout_constraintEnd_toStartOf="@+id/meeting_textview_day"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_textview_title"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
