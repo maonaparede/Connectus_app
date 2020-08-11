@@ -9,25 +9,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
+
         <activity android:name=".FragmentHandler"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="nosensor"
             />
+
         <activity android:name=".Login" />
         <activity android:name=".MeetingEdit" />
-        <activity android:name=".Friends" />
         <activity android:name=".PostCreate" />
-        <activity
-            android:name=".Home"
-            android:screenOrientation="nosensor" />
-        <activity android:name=".Perfil" />
         <activity android:name=".PerfilEdit" />
-        <activity android:name=".Meeting" />
-        <activity android:name=".Request" />
         <activity android:name=".Chat" />
-        <activity android:name=".Contact" />
         <activity android:name=".Register" />
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

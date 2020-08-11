@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 
 import com.example.telas_background.instanceClasses.ClassUserScreen;
-import com.example.telas_background.Home;
+import com.example.telas_background.fragment.Home;
 import com.example.telas_background.R;
 import com.squareup.picasso.Picasso;
 import com.xwray.groupie.Item;

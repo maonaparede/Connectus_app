@@ -8,19 +8,31 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="nav_config">
+                  <entry key="nav_encontro">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="256" />
-                            <option name="y" value="368" />
+                            <option name="x" value="30" />
+                            <option name="y" value="314" />
                           </Point>
                         </option>
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="nav_encontro">
+                  <entry key="nav_friends">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-222" />
+                            <option name="y" value="304" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="nav_home">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -37,8 +49,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="500" />
-                            <option name="y" value="12" />
+                            <option name="x" value="-222" />
+                            <option name="y" value="14" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -56,13 +68,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="nav_social">
+                  <entry key="nav_request">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="368" />
+                            <option name="x" value="256" />
+                            <option name="y" value="309" />
                           </Point>
                         </option>
                       </LayoutPositions>

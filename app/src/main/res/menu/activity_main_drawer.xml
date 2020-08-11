@@ -4,6 +4,12 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="@string/menu_home"/>
+
         <item
             android:id="@+id/nav_perfil"
             android:icon="@drawable/ic_menu_perfil"
@@ -17,9 +23,15 @@
             android:icon="@drawable/ic_menu_mensagem"
             android:title="@string/menu_mensagem" />
         <item
-            android:id="@+id/nav_social"
+            android:id="@+id/nav_friends"
             android:icon="@drawable/ic_menu_social"
-            android:title="@string/menu_social"/>
+            android:title="@string/menu_friends"/>
+
+        <item
+            android:id="@+id/nav_request"
+            android:icon="@drawable/ic_baseline_person_add_24"
+            android:title="@string/menu_request"/>
+
         <item
             android:id="@+id/nav_config"
             android:icon="@drawable/ic_menu_config"

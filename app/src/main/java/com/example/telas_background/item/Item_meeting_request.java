@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 
 import com.example.telas_background.instanceClasses.ClassMeetingRequest;
 import com.example.telas_background.R;
-import com.example.telas_background.Request;
+import com.example.telas_background.fragment.Request;
 import com.squareup.picasso.Picasso;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.ViewHolder;

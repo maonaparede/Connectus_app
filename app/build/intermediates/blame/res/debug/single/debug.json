@@ -28,6 +28,14 @@
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\font_rimouski_sb.ttf.flat",
+        "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\font\\rimouski_sb.ttf"
+    },
+    {
+        "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\font_rimouski.xml.flat",
+        "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\font\\rimouski.xml"
+    },
+    {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_chat_from_frame.xml.flat",
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable\\chat_from_frame.xml"
     },
@@ -72,6 +80,14 @@
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\layout\\item_perfil_perfil.xml"
     },
     {
+        "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_connect_us.png.flat",
+        "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable\\connect_us.png"
+    },
+    {
+        "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_home_24.xml.flat",
+        "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable\\ic_baseline_home_24.xml"
+    },
+    {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_play_arrow_black_24dp.xml.flat",
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable\\ic_play_arrow_black_24dp.xml"
     },
@@ -98,6 +114,10 @@
     {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_post_create.xml.flat",
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\layout\\activity_post_create.xml"
+    },
+    {
+        "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_person_add_24.xml.flat",
+        "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable\\ic_baseline_person_add_24.xml"
     },
     {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
@@ -200,6 +220,10 @@
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable-v24\\linear_background.xml"
     },
     {
+        "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\font_marty_font.ttf.flat",
+        "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\font\\marty_font.ttf"
+    },
+    {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
@@ -248,12 +272,12 @@
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable\\custom_button_linear.xml"
     },
     {
-        "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_perfil.xml.flat",
-        "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\layout\\fragment_perfil.xml"
-    },
-    {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_perfil.xml.flat",
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable\\ic_menu_perfil.xml"
+    },
+    {
+        "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_perfil.xml.flat",
+        "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\layout\\fragment_perfil.xml"
     },
     {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_request.xml.flat",
@@ -302,6 +326,10 @@
     {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\font_marty.xml.flat",
+        "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\font\\marty.xml"
     },
     {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_create_black_24dp.xml.flat",

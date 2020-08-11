@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.example.telas_background.instanceClasses.ClassUserScreen;
-import com.example.telas_background.Friends;
+import com.example.telas_background.fragment.Friends;
 import com.example.telas_background.R;
 import com.squareup.picasso.Picasso;
 import com.xwray.groupie.Item;

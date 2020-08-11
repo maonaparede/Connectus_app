@@ -34,10 +34,13 @@ public class FragmentHandler extends AppCompatActivity {
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_perfil,
-                R.id.nav_encontro,
+                R.id.nav_home,
                 R.id.nav_mensagem,
-                R.id.nav_social,
-                R.id.nav_config)
+                R.id.nav_friends,
+                R.id.nav_request,
+                R.id.nav_config
+
+        )
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -49,12 +52,14 @@ public class FragmentHandler extends AppCompatActivity {
             public void onDestinationChanged(@NonNull NavController controller, @NonNull
                     NavDestination destination, @Nullable Bundle arguments) {
 
+                if (destination.getId() == R.id.nav_home) {
+                  //  Toast.makeText(FragmentHandler.this, "Encontro", Toast.LENGTH_LONG).show();
+                }
+
                 if (destination.getId() == R.id.nav_perfil) {
-                    Toast.makeText(FragmentHandler.this, "Perfil", Toast.LENGTH_LONG).show();
+                //    Toast.makeText(FragmentHandler.this, "Perfil", Toast.LENGTH_LONG).show();
                 }
-                if (destination.getId() == R.id.nav_encontro) {
-                    Toast.makeText(FragmentHandler.this, "Encontro", Toast.LENGTH_LONG).show();
-                }
+
 
             }
         });

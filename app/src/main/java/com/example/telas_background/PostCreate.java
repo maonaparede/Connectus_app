@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.telas_background.fragment.Perfil;
 import com.example.telas_background.instanceClasses.ClassPerfilPost;
 import com.example.telas_background.firebase.PostFirebase;
 import com.example.telas_background.dialog_toast.MakeToast;

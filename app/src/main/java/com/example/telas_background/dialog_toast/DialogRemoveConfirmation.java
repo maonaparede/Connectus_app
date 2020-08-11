@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.telas_background.MeetingEdit;
-import com.example.telas_background.Meeting;
+import com.example.telas_background.fragment.Meeting;
 import com.example.telas_background.R;
 
 public class DialogRemoveConfirmation{
@@ -21,10 +21,10 @@ public class DialogRemoveConfirmation{
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(context);
         View view1 = inflater.inflate(R.layout.dialog_ok_cancel, null);
 
-        Button ok = (Button) view1.findViewById(R.id.dialog_ok_cancel_button_ok);
-        Button cancel = (Button) view1.findViewById(R.id.dialog_ok_cancel_button_cancel);
-        TextView title = (TextView) view1.findViewById(R.id.dialog_ok_cancel_textview_title);
-        TextView content = (TextView) view1.findViewById(R.id.dialog_ok_cancel_textview_content);
+        Button ok = view1.findViewById(R.id.dialog_ok_cancel_button_ok);
+        Button cancel = view1.findViewById(R.id.dialog_ok_cancel_button_cancel);
+        TextView title = view1.findViewById(R.id.dialog_ok_cancel_textview_title);
+        TextView content = view1.findViewById(R.id.dialog_ok_cancel_textview_content);
         title.setText(title1);
         content.setText(content1);
 
