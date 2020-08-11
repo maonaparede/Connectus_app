@@ -20,9 +20,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
-    private EditText email1;
-    private EditText password1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,55 +27,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        //startActivity(new Intent(this , Perfil.class));
+        startActivity(new Intent(this , FragmentHandler.class));
 
-        email1 = findViewById(R.id.login_edittext_email);
-        password1 = findViewById(R.id.login_edittext_password);
-    }
-
-    public void cadastrar(View view){
-        startActivity(new Intent(this , Register.class));
-    }
-
-
-    public void login(View v){
-
-        String email = email1.getText().toString();
-        String password = password1.getText().toString();
-
-        mAuth = FirebaseAuth.getInstance();
-
-        mAuth.signInWithEmailAndPassword(email  , password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("Login", "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("Login", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
-
-                        // ...
-                    }
-                });
-    }
-
-
-    public void updateUI(FirebaseUser account){
-        if(account != null){
-            MakeToast.makeToast(this, "Logado Com Sucesso");
-            new GetUserPrincipal();
-            startActivity(new Intent( this , Home.class));
-        }else {
-            MakeToast.makeToast(this,"Você não foi Logado");
-        }
     }
 
 }

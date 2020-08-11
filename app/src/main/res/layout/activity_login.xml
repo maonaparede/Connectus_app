@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_tela_inicial"
+    tools:context=".Login">
+
+    <TextView
+        android:id="@+id/login_textview_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/changa_light"
+        android:lineSpacingExtra="14sp"
+        android:text="Connect"
+        android:textColor="#FFFFFF"
+        android:textSize="64sp"
+        android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/login_textview_us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:fontFamily="@font/changa_light"
+        android:text="Us"
+        android:textColor="#FFFFFF"
+        android:textSize="64sp"
+        android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="@+id/login_textview_connect"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/login_textview_connect"
+        app:layout_constraintTop_toTopOf="@+id/login_textview_connect" />
+
+    <EditText
+        android:id="@+id/login_edittext_email"
+        android:layout_width="272dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="28dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="E-mail"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="7dp"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_textview_us" />
+
+    <EditText
+        android:id="@+id/login_edittext_password"
+        android:layout_width="272dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="28dp"
+        android:background="#FFFFFF"
+        android:ems="10"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:paddingLeft="7dp"
+        android:textColor="#0B0707"
+        android:textColorHint="#090505"
+        android:textSize="15sp"
+        android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="@+id/login_edittext_email"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="@+id/login_edittext_email"
+        app:layout_constraintTop_toBottomOf="@+id/login_edittext_email" />
+
+    <Button
+        android:id="@+id/login_button_login"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/linear_background"
+        android:bottomLeftRadius="20dp"
+        android:bottomRightRadius="20dp"
+        android:onClick="login"
+        android:text="Log In"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="@+id/login_edittext_password"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/login_edittext_password"
+        app:layout_constraintTop_toBottomOf="@+id/login_edittext_password"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/login_textview_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:onClick="cadastrar"
+        android:text="Não tem uma conta? Cadastre-se"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:typeface="monospace"
+        app:layout_constraintEnd_toEndOf="@+id/login_button_login"
+        app:layout_constraintStart_toStartOf="@+id/login_button_login"
+        app:layout_constraintTop_toBottomOf="@+id/login_button_login" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

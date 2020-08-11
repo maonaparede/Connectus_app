@@ -5,4 +5,10 @@
     <string name="content_dialog_friend_remove">Quer desfazer essa conexão</string>
     <string name="voce">Você</string>
     <string name="enviar_request_membro">Enviar Request do Encontro</string>
+
+    <string name="menu_perfil">Perfil</string>
+    <string name="menu_encontro">Encontros</string>
+    <string name="menu_mensagem">Mensagens</string>
+    <string name="menu_social">Socializar</string>
+    <string name="menu_config">Configurações</string>
 </resources>
