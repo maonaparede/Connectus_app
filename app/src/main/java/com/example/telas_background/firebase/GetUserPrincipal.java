@@ -6,13 +6,13 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import static com.example.telas_background.Classes_estaticas.UserPrincipal.setFoto;
-import static com.example.telas_background.Classes_estaticas.UserPrincipal.setNome;
+import static com.example.telas_background.initialize.UserPrincipal.setFoto;
+import static com.example.telas_background.initialize.UserPrincipal.setNome;
 
 public class GetUserPrincipal {
 
     public GetUserPrincipal() {
-        final String idPerfil = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
+        final String idPerfil = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         DocumentReference docRef1 = FirebaseFirestore.getInstance().collection("user").document(idPerfil);
         docRef1.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {

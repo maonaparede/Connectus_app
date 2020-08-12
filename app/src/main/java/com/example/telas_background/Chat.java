@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.telas_background.Classes_estaticas.UserPrincipal;
+import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.instanceClasses.ClassChatMsg;
 import com.example.telas_background.item.Item_chat;
 import com.google.android.gms.tasks.OnFailureListener;

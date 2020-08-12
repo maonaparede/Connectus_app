@@ -1,7 +1,6 @@
 package com.example.telas_background.fragment;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Context;
@@ -15,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.telas_background.Chat;
-import com.example.telas_background.Classes_estaticas.UserPrincipal;
+import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.MeetingEdit;
 import com.example.telas_background.R;
 import com.example.telas_background.firebase.MeetingFirebase;

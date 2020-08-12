@@ -10,13 +10,12 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.telas_background.Chat;
-import com.example.telas_background.Classes_estaticas.UserPrincipal;
+import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.R;
 import com.example.telas_background.instanceClasses.ClassContact;
 import com.example.telas_background.item.Item_contact;

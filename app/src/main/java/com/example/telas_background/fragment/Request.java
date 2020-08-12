@@ -9,17 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.telas_background.Classes_estaticas.UserPrincipal;
+import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.R;
 import com.example.telas_background.dialog_toast.MakeToast;
 import com.example.telas_background.firebase.FriendRequestFirebase;
 import com.example.telas_background.firebase.MeetingFirebase;
-import com.example.telas_background.fragment.Perfil;
 import com.example.telas_background.instanceClasses.ClassMeetingRequest;
 import com.example.telas_background.instanceClasses.ClassUserScreen;
 import com.example.telas_background.item.Item_friend_request;

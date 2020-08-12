@@ -68,7 +68,7 @@
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/linear_background" />
+        app:srcCompat="@drawable/connect_us_icon" />
 
     <TextView
         android:id="@+id/textView7"

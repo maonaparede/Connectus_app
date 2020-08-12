@@ -11,6 +11,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -57,6 +58,12 @@ public class FragmentHandler extends AppCompatActivity {
                 }
 
                 if (destination.getId() == R.id.nav_perfil) {
+
+                    SharedPreferences pref;
+                    pref = getSharedPreferences("info", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.clear();
+                    editor.commit();
                 //    Toast.makeText(FragmentHandler.this, "Perfil", Toast.LENGTH_LONG).show();
                 }
 

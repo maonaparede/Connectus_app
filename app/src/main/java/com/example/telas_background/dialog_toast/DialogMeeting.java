@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.telas_background.Classes_estaticas.UserPrincipal;
+import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.instanceClasses.ClassUserScreen;
 import com.example.telas_background.R;
 import com.example.telas_background.firebase.MeetingFirebase;
@@ -50,10 +50,10 @@ public class DialogMeeting {
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(context);
         View view1 = inflater.inflate(R.layout.dialog_meeting, null);
 
-        SearchView filter = (SearchView) view1.findViewById(R.id.dialog_meeting_searchview);
-        Button button = (Button) view1.findViewById(R.id.dialog_meeting_button_cancel);
-        TextView title = (TextView) view1.findViewById(R.id.dialog_meeting_title);
-        RecyclerView pessoasRecycler = (RecyclerView) view1.findViewById(R.id.dialog_meeting_recyclerview);
+        SearchView filter = view1.findViewById(R.id.dialog_meeting_searchview);
+        Button button = view1.findViewById(R.id.dialog_meeting_button_cancel);
+        TextView title = view1.findViewById(R.id.dialog_meeting_title);
+        RecyclerView pessoasRecycler = view1.findViewById(R.id.dialog_meeting_recyclerview);
         title.setText(R.string.enviar_request_membro);
 
         adapter = new GroupAdapter();

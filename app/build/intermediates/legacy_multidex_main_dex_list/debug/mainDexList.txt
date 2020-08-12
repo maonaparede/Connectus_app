@@ -274,8 +274,6 @@ io/grpc/util/RoundRobinLoadBalancer$StickinessState.class
 io/opencensus/common/ExperimentalApi.class
 io/opencensus/common/Internal.class
 io/opencensus/internal/DefaultVisibilityForTesting.class
-io/realm/DefaultRealmModule.class
-io/realm/DefaultRealmModuleMediator.class
 javax/annotation/CheckForNull.class
 javax/annotation/CheckForSigned.class
 javax/annotation/CheckReturnValue.class

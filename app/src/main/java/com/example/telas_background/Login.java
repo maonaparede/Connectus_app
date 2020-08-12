@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -43,8 +44,8 @@ public class Login extends AppCompatActivity {
 
     public void login(View v){
 
-        String email = email1.getText().toString();
-        String password = password1.getText().toString();
+        final String email = email1.getText().toString();
+        final String password = password1.getText().toString();
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -57,6 +58,9 @@ public class Login extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d("Login", "signInWithEmail:success");
+
+
+
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 updateUI(user);
                             } else {
@@ -80,7 +84,7 @@ public class Login extends AppCompatActivity {
         if(account != null){
             MakeToast.makeToast(this, "Logado Com Sucesso");
             new GetUserPrincipal();
-            startActivity(new Intent( this , Home.class));
+            startActivity(new Intent( this , FragmentHandler.class));
         }else {
             MakeToast.makeToast(this,"Você não foi Logado");
         }
