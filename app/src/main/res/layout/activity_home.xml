@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF"
     tools:context=".fragment.Home">
 
 
@@ -24,7 +25,6 @@
         android:layout_height="35dp"
         android:background="@drawable/linear_background"
         android:fontFamily="@font/changa"
-        android:onClick="quebraGalho"
         android:text="Criar Encontro"
         android:textColor="#FFFFFF"
         android:textSize="15sp"

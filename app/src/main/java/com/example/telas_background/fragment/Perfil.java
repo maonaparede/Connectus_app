@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.telas_background.PostCreate;
 import com.example.telas_background.R;
+import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.instanceClasses.ClassPerfilPerfil;
 import com.example.telas_background.instanceClasses.ClassPerfilPost;
 import com.example.telas_background.instanceClasses.ClassUser;
@@ -67,17 +68,18 @@ public class Perfil extends Fragment {
         recycler.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
         recycler.setAdapter(adapter);
 
-        idUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        idUser = UserPrincipal.getId();
          Bundle bundle = getArguments();
 
-         if(idUser.equals(idPerfil)){
-            buttonConnectstate = 0;
-            idPerfil = FirebaseAuth.getInstance().getCurrentUser().getUid();
-         }else
+
         if(bundle != null) {
             idPerfil = bundle.getString("user");
             buttonConnectstate = bundle.getInt("estado");
 
+            if(idUser.equals(idPerfil)) {
+                buttonConnectstate = 0;
+                idPerfil = UserPrincipal.getId();
+            }
         }else{
             idPerfil = idUser;
         }
@@ -94,6 +96,13 @@ public class Perfil extends Fragment {
                  buttonConnect.setVisibility(View.INVISIBLE);
                  break;
          }
+
+        buttonConnect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verifyButton(v);
+            }
+        });
 
        getfPerfil();
 

@@ -61,7 +61,11 @@ public class Chat extends AppCompatActivity {
             nameUser = bundle.getString("nome");
             pathUser = bundle.getString("path");
 
-            Picasso.get().load(imageUser).into(imageView);
+            if(!imageUser.isEmpty()) {
+                Picasso.get().load(imageUser).into(imageView);
+            }else{
+                Picasso.get().load(R.drawable.connect_us_icon).into(imageView);
+            }
             nameChat.setText(nameUser);
         }
 

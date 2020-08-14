@@ -80,6 +80,10 @@
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\layout\\item_perfil_perfil.xml"
     },
     {
+        "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_exit_to_app_24.xml.flat",
+        "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable\\ic_baseline_exit_to_app_24.xml"
+    },
+    {
         "merged": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\build\\intermediates\\res\\merged\\debug\\drawable_connect_us.png.flat",
         "source": "C:\\Users\\jeffe\\StudioProjects\\Connectus_app\\app\\src\\main\\res\\drawable\\connect_us.png"
     },

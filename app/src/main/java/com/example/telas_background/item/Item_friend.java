@@ -2,6 +2,7 @@ package com.example.telas_background.item;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,13 +38,13 @@ public class Item_friend extends Item<ViewHolder> implements View.OnClickListene
         ImageView image = viewHolder.itemView.findViewById(R.id.item_friend_imageview_image);
         Picasso.get().load(user.getImage()).into(image);
 
+
+        Button deny = viewHolder.itemView.findViewById(R.id.item_friend_button_disconect);
+        deny.setOnClickListener(this);
+
         positionRequest = viewHolder.getAdapterPosition();
         item = viewHolder.getItem();
 
-        viewHolder.itemView.findViewById(R.id.item_friend_button_perfil).setOnClickListener(this);
-        viewHolder.itemView.findViewById(R.id.item_friend_button_disconect).setOnClickListener(this);
-        viewHolder.itemView.findViewById(R.id.item_friend_textview_name).setOnClickListener(this);
-        viewHolder.itemView.findViewById(R.id.item_friend_imageview_image).setOnClickListener(this);
     }
 
     @NonNull
@@ -53,23 +54,18 @@ public class Item_friend extends Item<ViewHolder> implements View.OnClickListene
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.item_friend_button_perfil:
-                Friends.fromItemFriend(item, 2 , positionRequest);
-                Log.d("amigo" , "Socializar");
-                break;
-
-            case R.id.item_friend_button_disconect:
-                Friends.fromItemFriend(item, 0, positionRequest);
-                Log.d("amigo" , "Rejeitar");
-                break;
-            default:
-                Friends.fromItemFriend(item, 2, positionRequest);
-                Log.d("amigo" , "Default");
-                break;
-        }
+    public long getId() {
+        return super.getId();
     }
+
+
+        @Override
+        public void onClick(View v) {
+                    Friends.fromItemFriend(item, positionRequest);
+                    Log.d("amigo" , "Rejeitar");
+        }
+
+
 
     @Override
     public int getLayout() {

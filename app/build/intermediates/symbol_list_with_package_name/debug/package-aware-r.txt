@@ -1133,6 +1133,7 @@ drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_access_time_black_24dp
 drawable ic_baseline_add_a_photo_24
+drawable ic_baseline_exit_to_app_24
 drawable ic_baseline_home_24
 drawable ic_baseline_person_add_24
 drawable ic_chat_bubble_outline_black_24dp
@@ -1355,7 +1356,7 @@ id item_friend_request_imageview_image
 id item_friend_request_textview_title
 id item_friend_textview_name
 id item_home_imageview_user
-id item_home_meeting_imagebutton_image
+id item_home_meeting_imageview_image
 id item_home_meeting_textview_title
 id item_meeting_request_button_accept
 id item_meeting_request_button_reject
@@ -1777,13 +1778,13 @@ string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
 string hide_bottom_view_on_scroll_behavior
-string menu_config
 string menu_encontro
 string menu_friends
 string menu_home
 string menu_mensagem
 string menu_perfil
 string menu_request
+string menu_sair
 string mtrl_chip_close_icon_content_description
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description

@@ -12,5 +12,5 @@
     <string name="menu_mensagem">Mensagens</string>
     <string name="menu_friends">Amigos</string>
     <string name="menu_request">Requests</string>
-    <string name="menu_config">Configurações</string>
+    <string name="menu_sair">Sair</string>
 </resources>

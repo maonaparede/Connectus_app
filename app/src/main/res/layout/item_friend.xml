@@ -51,6 +51,7 @@
         android:id="@+id/item_friend_button_perfil"
         android:layout_width="133dp"
         android:layout_height="26dp"
+        android:clickable="false"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/linear_background"

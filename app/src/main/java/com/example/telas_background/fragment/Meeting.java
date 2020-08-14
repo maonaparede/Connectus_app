@@ -35,6 +35,7 @@ public class Meeting extends Fragment {
     private TextView local1;
     private ImageView imageView;
     private Button buttonExit;
+    private Button buttonToChat;
 
     private String image;
     private String path;
@@ -60,6 +61,7 @@ public class Meeting extends Fragment {
         hour1 = root.findViewById(R.id.meeting_textview_hour);
         local1 = root.findViewById(R.id.meeting_textview_local);
         buttonExit = root.findViewById(R.id.meeting_button_exit);
+        buttonToChat = root.findViewById(R.id.meeting_button_chat);
         imageView = root.findViewById(R.id.meeting_imageview_image);
 
         Bundle bundle = getArguments();
@@ -74,6 +76,20 @@ public class Meeting extends Fragment {
 
             getfMeeting();
         }
+
+        buttonToChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toChat(v);
+            }
+        });
+
+        buttonExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toEditOrExit(v);
+            }
+        });
 
         return root;
     }
@@ -92,14 +108,16 @@ public class Meeting extends Fragment {
                     hour1.setText(documentSnapshot.get("horario").toString());
                     local1.setText(documentSnapshot.get("local").toString());
                     image = documentSnapshot.get("foto").toString();
-                    Picasso.get().load(image).into(imageView);
+                    if(!image.isEmpty()) {
+                        Picasso.get().load(image).into(imageView);
+                    }
                 }
             }
         });
     }
 
     public void toChat(View v){
-        Intent intent = new Intent(context, Chat.class);
+        Intent intent = new Intent(getActivity(), Chat.class);
         Bundle bundle = new Bundle();
 
         bundle.putString("nome", title1.getText().toString());
@@ -119,7 +137,7 @@ public class Meeting extends Fragment {
                         "Quer Sair do Encontro?" , "Sair do Encontro" , 0);
                 break;
             case 1:
-                Intent intent = new Intent(context, MeetingEdit.class);
+                Intent intent = new Intent(getActivity(), MeetingEdit.class);
                 Bundle bundle = new Bundle();
 
                 bundle.putString("encontro", path);

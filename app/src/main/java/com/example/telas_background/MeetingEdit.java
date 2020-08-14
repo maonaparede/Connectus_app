@@ -122,7 +122,9 @@ public class MeetingEdit extends AppCompatActivity {
                     hour.setText(documentSnapshot.get("horario").toString());
                     local.setText(documentSnapshot.get("local").toString());
                     imagem = documentSnapshot.get("foto").toString();
-                    Picasso.get().load(imagem).into(imageView);
+                    if(!imagem.isEmpty()) {
+                        Picasso.get().load(imagem).into(imageView);
+                    }
                 }
             }
         });

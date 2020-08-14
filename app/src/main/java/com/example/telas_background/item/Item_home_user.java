@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.ViewHolder;
 
-public class Item_home_user extends Item<ViewHolder> implements View.OnClickListener {
+public class Item_home_user extends Item<ViewHolder> {
 
     private Integer position;
     private Item item;
@@ -30,7 +30,6 @@ public class Item_home_user extends Item<ViewHolder> implements View.OnClickList
         this.position = viewHolder.getAdapterPosition();
         item = viewHolder.getItem();
 
-        imageView.setOnClickListener(this);
 
         Picasso.get().load(user.getImage()).into(imageView);
 
@@ -42,11 +41,6 @@ public class Item_home_user extends Item<ViewHolder> implements View.OnClickList
         return super.getItem(position);
     }
 
-
-    @Override
-    public void onClick(View v) {
-        Home.telaPerfil(item);
-    }
 
     @Override
     public int getLayout() {

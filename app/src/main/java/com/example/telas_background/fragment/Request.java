@@ -79,6 +79,7 @@ public class Request extends Fragment {
                 requestAdapter.notifyItemChanged(position);
                 break;
             default:
+                /*
                 MakeToast.makeToast(context , "Perfil");
                 Intent intent = new Intent(context, Perfil.class);
                 Bundle bundle = new Bundle();
@@ -88,6 +89,8 @@ public class Request extends Fragment {
 
                 intent.putExtras(bundle);
                 context.startActivity(intent);
+
+                 */
                 break;
         }
     }

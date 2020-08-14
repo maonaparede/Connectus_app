@@ -59,7 +59,9 @@ public class Login extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d("Login", "signInWithEmail:success");
 
-
+                                SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
+                                 shared.edit().putString("email" , email).apply();
+                                 shared.edit().putString("password" , password).apply();
 
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 updateUI(user);
@@ -84,7 +86,7 @@ public class Login extends AppCompatActivity {
         if(account != null){
             MakeToast.makeToast(this, "Logado Com Sucesso");
             new GetUserPrincipal();
-            startActivity(new Intent( this , FragmentHandler.class));
+            startActivity(new Intent( this , MainActivity.class));
         }else {
             MakeToast.makeToast(this,"Você não foi Logado");
         }

@@ -2,6 +2,7 @@ package com.example.telas_background.fragment;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,6 +29,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
+import com.xwray.groupie.OnItemClickListener;
 
 public class Friends extends Fragment {
 
@@ -56,31 +58,48 @@ public class Friends extends Fragment {
 
         getfFriends();
 
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(@NonNull Item item, @NonNull View view) {
+                fromItemFriendtoPerfil(item , view);
+            }
+        });
+
         return root;
     }
 
-    public static void fromItemFriend(Item item , Integer state , final Integer position){
+    public static void fromItemFriend(Item item , final Integer position){
 
         Item_friend friend = (Item_friend) item;
-        switch (state){
-            case 0:
+
                 MakeToast.makeToast(context , "Remover");
                 DialogFriendRemove.createDialogOkCancel(context, friend.user.getId());
                 adapter.removeGroup(position);
                 adapter.notifyItemRemoved(position);
-                break;
-            default:
+
+    }
+
+
+    public void fromItemFriendtoPerfil(Item item , View view){
+
+        Item_friend friend = (Item_friend) item;
+
                 MakeToast.makeToast(context , "Perfil");
-                Intent intent = new Intent(context, Perfil.class);
                 Bundle bundle = new Bundle();
 
                 bundle.putString("user", friend.user.getId());
                 bundle.putInt("estado", 3);
 
-                intent.putExtras(bundle);
-                context.startActivity(intent);
-                break;
-        }
+                Fragment fragment = new Perfil();
+
+                fragment.setArguments(bundle);
+
+                assert getFragmentManager() != null;
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                transaction.replace(R.id.nav_host_fragment , fragment);
+
+                transaction.commit();
     }
 
     private void getfFriends(){
