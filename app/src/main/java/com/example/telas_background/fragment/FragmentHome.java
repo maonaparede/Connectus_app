@@ -15,7 +15,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.telas_background.dialog_toast.MakeToast;
 import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.MeetingEdit;
 import com.example.telas_background.R;
@@ -33,7 +32,7 @@ import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
 
-public class Home extends Fragment {
+public class FragmentHome extends Fragment {
 
     private RecyclerView encontrosRecycler;
     private GroupAdapter encontrosAdapter;
@@ -53,7 +52,7 @@ public class Home extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        View root = inflater.inflate(R.layout.activity_home , container , false);
+        View root = inflater.inflate(R.layout.fragment_home, container , false);
 
         createMeeting = (Button) root.findViewById(R.id.home_button_create_meeting);
 
@@ -159,7 +158,7 @@ public class Home extends Fragment {
         Item_home_meeting meeting = (Item_home_meeting) item;
         bundle.putString("dono" , meeting.getOwnerId());
 
-        Fragment fragment = new Meeting();
+        Fragment fragment = new FragmentMeeting();
 
 
         fragment.setArguments(bundle);
@@ -179,7 +178,7 @@ public class Home extends Fragment {
         bundle.putString("user", item1.user.getId());
         bundle.putInt("estado", 1);
 
-        Fragment fragment = new Perfil();
+        Fragment fragment = new FragmentPerfil();
 
 
         fragment.setArguments(bundle);

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.telas_background.Chat;
+import com.example.telas_background.FragmentHandler;
 import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.MeetingEdit;
 import com.example.telas_background.R;
@@ -24,7 +25,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
-public class Meeting extends Fragment {
+public class FragmentMeeting extends Fragment {
 
     private Integer state = 0;
 
@@ -45,7 +46,7 @@ public class Meeting extends Fragment {
 
     @Override
     public void onAttach(@NonNull Context context1) {
-        context = context1;
+        context = getActivity();
         super.onAttach(context1);
     }
 
@@ -53,7 +54,7 @@ public class Meeting extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        View root = inflater.inflate(R.layout.activity_meeting , container , false);
+        View root = inflater.inflate(R.layout.fragment_meeting, container , false);
 
         title1 = root.findViewById(R.id.meeting_textview_title);
         description1 = root.findViewById(R.id.meeting_textview_description);
@@ -154,7 +155,7 @@ public class Meeting extends Fragment {
 
     public static void exitEncontro(){
             MeetingFirebase.exitMeeting(owner);
-            //context.startActivity(new Intent(context, Home.class));
+            context.startActivity(new Intent(context, FragmentHandler.class));
     }
 
 }

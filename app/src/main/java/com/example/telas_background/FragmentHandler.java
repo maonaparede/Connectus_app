@@ -7,7 +7,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -19,16 +18,21 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.example.telas_background.fragment.Home;
-import com.example.telas_background.fragment.Perfil;
+import com.example.telas_background.fragment.FragmentHome;
+import com.example.telas_background.sqlite.FriendsSqlController;
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
 
 public class FragmentHandler extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private static Context context;
+    private ImageView imageUser;
+    private TextView nameUser;
+    private TextView emailUser;
 
 
     @Override
@@ -44,6 +48,12 @@ public class FragmentHandler extends AppCompatActivity {
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        View view = navigationView.getHeaderView(0);
+
+        imageUser = view.findViewById(R.id.toolbar_image_user);
+        nameUser = view.findViewById(R.id.toolbar_name_user);
+        emailUser = view.findViewById(R.id.toolbar_email_user);
+        setHeaderToolbar();
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_perfil,
@@ -71,6 +81,9 @@ public class FragmentHandler extends AppCompatActivity {
 
                 if (destination.getId() == R.id.nav_config) {
 
+                    FriendsSqlController sqlController = new FriendsSqlController(context);
+                    sqlController.excludeAll();
+
                     SharedPreferences pref;
                     pref = getSharedPreferences("info", MODE_PRIVATE);
                     SharedPreferences.Editor editor = pref.edit();
@@ -88,6 +101,20 @@ public class FragmentHandler extends AppCompatActivity {
         });
     }
 
+    private void setHeaderToolbar() {
+        SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
+       String name = shared.getString("name" , "");
+       String image = shared.getString("image" , "");
+        String email = shared.getString("email" , "");
+
+        nameUser.setText(name);
+        emailUser.setText(email);
+        if(!image.isEmpty()) {
+            Picasso.get().load(image).into(imageUser);
+        }
+    }
+
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -96,17 +123,6 @@ public class FragmentHandler extends AppCompatActivity {
     }
 
 
-    public void replaceFragments(Fragment fragment, Bundle bundle) {
 
-        fragment = new Home();
-        bundle = null;
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.nav_host_fragment, fragment)
-                .commit();
-
-        fragment.setArguments(bundle);
-
-    }
 
 }

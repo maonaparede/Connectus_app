@@ -33,7 +33,7 @@ import com.xwray.groupie.OnItemClickListener;
 
 import java.util.ArrayList;
 
-public class Contact extends Fragment {
+public class FragmentContact extends Fragment {
 
     private ArrayList<Item_contact> list;
 
@@ -53,7 +53,7 @@ public class Contact extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        View root = inflater.inflate(R.layout.activity_contact, container , false);
+        View root = inflater.inflate(R.layout.fragment_contact, container , false);
 
         recycler = root.findViewById(R.id.contact_recyclerview);
         filter = root.findViewById(R.id.contact_search);

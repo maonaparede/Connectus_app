@@ -15,7 +15,7 @@ import com.example.telas_background.firebase.MeetingFirebase;
 import com.example.telas_background.dialog_toast.DialogMeeting;
 import com.example.telas_background.dialog_toast.DialogRemoveConfirmation;
 import com.example.telas_background.dialog_toast.MakeToast;
-import com.example.telas_background.fragment.Home;
+import com.example.telas_background.fragment.FragmentHome;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.annotations.Nullable;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -104,7 +104,7 @@ public class MeetingEdit extends AppCompatActivity {
                     MakeToast.makeToast(this, "Atualizado!");
                 }
 
-                startActivity(new Intent(this , Home.class));
+                startActivity(new Intent(this , FragmentHome.class));
     }
 
 

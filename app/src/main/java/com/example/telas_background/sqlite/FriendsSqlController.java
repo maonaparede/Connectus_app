@@ -32,8 +32,13 @@ public class FriendsSqlController {
             db.close();
         }
 
+        public int excludeById(String id){
+            db = dbHelper.getWritableDatabase();
+            int rows = db.delete(TABLE , "id=?", new String[]{id});
+            return rows;
+        }
 
-        public int exclude(){
+        public int excludeAll(){
             db = dbHelper.getWritableDatabase();
             int rows = db.delete(TABLE , null , null);
             return rows;

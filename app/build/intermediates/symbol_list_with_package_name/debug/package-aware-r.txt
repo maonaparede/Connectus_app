@@ -1336,7 +1336,6 @@ id icon_group
 id icon_only
 id ifRoom
 id image
-id imageView
 id imageView2
 id imageView3
 id info
@@ -1558,7 +1557,6 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id textView
 id textView2
 id textView3
 id textView4
@@ -1566,7 +1564,6 @@ id textView5
 id textView6
 id textView7
 id text_input_password_toggle
-id text_perfil
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -1574,6 +1571,9 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toolbar_email_user
+id toolbar_image_user
+id toolbar_name_user
 id toolbar_toolbar_custon
 id top
 id topPanel
@@ -1652,19 +1652,13 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_chat
-layout activity_contact
 layout activity_fragment_handler
-layout activity_friends
-layout activity_home
 layout activity_login
 layout activity_main
-layout activity_meeting
 layout activity_meeting_edit
-layout activity_perfil
 layout activity_perfil_edit
 layout activity_post_create
 layout activity_register
-layout activity_request
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1683,7 +1677,12 @@ layout design_text_input_password_icon
 layout dialog_meeting
 layout dialog_ok
 layout dialog_ok_cancel
+layout fragment_contact
+layout fragment_friends
+layout fragment_home
+layout fragment_meeting
 layout fragment_perfil
+layout fragment_request
 layout item_chat_from
 layout item_chat_to
 layout item_contact

@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,7 +30,7 @@ import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
 
-public class Friends extends Fragment {
+public class FragmentFriends extends Fragment {
 
     private RecyclerView recycler;
     private static GroupAdapter adapter;
@@ -48,7 +47,7 @@ public class Friends extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        View root = inflater.inflate(R.layout.activity_friends , container ,false);
+        View root = inflater.inflate(R.layout.fragment_friends, container ,false);
 
 
         recycler = root.findViewById(R.id.friends_recyclerview);
@@ -90,7 +89,7 @@ public class Friends extends Fragment {
                 bundle.putString("user", friend.user.getId());
                 bundle.putInt("estado", 3);
 
-                Fragment fragment = new Perfil();
+                Fragment fragment = new FragmentPerfil();
 
                 fragment.setArguments(bundle);
 

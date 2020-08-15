@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.telas_background.firebase.PerfilEditFirebase;
 import com.example.telas_background.dialog_toast.MakeToast;
-import com.example.telas_background.fragment.Home;
+import com.example.telas_background.fragment.FragmentHome;
 import com.google.firebase.database.annotations.Nullable;
 import com.squareup.picasso.Picasso;
 
@@ -98,7 +98,7 @@ public class PerfilEdit extends AppCompatActivity {
         perfilEditFirebase.uploadPerfilImage();
 
         MakeToast.makeToast(this , "Perfil Atualizado");
-        startActivity(new Intent(this , Home.class));
+        startActivity(new Intent(this , FragmentHome.class));
     }
 
 }

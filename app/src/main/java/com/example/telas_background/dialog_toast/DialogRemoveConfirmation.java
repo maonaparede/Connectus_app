@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.telas_background.MeetingEdit;
-import com.example.telas_background.fragment.Meeting;
+import com.example.telas_background.fragment.FragmentMeeting;
 import com.example.telas_background.R;
 
 public class DialogRemoveConfirmation{
@@ -54,7 +54,7 @@ public class DialogRemoveConfirmation{
     private static void callFunction(Integer state){
         switch (state) {
             case 0:
-                Meeting.exitEncontro();
+                FragmentMeeting.exitEncontro();
                 break;
             case 1:
                 MeetingEdit.FromDialogRemoveConfirmation();

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.example.telas_background.instanceClasses.ClassUserScreen;
-import com.example.telas_background.fragment.Friends;
+import com.example.telas_background.fragment.FragmentFriends;
 import com.example.telas_background.R;
 import com.squareup.picasso.Picasso;
 import com.xwray.groupie.Item;
@@ -61,7 +61,7 @@ public class Item_friend extends Item<ViewHolder> implements View.OnClickListene
 
         @Override
         public void onClick(View v) {
-                    Friends.fromItemFriend(item, positionRequest);
+                    FragmentFriends.fromItemFriend(item, positionRequest);
                     Log.d("amigo" , "Rejeitar");
         }
 

@@ -22,29 +22,28 @@ public class MeetingFirebase {
 
     public static Task<String> sendRequestMeeting(String user) {
 
-        GetUserPrincipal a = new GetUserPrincipal();
 
-        FirebaseFunctions mFunctions;
-        mFunctions = FirebaseFunctions.getInstance();
+            FirebaseFunctions mFunctions;
+            mFunctions = FirebaseFunctions.getInstance();
 
-        // Create the arguments to the callable function.
-        Map<String, Object> data = new HashMap<>();
-        data.put("user", user);
-        data.put("nome", UserPrincipal.getNome());
+            // Create the arguments to the callable function.
+            Map<String, Object> data = new HashMap<>();
+            data.put("user", user);
+            data.put("nome", UserPrincipal.getNome());
 
-        return mFunctions
-                .getHttpsCallable("sendRequestEncontro")
-                .call(data)
-                .continueWith(new Continuation<HttpsCallableResult, String>() {
-                    @Override
-                    public String then(@NonNull Task<HttpsCallableResult> task) throws Exception {
-                        // This continuation runs on either success or failure, but if the task
-                        // has failed then getResult() will throw an Exception which will be
-                        // propagated down.
-                        String result = (String) task.getResult().getData();
-                        return result;
-                    }
-                });
+            return mFunctions
+                    .getHttpsCallable("sendRequestEncontro")
+                    .call(data)
+                    .continueWith(new Continuation<HttpsCallableResult, String>() {
+                        @Override
+                        public String then(@NonNull Task<HttpsCallableResult> task) throws Exception {
+                            // This continuation runs on either success or failure, but if the task
+                            // has failed then getResult() will throw an Exception which will be
+                            // propagated down.
+                            String result = (String) task.getResult().getData();
+                            return result;
+                        }
+                    });
     }
 
     public static Task<String> removeMemberMeeting(String user) {

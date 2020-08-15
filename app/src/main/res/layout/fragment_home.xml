@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF"
-    tools:context=".fragment.Home">
+    tools:context=".fragment.FragmentHome">
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -23,6 +23,7 @@
         android:id="@+id/home_button_create_meeting"
         android:layout_width="255dp"
         android:layout_height="35dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/linear_background"
         android:fontFamily="@font/changa"
         android:text="Criar Encontro"

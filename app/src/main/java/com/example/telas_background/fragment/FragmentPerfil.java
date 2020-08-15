@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,18 +24,17 @@ import com.example.telas_background.firebase.FriendRequestFirebase;
 import com.example.telas_background.item.Item_perfil_perfil;
 import com.example.telas_background.item.Item_post;
 import com.example.telas_background.dialog_toast.MakeToast;
+import com.example.telas_background.sqlite.FriendsSqlController;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.xwray.groupie.GroupAdapter;
 
-public class Perfil extends Fragment {
+public class FragmentPerfil extends Fragment {
 
     private RecyclerView recycler;
     private GroupAdapter adapter;
@@ -48,6 +46,7 @@ public class Perfil extends Fragment {
     private String idPerfil;
     private Integer buttonConnectstate = 0;
     private Context context;
+    private Bundle bundle;
 
     @Override
     public void onAttach(@NonNull Context context1) {
@@ -59,7 +58,7 @@ public class Perfil extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        View root = inflater.inflate(R.layout.activity_perfil , container , false);
+        View root = inflater.inflate(R.layout.fragment_perfil, container , false);
 
         recycler = root.findViewById(R.id.recyclerP);
         buttonConnect = root.findViewById(R.id.socializar_botao_perfil);
@@ -69,33 +68,15 @@ public class Perfil extends Fragment {
         recycler.setAdapter(adapter);
 
         idUser = UserPrincipal.getId();
-         Bundle bundle = getArguments();
+        bundle = getArguments();
 
 
-        if(bundle != null) {
-            idPerfil = bundle.getString("user");
-            buttonConnectstate = bundle.getInt("estado");
-
-            if(idUser.equals(idPerfil)) {
-                buttonConnectstate = 0;
-                idPerfil = UserPrincipal.getId();
-            }
-        }else{
-            idPerfil = idUser;
+        try {
+            analizeButton();
+            setFunctionButton();
+        }catch (Exception e){
+            Log.d("Error Button " , e.getMessage());
         }
-
-
-         switch (buttonConnectstate){
-             case 0:
-                 buttonConnect.setText("Criar Post");
-                 break;
-             case 1:
-                 buttonConnect.setText("Socializar");
-                 break;
-             default:
-                 buttonConnect.setVisibility(View.INVISIBLE);
-                 break;
-         }
 
         buttonConnect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,6 +135,46 @@ public class Perfil extends Fragment {
                         }
                     }
                 });
+    }
+
+
+    private void analizeButton(){
+
+        if(bundle != null) {
+            String user = bundle.getString("user");
+
+            if(!user.isEmpty()) {
+                FriendsSqlController searchFriend = new FriendsSqlController(getActivity());
+                if(searchFriend.verifyIfExist(user)){
+                    idPerfil = user;
+                    buttonConnectstate = 3;
+                }else {
+                    idPerfil = user;
+                     buttonConnectstate = bundle.getInt("estado");
+                    }
+            }
+            if(idUser.equals(idPerfil)){
+                buttonConnectstate = 0;
+                idPerfil = UserPrincipal.getId();
+            }
+
+        }else{
+            idPerfil = idUser;
+        }
+    }
+
+    private void setFunctionButton(){
+        switch (buttonConnectstate){
+            case 0:
+                buttonConnect.setText("Criar Post");
+                break;
+            case 1:
+                buttonConnect.setText("Socializar");
+                break;
+            default:
+                buttonConnect.setVisibility(View.INVISIBLE);
+                break;
+        }
     }
 
     public void verifyButton(View v) {

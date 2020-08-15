@@ -1,7 +1,6 @@
 package com.example.telas_background.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,7 +29,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 
-public class Request extends Fragment {
+public class FragmentRequest extends Fragment {
 
     private RecyclerView requestRecycler;
     private static GroupAdapter requestAdapter;
@@ -47,7 +46,7 @@ public class Request extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        View root = inflater.inflate(R.layout.activity_request , container , false);
+        View root = inflater.inflate(R.layout.fragment_request, container , false);
 
         requestRecycler = root.findViewById(R.id.request_recyclerview);
         requestAdapter = new GroupAdapter();

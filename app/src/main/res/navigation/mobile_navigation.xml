@@ -9,44 +9,44 @@
 
     <fragment
         android:id="@+id/nav_perfil"
-        android:name="com.example.telas_background.fragment.Perfil"
+        android:name="com.example.telas_background.fragment.FragmentPerfil"
         android:label="@string/menu_perfil"
-        tools:layout="@layout/activity_perfil" />
+        tools:layout="@layout/fragment_perfil" />
 
     <fragment
     android:id="@+id/nav_home"
-    android:name="com.example.telas_background.fragment.Home"
+    android:name="com.example.telas_background.fragment.FragmentHome"
     android:label="@string/menu_home"
-    tools:layout="@layout/activity_home" />
+    tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_mensagem"
-        android:name="com.example.telas_background.fragment.Contact"
+        android:name="com.example.telas_background.fragment.FragmentContact"
         android:label="@string/menu_mensagem"
-        tools:layout="@layout/activity_contact"/>
+        tools:layout="@layout/fragment_contact"/>
 
     <fragment
     android:id="@+id/nav_friends"
-    android:name="com.example.telas_background.fragment.Friends"
+    android:name="com.example.telas_background.fragment.FragmentFriends"
     android:label="@string/menu_friends"
-    tools:layout="@layout/activity_friends"/>
+    tools:layout="@layout/fragment_friends"/>
 
     <fragment
         android:id="@+id/nav_request"
-        android:name="com.example.telas_background.fragment.Request"
+        android:name="com.example.telas_background.fragment.FragmentRequest"
         android:label="@string/menu_request"
-        tools:layout="@layout/activity_request"/>
+        tools:layout="@layout/fragment_request"/>
 
     <fragment
         android:id="@+id/nav_encontro"
-        android:name="com.example.telas_background.fragment.Meeting"
+        android:name="com.example.telas_background.fragment.FragmentMeeting"
         android:label="@string/menu_encontro"
-        tools:layout="@layout/activity_meeting"/>
+        tools:layout="@layout/fragment_meeting"/>
 
     <fragment
         android:id="@+id/nav_config"
-        android:name="com.example.telas_background.fragment.Home"
+        android:name="com.example.telas_background.fragment.FragmentHome"
         android:label="@string/menu_encontro"
-        tools:layout="@layout/activity_meeting"/>
+        tools:layout="@layout/fragment_meeting"/>
 
 </navigation>

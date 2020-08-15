@@ -13,13 +13,15 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/toolbar_image_user"
+        android:scaleType="centerCrop"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:background="@drawable/linear_negative_background" />
 
     <TextView
+        android:id="@+id/toolbar_name_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
@@ -27,7 +29,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/toolbar_email_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Subtitle" />

@@ -20,7 +20,7 @@ public class UserPrincipal {
         return nome;
     }
 
-    public static void setFoto(String foto) {
+    public static void setFoto(String foto){
         UserPrincipal.foto = foto;
     }
 

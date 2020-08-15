@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.Request">
+    tools:context=".fragment.FragmentFriends">
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/request_recyclerview"
+        android:id="@+id/friends_recyclerview"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutop" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutop1" />
 
     <LinearLayout
-        android:id="@+id/linearLayoutop"
+        android:id="@+id/linearLayoutop1"
         android:layout_width="0dp"
         android:layout_height="44dp"
         android:orientation="horizontal"
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/request_serch"
+            android:id="@+id/friends_search"
             android:layout_width="match_parent"
             android:layout_height="46dp"
             android:background="@android:color/transparent"

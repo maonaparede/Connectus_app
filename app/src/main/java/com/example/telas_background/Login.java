@@ -12,8 +12,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.telas_background.dialog_toast.MakeToast;
-import com.example.telas_background.firebase.GetUserPrincipal;
-import com.example.telas_background.fragment.Home;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -62,7 +60,6 @@ public class Login extends AppCompatActivity {
                                 SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
                                  shared.edit().putString("email" , email).apply();
                                  shared.edit().putString("password" , password).apply();
-
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 updateUI(user);
                             } else {
@@ -85,11 +82,11 @@ public class Login extends AppCompatActivity {
     public void updateUI(FirebaseUser account){
         if(account != null){
             MakeToast.makeToast(this, "Logado Com Sucesso");
-            new GetUserPrincipal();
             startActivity(new Intent( this , MainActivity.class));
         }else {
             MakeToast.makeToast(this,"Você não foi Logado");
         }
     }
+
 
 }

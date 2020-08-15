@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 
 import com.example.telas_background.instanceClasses.ClassMeetingRequest;
 import com.example.telas_background.R;
-import com.example.telas_background.fragment.Request;
+import com.example.telas_background.fragment.FragmentRequest;
 import com.squareup.picasso.Picasso;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.ViewHolder;
@@ -52,10 +52,10 @@ public class Item_meeting_request extends Item<ViewHolder> implements View.OnCli
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.item_meeting_request_button_accept:
-                Request.fromItemMeetingRequest(item, 0 ,positionRequest);
+                FragmentRequest.fromItemMeetingRequest(item, 0 ,positionRequest);
                 break;
             case R.id.item_meeting_request_button_reject:
-                Request.fromItemMeetingRequest(item, 1 ,positionRequest);
+                FragmentRequest.fromItemMeetingRequest(item, 1 ,positionRequest);
                 break;
 
             default:
