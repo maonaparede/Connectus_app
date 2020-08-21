@@ -1,5 +1,7 @@
 android/annotation/SuppressLint.class
 android/annotation/TargetApi.class
+androidx/activity/ComponentActivity.class
+androidx/activity/OnBackPressedDispatcherOwner.class
 androidx/annotation/AnimRes.class
 androidx/annotation/AnimatorRes.class
 androidx/annotation/AnyRes.class
@@ -61,6 +63,9 @@ androidx/annotation/WorkerThread.class
 androidx/annotation/XmlRes.class
 androidx/appcompat/app/ActionBar$DisplayOptions.class
 androidx/appcompat/app/ActionBar$NavigationMode.class
+androidx/appcompat/app/ActionBarDrawerToggle$DelegateProvider.class
+androidx/appcompat/app/AppCompatActivity.class
+androidx/appcompat/app/AppCompatCallback.class
 androidx/appcompat/app/AppCompatDelegate$NightMode.class
 androidx/appcompat/graphics/drawable/DrawerArrowDrawable$ArrowDirection.class
 androidx/appcompat/view/menu/CascadingMenuPopup$HorizPosition.class
@@ -68,6 +73,9 @@ androidx/appcompat/widget/LinearLayoutCompat$DividerMode.class
 androidx/appcompat/widget/LinearLayoutCompat$OrientationMode.class
 androidx/coordinatorlayout/widget/CoordinatorLayout$DefaultBehavior.class
 androidx/coordinatorlayout/widget/CoordinatorLayout$DispatchChangeEvent.class
+androidx/core/app/ActivityCompat$OnRequestPermissionsResultCallback.class
+androidx/core/app/ActivityCompat$RequestPermissionsRequestCodeValidator.class
+androidx/core/app/ComponentActivity.class
 androidx/core/app/CoreComponentFactory$CompatWrapped.class
 androidx/core/app/CoreComponentFactory.class
 androidx/core/app/FrameMetricsAggregator$MetricType.class
@@ -78,6 +86,7 @@ androidx/core/app/NotificationCompat$NotificationVisibility.class
 androidx/core/app/NotificationCompat$StreamType.class
 androidx/core/app/RemoteInput$Source.class
 androidx/core/app/ServiceCompat$StopForegroundFlags.class
+androidx/core/app/TaskStackBuilder$SupportParentable.class
 androidx/core/content/PermissionChecker$PermissionResult.class
 androidx/core/content/pm/PermissionInfoCompat$Protection.class
 androidx/core/content/pm/PermissionInfoCompat$ProtectionFlags.class
@@ -86,6 +95,7 @@ androidx/core/graphics/drawable/IconCompat$IconType.class
 androidx/core/net/ConnectivityManagerCompat$RestrictBackgroundStatus.class
 androidx/core/provider/FontsContractCompat$FontRequestCallback$FontRequestFailReason.class
 androidx/core/text/util/LinkifyCompat$LinkifyMask.class
+androidx/core/view/KeyEventDispatcher$Component.class
 androidx/core/view/ViewCompat$FocusDirection.class
 androidx/core/view/ViewCompat$FocusRealDirection.class
 androidx/core/view/ViewCompat$FocusRelativeDirection.class
@@ -94,8 +104,12 @@ androidx/core/view/ViewCompat$ScrollAxis.class
 androidx/core/view/ViewCompat$ScrollIndicators.class
 androidx/core/widget/TextViewCompat$AutoSizeTextType.class
 androidx/exifinterface/media/ExifInterface$IfdType.class
+androidx/fragment/app/FragmentActivity.class
 androidx/lifecycle/Lifecycle$Event.class
+androidx/lifecycle/LifecycleObserver.class
+androidx/lifecycle/LifecycleOwner.class
 androidx/lifecycle/OnLifecycleEvent.class
+androidx/lifecycle/ViewModelStoreOwner.class
 androidx/multidex/MultiDex$V14$ElementConstructor.class
 androidx/multidex/MultiDex$V14$ICSElementConstructor.class
 androidx/multidex/MultiDex$V14$JBMR11ElementConstructor.class
@@ -116,6 +130,7 @@ androidx/recyclerview/widget/RecyclerView$EdgeEffectFactory$EdgeDirection.class
 androidx/recyclerview/widget/RecyclerView$ItemAnimator$AdapterChanges.class
 androidx/recyclerview/widget/RecyclerView$Orientation.class
 androidx/recyclerview/widget/ViewBoundsCheck$ViewBounds.class
+androidx/savedstate/SavedStateRegistryOwner.class
 androidx/swiperefreshlayout/widget/CircularProgressDrawable$ProgressDrawableSize.class
 androidx/transition/Slide$GravityFlag.class
 androidx/transition/Transition$MatchOrder.class
@@ -124,7 +139,9 @@ androidx/versionedparcelable/NonParcelField.class
 androidx/versionedparcelable/ParcelField.class
 androidx/versionedparcelable/VersionedParcelize.class
 androidx/viewpager/widget/ViewPager$DecorView.class
+com/example/telas_background/FragmentHandler.class
 com/example/telas_background/realmDB/FriendTable.class
+com/example/telas_background/timer/CronosInterface.class
 com/google/android/gms/common/GoogleSignatureVerifier.class
 com/google/android/gms/common/SignInButton$ButtonSize.class
 com/google/android/gms/common/SignInButton$ColorScheme.class

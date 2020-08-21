@@ -11,7 +11,7 @@ import com.example.telas_background.R;
 
 public class MakeDialogGeneric {
 
-    public static void createDialogOk(final Context context, String content1 , String title1){
+    public void createDialogOk(final Context context, String content1 , String title1){
 
 
         LayoutInflater inflater =  LayoutInflater.from(context);
@@ -19,9 +19,9 @@ public class MakeDialogGeneric {
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(context);
         View view1 = inflater.inflate(R.layout.dialog_ok, null);
 
-        Button ok = (Button) view1.findViewById(R.id.dialog_ok_button_ok);
-        TextView title = (TextView) view1.findViewById(R.id.dialog_ok_textview_title);
-        TextView content = (TextView) view1.findViewById(R.id.dialog_ok_textview_content);
+        Button ok = view1.findViewById(R.id.dialog_ok_button_ok);
+        TextView title = view1.findViewById(R.id.dialog_ok_textview_title);
+        TextView content = view1.findViewById(R.id.dialog_ok_textview_content);
 
         title.setText(title1);
         content.setText(content1);

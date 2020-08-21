@@ -5,8 +5,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -21,18 +23,23 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.telas_background.fragment.FragmentHome;
+import com.example.telas_background.dialog_toast.MakeDialogGeneric;
+import com.example.telas_background.dialog_toast.MakeToast;
 import com.example.telas_background.sqlite.FriendsSqlController;
+import com.example.telas_background.timer.Cronos;
+import com.example.telas_background.timer.CronosInterface;
 import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
 
-public class FragmentHandler extends AppCompatActivity {
+public class FragmentHandler extends AppCompatActivity implements CronosInterface, LifecycleObserver {
 
     private AppBarConfiguration mAppBarConfiguration;
     private static Context context;
     private ImageView imageUser;
     private TextView nameUser;
     private TextView emailUser;
+    private Integer timerCounter = 0;
+    private Cronos cronos;
 
 
     @Override
@@ -70,35 +77,77 @@ public class FragmentHandler extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-            @Override
-            public void onDestinationChanged(@NonNull NavController controller, @NonNull
-                    NavDestination destination, @Nullable Bundle arguments) {
-
-                if (destination.getId() == R.id.nav_home) {
-                  //  Toast.makeText(FragmentHandler.this, "Encontro", Toast.LENGTH_LONG).show();
+            navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+                @Override
+                public void onDestinationChanged(@NonNull NavController controller, @NonNull
+                        NavDestination destination, @Nullable Bundle arguments) {
+                        listenerDestination(destination);
                 }
+            });
 
-                if (destination.getId() == R.id.nav_config) {
 
-                    FriendsSqlController sqlController = new FriendsSqlController(context);
-                    sqlController.excludeAll();
+        cronos = new Cronos(this , 5);
+        cronos.startOrPlay();
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
 
-                    SharedPreferences pref;
-                    pref = getSharedPreferences("info", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = pref.edit();
-                    editor.clear().apply();
+    }
 
-                    startActivity( new Intent( context , MainActivity.class));
-                //    Toast.makeText(FragmentHandler.this, "Perfil", Toast.LENGTH_LONG).show();
-                }
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    public void appGo(){
+        cronos.pause();
+    }
 
-                if((!destination.getArguments().isEmpty())){
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    public void appBack(){
+        cronos.startOrPlay();
+    }
 
-                }
+    //Responsável por ser o timer, com 5 min atualiza a lista de users próximos na home
+    // E a cada 30 manda um dialog falando pro user dar uma pausa
+    @Override
+    public void cronosFinish() {
+        switch (timerCounter){
 
-            }
-        });
+            case 6:
+                new MakeDialogGeneric().createDialogOk(this ,
+                        "Você já passou um tempo Mexendo no app! Que tal aproveitar a vida Real?",
+                        "Dar uma pausa é bom");
+                cronos.startOrPlay();
+                timerCounter = 0;
+                break;
+            case 1:
+                //logica atualizar home
+                MakeToast.makeToast(this , "Home atualizada");
+            default:
+                timerCounter++;
+                cronos.startOrPlay();
+                break;
+
+        }
+    }
+
+
+    private void listenerDestination(NavDestination destination){
+        if (destination.getId() == R.id.nav_home) {
+            //  Toast.makeText(FragmentHandler.this, "Encontro", Toast.LENGTH_LONG).show();
+        }
+
+        if (destination.getId() == R.id.nav_config) {
+            FriendsSqlController sqlController = new FriendsSqlController(context);
+            sqlController.excludeAll();
+
+            SharedPreferences pref;
+            pref = getSharedPreferences("info", MODE_PRIVATE);
+            SharedPreferences.Editor editor = pref.edit();
+            editor.clear().apply();
+
+            startActivity( new Intent( context , MainActivity.class));
+        }
+
+        if((!destination.getArguments().isEmpty())){
+
+        }
+
     }
 
     private void setHeaderToolbar() {
@@ -114,14 +163,12 @@ public class FragmentHandler extends AppCompatActivity {
         }
     }
 
-
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
 
 
 

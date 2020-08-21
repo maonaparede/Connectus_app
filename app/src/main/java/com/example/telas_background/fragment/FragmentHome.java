@@ -12,6 +12,8 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -53,12 +55,9 @@ public class FragmentHome extends Fragment {
         super.onCreate(savedInstanceState);
 
         View root = inflater.inflate(R.layout.fragment_home, container , false);
-
-        createMeeting = (Button) root.findViewById(R.id.home_button_create_meeting);
-
-        pessoasRecycler = (RecyclerView) root.findViewById(R.id.home_recyclerview_user);
-        encontrosRecycler = (RecyclerView) root.findViewById(R.id.home_recyclerview_meeting);
-
+        createMeeting = root.findViewById(R.id.home_button_create_meeting);
+        pessoasRecycler = root.findViewById(R.id.home_recyclerview_user);
+        encontrosRecycler = root.findViewById(R.id.home_recyclerview_meeting);
 
         pessoasAdapter = new GroupAdapter();
         encontrosAdapter = new GroupAdapter();
@@ -77,10 +76,8 @@ public class FragmentHome extends Fragment {
         pessoasRecycler.setAdapter(pessoasAdapter);
         encontrosRecycler.setAdapter(encontrosAdapter);
 
-
         pessoasAdapter.add(new Item_home_user(
                 new ClassUserScreen("https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327" , "sPDdPbX7juTtGUDTN95uMlTEjes1" , "")));
-
 
 
         pessoasAdapter.setOnItemClickListener(new OnItemClickListener() {
@@ -89,10 +86,6 @@ public class FragmentHome extends Fragment {
                 toPerfil(item);
             }
         });
-
-
-
-
         createMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,8 +94,40 @@ public class FragmentHome extends Fragment {
         });
         getfMeetings();
 
-
         return root;
+    }
+
+    //Criar Encontro
+    public void toMeetingEdit(View view){
+        Intent intent = new Intent(getActivity() , MeetingEdit.class);
+        startActivity(intent);
+    }
+
+    public void toMeeting(Item item){
+        Bundle bundle = new Bundle();
+        Item_home_meeting meeting = (Item_home_meeting) item;
+        bundle.putString("dono" , meeting.getOwnerId());
+
+        Fragment fragment = new FragmentMeeting();
+        fragment.setArguments(bundle);
+        assert getFragmentManager() != null;
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.nav_host_fragment , fragment);
+        transaction.commit();
+    }
+
+    public void toPerfil(Item item) {
+        Bundle bundle = new Bundle();
+        Item_home_user item1 = (Item_home_user) item;
+        bundle.putString("user", item1.user.getId());
+        bundle.putInt("estado", 1);
+
+        Fragment fragment = new FragmentPerfil();
+        fragment.setArguments(bundle);
+        assert getFragmentManager() != null;
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.nav_host_fragment , fragment);
+        transaction.commit();
     }
 
 
@@ -114,7 +139,6 @@ public class FragmentHome extends Fragment {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-
                                 getfMeeting(document);
                             }
                         } else {
@@ -142,53 +166,4 @@ public class FragmentHome extends Fragment {
         });
     }
 
-    //Criar Encontro
-    public void toMeetingEdit(View view){
-
-        Intent intent = new Intent(getActivity() , MeetingEdit.class);
-        startActivity(intent);
-    }
-
-    public void toMeeting(Item item){
-
-        Log.d("encontro " , "picasso");
-
-
-        Bundle bundle = new Bundle();
-        Item_home_meeting meeting = (Item_home_meeting) item;
-        bundle.putString("dono" , meeting.getOwnerId());
-
-        Fragment fragment = new FragmentMeeting();
-
-
-        fragment.setArguments(bundle);
-
-        assert getFragmentManager() != null;
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-        transaction.replace(R.id.nav_host_fragment , fragment);
-
-        transaction.commit();
-
-    }
-
-    public void toPerfil(Item item) {
-        Bundle bundle = new Bundle();
-        Item_home_user item1 = (Item_home_user) item;
-        bundle.putString("user", item1.user.getId());
-        bundle.putInt("estado", 1);
-
-        Fragment fragment = new FragmentPerfil();
-
-
-        fragment.setArguments(bundle);
-
-        assert getFragmentManager() != null;
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-        transaction.replace(R.id.nav_host_fragment , fragment);
-
-        transaction.commit();
-
-    }
 }

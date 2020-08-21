@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.telas_background.Chat;
 import com.example.telas_background.FragmentHandler;
+import com.example.telas_background.dialog_toast.ConfirmationDialog;
 import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.MeetingEdit;
 import com.example.telas_background.R;
@@ -25,7 +26,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
-public class FragmentMeeting extends Fragment {
+public class FragmentMeeting extends Fragment implements ConfirmationDialog {
 
     private Integer state = 0;
 
@@ -134,8 +135,10 @@ public class FragmentMeeting extends Fragment {
         switch (state){
             case 0:
                 //abre dialog sai do encontro
-                DialogRemoveConfirmation.createDialogRemoveConfirmation(context ,
-                        "Quer Sair do Encontro?" , "Sair do Encontro" , 0);
+
+                new DialogRemoveConfirmation().createDialogRemoveConfirmation(context ,
+                        "Quer Sair do Encontro?" , "Sair do Encontro" , this);
+
                 break;
             case 1:
                 Intent intent = new Intent(getActivity(), MeetingEdit.class);
@@ -153,9 +156,10 @@ public class FragmentMeeting extends Fragment {
         }
     }
 
-    public static void exitEncontro(){
-            MeetingFirebase.exitMeeting(owner);
-            context.startActivity(new Intent(context, FragmentHandler.class));
-    }
 
+    @Override
+    public void DialogConfirmation() {
+        MeetingFirebase.exitMeeting(owner);
+        context.startActivity(new Intent(context, FragmentHandler.class));
+    }
 }

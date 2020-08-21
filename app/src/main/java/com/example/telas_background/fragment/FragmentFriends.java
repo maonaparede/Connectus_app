@@ -72,7 +72,7 @@ public class FragmentFriends extends Fragment {
         Item_friend friend = (Item_friend) item;
 
                 MakeToast.makeToast(context , "Remover");
-                DialogFriendRemove.createDialogOkCancel(context, friend.user.getId());
+                new DialogFriendRemove().createDialogOkCancel(context, friend.user.getId());
                 adapter.removeGroup(position);
                 adapter.notifyItemRemoved(position);
 

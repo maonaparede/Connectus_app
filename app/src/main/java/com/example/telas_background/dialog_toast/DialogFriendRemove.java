@@ -17,16 +17,16 @@ public class DialogFriendRemove {
     public static TextView title;
     public static TextView content;
 
-    public static void createDialogOkCancel(final Context context, final String user2){
+    public void createDialogOkCancel(final Context context, final String user2){
 
         LayoutInflater inflater =  LayoutInflater.from(context);
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(context);
         View view1 = inflater.inflate(R.layout.dialog_ok_cancel, null);
 
-        ok = (Button) view1.findViewById(R.id.dialog_ok_cancel_button_ok);
-        cancel = (Button) view1.findViewById(R.id.dialog_ok_cancel_button_cancel);
-        title = (TextView) view1.findViewById(R.id.dialog_ok_cancel_textview_title);
-        content = (TextView) view1.findViewById(R.id.dialog_ok_cancel_textview_content);
+        ok = view1.findViewById(R.id.dialog_ok_cancel_button_ok);
+        cancel = view1.findViewById(R.id.dialog_ok_cancel_button_cancel);
+        title = view1.findViewById(R.id.dialog_ok_cancel_textview_title);
+        content = view1.findViewById(R.id.dialog_ok_cancel_textview_content);
 
         title.setText(R.string.title_dialog_friend_remove);
         content.setText(R.string.content_dialog_friend_remove);

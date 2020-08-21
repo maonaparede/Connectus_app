@@ -47,12 +47,12 @@ public class Item_meeting_remove_user extends Item<ViewHolder> implements View.O
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.item_meeting_user_button_send_request:
-                DialogMeeting.botaoItemRecyclerMeeting(item, 1 , positionRequest);
+                new DialogMeeting().botaoItemRecyclerMeeting(item, 1 , positionRequest);
                 Log.d("Rem encontro" , "Remover");
                 break;
 
             default:
-                DialogMeeting.botaoItemRecyclerMeeting(item, 3, positionRequest);
+                new DialogMeeting().botaoItemRecyclerMeeting(item, 3, positionRequest);
                 Log.d("Rem encontro" , "Default");
                 break;
         }

@@ -39,7 +39,7 @@ public class DialogMeeting {
     private static ArrayList<Item_meeting_add_user> listAdd;
     private static ArrayList<Item_meeting_remove_user> listRem;
 
-    public static void createDialogOkAddRemove(final Context context , final Integer state) {
+    public void createDialogOkAddRemove(final Context context , final Integer state) {
 
         DialogMeeting.context = context;
         listAdd = new ArrayList<Item_meeting_add_user>();
@@ -115,7 +115,7 @@ public class DialogMeeting {
 
     //tratamento de clicks dentro dos Itens
 
-    public static void botaoItemRecyclerMeeting(Item item, Integer estado, final Integer positon) {
+    public void botaoItemRecyclerMeeting(Item item, Integer estado, final Integer positon) {
         switch (estado) {
             case 0:
                 Item_meeting_add_user userAdd = (Item_meeting_add_user) item;
@@ -144,7 +144,7 @@ public class DialogMeeting {
 
     //Read BD
 
-    private static void getfFriends() {
+    private void getfFriends() {
         FirebaseFirestore.getInstance().collection("amigo").
                 document(UserPrincipal.getId()).collection("amigo").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -162,7 +162,7 @@ public class DialogMeeting {
                 });
     }
 
-    private static void getfMembersMeeting() {
+    private void getfMembersMeeting() {
         FirebaseFirestore.getInstance().collection("encontro").
                 document(UserPrincipal.getId()).collection("membros").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -180,7 +180,7 @@ public class DialogMeeting {
                 });
     }
 
-    private static void getfUser(final QueryDocumentSnapshot docAmigo) {
+    private void getfUser(final QueryDocumentSnapshot docAmigo) {
         FirebaseFirestore.getInstance().collection("user").document(docAmigo.get("id").toString())
                 .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -207,7 +207,7 @@ public class DialogMeeting {
 
     //filtros para Buscar usuário por nome
 
-    private static void filterDialogAdd(String text) {
+    private void filterDialogAdd(String text) {
         if (!text.isEmpty()){
             ArrayList<Item_meeting_add_user> filteredList = new ArrayList<>();
             for (Item_meeting_add_user item : listAdd) {
@@ -220,7 +220,7 @@ public class DialogMeeting {
         }
     }
 
-    private static void filterDialogRemove(String text) {
+    private void filterDialogRemove(String text) {
         if (!text.isEmpty()){
             ArrayList<Item_meeting_remove_user> filteredList = new ArrayList<>();
             for (Item_meeting_remove_user item : listRem) {
@@ -233,11 +233,11 @@ public class DialogMeeting {
         }
     }
 
-    private static void filterResetAdd() {
+    private void filterResetAdd() {
         adapter.update(listAdd);
     }
 
-    private static void filterResetRemove(){
+    private void filterResetRemove(){
         adapter.update(listRem);
     }
 

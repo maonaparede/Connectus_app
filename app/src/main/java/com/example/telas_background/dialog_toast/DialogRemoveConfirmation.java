@@ -7,15 +7,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.telas_background.MeetingEdit;
-import com.example.telas_background.fragment.FragmentMeeting;
 import com.example.telas_background.R;
+
 
 public class DialogRemoveConfirmation{
 
 
+    public ConfirmationDialog confirmationInterface;
 
-    public static void createDialogRemoveConfirmation(final Context context, String content1 , String title1 , final Integer estado){
+    public void createDialogRemoveConfirmation(final Context context,
+                                               String content1,
+                                               String title1,
+                                               ConfirmationDialog confirmationInterface){
+
+        this.confirmationInterface = confirmationInterface;
 
         LayoutInflater inflater =  LayoutInflater.from(context);
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(context);
@@ -42,7 +47,7 @@ public class DialogRemoveConfirmation{
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                callFunction(estado);
+                callFunction();
 
             }
         });
@@ -51,16 +56,7 @@ public class DialogRemoveConfirmation{
     }
 
 
-    private static void callFunction(Integer state){
-        switch (state) {
-            case 0:
-                FragmentMeeting.exitEncontro();
-                break;
-            case 1:
-                MeetingEdit.FromDialogRemoveConfirmation();
-                break;
-            default:
-                break;
-        }
+    private void callFunction(){
+        confirmationInterface.DialogConfirmation();
     }
 }

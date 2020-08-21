@@ -50,12 +50,12 @@ public class Item_meeting_add_user extends Item<ViewHolder> implements View.OnCl
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.item_meeting_user_button_send_request:
-               DialogMeeting.botaoItemRecyclerMeeting(item, 0 , positionRequest);
+               new DialogMeeting().botaoItemRecyclerMeeting(item, 0 , positionRequest);
                 Log.d("Add encontro" , "Enviar " + item);
                 break;
 
             default:
-                DialogMeeting.botaoItemRecyclerMeeting(item, 2, positionRequest);
+                new DialogMeeting().botaoItemRecyclerMeeting(item, 2, positionRequest);
                 Log.d("Add encontro" , "Default");
                 break;
         }

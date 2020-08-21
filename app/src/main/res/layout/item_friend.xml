@@ -43,6 +43,7 @@
         android:fontFamily="@font/changa_light"
         android:text="Desconectar"
         android:textColor="#FFFFFF"
+        android:clickable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/item_friend_button_perfil"
         app:layout_constraintTop_toBottomOf="@+id/item_friend_textview_name" />

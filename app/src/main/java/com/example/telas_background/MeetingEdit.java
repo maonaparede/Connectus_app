@@ -16,13 +16,14 @@ import com.example.telas_background.dialog_toast.DialogMeeting;
 import com.example.telas_background.dialog_toast.DialogRemoveConfirmation;
 import com.example.telas_background.dialog_toast.MakeToast;
 import com.example.telas_background.fragment.FragmentHome;
+import com.example.telas_background.dialog_toast.ConfirmationDialog;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.annotations.Nullable;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
-public class MeetingEdit extends AppCompatActivity {
+public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog {
 
     private Button addButton;
     private Button remButton;
@@ -137,13 +138,13 @@ public class MeetingEdit extends AppCompatActivity {
             case R.id.meeting_edit_button_add_member:
 
                 MakeToast.makeToast(this , "add");
-                DialogMeeting.createDialogOkAddRemove(this,0);
+                new DialogMeeting().createDialogOkAddRemove(this,0);
             break;
             //rem membro
             case R.id.meeting_edit_button_remove_member:
 
                 MakeToast.makeToast(this , "rem");
-                DialogMeeting.createDialogOkAddRemove(this ,1);
+                new DialogMeeting().createDialogOkAddRemove(this ,1);
                 break;
             default:
                 break;
@@ -151,11 +152,12 @@ public class MeetingEdit extends AppCompatActivity {
         }
 
     public void excludeEncontroButton(View v){
-            DialogRemoveConfirmation.createDialogRemoveConfirmation(this ,
-                    "Quer Excluir o Encontro?" , "Excluir o Encontro" , 1);
+            new DialogRemoveConfirmation().createDialogRemoveConfirmation(this ,
+                    "Quer Excluir o Encontro?" , "Excluir o Encontro" , this);
     }
 
-    public static void FromDialogRemoveConfirmation(){
+    @Override
+    public void DialogConfirmation() {
         MeetingFirebase.excludeMeeting();
     }
 }
