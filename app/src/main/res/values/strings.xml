@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Telas_background</string>
+    <string name="app_name">ConnectUs</string>
 
     <string name="title_dialog_friend_remove">Quer desfazer essa conexão?</string>
     <string name="content_dialog_friend_remove">Quer desfazer essa conexão</string>
