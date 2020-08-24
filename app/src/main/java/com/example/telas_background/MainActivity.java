@@ -42,11 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-
         mAuth = FirebaseAuth.getInstance();
 
         if((!email.isEmpty()) && (!password.isEmpty())){
-
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -55,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d("Login", "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
-
                                 updateUI(user);
                             } else {
                                 // If sign in fails, display a message to the user.
@@ -66,17 +63,11 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                     });
-
                         }else{
                             startActivity(new Intent(this, Login.class));
                         }
-
-
-
         super.onStart();
     }
-
-
 
     public void updateUI(FirebaseUser account){
                 if(account != null){
@@ -89,21 +80,18 @@ public class MainActivity extends AppCompatActivity {
             }
 
     private void setNameImage() {
-
         FirebaseFirestore.getInstance().collection("user").document(UserPrincipal.getId())
                 .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
 
                 if (documentSnapshot.exists()) {
-
                     String name = documentSnapshot.get("nome").toString();
                     String image = documentSnapshot.get("foto").toString();
 
                     SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
                     shared.edit().putString("name" , name).apply();
                     shared.edit().putString("image" , image).apply();
-
                     UserPrincipal.setFoto(image);
                     UserPrincipal.setNome(name);
                 }
