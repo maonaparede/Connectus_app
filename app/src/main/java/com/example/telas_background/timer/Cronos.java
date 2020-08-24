@@ -36,7 +36,7 @@ public class Cronos {
                         public void onTick(long millisUntilFinished) {
                             //   mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
                             millisPassed = millisUntilFinished;
-                            Log.d("Mili start", millisPassed + "");
+                            //Log.d("Mili start", millisPassed + "");
                         }
 
                         public void onFinish() {
@@ -54,7 +54,7 @@ public class Cronos {
                     public void onTick(long millisUntilFinished) {
                         //   mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
                         millisPassed = millisUntilFinished;
-                        Log.d("Mili play", millisPassed + "");
+                       // Log.d("Mili play", millisPassed + "");
                     }
                     public void onFinish() {
                         finish();
@@ -66,7 +66,7 @@ public class Cronos {
         public void pause(){
             if (count != null) {
                 if (!isFinish) {
-                    Log.d("Mili pause", millisPassed + "");
+                    Log.d("Timer pause", millisPassed + "");
                     isRunning = true;
                     count.cancel();
                 } else {
@@ -77,7 +77,7 @@ public class Cronos {
 
         public void stop(){
             if (count != null) {
-                Log.d("stop", millisPassed + "");
+                Log.d("Timer stop", millisPassed + "");
                 isFinish = true;
                 isRunning = false;
                 millisPassed = 0;
@@ -92,7 +92,7 @@ public class Cronos {
             isRunning = false;
             isFinish = true;
             isFinish();
-            Log.d("Terminou" , "top");
+            Log.d("Timer" , "finish");
         }
 
         public void isFinish(){

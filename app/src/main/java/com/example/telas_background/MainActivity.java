@@ -1,17 +1,22 @@
 package com.example.telas_background;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.telas_background.initialize.Initialize;
 import com.example.telas_background.initialize.UserPrincipal;
+import com.example.telas_background.location.LocationStateControler;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -27,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private String password;
     private FirebaseAuth mAuth;
     private Context context;
+    private static final int REQUEST_CODE_LOCATION_PERMISSION = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +40,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         context = this;
-        SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
-         email = shared.getString("email" , "");
-         password = shared.getString("password" , "");
+
+
+         verifyPermission();
 
     }
 
-    @Override
-    protected void onStart() {
+    private void verifyPermission(){
+        if(ContextCompat.checkSelfPermission(
+                getApplicationContext() , Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(
+                    MainActivity.this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    REQUEST_CODE_LOCATION_PERMISSION
+            );
+            verifyIsLogged();
+        }else {
+            verifyIsLogged();
+        }
+    }
+
+    private void verifyIsLogged(){
+
+        SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
+        email = shared.getString("email" , "");
+        password = shared.getString("password" , "");
         mAuth = FirebaseAuth.getInstance();
 
         if((!email.isEmpty()) && (!password.isEmpty())){
@@ -63,13 +87,12 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                     });
-                        }else{
-                            startActivity(new Intent(this, Login.class));
-                        }
-        super.onStart();
+        }else{
+            startActivity(new Intent(this, Login.class));
+        }
     }
 
-    public void updateUI(FirebaseUser account){
+    private void updateUI(FirebaseUser account){
                 if(account != null){
                     new Initialize().sql(context).friendListener();
                     setNameImage();
@@ -98,4 +121,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == REQUEST_CODE_LOCATION_PERMISSION && grantResults.length > 0){
+            if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                //startLocationService();
+            }else{
+                Toast.makeText(this , "Permission Denied" , Toast.LENGTH_SHORT).show();
+                finishAffinity();
+            }
+
+        }
+    }
+
 }

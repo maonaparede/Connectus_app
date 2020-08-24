@@ -18,13 +18,16 @@ import androidx.navigation.ui.NavigationUI;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.telas_background.dialog_toast.MakeDialogGeneric;
 import com.example.telas_background.dialog_toast.MakeToast;
+import com.example.telas_background.location.LocationStateControler;
 import com.example.telas_background.sqlite.FriendsSqlController;
 import com.example.telas_background.timer.Cronos;
 import com.example.telas_background.timer.CronosInterface;
@@ -94,12 +97,14 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     public void appGo(){
-        cronos.pause();
+       cronos.pause();
+        LocationStateControler.stopLocationService(this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public void appBack(){
-        cronos.startOrPlay();
+       cronos.startOrPlay();
+       LocationStateControler.startLocationService(this);
     }
 
     //Responsável por ser o timer, com 5 min atualiza a lista de users próximos na home
@@ -169,7 +174,6 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
 
 
 }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.telas_background.MainActivity;
 import com.example.telas_background.R;
 
 public class MakeDialogGeneric {

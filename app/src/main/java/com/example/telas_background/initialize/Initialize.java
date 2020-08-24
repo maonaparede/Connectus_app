@@ -62,7 +62,6 @@ public class Initialize {
                         }
                     }
                 });
-
     }
 
     public void meetingListener(){
