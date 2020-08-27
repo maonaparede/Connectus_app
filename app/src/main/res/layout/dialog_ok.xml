@@ -39,7 +39,7 @@
             android:layout_weight="1"
             android:background="@drawable/custom_button_linear"
             android:text="OK"
-
+            android:clickable="false"
             android:textColor="#FFFFFF"
             android:textSize="12sp" />
     </LinearLayout>

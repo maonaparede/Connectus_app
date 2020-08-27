@@ -2,6 +2,7 @@ package com.example.telas_background.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,8 +13,6 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,9 +22,18 @@ import com.example.telas_background.R;
 import com.example.telas_background.instanceClasses.ClassUserScreen;
 import com.example.telas_background.item.Item_home_meeting;
 import com.example.telas_background.item.Item_home_user;
+import com.example.telas_background.location.FirebaseGeoFire;
+import com.firebase.geofire.GeoFire;
+import com.firebase.geofire.GeoLocation;
+import com.firebase.geofire.GeoQuery;
+import com.firebase.geofire.GeoQueryDataEventListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -34,6 +42,8 @@ import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
 
+import java.util.ArrayList;
+
 public class FragmentHome extends Fragment {
 
     private RecyclerView encontrosRecycler;
@@ -41,6 +51,8 @@ public class FragmentHome extends Fragment {
     private RecyclerView pessoasRecycler;
     private GroupAdapter pessoasAdapter;
     private Button createMeeting;
+
+    private ArrayList<Item_home_user> nearUsers;
     private static Context context;
 
 
@@ -76,9 +88,8 @@ public class FragmentHome extends Fragment {
         pessoasRecycler.setAdapter(pessoasAdapter);
         encontrosRecycler.setAdapter(encontrosAdapter);
 
-        pessoasAdapter.add(new Item_home_user(
-                new ClassUserScreen("https://cdna.artstation.com/p/assets/images/images/027/262/302/small/bernardo-cruzeiro-13.jpg?1591038327" , "sPDdPbX7juTtGUDTN95uMlTEjes1" , "")));
 
+        nearUsers = new ArrayList<Item_home_user>();
 
         pessoasAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -92,6 +103,8 @@ public class FragmentHome extends Fragment {
                 toMeetingEdit(v);
             }
         });
+
+        getfLocUsersNear();
         getfMeetings();
 
         return root;
@@ -164,6 +177,83 @@ public class FragmentHome extends Fragment {
                 }
             }
         });
+    }
+
+    private void getfLocUsersNear(){
+        Location location1 = FirebaseGeoFire.getLocation(context.getApplicationContext());
+        GeoLocation location = new GeoLocation(location1.getLatitude() , location1.getLongitude());
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("location");
+        GeoFire geoFire = new GeoFire(ref);
+
+        Double raio = 0.6;
+
+        GeoQuery query  = geoFire.queryAtLocation(location , raio);
+
+        query.addGeoQueryDataEventListener(new GeoQueryDataEventListener() {
+            @Override
+            public void onDataEntered(DataSnapshot dataSnapshot, GeoLocation location) {
+                String a = dataSnapshot.getKey();
+                if(!a.equals(UserPrincipal.getId())) {
+                    getfUserNear(a);
+                }
+                Log.d("FirebaseLocation.class" , "onDataEntered" + a);
+            }
+
+            @Override
+            public void onDataExited(DataSnapshot dataSnapshot) {
+                String b = dataSnapshot.getKey();
+                removeNearUser(b);
+            }
+
+            @Override
+            public void onDataMoved(DataSnapshot dataSnapshot, GeoLocation location) {
+
+            }
+
+            @Override
+            public void onDataChanged(DataSnapshot dataSnapshot, GeoLocation location) {
+
+            }
+
+            @Override
+            public void onGeoQueryReady() {
+
+            }
+
+            @Override
+            public void onGeoQueryError(DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void getfUserNear(String id){
+        FirebaseFirestore.getInstance().collection("user").document(id).get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if(documentSnapshot.exists()) {
+                            Item_home_user user = new Item_home_user(
+                                    new ClassUserScreen(documentSnapshot.get("foto").toString(),
+                                            documentSnapshot.get("id").toString(), documentSnapshot.get("nome").toString())
+                            );
+                            try{
+                                nearUsers.add(user);
+                                pessoasAdapter.update(nearUsers);
+                            }catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                });
+    }
+
+    private void removeNearUser(String id){
+        for (Item_home_user item : nearUsers) {
+            if (item.user.getId().contains(id)) {
+                nearUsers.remove(item);
+            }
+        }
     }
 
 }

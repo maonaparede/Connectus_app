@@ -13,10 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.ProcessLifecycleOwner;
 
+import com.example.telas_background.dialog_toast.MakeDialogGeneric;
 import com.example.telas_background.initialize.Initialize;
 import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.location.LocationStateControler;
+import com.example.telas_background.timer.Cronos;
+import com.example.telas_background.timer.CronosInterface;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -26,12 +33,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private String email;
     private String password;
     private FirebaseAuth mAuth;
-    private Context context;
     private static final int REQUEST_CODE_LOCATION_PERMISSION = 1;
 
     @Override
@@ -39,11 +45,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        context = this;
 
+    }
 
-         verifyPermission();
-
+    @Override
+    protected void onStart() {
+        verifyPermission();
+        super.onStart();
     }
 
     private void verifyPermission(){
@@ -55,10 +63,8 @@ public class MainActivity extends AppCompatActivity {
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     REQUEST_CODE_LOCATION_PERMISSION
             );
-            verifyIsLogged();
-        }else {
-            verifyIsLogged();
         }
+        verifyIsLogged();
     }
 
     private void verifyIsLogged(){
@@ -94,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser account){
                 if(account != null){
-                    new Initialize().sql(context).friendListener();
+                    new Initialize().sql(this).friendListener();
                     setNameImage();
                     startActivity(new Intent( this , FragmentHandler.class));
                 }else {
@@ -135,5 +141,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
 
 }

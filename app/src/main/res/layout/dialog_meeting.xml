@@ -33,6 +33,7 @@
         android:background="@drawable/custom_button_linear_negative"
         android:text="Cancelar"
         android:textColor="#FFFFFF"
+        android:clickable="false"
         android:textSize="12sp" />
 
 </LinearLayout>

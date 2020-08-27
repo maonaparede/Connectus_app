@@ -14,8 +14,8 @@ public class Cronos {
     private Boolean isRunning;
     private Boolean isFinish;
 
-    public Cronos(CronosInterface cronosInterface , int minute) {
-        millisInit = minute * 10000;
+    public Cronos(CronosInterface cronosInterface , int seconds) {
+        millisInit = seconds * 1000;
         this.cronosInterface = cronosInterface;
         isRunning = false;
     }

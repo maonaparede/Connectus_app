@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.example.telas_background.dialog_toast.MakeDialogGeneric;
 import com.example.telas_background.dialog_toast.MakeToast;
+import com.example.telas_background.location.FirebaseGeoFire;
 import com.example.telas_background.location.LocationStateControler;
 import com.example.telas_background.sqlite.FriendsSqlController;
 import com.example.telas_background.timer.Cronos;
@@ -41,7 +42,7 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
     private ImageView imageUser;
     private TextView nameUser;
     private TextView emailUser;
-    private Integer timerCounter = 0;
+    private Integer timerCounter;
     private Cronos cronos;
 
 
@@ -92,6 +93,7 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
         cronos = new Cronos(this , 5);
         cronos.startOrPlay();
         ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
+        timerCounter = 0;
 
     }
 
@@ -99,6 +101,7 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
     public void appGo(){
        cronos.pause();
         LocationStateControler.stopLocationService(this);
+        FirebaseGeoFire.removeLocationServer();
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
@@ -107,28 +110,21 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
        LocationStateControler.startLocationService(this);
     }
 
-    //Responsável por ser o timer, com 5 min atualiza a lista de users próximos na home
+    //Responsável por ser o timer, com 5 min atualiza a localização do user
     // E a cada 30 manda um dialog falando pro user dar uma pausa
+    //720 x 5 segundos = 1h
     @Override
     public void cronosFinish() {
-        switch (timerCounter){
+        if (timerCounter == 72) {
+                new MakeDialogGeneric().createDialogOk(this,
+                        "Respira um pouco, viva a vida real!",
+                        "Que tal dar uma pausa?");
 
-            case 6:
-                new MakeDialogGeneric().createDialogOk(this ,
-                        "Você já passou um tempo Mexendo no app! Que tal aproveitar a vida Real?",
-                        "Dar uma pausa é bom");
-                cronos.startOrPlay();
                 timerCounter = 0;
-                break;
-            case 1:
-                //logica atualizar home
-                MakeToast.makeToast(this , "Home atualizada");
-            default:
-                timerCounter++;
-                cronos.startOrPlay();
-                break;
-
         }
+                timerCounter++;
+                FirebaseGeoFire.setLocationServer(this);
+                cronos.startOrPlay();
     }
 
 

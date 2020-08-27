@@ -37,6 +37,7 @@
         android:background="@drawable/linear_background"
         android:fontFamily="@font/changa_light"
         android:text="Enviar Request"
+        android:clickable="false"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.368"

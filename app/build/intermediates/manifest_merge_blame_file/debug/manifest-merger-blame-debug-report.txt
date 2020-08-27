@@ -154,11 +154,11 @@
 81                android:value="com.google.firebase.components.ComponentRegistrar" />
 81-->[com.google.firebase:firebase-functions:19.0.2] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\359da0bc30921c5b12eaeb1d874d59f0\jetified-firebase-functions-19.0.2\AndroidManifest.xml:20:17-82
 82            <meta-data
-82-->[com.google.firebase:firebase-database:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\c721e5a319404b9b8922d54e7ad11534\jetified-firebase-database-17.0.0\AndroidManifest.xml:30:13-32:85
+82-->[com.google.firebase:firebase-database:19.3.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\f8fab7b026da3565a28b6ce5f84e0386\jetified-firebase-database-19.3.0\AndroidManifest.xml:32:13-34:85
 83                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
-83-->[com.google.firebase:firebase-database:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\c721e5a319404b9b8922d54e7ad11534\jetified-firebase-database-17.0.0\AndroidManifest.xml:31:17-109
+83-->[com.google.firebase:firebase-database:19.3.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\f8fab7b026da3565a28b6ce5f84e0386\jetified-firebase-database-19.3.0\AndroidManifest.xml:33:17-109
 84                android:value="com.google.firebase.components.ComponentRegistrar" />
-84-->[com.google.firebase:firebase-database:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\c721e5a319404b9b8922d54e7ad11534\jetified-firebase-database-17.0.0\AndroidManifest.xml:32:17-82
+84-->[com.google.firebase:firebase-database:19.3.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\f8fab7b026da3565a28b6ce5f84e0386\jetified-firebase-database-19.3.0\AndroidManifest.xml:34:17-82
 85            <meta-data
 85-->[com.google.firebase:firebase-iid:20.0.1] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\7bd17493ffe5030ca4506852734a59f3\jetified-firebase-iid-20.0.1\AndroidManifest.xml:32:13-34:85
 86                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"

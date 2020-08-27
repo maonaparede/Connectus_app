@@ -39,7 +39,6 @@ public class Item_home_user extends Item<ViewHolder> {
         return super.getItem(position);
     }
 
-
     @Override
     public int getLayout() {
 

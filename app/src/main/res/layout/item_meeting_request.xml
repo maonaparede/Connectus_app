@@ -79,6 +79,7 @@
         android:background="@drawable/linear_background"
         android:fontFamily="@font/changa_light"
         android:text="Participar"
+        android:clickable="false"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toEndOf="@+id/item_meeting_request_imageview_image"
         app:layout_constraintTop_toBottomOf="@+id/item_meeting_request_imagebutton_hour" />
@@ -93,6 +94,7 @@
         android:background="@drawable/linear_negative_background"
         android:fontFamily="@font/changa_light"
         android:text="Rejeitar"
+        android:clickable="false"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toEndOf="@+id/item_meeting_request_button_accept"
         app:layout_constraintTop_toBottomOf="@+id/item_meeting_request_textview_hour" />
