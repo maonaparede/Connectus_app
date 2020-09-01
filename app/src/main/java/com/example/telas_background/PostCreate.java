@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -26,6 +27,7 @@ public class PostCreate extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_post_create);
 
         imageView = findViewById(R.id.post_create_imageview_image);
@@ -53,7 +55,7 @@ public class PostCreate extends AppCompatActivity {
 
         String description = editText.getText().toString();
 
-        if(description.isEmpty() && uri == null){
+        if(description == null || description.trim().isEmpty() || uri == null){
             MakeToast.makeToast(this , "O post não pode estar em branco!!");
             return;
         }else {

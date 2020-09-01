@@ -1342,6 +1342,7 @@ id ifRoom
 id image
 id imageView2
 id imageView3
+id include
 id info
 id invisible
 id italic
@@ -1384,6 +1385,7 @@ id item_perfil_perfil_textview_hobbieP6
 id item_perfil_perfil_textview_name
 id item_perfil_perfil_view_view1
 id item_perfil_perfil_view_view2
+id item_post_image_imageview
 id item_post_imageview_image
 id item_post_imageview_post_image
 id item_post_textview_name
@@ -1401,6 +1403,7 @@ id linearLayout3
 id linearLayout4
 id linearLayout5
 id linearLayout6
+id linearLayout7
 id linearLayoutop
 id linearLayoutop1
 id listMode
@@ -1489,6 +1492,7 @@ id post_create_edittext_description
 id post_create_imagebutton_add_image
 id post_create_imageview_image
 id post_create_textview_title
+id post_imageview_image_post
 id progressBar
 id progress_circular
 id progress_horizontal
@@ -1663,6 +1667,7 @@ layout activity_login
 layout activity_main
 layout activity_meeting_edit
 layout activity_perfil_edit
+layout activity_post
 layout activity_post_create
 layout activity_register
 layout custom_dialog
@@ -1701,6 +1706,7 @@ layout item_meeting_remove_user
 layout item_meeting_request
 layout item_perfil_perfil
 layout item_post
+layout item_post_image
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action

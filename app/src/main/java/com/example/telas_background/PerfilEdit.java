@@ -12,11 +12,9 @@ import android.widget.TextView;
 
 import com.example.telas_background.firebase.PerfilEditFirebase;
 import com.example.telas_background.dialog_toast.MakeToast;
-import com.example.telas_background.fragment.FragmentHome;
 import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.instanceClasses.ClassPerfilPerfil;
 import com.example.telas_background.instanceClasses.ClassUser;
-import com.example.telas_background.item.Item_perfil_perfil;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.annotations.Nullable;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -137,7 +135,7 @@ public class PerfilEdit extends AppCompatActivity {
                             ClassUser user = new ClassUser(documentSnapshot.get("foto").toString(),
                                     documentSnapshot.get("id").toString(), documentSnapshot.get("nome").toString());
 
-                            if(!user.getImage().isEmpty()) {
+                            if(user.getImage() != null) {
                                 Picasso.get().load(user.getImage()).into(imageView);
                             }
                             name.setText(user.getName());
@@ -149,7 +147,7 @@ public class PerfilEdit extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                                     ClassPerfilPerfil perfil = documentSnapshot.toObject(ClassPerfilPerfil.class);
-                                    description.setText(perfil.getDescription());
+                                    description.setText(perfil.getDescricao());
                                     hobbie1.setText(perfil.getH1());
                                     hobbie2.setText(perfil.getH2());
                                     hobbie3.setText(perfil.getH3());

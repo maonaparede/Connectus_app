@@ -7,6 +7,11 @@
     android:background="#FFF"
     tools:context=".fragment.FragmentPerfil">
 
+    <include
+        android:id="@+id/include"
+        layout="@layout/item_perfil_perfil"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerP"
         android:layout_width="0dp"
@@ -14,7 +19,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/include" />
 
 
     <Button

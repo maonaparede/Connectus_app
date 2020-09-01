@@ -4,7 +4,7 @@ public class ClassPerfilPerfil {
 
     //h = hobbie
 
-    private String description;
+    private String descricao;
     private String h1;
     private String h2;
     private String h3;
@@ -13,9 +13,8 @@ public class ClassPerfilPerfil {
     private String h6;
 
 
-
-    public String getDescription() {
-        return description;
+    public String getDescricao() {
+        return descricao;
     }
 
     public String getH1() {
