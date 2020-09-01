@@ -92,7 +92,6 @@ public class Cronos {
             isRunning = false;
             isFinish = true;
             isFinish();
-            Log.d("Timer" , "finish");
         }
 
         public void isFinish(){

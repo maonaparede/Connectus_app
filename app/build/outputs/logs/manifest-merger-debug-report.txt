@@ -176,7 +176,9 @@ ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManif
 	android:name
 		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:22:19-46
 activity#com.example.telas_background.PostCreate
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:23:9-48
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:23:9-99
+	android:theme
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:23:46-97
 	android:name
 		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:23:19-45
 activity#com.example.telas_background.PerfilEdit

@@ -5,6 +5,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.example.telas_background.initialize.UserPrincipal;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,7 +27,6 @@ public class PerfilEditFirebase {
     private FirebaseAuth mAuth;
     private Uri uri;
     private String urlImage;
-    private String id;
     private String name;
     private String description;
     private String hobbie1;
@@ -50,19 +50,17 @@ public class PerfilEditFirebase {
         this.hobbie6 = hobbie6;
 
         mAuth = FirebaseAuth.getInstance();
-        id = mAuth.getCurrentUser().getUid().toString();
     }
 
     public void uploadPerfilImage(){
 
         if(uri == null){
-            urlImage = "v";
             createUserFirestore();
         }else {
 
             StorageReference mStorageRef;
-            mStorageRef = FirebaseStorage.getInstance().getReference("/user/" + id);
-            final StorageReference reference = mStorageRef.child(id);
+            mStorageRef = FirebaseStorage.getInstance().getReference("/user/" + UserPrincipal.getId());
+            final StorageReference reference = mStorageRef.child(UserPrincipal.getId());
 
             uploadTask = reference.putFile(uri);
 
@@ -92,9 +90,9 @@ public class PerfilEditFirebase {
     }
 
 
-    private void createUserFirestore() {
+    private void createUserFirestore(){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference documentReference = db.collection("perfil").document(id);
+        DocumentReference documentReference = db.collection("perfil").document(UserPrincipal.getId());
 
 
         Map<String, Object> userSend = new HashMap<>();
@@ -121,12 +119,15 @@ public class PerfilEditFirebase {
                 });
 
 
-        DocumentReference documentReference1 = db.collection("user").document(id);
+        DocumentReference documentReference1 = db.collection("user").document(UserPrincipal.getId());
 
         Map<String, Object> userSend1 = new HashMap<>();
-        userSend1.put("id", id);
+        userSend1.put("id", UserPrincipal.getId());
         userSend1.put("nome", name);
-        userSend1.put("foto", urlImage);
+
+        if(urlImage != null) {
+            userSend1.put("foto", urlImage);
+        }
 
         documentReference1.set(userSend1)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {

@@ -20,19 +20,26 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.telas_background.dialog_toast.DialogCreatePost;
 import com.example.telas_background.dialog_toast.MakeDialogGeneric;
 import com.example.telas_background.dialog_toast.MakeToast;
+import com.example.telas_background.fragment.FragmentHome;
+import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.location.FirebaseGeoFire;
 import com.example.telas_background.location.LocationStateControler;
 import com.example.telas_background.sqlite.FriendsSqlController;
 import com.example.telas_background.timer.Cronos;
 import com.example.telas_background.timer.CronosInterface;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 public class FragmentHandler extends AppCompatActivity implements CronosInterface, LifecycleObserver {
@@ -42,6 +49,7 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
     private ImageView imageUser;
     private TextView nameUser;
     private TextView emailUser;
+    private ImageButton edit;
     private Integer timerCounter;
     private Cronos cronos;
 
@@ -64,7 +72,15 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
         imageUser = view.findViewById(R.id.toolbar_image_user);
         nameUser = view.findViewById(R.id.toolbar_name_user);
         emailUser = view.findViewById(R.id.toolbar_email_user);
+        edit = view.findViewById(R.id.toolbar_button_edit);
         setHeaderToolbar();
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toPerfilEdit();
+            }
+        });
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_perfil,
@@ -73,7 +89,6 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
                 R.id.nav_friends,
                 R.id.nav_request,
                 R.id.nav_config
-
         )
                 .setDrawerLayout(drawer)
                 .build();
@@ -94,7 +109,9 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
         cronos.startOrPlay();
         ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
         timerCounter = 0;
-
+        //remove o user se descpnectar  do app
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("location");
+        ref.child(UserPrincipal.getId()).onDisconnect().removeValue();
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
@@ -110,12 +127,18 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
        LocationStateControler.startLocationService(this);
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    public void appDestroy(){
+        cronos.stop();
+        FirebaseGeoFire.removeLocationServer();
+    }
+
     //Responsável por ser o timer, com 5 min atualiza a localização do user
-    // E a cada 30 manda um dialog falando pro user dar uma pausa
+    // E a cada 1h manda um dialog falando pro user dar uma pausa
     //720 x 5 segundos = 1h
     @Override
     public void cronosFinish() {
-        if (timerCounter == 72) {
+        if (timerCounter == 720) {
                 new MakeDialogGeneric().createDialogOk(this,
                         "Respira um pouco, viva a vida real!",
                         "Que tal dar uma pausa?");
@@ -123,10 +146,16 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
                 timerCounter = 0;
         }
                 timerCounter++;
+
                 FirebaseGeoFire.setLocationServer(this);
                 cronos.startOrPlay();
     }
 
+    private void toPerfilEdit(){
+        Intent intent = new Intent(this, PerfilEdit.class);
+        intent.putExtra("estado", 1);
+        startActivity(intent);
+    }
 
     private void listenerDestination(NavDestination destination){
         if (destination.getId() == R.id.nav_home) {
@@ -170,6 +199,7 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 
 
 }

@@ -13,7 +13,14 @@ import android.widget.TextView;
 import com.example.telas_background.firebase.PerfilEditFirebase;
 import com.example.telas_background.dialog_toast.MakeToast;
 import com.example.telas_background.fragment.FragmentHome;
+import com.example.telas_background.initialize.UserPrincipal;
+import com.example.telas_background.instanceClasses.ClassPerfilPerfil;
+import com.example.telas_background.instanceClasses.ClassUser;
+import com.example.telas_background.item.Item_perfil_perfil;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.annotations.Nullable;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
 public class PerfilEdit extends AppCompatActivity {
@@ -31,6 +38,8 @@ public class PerfilEdit extends AppCompatActivity {
     private ImageView imageView;
     private Uri uri;
 
+    private Integer state;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +55,14 @@ public class PerfilEdit extends AppCompatActivity {
         name = findViewById(R.id.perfil_edit_edittext_name);
         description = findViewById(R.id.perfil_edit_edittext_description);
         imageView = findViewById(R.id.perfil_edit_imageview_image);
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null) {
+            state = bundle.getInt("estado");
+            if(state == 1){
+                getfPerfil();
+            }
+        }
     }
 
 
@@ -76,13 +93,12 @@ public class PerfilEdit extends AppCompatActivity {
 
         if (requestCode == 0 && resultCode == RESULT_OK && data!= null && data.getData() != null) {
             uri = data.getData();
-
             Picasso.get().load(uri).into(imageView);
         }
     }
 
     public void saveUser(View view){
-        String nome1 = name.getText().toString();
+        String name1 = name.getText().toString();
         String description1 = description.getText().toString();
         String Ehobbie1 = hobbie1.getText().toString();
         String Ehobbie2 = hobbie2.getText().toString();
@@ -91,14 +107,60 @@ public class PerfilEdit extends AppCompatActivity {
         String Ehobbie5 = hobbie5.getText().toString();
         String Ehobbie6 = hobbie6.getText().toString();
 
-        PerfilEditFirebase perfilEditFirebase = new PerfilEditFirebase(uri, nome1, description1,
-                Ehobbie1, Ehobbie2, Ehobbie3, Ehobbie4, Ehobbie5, Ehobbie6);
+        if(name1 == null || name1.trim().isEmpty() || description1 == null || description1.trim().isEmpty() ||
+                Ehobbie1 == null || Ehobbie1.trim().isEmpty() || Ehobbie2 == null || Ehobbie2.trim().isEmpty() ||
+                Ehobbie3 == null || Ehobbie3.trim().isEmpty() || Ehobbie4 == null || Ehobbie4.trim().isEmpty() ||
+                Ehobbie5 == null || Ehobbie5.trim().isEmpty() || Ehobbie6 == null || Ehobbie6.trim().isEmpty()
+        ){
+            MakeToast.makeToast(this , getString(R.string.campos_vazios));
+        }else {
 
-        //Tem que criar uma função de update perfil e encontro decente
-        perfilEditFirebase.uploadPerfilImage();
+            PerfilEditFirebase perfilEditFirebase = new PerfilEditFirebase(uri, name1, description1,
+                    Ehobbie1, Ehobbie2, Ehobbie3, Ehobbie4, Ehobbie5, Ehobbie6);
 
-        MakeToast.makeToast(this , "Perfil Atualizado");
-        startActivity(new Intent(this , FragmentHome.class));
+            //Tem que criar uma função de update perfil e encontro decente
+            perfilEditFirebase.uploadPerfilImage();
+
+            MakeToast.makeToast(this, "Perfil Atualizado");
+
+            startActivity(new Intent(this, FragmentHandler.class));
+        }
+    }
+
+    private void getfPerfil(){
+        FirebaseFirestore.getInstance().collection("user").document(UserPrincipal.getId()).get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        //User, id, foto, nome
+                        if(documentSnapshot.exists()) {
+                            ClassUser user = new ClassUser(documentSnapshot.get("foto").toString(),
+                                    documentSnapshot.get("id").toString(), documentSnapshot.get("nome").toString());
+
+                            if(!user.getImage().isEmpty()) {
+                                Picasso.get().load(user.getImage()).into(imageView);
+                            }
+                            name.setText(user.getName());
+
+
+                            //perfil - descrição - Hobbie
+                            FirebaseFirestore.getInstance().collection("perfil").document(UserPrincipal.getId())
+                                    .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    ClassPerfilPerfil perfil = documentSnapshot.toObject(ClassPerfilPerfil.class);
+                                    description.setText(perfil.getDescription());
+                                    hobbie1.setText(perfil.getH1());
+                                    hobbie2.setText(perfil.getH2());
+                                    hobbie3.setText(perfil.getH3());
+                                    hobbie4.setText(perfil.getH4());
+                                    hobbie5.setText(perfil.getH5());
+                                    hobbie6.setText(perfil.getH6());
+                                }
+                            });
+                        }
+                    }
+                });
     }
 
 }

@@ -169,6 +169,7 @@ public class FragmentHome extends Fragment {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
 
                 if (documentSnapshot.exists()) {
+
                    Item_home_meeting item = new Item_home_meeting(documentSnapshot.get("nome").toString()
                                     , documentSnapshot.get("foto").toString(),
                            documentSnapshot.get("dono").toString());

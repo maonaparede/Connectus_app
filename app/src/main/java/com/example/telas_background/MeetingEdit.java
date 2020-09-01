@@ -93,19 +93,33 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
 
     //tem q criar uma operação de update no Meeting Create Firebase
     public void saveOrCreateMeeting(View view){
-                MeetingCreateFirebase meeting =
-                        new MeetingCreateFirebase(name.getText().toString() , description.getText().toString(),
-                        day.getText().toString(), local.getText().toString(), hour.getText().toString(), uri);
 
-                meeting.uploadImageMeeting();
+       String name1 = name.getText().toString().trim();
+       String description1 = description.getText().toString().trim();
+       String day1 = day.getText().toString().trim();
+       String local1 = local.getText().toString().trim();
+       String hour1 = hour.getText().toString().trim();
 
-                if(estado == 0) {
-                    MakeToast.makeToast(this, "Criado!");
-                }else {
-                    MakeToast.makeToast(this, "Atualizado!");
-                }
 
-                startActivity(new Intent(this , FragmentHome.class));
+       //Verifica se os campos não estão vazios
+        if(name1 == null || name1.isEmpty() || description1 == null || description1.isEmpty()
+                || day1 == null || day1.isEmpty() || local1 == null || local1.isEmpty() || hour1 == null || hour1.isEmpty() ){
+
+
+            MakeToast.makeToast(this , getString(R.string.campos_vazios));
+
+        }else {
+            MeetingCreateFirebase meeting = new MeetingCreateFirebase(name1, description1,day1, local1, hour1, uri);
+            meeting.uploadImageMeeting();
+
+            if (estado == 0) {
+                MakeToast.makeToast(this, "Criado!");
+            } else {
+                MakeToast.makeToast(this, "Atualizado!");
+            }
+
+            startActivity(new Intent(this, FragmentHandler.class));
+        }
     }
 
 
@@ -129,6 +143,12 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
                 }
             }
         });
+    }
+
+    public void cancelEditMeeting(View view){
+        Intent intent = new Intent( this , FragmentHandler.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     public void toDialogMeeting(View v){

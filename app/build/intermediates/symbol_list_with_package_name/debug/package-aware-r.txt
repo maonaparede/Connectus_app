@@ -1124,6 +1124,7 @@ drawable connect_us
 drawable connect_us_icon
 drawable custom_button_linear
 drawable custom_button_linear_negative
+drawable custom_field_border
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1135,6 +1136,7 @@ drawable googleg_standard_color_18
 drawable ic_access_time_black_24dp
 drawable ic_action_name
 drawable ic_baseline_add_a_photo_24
+drawable ic_baseline_edit_24
 drawable ic_baseline_exit_to_app_24
 drawable ic_baseline_home_24
 drawable ic_baseline_person_add_24
@@ -1398,6 +1400,7 @@ id linearLayout2
 id linearLayout3
 id linearLayout4
 id linearLayout5
+id linearLayout6
 id linearLayoutop
 id linearLayoutop1
 id listMode
@@ -1573,6 +1576,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toolbar_button_edit
 id toolbar_email_user
 id toolbar_image_user
 id toolbar_name_user
@@ -1748,6 +1752,7 @@ string abc_toolbar_collapse_description
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
+string campos_vazios
 string character_counter_content_description
 string character_counter_pattern
 string common_google_play_services_enable_button

@@ -5,6 +5,7 @@
     <string name="content_dialog_friend_remove">Quer desfazer essa conexão</string>
     <string name="voce">Você</string>
     <string name="enviar_request_membro">Enviar Request do Encontro</string>
+    <string name="campos_vazios">Não pode haver campos vazios!</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_perfil">Perfil</string>

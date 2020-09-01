@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PerfilEdit">
+    tools:context=".PerfilEdit"
+    android:background="#F1F1F1"
+    >
 
     <ImageButton
         android:id="@+id/perfil_edit_imagebutton_hobbie_next"
@@ -44,13 +46,14 @@
         android:id="@+id/perfil_edit_edittext_hobbie"
         android:layout_width="272dp"
         android:layout_height="46dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_field_border"
         android:ems="10"
         android:fontFamily="@font/changa"
         android:hint="Hobbies (MAX 6)"
         android:paddingLeft="10dp"
-        android:background="#FFFFFF"
         android:textColor="#0B0707"
         android:textColorHint="#090505"
         android:textSize="15sp"
@@ -61,7 +64,8 @@
         android:id="@+id/perfil_edit_edittext_description"
         android:layout_width="272dp"
         android:layout_height="90dp"
-        android:background="#FFFFFF"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_field_border"
         android:ems="10"
         android:fontFamily="@font/changa"
         android:hint="Descrição"
@@ -70,6 +74,7 @@
         android:textColorHint="#090505"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/perfil_edit_edittext_name"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/perfil_edit_edittext_name"
         app:layout_constraintTop_toBottomOf="@+id/perfil_edit_edittext_name" />
 
@@ -78,17 +83,14 @@
         android:layout_width="272dp"
         android:layout_height="45dp"
         android:layout_marginTop="32dp"
-        android:background="#FFFFFF"
-        android:ems="10"
+        android:background="@drawable/custom_field_border"
         android:fontFamily="@font/changa"
         android:hint="Nome de Usuário"
         android:paddingLeft="10dp"
         android:textColor="#0B0707"
         android:textColorHint="#090505"
-
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/perfil_edit_imageview_image"
         tools:text="Nome de Usuário" />
@@ -165,12 +167,11 @@
         app:layout_constraintTop_toTopOf="@+id/perfil_edit_textview_hobbie2E"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/perfil_edit_imageview_image"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/linear_background"
         android:onClick="imagemClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

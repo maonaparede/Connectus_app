@@ -62,7 +62,7 @@ public class PostCreate extends AppCompatActivity {
             PostFirebase postFirebase = new PostFirebase(post, uri);
             postFirebase.uploadImagePost();
 
-            startActivity(new Intent( this , FragmentPerfil.class));
+            finish();
         }
     }
 }

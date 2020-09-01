@@ -45,8 +45,6 @@ public class MeetingCreateFirebase {
     public void uploadImageMeeting(){
 
         if(uri == null){
-            //v de vazio, void
-            urlImage = "v";
             createMeeting();
         }else {
             StorageReference mStorageRef;
@@ -95,8 +93,10 @@ public class MeetingCreateFirebase {
         userSend.put("dia", day);
         userSend.put("local", local);
         userSend.put("horario", hour);
-        if(!urlImage.equals("v")) {
+        if(urlImage != null) {
             userSend.put("foto", urlImage);
+        }else{
+            userSend.put("foto", "");
         }
         userSend.put("dono", UserPrincipal.getId());
 

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.telas_background.PostCreate;
 import com.example.telas_background.R;
+import com.example.telas_background.dialog_toast.DialogCreatePost;
 import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.instanceClasses.ClassPerfilPerfil;
 import com.example.telas_background.instanceClasses.ClassPerfilPost;
@@ -72,8 +73,8 @@ public class FragmentPerfil extends Fragment {
 
 
         try {
-            analizeButton();
-            setFunctionButton();
+            setButtonState();
+            setTextButton();
         }catch (Exception e){
             Log.d("Error Button " , e.getMessage());
         }
@@ -96,12 +97,12 @@ public class FragmentPerfil extends Fragment {
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-
+                //User, id, foto, nome
                 if(documentSnapshot.exists()) {
                     classUser = new ClassUser(documentSnapshot.get("foto").toString(),
                             documentSnapshot.get("id").toString(), documentSnapshot.get("nome").toString());
 
-                    //perfil
+                    //perfil - descrição - Hobbie
                     FirebaseFirestore.getInstance().collection("perfil").document(idPerfil)
                             .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
@@ -138,7 +139,7 @@ public class FragmentPerfil extends Fragment {
     }
 
 
-    private void analizeButton(){
+    private void setButtonState(){
 
         if(bundle != null) {
             String user = bundle.getString("user");
@@ -163,7 +164,7 @@ public class FragmentPerfil extends Fragment {
         }
     }
 
-    private void setFunctionButton(){
+    private void setTextButton(){
         switch (buttonConnectstate){
             case 0:
                 buttonConnect.setText("Criar Post");

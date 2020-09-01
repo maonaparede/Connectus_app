@@ -14,10 +14,7 @@
             android:id="@+id/nav_perfil"
             android:icon="@drawable/ic_menu_perfil"
             android:title="@string/menu_perfil" />
-        <item
-            android:id="@+id/nav_encontro"
-            android:icon="@drawable/ic_menu_encontro"
-            android:title="@string/menu_encontro"/>
+
         <item
             android:id="@+id/nav_mensagem"
             android:icon="@drawable/ic_menu_mensagem"

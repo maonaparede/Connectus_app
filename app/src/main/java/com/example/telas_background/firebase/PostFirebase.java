@@ -37,7 +37,7 @@ public class PostFirebase {
         this.uri = uri;
 
         mAuth = FirebaseAuth.getInstance();
-        id = mAuth.getCurrentUser().getUid().toString();
+        id = mAuth.getCurrentUser().getUid();
     }
 
 
@@ -47,9 +47,11 @@ public class PostFirebase {
             urlImage = "v";
             createPost();
         }else{
+            String nameImage = String.valueOf(System.currentTimeMillis());
+
             StorageReference mStorageRef;
             mStorageRef = FirebaseStorage.getInstance().getReference("/post/" + id);
-            final StorageReference reference = mStorageRef.child(id);
+            final StorageReference reference = mStorageRef.child(nameImage);
 
             uploadTask = reference.putFile(uri);
 

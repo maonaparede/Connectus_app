@@ -110,7 +110,8 @@ public class FragmentMeeting extends Fragment implements ConfirmationDialog {
                     hour1.setText(documentSnapshot.get("horario").toString());
                     local1.setText(documentSnapshot.get("local").toString());
                     image = documentSnapshot.get("foto").toString();
-                    if(!image.isEmpty()) {
+
+                    if(!image.isEmpty()){
                         Picasso.get().load(image).into(imageView);
                     }
                 }
