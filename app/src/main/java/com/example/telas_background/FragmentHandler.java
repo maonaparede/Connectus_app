@@ -18,19 +18,13 @@ import androidx.navigation.ui.NavigationUI;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.telas_background.dialog_toast.DialogCreatePost;
 import com.example.telas_background.dialog_toast.MakeDialogGeneric;
-import com.example.telas_background.dialog_toast.MakeToast;
-import com.example.telas_background.fragment.FragmentHome;
 import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.location.FirebaseGeoFire;
 import com.example.telas_background.location.LocationStateControler;
@@ -46,6 +40,8 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
 
     private AppBarConfiguration mAppBarConfiguration;
     private static Context context;
+    private Boolean updateLocation = true;
+
     private ImageView imageUser;
     private TextView nameUser;
     private TextView emailUser;
@@ -116,6 +112,7 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     public void appGo(){
+        updateLocation = false;
        cronos.pause();
         LocationStateControler.stopLocationService(this);
         FirebaseGeoFire.removeLocationServer();
@@ -123,14 +120,28 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public void appBack(){
+        updateLocation = true;
        cronos.startOrPlay();
        LocationStateControler.startLocationService(this);
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    public void appStop(){
+        try {
+            updateLocation = false;
+            cronos.stop();
+        } finally {
+            FirebaseGeoFire.removeLocationServer();
+        }
+    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void appDestroy(){
-        cronos.stop();
-        FirebaseGeoFire.removeLocationServer();
+        try {
+            FirebaseGeoFire.removeLocationServer();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //Responsável por ser o timer, com 5 min atualiza a localização do user
@@ -138,17 +149,19 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
     //720 x 5 segundos = 1h
     @Override
     public void cronosFinish() {
-        if (timerCounter == 720) {
+        if(updateLocation) {
+            if (timerCounter == 720) {
                 new MakeDialogGeneric().createDialogOk(this,
                         "Respira um pouco, viva a vida real!",
                         "Que tal dar uma pausa?");
 
                 timerCounter = 0;
-        }
-                timerCounter++;
+            }
+            timerCounter++;
 
-                FirebaseGeoFire.setLocationServer(this);
-                cronos.startOrPlay();
+            FirebaseGeoFire.setLocationServer(this);
+            cronos.startOrPlay();
+        }
     }
 
     private void toPerfilEdit(){

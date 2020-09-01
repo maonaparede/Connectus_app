@@ -252,7 +252,8 @@ public class FragmentHome extends Fragment {
     private void removeNearUser(String id){
         for (Item_home_user item : nearUsers) {
             if (item.user.getId().contains(id)) {
-                nearUsers.remove(item);
+                nearUsers.remove(item.getPosition(item));
+                pessoasAdapter.update(nearUsers);
             }
         }
     }

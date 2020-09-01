@@ -20,7 +20,7 @@
 
         <activity android:name=".Login" />
         <activity android:name=".MeetingEdit" />
-        <activity android:name=".PostCreate" android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+        <activity android:name=".PostCreate" android:theme="@style/Theme.MaterialComponents.Light.Dialog"/>
         <activity android:name=".PerfilEdit" />
         <activity android:name=".Chat" />
         <activity android:name=".Register" />

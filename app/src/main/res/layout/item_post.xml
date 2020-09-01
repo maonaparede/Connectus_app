@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -21,18 +23,22 @@
         android:id="@+id/item_post_textview_name"
         android:layout_width="wrap_content"
         android:layout_height="22dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:fontFamily="@font/changa"
         android:text="TextView"
         android:textColor="#757575"
-        android:textSize="12sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/item_post_imageview_image"
         app:layout_constraintTop_toTopOf="@+id/item_post_imageview_image" />
 
     <TextView
         android:id="@+id/item_post_textview_post_description"
-        android:layout_width="330dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:fontFamily="@font/changa"
         android:text="TextView"
         android:textSize="14sp"
@@ -41,11 +47,12 @@
 
     <ImageView
         android:id="@+id/item_post_imageview_post_image"
-        android:layout_width="411dp"
+        android:layout_width="390dp"
+
         android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
         android:maxHeight="411dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_post_textview_post_description"
         app:srcCompat="@drawable/linear_background" />

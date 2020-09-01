@@ -11,12 +11,12 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.telas_background.PostCreate;
 import com.example.telas_background.R;
-import com.example.telas_background.dialog_toast.DialogCreatePost;
 import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.instanceClasses.ClassPerfilPerfil;
 import com.example.telas_background.instanceClasses.ClassPerfilPost;
@@ -65,6 +65,7 @@ public class FragmentPerfil extends Fragment {
         buttonConnect = root.findViewById(R.id.socializar_botao_perfil);
 
         adapter = new GroupAdapter();
+        //recycler.setLayoutManager(new GridLayoutManager(context , 3));
         recycler.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
         recycler.setAdapter(adapter);
 

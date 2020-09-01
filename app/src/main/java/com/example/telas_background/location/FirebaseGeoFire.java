@@ -22,12 +22,15 @@ import com.google.firebase.database.FirebaseDatabase;
 public class FirebaseGeoFire {
 
     static public void setLocationServer(Context context) {
+        String id = UserPrincipal.getId();
         Location location1 = getLocation(context);
 
         GeoLocation location = new GeoLocation(location1.getLatitude(), location1.getLongitude());
         final DatabaseReference ref = FirebaseDatabase.getInstance().getReference("location");
         GeoFire geoFire = new GeoFire(ref);
-        geoFire.setLocation(UserPrincipal.getId(), location);
+        geoFire.setLocation(id, location);
+
+        ref.child(id).onDisconnect().removeValue();
 
         new GeoFire.CompletionListener() {
             @Override
