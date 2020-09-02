@@ -22,7 +22,7 @@ import com.google.firebase.storage.UploadTask;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PerfilEditFirebase {
+public class PerfilUpdateFirebase {
 
     private FirebaseAuth mAuth;
     private Uri uri;
@@ -37,8 +37,8 @@ public class PerfilEditFirebase {
     private String hobbie6;
     private StorageTask<UploadTask.TaskSnapshot> uploadTask;
 
-    public PerfilEditFirebase(Uri uri, String name, String description, String hobbie1,
-                              String hobbie2, String hobbie3, String hobbie4, String hobbie5, String hobbie6) {
+    public PerfilUpdateFirebase(Uri uri, String name, String description, String hobbie1,
+                                String hobbie2, String hobbie3, String hobbie4, String hobbie5, String hobbie6) {
         this.uri = uri;
         this.name = name;
         this.description = description;
@@ -104,7 +104,7 @@ public class PerfilEditFirebase {
         userSend.put("h5", hobbie5);
         userSend.put("h6", hobbie6);
 
-        documentReference.set(userSend)
+        documentReference.update(userSend)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -129,7 +129,7 @@ public class PerfilEditFirebase {
             userSend1.put("foto", urlImage);
         }
 
-        documentReference1.set(userSend1)
+        documentReference1.update(userSend1)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

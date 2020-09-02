@@ -55,8 +55,8 @@
 32-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:17:9-19:15
 33            android:name="com.example.telas_background.Post"
 33-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:17:19-39
-34            android:theme="@style/Theme.MaterialComponents.Light.Dialog" />
-34-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:18:13-73
+34            android:theme="@style/dialogBorderTheme" />
+34-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:18:13-53
 35        <activity
 35-->C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:21:9-23:52
 36            android:name="com.example.telas_background.FragmentHandler"

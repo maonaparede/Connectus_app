@@ -31,7 +31,7 @@
         android:theme="@style/AppTheme.NoActionBar" >
         <activity
             android:name="com.example.telas_background.Post"
-            android:theme="@style/Theme.MaterialComponents.Light.Dialog" />
+            android:theme="@style/dialogBorderTheme" />
         <activity
             android:name="com.example.telas_background.FragmentHandler"
             android:screenOrientation="nosensor" />

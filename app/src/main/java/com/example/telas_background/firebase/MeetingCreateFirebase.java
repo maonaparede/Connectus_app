@@ -96,7 +96,7 @@ public class MeetingCreateFirebase {
         if(urlImage != null) {
             userSend.put("foto", urlImage);
         }else{
-            userSend.put("foto", "");
+            userSend.put("foto", "v");
         }
         userSend.put("dono", UserPrincipal.getId());
 

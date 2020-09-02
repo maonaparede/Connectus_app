@@ -1125,6 +1125,7 @@ drawable connect_us_icon
 drawable custom_button_linear
 drawable custom_button_linear_negative
 drawable custom_field_border
+drawable custom_rounded
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1136,6 +1137,7 @@ drawable googleg_standard_color_18
 drawable ic_access_time_black_24dp
 drawable ic_action_name
 drawable ic_baseline_add_a_photo_24
+drawable ic_baseline_delete_24
 drawable ic_baseline_edit_24
 drawable ic_baseline_exit_to_app_24
 drawable ic_baseline_home_24
@@ -1162,6 +1164,7 @@ drawable linear_top_background_gradient
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+drawable no_picture
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -1386,10 +1389,7 @@ id item_perfil_perfil_textview_name
 id item_perfil_perfil_view_view1
 id item_perfil_perfil_view_view2
 id item_post_image_imageview
-id item_post_imageview_image
-id item_post_imageview_post_image
-id item_post_textview_name
-id item_post_textview_post_description
+id item_post_text_textview
 id item_touch_helper_previous_elevation
 id labeled
 id largeLabel
@@ -1486,13 +1486,19 @@ id perfil_edit_textview_hobbie3E
 id perfil_edit_textview_hobbie4E
 id perfil_edit_textview_hobbie5E
 id perfil_edit_textview_hobbie6E
+id perfil_imagebutton_edit
 id pin
 id post_create_button_post
 id post_create_edittext_description
 id post_create_imagebutton_add_image
 id post_create_imageview_image
 id post_create_textview_title
+id post_imagebutton_exclude
 id post_imageview_image_post
+id post_imageview_image_user
+id post_recyclerView
+id post_textview_desc_user
+id post_textview_name_user
 id progressBar
 id progress_circular
 id progress_horizontal
@@ -1598,7 +1604,6 @@ id uniform
 id unlabeled
 id up
 id useLogo
-id view
 id view_offset_helper
 id visible
 id wide
@@ -1705,8 +1710,8 @@ layout item_meeting_add_user
 layout item_meeting_remove_user
 layout item_meeting_request
 layout item_perfil_perfil
-layout item_post
 layout item_post_image
+layout item_post_text
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action
@@ -2312,6 +2317,7 @@ style Widget_MaterialComponents_TextInputLayout_OutlinedBox
 style Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense
 style Widget_MaterialComponents_Toolbar
 style Widget_Support_CoordinatorLayout
+style dialogBorderTheme
 style topTheme
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity

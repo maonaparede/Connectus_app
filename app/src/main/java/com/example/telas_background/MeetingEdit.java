@@ -15,8 +15,8 @@ import com.example.telas_background.firebase.MeetingFirebase;
 import com.example.telas_background.dialog_toast.DialogMeeting;
 import com.example.telas_background.dialog_toast.DialogRemoveConfirmation;
 import com.example.telas_background.dialog_toast.MakeToast;
-import com.example.telas_background.fragment.FragmentHome;
 import com.example.telas_background.dialog_toast.ConfirmationDialog;
+import com.example.telas_background.firebase.MeetingUpdateFirebase;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.annotations.Nullable;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -37,7 +37,7 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
     private String pathEncontro;
     private String imagem;
 
-    private Integer estado = 0;
+    private Integer state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,17 +56,19 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
             pathEncontro = bundle.getString("encontro");
-            estado = bundle.getInt("estado");
+            state = bundle.getInt("estado");
 
             if(!pathEncontro.isEmpty()){
                 getfMeeting();
             }
+        }else {
+            state = 5;
         }
     }
 
     @Override
     protected void onStart() {
-        if(estado == 0){
+        if(state == 0){
             addButton.setVisibility(View.INVISIBLE);
             remButton.setVisibility(View.INVISIBLE);
         }
@@ -109,13 +111,16 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
             MakeToast.makeToast(this , getString(R.string.campos_vazios));
 
         }else {
-            MeetingCreateFirebase meeting = new MeetingCreateFirebase(name1, description1,day1, local1, hour1, uri);
-            meeting.uploadImageMeeting();
 
-            if (estado == 0) {
-                MakeToast.makeToast(this, "Criado!");
-            } else {
+
+            if (state == 1) {
+                MeetingUpdateFirebase updateFirebase = new MeetingUpdateFirebase(name1, description1,day1, local1, hour1, uri);
+                updateFirebase.uploadImageMeeting();
                 MakeToast.makeToast(this, "Atualizado!");
+            } else {
+                MeetingCreateFirebase meeting = new MeetingCreateFirebase(name1, description1,day1, local1, hour1, uri);
+                meeting.uploadImageMeeting();
+                MakeToast.makeToast(this, "Criado!");
             }
 
             startActivity(new Intent(this, FragmentHandler.class));

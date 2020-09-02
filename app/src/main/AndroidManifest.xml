@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme.NoActionBar">
 
         <activity android:name=".Post"
-            android:theme="@style/Theme.MaterialComponents.Light.Dialog"
+            android:theme="@style/dialogBorderTheme"
             />
 
         <activity

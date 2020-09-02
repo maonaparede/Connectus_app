@@ -8,6 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="dialogBorderTheme" parent="@style/Theme.MaterialComponents.Light.Dialog">
+        <item name="android:radius">15dp</item>
+    </style>
+
     <style name="topTheme">
         <item name="colorPrimary">#fff</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

@@ -164,7 +164,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\je
 activity#com.example.telas_background.Post
 ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:17:9-19:15
 	android:theme
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:18:13-73
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:18:13-53
 	android:name
 		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:17:19-39
 activity#com.example.telas_background.FragmentHandler

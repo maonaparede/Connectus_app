@@ -10,8 +10,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.telas_background.firebase.PerfilEditFirebase;
+import com.example.telas_background.firebase.PerfilCreateFirebase;
 import com.example.telas_background.dialog_toast.MakeToast;
+import com.example.telas_background.firebase.PerfilUpdateFirebase;
 import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.instanceClasses.ClassPerfilPerfil;
 import com.example.telas_background.instanceClasses.ClassUser;
@@ -60,6 +61,8 @@ public class PerfilEdit extends AppCompatActivity {
             if(state == 1){
                 getfPerfil();
             }
+        }else{
+            state = 3;
         }
     }
 
@@ -113,14 +116,17 @@ public class PerfilEdit extends AppCompatActivity {
             MakeToast.makeToast(this , getString(R.string.campos_vazios));
         }else {
 
-            PerfilEditFirebase perfilEditFirebase = new PerfilEditFirebase(uri, name1, description1,
-                    Ehobbie1, Ehobbie2, Ehobbie3, Ehobbie4, Ehobbie5, Ehobbie6);
-
-            //Tem que criar uma função de update perfil e encontro decente
-            perfilEditFirebase.uploadPerfilImage();
-
-            MakeToast.makeToast(this, "Perfil Atualizado");
-
+            if(state == 1){
+                PerfilUpdateFirebase updateFirebase = new PerfilUpdateFirebase(uri, name1, description1,
+                        Ehobbie1, Ehobbie2, Ehobbie3, Ehobbie4, Ehobbie5, Ehobbie6);
+                updateFirebase.uploadPerfilImage();
+                MakeToast.makeToast(this, "Perfil Atualizado");
+            }else {
+                PerfilCreateFirebase perfilCreateFirebase = new PerfilCreateFirebase(uri, name1, description1,
+                        Ehobbie1, Ehobbie2, Ehobbie3, Ehobbie4, Ehobbie5, Ehobbie6);
+                perfilCreateFirebase.uploadPerfilImage();
+                MakeToast.makeToast(this, "Perfil Criado");
+            }
             startActivity(new Intent(this, FragmentHandler.class));
         }
     }
@@ -132,13 +138,17 @@ public class PerfilEdit extends AppCompatActivity {
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         //User, id, foto, nome
                         if(documentSnapshot.exists()) {
-                            ClassUser user = new ClassUser(documentSnapshot.get("foto").toString(),
-                                    documentSnapshot.get("id").toString(), documentSnapshot.get("nome").toString());
 
-                            if(user.getImage() != null) {
-                                Picasso.get().load(user.getImage()).into(imageView);
-                            }
-                            name.setText(user.getName());
+                            ClassUser user = new ClassUser(CleanString.clean(documentSnapshot.get("foto")),
+                                        documentSnapshot.get("id").toString(), documentSnapshot.get("nome").toString());
+
+                                if(user.getImage() != null) {
+                                    Picasso.get().load(user.getImage()).into(imageView);
+                                }
+                                name.setText(user.getName());
+
+
+
 
 
                             //perfil - descrição - Hobbie

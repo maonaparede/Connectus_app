@@ -116,6 +116,7 @@ public class FragmentHome extends Fragment {
         startActivity(intent);
     }
 
+    //
     public void toMeeting(Item item){
         Bundle bundle = new Bundle();
         Item_home_meeting meeting = (Item_home_meeting) item;
@@ -228,6 +229,7 @@ public class FragmentHome extends Fragment {
         });
     }
 
+    //Called by getfLocUsersNear, get the user photo and id
     private void getfUserNear(String id){
         FirebaseFirestore.getInstance().collection("user").document(id).get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -252,7 +254,7 @@ public class FragmentHome extends Fragment {
     private void removeNearUser(String id){
         for (Item_home_user item : nearUsers) {
             if (item.user.getId().contains(id)) {
-                nearUsers.remove(item.getPosition(item));
+                nearUsers.remove(item);
                 pessoasAdapter.update(nearUsers);
             }
         }

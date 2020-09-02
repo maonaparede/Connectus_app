@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity{
 
                 if (documentSnapshot.exists()) {
                     String name = documentSnapshot.get("nome").toString();
-                    String image = documentSnapshot.get("foto").toString();
+                    String image = CleanString.clean(documentSnapshot.get("foto"));
 
                     SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
                     shared.edit().putString("name" , name).apply();

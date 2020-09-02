@@ -3,12 +3,12 @@ package com.example.telas_background.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +17,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.telas_background.CleanString;
+import com.example.telas_background.PerfilEdit;
 import com.example.telas_background.Post;
 import com.example.telas_background.PostCreate;
 import com.example.telas_background.R;
@@ -25,28 +27,27 @@ import com.example.telas_background.instanceClasses.ClassPerfilPerfil;
 import com.example.telas_background.instanceClasses.ClassPerfilPost;
 import com.example.telas_background.instanceClasses.ClassUser;
 import com.example.telas_background.firebase.FriendRequestFirebase;
-import com.example.telas_background.item.Item_post;
 import com.example.telas_background.dialog_toast.MakeToast;
-import com.example.telas_background.item.Item_post_image;
+import com.example.telas_background.item.Item_post;
 import com.example.telas_background.sqlite.FriendsSqlController;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.annotations.Nullable;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
 
+import java.util.ArrayList;
+
 public class FragmentPerfil extends Fragment {
 
-    private RecyclerView recycler;
-    private GroupAdapter adapter;
-    public Button buttonConnect;
-
+    private ArrayList<Item_post> arrayListPost;
     private String idUser;
     private ClassPerfilPerfil perfil;
     private ClassUser classUser;
@@ -54,6 +55,11 @@ public class FragmentPerfil extends Fragment {
     private Integer buttonConnectstate = 0;
     private Context context;
     private Bundle bundle;
+
+    private RecyclerView recycler;
+    private GroupAdapter adapter;
+    public Button buttonConnect;
+    private ImageButton edit;
     private ImageView imagePerfil;
     private TextView name;
     private TextView description;
@@ -76,6 +82,16 @@ public class FragmentPerfil extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_perfil, container , false);
 
+        arrayListPost = new ArrayList<>();
+
+        edit = root.findViewById(R.id.perfil_imagebutton_edit);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toPerfilEdit();
+            }
+        });
+
         //Perfil
         description = root.findViewById(R.id.item_perfil_perfil_textview_description);
         name = root.findViewById(R.id.item_perfil_perfil_textview_name);
@@ -86,6 +102,7 @@ public class FragmentPerfil extends Fragment {
         hobbie4 = root.findViewById(R.id.item_perfil_perfil_textview_hobbieP4);
         hobbie5 = root.findViewById(R.id.item_perfil_perfil_textview_hobbieP5);
         hobbie6 = root.findViewById(R.id.item_perfil_perfil_textview_hobbieP6);
+
         //recycler view Usado para a "Galeria de fotos"
         recycler = root.findViewById(R.id.recyclerP);
         buttonConnect = root.findViewById(R.id.socializar_botao_perfil);
@@ -115,72 +132,18 @@ public class FragmentPerfil extends Fragment {
             }
         });
        getfPerfil();
+      // getfPosts();
+       getFPostRealtime();
         return root;
     }
 
 
 
-    private void getfPerfil(){
-        FirebaseFirestore.getInstance().collection("user").document(idPerfil).get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                //User, id, foto, nome
-                if(documentSnapshot.exists()) {
-                    classUser = new ClassUser(documentSnapshot.get("foto").toString(),
-                            documentSnapshot.get("id").toString(), documentSnapshot.get("nome").toString());
 
-                    if(classUser.getImage() != null){
-                        Picasso.get().load(classUser.getImage()).into(imagePerfil);
-                    }
-                    name.setText(classUser.getName());
-
-
-                    //perfil - descrição - Hobbie
-                    FirebaseFirestore.getInstance().collection("perfil").document(idPerfil)
-                            .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                        @Override
-                        public void onSuccess(DocumentSnapshot documentSnapshot) {
-                            try {
-                                perfil = documentSnapshot.toObject(ClassPerfilPerfil.class);
-                            }finally {
-                                description.setText(perfil.getDescricao());
-                                hobbie.setText(perfil.getH1());
-                                hobbie2.setText(perfil.getH2());
-                                hobbie3.setText(perfil.getH3());
-                                hobbie4.setText(perfil.getH4());
-                                hobbie5.setText(perfil.getH5());
-                                hobbie6.setText(perfil.getH6());
-                            }
-
-
-                            getfPosts();
-                        }
-                    });
-                }
-                }
-        });
-    }
-
-    private void getfPosts(){
-        FirebaseFirestore.getInstance().collection("post").
-                document(idPerfil).collection("post").get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-
-                                ClassPerfilPost post = new ClassPerfilPost(document.get("imagemPost").toString()
-                                        , document.get("descricao").toString());
-
-                                adapter.add(new Item_post_image(classUser.getName() , classUser.getImage(), post));
-                            }
-                        } else {
-                            Log.d("Perfil ", "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
+    private void toPerfilEdit(){
+        Intent intent = new Intent(context, PerfilEdit.class);
+        intent.putExtra("estado", 1);
+        startActivity(intent);
     }
 
     private void setButtonState(){
@@ -211,6 +174,7 @@ public class FragmentPerfil extends Fragment {
     private void setTextButton(){
         switch (buttonConnectstate){
             case 0:
+                edit.setVisibility(View.VISIBLE);
                 buttonConnect.setText("Criar Post");
                 break;
             case 1:
@@ -243,12 +207,105 @@ public class FragmentPerfil extends Fragment {
     private void toPostDialog(Item item1){
         Intent intent = new Intent(context, Post.class);
 
-        Item_post_image item = (Item_post_image) item1;
-        intent.putExtra("name" , item.getName());
-        intent.putExtra("image" , item.getImage());
+        Item_post item = (Item_post) item1;
+        intent.putExtra("id" , idPerfil);
+        intent.putExtra("name" , classUser.getName());
+        intent.putExtra("image" , classUser.getImage());
+        intent.putExtra("description" , perfil.getDescricao());
+        intent.putExtra("id_post" , item.getIdPost());
         intent.putExtra("post_image" , item.getPost().getImage());
         intent.putExtra("post_description" , item.getPost().getDescription());
-
         startActivity(intent);
+    }
+
+
+
+
+    private void getfPerfil(){
+        FirebaseFirestore.getInstance().collection("user").document(idPerfil).get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        //User, id, foto, nome
+                        if(documentSnapshot.exists()) {
+                            classUser = new ClassUser(CleanString.clean(documentSnapshot.get("foto")),
+                                    documentSnapshot.get("id").toString(), documentSnapshot.get("nome").toString());
+
+                            if(classUser.getImage() != null){
+                                Picasso.get().load(classUser.getImage()).into(imagePerfil);
+                            }
+                            name.setText(classUser.getName());
+
+
+                            //perfil - descrição - Hobbie
+                            FirebaseFirestore.getInstance().collection("perfil").document(idPerfil)
+                                    .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    try {
+                                        perfil = documentSnapshot.toObject(ClassPerfilPerfil.class);
+                                    }finally {
+                                        description.setText(perfil.getDescricao());
+                                        hobbie.setText(perfil.getH1());
+                                        hobbie2.setText(perfil.getH2());
+                                        hobbie3.setText(perfil.getH3());
+                                        hobbie4.setText(perfil.getH4());
+                                        hobbie5.setText(perfil.getH5());
+                                        hobbie6.setText(perfil.getH6());
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+    }
+
+
+    private void getFPostRealtime(){
+        FirebaseFirestore.getInstance().collection("post").
+                document(idPerfil).collection("post")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot snapshots,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w("TAG", "listen:error", e);
+                            return;
+                        }
+                        for (DocumentChange dc : snapshots.getDocumentChanges()) {
+                            switch (dc.getType()) {
+                                case ADDED:
+                                            ClassPerfilPost post = new ClassPerfilPost(dc.getDocument().get("imagemPost").toString()
+                                                    , dc.getDocument().get("descricao").toString());
+
+                                            try{
+                                                arrayListPost.add(new Item_post( post , dc.getDocument().getId()));
+
+                                                adapter.update(arrayListPost);
+                                            }catch (Exception f) {
+                                                f.printStackTrace();
+                                            }
+                                    break;
+                                case MODIFIED:
+
+                                    break;
+                                case REMOVED:
+                                        removePost(dc.getDocument().getId());
+                                    break;
+                            }
+                        }
+                    }
+                });
+    }
+
+    private synchronized void removePost(String id){
+
+        for (Item_post item : arrayListPost) {
+            if (item.getIdPost().contains(id)){
+                arrayListPost.remove(item);
+                adapter.update(arrayListPost);
+            }
+
+        }
     }
 }

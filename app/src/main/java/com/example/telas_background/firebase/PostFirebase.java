@@ -5,6 +5,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.instanceClasses.ClassPerfilPost;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -104,4 +105,5 @@ public class PostFirebase {
                     }
                 });
     }
+
 }

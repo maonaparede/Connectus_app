@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/dialogBorderTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Post">
@@ -10,12 +11,82 @@
         android:id="@+id/post_imageview_image_post"
         android:layout_width="312dp"
         android:layout_height="312dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/chat_from_frame" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+
+        android:id="@+id/post_imageview_image_user"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="8dp"
+        app:civ_border_color="#333"
+        app:civ_border_width="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/post_imageview_image_post"
+        app:layout_constraintStart_toStartOf="@+id/post_imageview_image_post"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/post_textview_desc_user"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/post_imageview_image_user"
+        app:layout_constraintStart_toEndOf="@+id/post_imageview_image_user"
+        app:layout_constraintTop_toTopOf="@+id/post_imageview_image_user" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/post_recyclerView"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:maxHeight="100dp"
+        app:layout_constraintEnd_toEndOf="@+id/post_imageview_image_post"
+        app:layout_constraintStart_toStartOf="@+id/post_imageview_image_post"
+        app:layout_constraintTop_toBottomOf="@+id/post_imageview_image_post" />
+
+    <TextView
+        android:id="@+id/post_textview_name_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif"
+        android:maxWidth="250dp"
+        android:maxLines="1"
+        android:text="Nome"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/post_recyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/post_recyclerView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+
+        android:id="@+id/post_imagebutton_exclude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:background="#00000000"
+        app:layout_constraintBottom_toBottomOf="@+id/post_textview_desc_user"
+        app:layout_constraintEnd_toEndOf="@+id/post_imageview_image_post"
+        app:layout_constraintTop_toTopOf="@+id/post_textview_desc_user"
+        app:srcCompat="@drawable/ic_baseline_delete_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
