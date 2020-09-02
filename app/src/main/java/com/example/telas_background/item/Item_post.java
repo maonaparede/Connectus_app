@@ -5,45 +5,43 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.example.telas_background.instanceClasses.ClassPerfilPost;
 import com.example.telas_background.R;
+import com.example.telas_background.instanceClasses.ClassPerfilPost;
 import com.squareup.picasso.Picasso;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.ViewHolder;
 
 public class Item_post extends Item<ViewHolder> {
 
-    private final String image;
-    private final String name;
+
     private final ClassPerfilPost post;
+    private String idPost;
 
 
-    public Item_post(String name, String image, ClassPerfilPost post) {
-        this.name = name;
-        this.image = image;
+    public Item_post(ClassPerfilPost post, String idPost) {
+
         this.post = post;
-
+        this.idPost = idPost;
     }
 
     @Override
     public void bind(@NonNull ViewHolder viewHolder, int position) {
 
-        TextView name1 = viewHolder.itemView.findViewById(R.id.item_post_textview_name);
-        name1.setText(name);
-
-        TextView description = viewHolder.itemView.findViewById(R.id.item_post_textview_post_description);
-        description.setText(post.getDescription());
-
-        ImageView imagePerfil = viewHolder.itemView.findViewById(R.id.item_post_imageview_image);
-        Picasso.get().load(image).into(imagePerfil);
-
-        ImageView imagePost = viewHolder.itemView.findViewById(R.id.item_post_imageview_post_image);
+        ImageView imagePost = viewHolder.itemView.findViewById(R.id.item_post_image_imageview);
         Picasso.get().load(post.getImage()).into(imagePost);
 
     }
 
+    public ClassPerfilPost getPost() {
+        return post;
+    }
+
+    public String getIdPost() {
+        return idPost;
+    }
+
     @Override
     public int getLayout() {
-        return R.layout.item_post;
+        return R.layout.item_post_image;
     }
 }
