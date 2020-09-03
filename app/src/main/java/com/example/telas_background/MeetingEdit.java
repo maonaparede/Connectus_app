@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.telas_background.dialog_toast.DateListener;
+import com.example.telas_background.dialog_toast.DialogDate;
 import com.example.telas_background.firebase.MeetingCreateFirebase;
 import com.example.telas_background.firebase.MeetingFirebase;
 import com.example.telas_background.dialog_toast.DialogMeeting;
@@ -23,19 +25,20 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
-public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog {
+public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog , DateListener {
 
     private Button addButton;
     private Button remButton;
     private EditText name;
     private EditText description;
-    private EditText day;
+    private Button day;
     private EditText local;
     private EditText hour;
     private ImageView imageView;
     private Uri uri;
     private String pathEncontro;
     private String imagem;
+    private Integer dateNumber;
 
     private Integer state;
 
@@ -53,6 +56,7 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
         hour = findViewById(R.id.meeting_edit_textview_hour);
         imageView = findViewById(R.id.meeting_edit_imageview_image);
 
+
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
             pathEncontro = bundle.getString("encontro");
@@ -66,6 +70,8 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
         }
     }
 
+
+
     @Override
     protected void onStart() {
         if(state == 0){
@@ -73,6 +79,10 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
             remButton.setVisibility(View.INVISIBLE);
         }
         super.onStart();
+    }
+
+    public void createDialogDate(View v) {
+        new DialogDate().createDialogOk(this,this);
     }
 
     public void imagemClick1(View view){
@@ -105,7 +115,8 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
 
        //Verifica se os campos não estão vazios
         if(name1 == null || name1.isEmpty() || description1 == null || description1.isEmpty()
-                || day1 == null || day1.isEmpty() || local1 == null || local1.isEmpty() || hour1 == null || hour1.isEmpty() ){
+                || day1 == null || day1.isEmpty() || local1 == null || local1.isEmpty() || hour1 == null || hour1.isEmpty()
+        || dateNumber == null){
 
 
             MakeToast.makeToast(this , getString(R.string.campos_vazios));
@@ -114,11 +125,11 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
 
 
             if (state == 1) {
-                MeetingUpdateFirebase updateFirebase = new MeetingUpdateFirebase(name1, description1,day1, local1, hour1, uri);
+                MeetingUpdateFirebase updateFirebase = new MeetingUpdateFirebase(name1, description1,dateNumber, local1, hour1, uri);
                 updateFirebase.uploadImageMeeting();
                 MakeToast.makeToast(this, "Atualizado!");
             } else {
-                MeetingCreateFirebase meeting = new MeetingCreateFirebase(name1, description1,day1, local1, hour1, uri);
+                MeetingCreateFirebase meeting = new MeetingCreateFirebase(name1, description1,dateNumber, local1, hour1, uri);
                 meeting.uploadImageMeeting();
                 MakeToast.makeToast(this, "Criado!");
             }
@@ -156,7 +167,7 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
         startActivity(intent);
     }
 
-    public void toDialogMeeting(View v){
+    public void createDialogMemberEdit(View v){
         switch (v.getId()) {
 
              //add membro
@@ -184,5 +195,21 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
     @Override
     public void DialogConfirmation() {
         MeetingFirebase.excludeMeeting();
+    }
+
+    @Override
+    public void dateUpdate(String date) {
+        dateNumber = Integer.parseInt(date);
+        dessasemble(Integer.parseInt(date));
+    }
+
+    private void dessasemble(Integer integer){
+        String date2 = String.valueOf(integer);
+        String year1 = date2.substring(0,4);
+        String month1 = date2.substring( 4,6);
+        String day1 = date2.substring(6);
+
+        //textView.setText(data);
+        day.setText(day1 + "/" + month1 + "/" + year1);
     }
 }

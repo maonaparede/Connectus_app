@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -38,6 +40,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.squareup.picasso.Picasso;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
@@ -51,8 +54,13 @@ public class FragmentHome extends Fragment {
     private RecyclerView pessoasRecycler;
     private GroupAdapter pessoasAdapter;
     private Button createMeeting;
+    private TextView nearMeetingName;
+    private TextView nearMeetingDay;
+    private ImageView nearMeetingImage;
 
     private ArrayList<Item_home_user> nearUsers;
+    private Integer nearestMeeting = 30003030;
+    private Integer state = 0;
     private static Context context;
 
 
@@ -67,6 +75,10 @@ public class FragmentHome extends Fragment {
         super.onCreate(savedInstanceState);
 
         View root = inflater.inflate(R.layout.fragment_home, container , false);
+
+        nearMeetingName = root.findViewById(R.id.home_textview_next_meeting_name);
+        nearMeetingDay = root.findViewById(R.id.home_textview_next_meeting_day);
+        nearMeetingImage = root.findViewById(R.id.home_imageview_nextmeeting);
         createMeeting = root.findViewById(R.id.home_button_create_meeting);
         pessoasRecycler = root.findViewById(R.id.home_recyclerview_user);
         encontrosRecycler = root.findViewById(R.id.home_recyclerview_meeting);
@@ -112,8 +124,19 @@ public class FragmentHome extends Fragment {
 
     //Criar Encontro
     public void toMeetingEdit(View view){
-        Intent intent = new Intent(getActivity() , MeetingEdit.class);
-        startActivity(intent);
+        if(state == 0) {
+            Intent intent = new Intent(getActivity(), MeetingEdit.class);
+            startActivity(intent);
+        }else{
+            Intent intent = new Intent(getActivity(), MeetingEdit.class);
+            Bundle bundle = new Bundle();
+
+            bundle.putString("encontro", "encontro/"+ UserPrincipal.getId());
+            bundle.putInt("estado", 1);
+
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
     }
 
     //
@@ -173,12 +196,43 @@ public class FragmentHome extends Fragment {
 
                    Item_home_meeting item = new Item_home_meeting(documentSnapshot.get("nome").toString()
                                     , documentSnapshot.get("foto").toString(),
-                           documentSnapshot.get("dono").toString());
+                           documentSnapshot.get("dono").toString() , Integer.parseInt(documentSnapshot.get("dia").toString()));
+
+                   setNearestMeetAndOwnerId(item);
 
                     encontrosAdapter.add(item);
                 }
             }
         });
+    }
+
+    //pega o encontro com a data mais proxima
+    //Verifica se o user é dono de algum dos encontros e se for muda o botao de "Criar encontro" para "Editar Encontro"
+    private void setNearestMeetAndOwnerId(Item_home_meeting item) {
+        Integer a = item.getDay();
+        if(a < nearestMeeting){
+            nearestMeeting = a;
+            nearMeetingName.setText(item.getName());
+            setDateTextView(item.getDay());
+            Picasso.get().load(item.getImage()).into(nearMeetingImage);
+        }
+
+        if(item.getOwnerId().equals(UserPrincipal.getId())){
+            state = 1;
+            createMeeting.setText("Editar Meu Encontro");
+        }
+
+
+    }
+
+    private void setDateTextView(Integer date){
+        String date1 = String.valueOf(date);
+        String year2 = date1.substring(0,4);
+        String month2 = date1.substring( 4,6);
+        String day2 = date1.substring(6);
+
+        //textView.setText(data);
+        nearMeetingDay.setText(day2 + "/" + month2 + "/" + year2);
     }
 
     private void getfLocUsersNear(){

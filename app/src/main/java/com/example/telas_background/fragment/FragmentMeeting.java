@@ -106,10 +106,11 @@ public class FragmentMeeting extends Fragment implements ConfirmationDialog {
                 if (documentSnapshot.exists()) {
                     title1.setText(documentSnapshot.get("nome").toString());
                     description1.setText(documentSnapshot.get("descricao").toString());
-                    day1.setText(documentSnapshot.get("dia").toString());
                     hour1.setText(documentSnapshot.get("horario").toString());
                     local1.setText(documentSnapshot.get("local").toString());
                     image = documentSnapshot.get("foto").toString();
+
+                    setDateTextView(documentSnapshot.get("dia").toString());
 
                     if(!image.isEmpty()){
                         Picasso.get().load(image).into(imageView);
@@ -117,6 +118,15 @@ public class FragmentMeeting extends Fragment implements ConfirmationDialog {
                 }
             }
         });
+    }
+
+    private void setDateTextView(String date1){
+        String year2 = date1.substring(0,4);
+        String month2 = date1.substring( 4,6);
+        String day2 = date1.substring(6);
+
+        //textView.setText(data);
+        day1.setText(day2 + "/" + month2 + "/" + year2);
     }
 
     public void toChat(View v){

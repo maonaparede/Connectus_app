@@ -13,7 +13,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/linear_background" />
+        app:srcCompat="@drawable/linear_background"
+        android:scaleType="centerCrop"
+        />
 
     <TextView
         android:id="@+id/item_home_meeting_textview_title"

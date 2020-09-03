@@ -25,14 +25,14 @@ public class MeetingCreateFirebase {
 
     private String name;
     private String description;
-    private String day;
+    private Integer day;
     private String local;
     private String hour;
     private Uri uri;
     private String urlImage;
     private StorageTask<UploadTask.TaskSnapshot> uploadTask;
 
-    public MeetingCreateFirebase(String name, String description, String day, String local, String hour, Uri uri) {
+    public MeetingCreateFirebase(String name, String description, Integer day, String local, String hour, Uri uri) {
         this.name = name;
         this.description = description;
         this.day = day;

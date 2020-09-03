@@ -19,11 +19,13 @@ public class Item_home_meeting extends Item<ViewHolder> {
     private final String name;
     private final String image;
     private String ownerId;
+    private Integer day;
 
-    public Item_home_meeting(String name, String image, String ownerId) {
+    public Item_home_meeting(String name, String image, String ownerId, Integer day) {
         this.name = name;
         this.image = image;
         this.ownerId = ownerId;
+        this.day = day;
     }
 
     @Override
@@ -39,9 +41,6 @@ public class Item_home_meeting extends Item<ViewHolder> {
         this.position = viewHolder.getAdapterPosition();
         item = viewHolder.getItem();
 
-       // imageView.setOnClickListener(this);
-     //   meetingName.setOnClickListener(this);
-
         meetingName.setText(name);
 
     }
@@ -52,7 +51,17 @@ public class Item_home_meeting extends Item<ViewHolder> {
 
     public String getOwnerId() {return ownerId; }
 
+    public Integer getDay() {
+        return day;
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getImage() {
+        return image;
+    }
 
     @Override
     public int getLayout() {

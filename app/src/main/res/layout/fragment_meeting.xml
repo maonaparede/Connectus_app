@@ -9,12 +9,11 @@
     <ImageView
         android:id="@+id/meeting_imageview_image"
         android:layout_width="412dp"
-        android:layout_height="343dp"
-        android:layout_marginTop="4dp"
+        android:layout_height="300dp"
         android:background="@drawable/linear_negative_background"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,7 +35,7 @@
         android:id="@+id/meeting_textview_title"
         android:layout_width="330dp"
         android:layout_height="65dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/quicksand_bold"
         android:text="Titulo"
         android:textSize="25dp"
@@ -77,19 +76,19 @@
         android:id="@+id/meeting_button_chat"
         android:layout_width="260dp"
         android:layout_height="46dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/linear_background"
         android:text="Chat Encontro"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meeting_textview_description" />
+        app:layout_constraintTop_toBottomOf="@+id/meeting_imagebutton_hour" />
 
     <Button
         android:id="@+id/meeting_button_exit"
         android:layout_width="58dp"
         android:layout_height="23dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/linear_negative_background"
@@ -106,35 +105,34 @@
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginBottom="4dp"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/meeting_textview_local"
         app:layout_constraintStart_toEndOf="@+id/meeting_textview_local"
+        app:layout_constraintTop_toTopOf="@+id/meeting_textview_local"
         app:srcCompat="@drawable/ic_access_time_black_24dp" />
 
     <ImageButton
         android:id="@+id/meeting_imagebutton_local"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/meeting_textview_description"
         app:srcCompat="@drawable/ic_location_on_black_24dp" />
 
     <TextView
         android:id="@+id/meeting_textview_local"
         android:layout_width="135dp"
         android:layout_height="44dp"
-        android:layout_marginBottom="4dp"
         android:text="Local"
         android:textColor="#8A50C9"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/meeting_imagebutton_local"
         app:layout_constraintStart_toEndOf="@+id/meeting_imagebutton_local"
-        app:layout_constraintTop_toBottomOf="@+id/meeting_button_chat"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/meeting_imagebutton_local"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/meeting_textview_hour"
@@ -143,12 +141,12 @@
         android:layout_marginBottom="4dp"
         android:text="Horario"
         android:textColor="#8A50C9"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/meeting_imagebutton_hour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/meeting_imagebutton_hour"
-        app:layout_constraintTop_toBottomOf="@+id/meeting_button_chat"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/meeting_imagebutton_hour"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/meeting_imagebutton_right"

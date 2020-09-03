@@ -13,9 +13,9 @@
         android:id="@+id/home_recyclerview_user"
         android:layout_width="412dp"
         android:layout_height="95dp"
-        app:layout_constraintBottom_toTopOf="@+id/home_textview_meeting"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_textview_user"
         tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:orientation="horizontal" />
 
@@ -23,86 +23,126 @@
         android:id="@+id/home_button_create_meeting"
         android:layout_width="255dp"
         android:layout_height="35dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginRight="76dp"
         android:background="@drawable/linear_background"
         android:fontFamily="@font/changa"
         android:text="Criar Encontro"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/home_recyclerview_meeting"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/home_textview_meeting" />
 
     <TextView
         android:id="@+id/home_textview_meeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/quicksand_bold"
         android:text="Encontros"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/home_button_create_meeting"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.015"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_recyclerview_user" />
 
     <TextView
         android:id="@+id/home_textview_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/quicksand_bold"
         android:text="Pessoas Próximas"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/home_recyclerview_user"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.019"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_view_view" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/home_recyclerview_meeting"
         android:layout_width="412dp"
         android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_button_create_meeting"
         tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:orientation="horizontal" />
-
-    <TextView
-        android:id="@+id/home_textview_next_meeting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/quicksand"
-        android:maxLines="1"
-        android:text="EncontroProx"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/home_textview_next_meeting_day"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/home_textview_next_meeting_day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/quicksand"
-        android:maxLines="1"
-        android:text="EncontroProx"
-        android:textColor="#8A50C9"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/home_view_view"
-        app:layout_constraintEnd_toEndOf="@+id/home_textview_next_meeting"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="@+id/home_textview_next_meeting" />
 
     <View
         android:id="@+id/home_view_view"
         android:layout_width="412dp"
-        android:layout_height="2dp"
+        android:layout_height="3dp"
         android:background="@drawable/linear_background"
-        app:layout_constraintBottom_toTopOf="@+id/home_textview_user"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+    <ImageView
+        android:id="@+id/home_imageview_nextmeeting"
+        android:layout_width="412dp"
+        android:layout_height="175dp"
+        android:background="@drawable/linear_background"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:background="#8D111111"
+        android:layout_width="0dp"
+        android:layout_height="175dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/home_imageview_nextmeeting"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/home_textview_next_meeting_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:fontFamily="@font/quicksand"
+            android:maxLines="1"
+
+            android:text="EncontroProx"
+            android:textColor="#E8E8E8"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_textview_next_meeting_title" />
+
+        <TextView
+            android:id="@+id/home_textview_next_meeting_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="84dp"
+            android:maxLines="1"
+
+            android:text="Prox. Encontro"
+            android:textColor="#E8E8E8"
+            android:textSize="20sp"
+
+            map:layout_constraintStart_toStartOf="parent"
+            map:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/home_textview_next_meeting_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand"
+            android:maxLines="1"
+            android:text="EncontroProx"
+            android:textColor="#C39BEF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/home_textview_next_meeting_name"
+            app:layout_constraintTop_toBottomOf="@+id/home_textview_next_meeting_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -80,7 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/meeting_edit_edittext_name"
         android:paddingLeft="5dp" />
 
-    <EditText
+    <Button
         android:id="@+id/meeting_edit_textview_day"
         android:layout_width="272dp"
         android:layout_height="45dp"
@@ -89,6 +89,7 @@
         android:ems="10"
         android:fontFamily="@font/changa"
         android:hint="Data"
+        android:onClick="createDialogDate"
         android:paddingStart="5dp"
         android:textColor="#0B0707"
         android:textColorHint="#090505"
@@ -198,7 +199,7 @@
         android:layout_marginLeft="8dp"
         android:background="@drawable/linear_negative_background"
         android:fontFamily="@font/changa_light"
-        android:onClick="toDialogMeeting"
+        android:onClick="createDialogMemberEdit"
         android:text="Remover Membro"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/meeting_edit_button_add_member"
@@ -215,7 +216,7 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/linear_background"
         android:fontFamily="@font/changa_light"
-        android:onClick="toDialogMeeting"
+        android:onClick="createDialogMemberEdit"
         android:text="Add Membro"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
