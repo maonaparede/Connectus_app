@@ -121,8 +121,7 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
 
             MakeToast.makeToast(this , getString(R.string.campos_vazios));
 
-        }else {
-
+        }else{
 
             if (state == 1) {
                 MeetingUpdateFirebase updateFirebase = new MeetingUpdateFirebase(name1, description1,dateNumber, local1, hour1, uri);

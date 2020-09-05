@@ -1277,6 +1277,7 @@ id clip_horizontal
 id clip_vertical
 id collapseActionView
 id constraintLayout
+id constraintLayout2
 id contact_recyclerview
 id contact_search
 id container
@@ -1294,6 +1295,8 @@ id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
 id dialog_button
+id dialog_calendar_button_ok
+id dialog_calendar_calendarView
 id dialog_meeting_button_cancel
 id dialog_meeting_recyclerview
 id dialog_meeting_searchview
@@ -1331,11 +1334,13 @@ id groups
 id home
 id homeAsUp
 id home_button_create_meeting
+id home_imageview_nextmeeting
 id home_recyclerview_meeting
 id home_recyclerview_user
 id home_textview_meeting
-id home_textview_next_meeting
 id home_textview_next_meeting_day
+id home_textview_next_meeting_name
+id home_textview_next_meeting_title
 id home_textview_user
 id home_view_view
 id icon
@@ -1690,6 +1695,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout dialog_calendar
 layout dialog_meeting
 layout dialog_ok
 layout dialog_ok_cancel

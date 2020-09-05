@@ -41,8 +41,16 @@ public class Item_meeting_request extends Item<ViewHolder> implements View.OnCli
         localDay.setText(request.getLocal() + " | " + request.getDay());
         hour.setText(request.getHour());
 
+        String date1 = request.getDay();
+        String year2 = date1.substring(0,4);
+        String month2 = date1.substring( 4,6);
+        String day2 = date1.substring(6);
+        localDay.setText(request.getLocal() + " | " + day2 + "/" + month2 + "/" + year2);
+
         viewHolder.itemView.findViewById(R.id.item_meeting_request_button_accept).setOnClickListener(this);
         viewHolder.itemView.findViewById(R.id.item_meeting_request_button_reject).setOnClickListener(this);
+
+
 
     }
 

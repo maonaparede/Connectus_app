@@ -91,7 +91,11 @@ public class MeetingUpdateFirebase {
         Map<String, Object> userSend = new HashMap<>();
         userSend.put("nome", name);
         userSend.put("descricao", description);
-        userSend.put("dia", day);
+        if(day !=null) {
+            userSend.put("dia", day);
+        }else{
+            userSend.put("dia", 20500809);
+        }
         userSend.put("local", local);
         userSend.put("horario", hour);
         if(urlImage != null) {

@@ -8,6 +8,9 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+
+//Serve para armazenar os usuários que já são amigos, para, quando entrar no perfil de um amigo
+// Não aparça o Botão "Socializar"
 public class FriendsSqlController {
 
         private SQLiteDatabase db;

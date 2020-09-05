@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.telas_background.CleanString;
 import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.R;
 import com.example.telas_background.dialog_toast.MakeToast;
@@ -151,7 +152,8 @@ public class FragmentRequest extends Fragment {
                                 ClassMeetingRequest encontro = new ClassMeetingRequest(document.get("titulo").toString()
                                         , (document.get("dono").toString()), document.get("local").toString(),
                                         document.get("dia").toString(), document.get("horario").toString(),
-                                        document.get("foto").toString() , document.get("nome").toString());
+                                        CleanString.clean(document.get("foto")) ,
+                                        CleanString.clean(document.get("nome")));
 
                                 requestAdapter.add(new Item_meeting_request(encontro));
                                 // Log.d("Perfil" ,document.getId() + " => " + document.getData());

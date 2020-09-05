@@ -2,6 +2,7 @@ package com.example.telas_background.dialog_toast;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,8 @@ import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 
 import java.util.ArrayList;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class DialogMeeting {
 
@@ -118,10 +121,11 @@ public class DialogMeeting {
     public void botaoItemRecyclerMeeting(Item item, Integer estado, final Integer positon) {
         switch (estado) {
             case 0:
+
                 Item_meeting_add_user userAdd = (Item_meeting_add_user) item;
                 int a = userAdd.getPosition(item);
                 MakeToast.makeToast(context, "Request Enviada");
-                MeetingFirebase.sendRequestMeeting(userAdd.user.getId());
+                MeetingFirebase.sendRequestMeeting(userAdd.user.getId() , "dad");
                 adapter.removeGroup(positon);
                 adapter.notifyItemRemoved(positon);
                 listAdd.remove(a);

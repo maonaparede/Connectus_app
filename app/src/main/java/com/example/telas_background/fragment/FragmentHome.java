@@ -36,8 +36,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.annotations.Nullable;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
@@ -59,6 +63,7 @@ public class FragmentHome extends Fragment {
     private ImageView nearMeetingImage;
 
     private ArrayList<Item_home_user> nearUsers;
+    private ArrayList<Item_home_meeting> meetingList;
     private Integer nearestMeeting = 30003030;
     private Integer state = 0;
     private static Context context;
@@ -102,6 +107,7 @@ public class FragmentHome extends Fragment {
 
 
         nearUsers = new ArrayList<Item_home_user>();
+        meetingList = new ArrayList<Item_home_meeting>();
 
         pessoasAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -168,23 +174,41 @@ public class FragmentHome extends Fragment {
     }
 
 
+    //pega todos os encontros
     private void getfMeetings(){
         FirebaseFirestore.getInstance().collection("caminho_encontro").
-                document(UserPrincipal.getId()).collection("encontro").get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                document(UserPrincipal.getId()).collection("encontro")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                getfMeeting(document);
+                    public void onEvent(@com.google.firebase.database.annotations.Nullable QuerySnapshot snapshots,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            Log.w("TAG", "listen:error", e);
+                            return;
+                        }
+                        for (DocumentChange dc : snapshots.getDocumentChanges()) {
+                            switch (dc.getType()) {
+                                case ADDED:
+
+                                    getfMeeting(dc.getDocument());
+                                    break;
+                                case MODIFIED:
+                                    Log.d("TAG", "Modified doc: " + dc.getDocument().getData());
+                                    break;
+                                case REMOVED:
+
+                                    String ownerMeet = dc.getDocument().get("dono").toString();
+                                    removeMeetingItem(ownerMeet);
+                                    break;
+                                default:
+                                    throw new IllegalStateException("Unexpected value: " + dc.getType());
                             }
-                        } else {
-                            Log.d("Home ", "Error getting documents: ", task.getException());
                         }
                     }
                 });
     }
 
+    //pega os atributos específicos de cada encontro
     private void getfMeeting(final QueryDocumentSnapshot docA) {
         FirebaseFirestore.getInstance().collection("encontro")
                 .document(docA.get("dono").toString()).collection("atributos")
@@ -198,42 +222,60 @@ public class FragmentHome extends Fragment {
                                     , documentSnapshot.get("foto").toString(),
                            documentSnapshot.get("dono").toString() , Integer.parseInt(documentSnapshot.get("dia").toString()));
 
-                   setNearestMeetAndOwnerId(item);
+                   meetingList.add(item);
 
-                    encontrosAdapter.add(item);
+                   verifyIfUserIsOwnerMeeting(item);
+
+                   encontrosAdapter.add(item);
                 }
+            }
+        }).addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                getNearestMeet();
             }
         });
     }
 
-    //pega o encontro com a data mais proxima
-    //Verifica se o user é dono de algum dos encontros e se for muda o botao de "Criar encontro" para "Editar Encontro"
-    private void setNearestMeetAndOwnerId(Item_home_meeting item) {
-        Integer a = item.getDay();
+    //pega o encontro com a data mais proxima e coloca no topo da home
+    private void getNearestMeet() {
+        Item_home_meeting replace = null;
+        for (Item_home_meeting meet : meetingList) {
+        Integer a = meet.getDay();
         if(a < nearestMeeting){
             nearestMeeting = a;
-            nearMeetingName.setText(item.getName());
-            setDateTextView(item.getDay());
-            Picasso.get().load(item.getImage()).into(nearMeetingImage);
+            replace = meet;
         }
+     }
 
+        if(replace != null) {
+           setNearMeeting(replace);
+        }else{
+
+            Picasso.get().load("v").into(nearMeetingImage);
+        }
+    }
+
+    private void setNearMeeting(Item_home_meeting item){
+        nearMeetingName.setText(item.getName());
+
+        String date1 = String.valueOf(item.getDay());
+        String year2 = date1.substring(0,4);
+        String month2 = date1.substring( 4,6);
+        String day2 = date1.substring(6);
+        nearMeetingDay.setText(day2 + "/" + month2 + "/" + year2);
+
+        Picasso.get().load(item.getImage()).into(nearMeetingImage);
+    }
+
+    //Verifica se o user é dono de algum dos encontros e se for muda o botao de "Criar encontro" para "Editar Encontro"
+    private void verifyIfUserIsOwnerMeeting(Item_home_meeting item){
         if(item.getOwnerId().equals(UserPrincipal.getId())){
             state = 1;
             createMeeting.setText("Editar Meu Encontro");
         }
-
-
     }
 
-    private void setDateTextView(Integer date){
-        String date1 = String.valueOf(date);
-        String year2 = date1.substring(0,4);
-        String month2 = date1.substring( 4,6);
-        String day2 = date1.substring(6);
-
-        //textView.setText(data);
-        nearMeetingDay.setText(day2 + "/" + month2 + "/" + year2);
-    }
 
     private void getfLocUsersNear(){
         Location location1 = FirebaseGeoFire.getLocation(context.getApplicationContext());
@@ -258,7 +300,7 @@ public class FragmentHome extends Fragment {
             @Override
             public void onDataExited(DataSnapshot dataSnapshot) {
                 String b = dataSnapshot.getKey();
-                removeNearUser(b);
+                removeNearUserItem(b);
             }
 
             @Override
@@ -305,11 +347,21 @@ public class FragmentHome extends Fragment {
                 });
     }
 
-    private void removeNearUser(String id){
+    private void removeNearUserItem(String id){
         for (Item_home_user item : nearUsers) {
             if (item.user.getId().contains(id)) {
                 nearUsers.remove(item);
                 pessoasAdapter.update(nearUsers);
+            }
+        }
+    }
+
+    private void removeMeetingItem(String id){
+        for (Item_home_meeting item : meetingList) {
+            if (item.getOwnerId().contains(id)) {
+                meetingList.remove(item);
+                getNearestMeet();
+                encontrosAdapter.update(meetingList);
             }
         }
     }

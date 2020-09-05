@@ -170,7 +170,7 @@ public class FragmentMeeting extends Fragment implements ConfirmationDialog {
 
     @Override
     public void DialogConfirmation() {
-        MeetingFirebase.exitMeeting(owner);
+        new MeetingFirebase().exitMeeting(owner);
         context.startActivity(new Intent(context, FragmentHandler.class));
     }
 }

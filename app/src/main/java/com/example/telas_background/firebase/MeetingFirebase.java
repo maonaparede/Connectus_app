@@ -1,5 +1,6 @@
 package com.example.telas_background.firebase;
 
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -20,8 +21,7 @@ import java.util.Map;
 public class MeetingFirebase {
 
 
-    public static Task<String> sendRequestMeeting(String user) {
-
+    public static Task<String> sendRequestMeeting(String user, String name) {
 
             FirebaseFunctions mFunctions;
             mFunctions = FirebaseFunctions.getInstance();
@@ -29,7 +29,7 @@ public class MeetingFirebase {
             // Create the arguments to the callable function.
             Map<String, Object> data = new HashMap<>();
             data.put("user", user);
-            data.put("nome", UserPrincipal.getNome());
+            data.put("nome", name);
 
             return mFunctions
                     .getHttpsCallable("sendRequestEncontro")
@@ -93,11 +93,12 @@ public class MeetingFirebase {
                 });
     }
 
-    public static Task<String> exitMeeting(String dono) {
+    public Task<String> exitMeeting(String dono) {
 
         FirebaseFunctions mFunctions;
         mFunctions = FirebaseFunctions.getInstance();
 
+        exitMeetingPathExclude(dono);
         // Create the arguments to the callable function.
         Map<String, Object> data = new HashMap<>();
         data.put("dono", dono);
@@ -115,6 +116,27 @@ public class MeetingFirebase {
                         return result;
                     }
                 });
+    }
+
+    private void exitMeetingPathExclude(String onwer){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference documentReference = db.collection("caminho_encontro").document(UserPrincipal.getId())
+                .collection("encontro").document(onwer);
+
+        documentReference.delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("denyRequest", "DocumentSnapshot successfully deleted!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("denyRequest", "Error deleting document", e);
+                    }
+                });
+
     }
 
     public static void denyRequestMeeting(String dono){
