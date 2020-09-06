@@ -74,7 +74,6 @@ public class DialogMeeting {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                if(!newText.trim().isEmpty()) {
                     switch (state) {
                         case 0:
                         filterDialogAdd(newText);
@@ -83,10 +82,6 @@ public class DialogMeeting {
                         filterDialogRemove(newText);
                             break;
                     }
-                }else{
-                    filterResetAdd();
-                    filterResetRemove();
-                }
                 return false;
             }
         });
@@ -223,6 +218,8 @@ public class DialogMeeting {
                 }
             }
             adapter.update(filteredList);
+        }else{
+            filterResetAdd();
         }
     }
 
@@ -236,6 +233,8 @@ public class DialogMeeting {
                 }
             }
             adapter.update(filteredList);
+        }else{
+            filterResetRemove();
         }
     }
 

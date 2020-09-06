@@ -25,18 +25,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/friends_search"
+        <SearchView
+            android:id="@+id/friends_searchview"
             android:layout_width="match_parent"
-            android:layout_height="46dp"
-            android:background="@android:color/transparent"
-            android:ems="10"
-            android:fontFamily="@font/changa_light"
-
-            android:inputType="textPersonName"
-            android:singleLine="true"
-            tools:text="Buscar" />
-
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

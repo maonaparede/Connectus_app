@@ -74,7 +74,7 @@
         android:layout_height="31dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:background="#aaa"
+        android:background="@drawable/custom_field_border"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"

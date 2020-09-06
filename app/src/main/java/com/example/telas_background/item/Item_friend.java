@@ -58,8 +58,11 @@ public class Item_friend extends Item<ViewHolder> implements View.OnClickListene
         return super.getId();
     }
 
+    public String getName() {
+        return user.getName();
+    }
 
-        @Override
+    @Override
         public void onClick(View v) {
                     FragmentFriends.fromItemFriend(item, positionRequest);
                     Log.d("amigo" , "Rejeitar");

@@ -12,10 +12,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.R;
 import com.example.telas_background.instanceClasses.ClassUserScreen;
+import com.example.telas_background.item.Item_contact;
 import com.example.telas_background.item.Item_friend;
 import com.example.telas_background.dialog_toast.DialogFriendRemove;
 import com.example.telas_background.dialog_toast.MakeToast;
@@ -30,11 +32,16 @@ import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
 import com.xwray.groupie.OnItemClickListener;
 
+import java.util.ArrayList;
+
 public class FragmentFriends extends Fragment {
 
     private RecyclerView recycler;
     private static GroupAdapter adapter;
+    private SearchView filter;
     private static Context context;
+
+    private ArrayList<Item_friend> list;
 
 
     @Override
@@ -50,10 +57,30 @@ public class FragmentFriends extends Fragment {
         View root = inflater.inflate(R.layout.fragment_friends, container ,false);
 
 
+        list = new ArrayList<Item_friend>();
+
+        filter = root.findViewById(R.id.friends_searchview);
         recycler = root.findViewById(R.id.friends_recyclerview);
         adapter = new GroupAdapter();
         recycler.setLayoutManager(new LinearLayoutManager( context, LinearLayoutManager.VERTICAL , false));
         recycler.setAdapter(adapter);
+
+        filter.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if(!newText.trim().isEmpty()) {
+                    filter(newText);
+                }else{
+                    filterReset();
+                }
+                return false;
+            }
+        });
 
         getfFriends();
 
@@ -129,9 +156,29 @@ public class FragmentFriends extends Fragment {
                             ClassUserScreen user1 = new ClassUserScreen(documentSnapshot.get("foto").toString()
                                     ,documentSnapshot.get("id").toString(), documentSnapshot.get("nome").toString());
 
-                            adapter.add(new Item_friend(user1 , docpath.get("path").toString()));
+                            Item_friend friend = new Item_friend(user1 , docpath.get("path").toString());
+                            list.add(friend);
+                            adapter.add(friend);
                         }
                     }
                 });
+    }
+
+    private void filter(String text) {
+
+        if (!text.isEmpty()) {
+            ArrayList<Item_friend> filteredList = new ArrayList<>();
+            for (Item_friend item : list) {
+                if (item.getName().toLowerCase().contains(text.toLowerCase())) {
+                    Log.d("lista item", "top "+ item.getName());
+                    filteredList.add(item);
+                }
+            }
+            adapter.update(filteredList);
+        }
+    }
+
+    private void filterReset() {
+        adapter.update(list);
     }
 }
