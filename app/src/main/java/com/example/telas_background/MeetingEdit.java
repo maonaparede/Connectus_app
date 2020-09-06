@@ -3,6 +3,7 @@ package com.example.telas_background;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -167,19 +168,21 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
     }
 
     public void createDialogMemberEdit(View v){
+        SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
+        String name = shared.getString("name" , "");
         switch (v.getId()) {
 
              //add membro
             case R.id.meeting_edit_button_add_member:
 
                 MakeToast.makeToast(this , "add");
-                new DialogMeeting().createDialogOkAddRemove(this,0);
+                new DialogMeeting().createDialogOkAddRemove(this,0 , name);
             break;
             //rem membro
             case R.id.meeting_edit_button_remove_member:
 
                 MakeToast.makeToast(this , "rem");
-                new DialogMeeting().createDialogOkAddRemove(this ,1);
+                new DialogMeeting().createDialogOkAddRemove(this ,1 , name);
                 break;
             default:
                 break;

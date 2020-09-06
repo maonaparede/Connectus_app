@@ -39,11 +39,13 @@ public class DialogMeeting {
     private static Integer state;
     private static Context context;
     private static GroupAdapter adapter;
+    private static String name;
     private static ArrayList<Item_meeting_add_user> listAdd;
     private static ArrayList<Item_meeting_remove_user> listRem;
 
-    public void createDialogOkAddRemove(final Context context , final Integer state) {
+    public void createDialogOkAddRemove(final Context context , final Integer state, String name) {
 
+        DialogMeeting.name = name;
         DialogMeeting.context = context;
         listAdd = new ArrayList<Item_meeting_add_user>();
         listRem = new ArrayList<Item_meeting_remove_user>();
@@ -125,7 +127,7 @@ public class DialogMeeting {
                 Item_meeting_add_user userAdd = (Item_meeting_add_user) item;
                 int a = userAdd.getPosition(item);
                 MakeToast.makeToast(context, "Request Enviada");
-                MeetingFirebase.sendRequestMeeting(userAdd.user.getId() , "dad");
+                MeetingFirebase.sendRequestMeeting(userAdd.user.getId() , name);
                 adapter.removeGroup(positon);
                 adapter.notifyItemRemoved(positon);
                 listAdd.remove(a);

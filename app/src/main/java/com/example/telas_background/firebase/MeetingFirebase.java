@@ -21,7 +21,7 @@ import java.util.Map;
 public class MeetingFirebase {
 
 
-    public static Task<String> sendRequestMeeting(String user, String name) {
+    public static Task<String> sendRequestMeeting(String user , String name) {
 
             FirebaseFunctions mFunctions;
             mFunctions = FirebaseFunctions.getInstance();
