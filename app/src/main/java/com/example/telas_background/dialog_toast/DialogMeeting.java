@@ -143,6 +143,47 @@ public class DialogMeeting {
     }
 
 
+    //filtros para Buscar usuário por nome
+
+    private void filterDialogAdd(String text) {
+        if (!text.isEmpty()){
+            ArrayList<Item_meeting_add_user> filteredList = new ArrayList<>();
+            for (Item_meeting_add_user item : listAdd) {
+                if (item.getName().toLowerCase().contains(text.toLowerCase())) {
+
+                    filteredList.add(item);
+                }
+            }
+            adapter.update(filteredList);
+        }else{
+            filterResetAdd();
+        }
+    }
+
+    private void filterDialogRemove(String text) {
+        if (!text.isEmpty()){
+            ArrayList<Item_meeting_remove_user> filteredList = new ArrayList<>();
+            for (Item_meeting_remove_user item : listRem) {
+                if (item.getName().toLowerCase().contains(text.toLowerCase())) {
+
+                    filteredList.add(item);
+                }
+            }
+            adapter.update(filteredList);
+        }else{
+            filterResetRemove();
+        }
+    }
+
+    private void filterResetAdd() {
+        adapter.update(listAdd);
+    }
+
+    private void filterResetRemove(){
+        adapter.update(listRem);
+    }
+
+
     //Read BD
 
     private void getfFriends() {
@@ -206,45 +247,6 @@ public class DialogMeeting {
 
 
 
-    //filtros para Buscar usuário por nome
-
-    private void filterDialogAdd(String text) {
-        if (!text.isEmpty()){
-            ArrayList<Item_meeting_add_user> filteredList = new ArrayList<>();
-            for (Item_meeting_add_user item : listAdd) {
-                if (item.getName().toLowerCase().contains(text.toLowerCase())) {
-
-                    filteredList.add(item);
-                }
-            }
-            adapter.update(filteredList);
-        }else{
-            filterResetAdd();
-        }
-    }
-
-    private void filterDialogRemove(String text) {
-        if (!text.isEmpty()){
-            ArrayList<Item_meeting_remove_user> filteredList = new ArrayList<>();
-            for (Item_meeting_remove_user item : listRem) {
-                if (item.getName().toLowerCase().contains(text.toLowerCase())) {
-
-                    filteredList.add(item);
-                }
-            }
-            adapter.update(filteredList);
-        }else{
-            filterResetRemove();
-        }
-    }
-
-    private void filterResetAdd() {
-        adapter.update(listAdd);
-    }
-
-    private void filterResetRemove(){
-        adapter.update(listRem);
-    }
 
 
 }

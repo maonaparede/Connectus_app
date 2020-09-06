@@ -35,7 +35,7 @@ public class Login extends AppCompatActivity{
         password1 = findViewById(R.id.login_edittext_password);
     }
 
-    public void cadastrar(View view){
+    public void toRegister(View view){
         startActivity(new Intent(this , Register.class));
     }
 

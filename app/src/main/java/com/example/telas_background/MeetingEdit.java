@@ -37,8 +37,8 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
     private EditText hour;
     private ImageView imageView;
     private Uri uri;
-    private String pathEncontro;
-    private String imagem;
+    private String pathMeeting;
+    private String image;
     private Integer dateNumber;
 
     private Integer state;
@@ -60,10 +60,10 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
-            pathEncontro = bundle.getString("encontro");
+            pathMeeting = bundle.getString("encontro");
             state = bundle.getInt("estado");
 
-            if(!pathEncontro.isEmpty()){
+            if(!pathMeeting.isEmpty()){
                 getfMeeting();
             }
         }else {
@@ -140,7 +140,7 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
 
 
     private void getfMeeting() {
-        FirebaseFirestore.getInstance().document(pathEncontro)
+        FirebaseFirestore.getInstance().document(pathMeeting)
                 .collection("atributos").document("atributos").get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -152,9 +152,9 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
                     day.setText(documentSnapshot.get("dia").toString());
                     hour.setText(documentSnapshot.get("horario").toString());
                     local.setText(documentSnapshot.get("local").toString());
-                    imagem = documentSnapshot.get("foto").toString();
-                    if(!imagem.isEmpty()) {
-                        Picasso.get().load(imagem).into(imageView);
+                    image = documentSnapshot.get("foto").toString();
+                    if(!image.isEmpty()) {
+                        Picasso.get().load(image).into(imageView);
                     }
                 }
             }
@@ -189,7 +189,7 @@ public class MeetingEdit extends AppCompatActivity implements ConfirmationDialog
         }
         }
 
-    public void excludeEncontroButton(View v){
+    public void excludeMeetingButton(View v){
             new DialogRemoveConfirmation().createDialogRemoveConfirmation(this ,
                     "Quer Excluir o Encontro?" , "Excluir o Encontro" , this);
     }

@@ -85,7 +85,6 @@ public class FragmentMeeting extends Fragment implements ConfirmationDialog {
                 toChat(v);
             }
         });
-
         buttonExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,36 +95,13 @@ public class FragmentMeeting extends Fragment implements ConfirmationDialog {
         return root;
     }
 
-    private void getfMeeting() {
-        FirebaseFirestore.getInstance().document(path)
-                .collection("atributos").document("atributos").get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
 
-                if (documentSnapshot.exists()) {
-                    title1.setText(documentSnapshot.get("nome").toString());
-                    description1.setText(documentSnapshot.get("descricao").toString());
-                    hour1.setText(documentSnapshot.get("horario").toString());
-                    local1.setText(documentSnapshot.get("local").toString());
-                    image = documentSnapshot.get("foto").toString();
-
-                    setDateTextView(documentSnapshot.get("dia").toString());
-
-                    if(!image.isEmpty()){
-                        Picasso.get().load(image).into(imageView);
-                    }
-                }
-            }
-        });
-    }
 
     private void setDateTextView(String date1){
         String year2 = date1.substring(0,4);
         String month2 = date1.substring( 4,6);
         String day2 = date1.substring(6);
 
-        //textView.setText(data);
         day1.setText(day2 + "/" + month2 + "/" + year2);
     }
 
@@ -140,7 +116,6 @@ public class FragmentMeeting extends Fragment implements ConfirmationDialog {
         intent.putExtras(bundle);
         startActivity(intent);
     }
-
 
     public void toEditOrExit(View v){
         switch (state){
@@ -167,10 +142,33 @@ public class FragmentMeeting extends Fragment implements ConfirmationDialog {
         }
     }
 
-
     @Override
     public void DialogConfirmation() {
         new MeetingFirebase().exitMeeting(owner);
         context.startActivity(new Intent(context, FragmentHandler.class));
+    }
+
+    private void getfMeeting() {
+        FirebaseFirestore.getInstance().document(path)
+                .collection("atributos").document("atributos").get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                        if (documentSnapshot.exists()) {
+                            title1.setText(documentSnapshot.get("nome").toString());
+                            description1.setText(documentSnapshot.get("descricao").toString());
+                            hour1.setText(documentSnapshot.get("horario").toString());
+                            local1.setText(documentSnapshot.get("local").toString());
+                            image = documentSnapshot.get("foto").toString();
+
+                            setDateTextView(documentSnapshot.get("dia").toString());
+
+                            if(!image.isEmpty()){
+                                Picasso.get().load(image).into(imageView);
+                            }
+                        }
+                    }
+                });
     }
 }

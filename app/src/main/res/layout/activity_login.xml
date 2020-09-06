@@ -100,7 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:onClick="cadastrar"
+        android:onClick="toRegister"
         android:text="Não tem uma conta? Cadastre-se"
         android:textColor="#FFFFFF"
         android:textSize="15sp"

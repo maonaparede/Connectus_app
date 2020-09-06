@@ -122,7 +122,7 @@ public class Chat extends AppCompatActivity {
 
             Map<String, Object> userSend = new HashMap<>();
             userSend.put("id", idUser);
-            userSend.put("nome", UserPrincipal.getNome());
+            userSend.put("nome", UserPrincipal.getName());
             userSend.put("msg", msg);
             userSend.put("tempo", time);
 
@@ -149,5 +149,7 @@ public class Chat extends AppCompatActivity {
         recycler.smoothScrollToPosition(adapter.getItemCount() - 1);
     }
 
-    // trigger no app pra atualizar as 2 pastas dos users
+    public void backScreen(View view){
+        finish();
+    }
 }

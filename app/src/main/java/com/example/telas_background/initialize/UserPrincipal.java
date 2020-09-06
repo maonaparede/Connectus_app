@@ -5,7 +5,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class UserPrincipal {
 
     private static String foto;
-    private static String nome;
+    private static String name;
 
 
     public static String getFoto() {
@@ -16,8 +16,8 @@ public class UserPrincipal {
         return FirebaseAuth.getInstance().getCurrentUser().getUid();
     }
 
-    public static String getNome() {
-        return nome;
+    public static String getName() {
+        return name;
     }
 
     public static void setFoto(String foto){
@@ -25,7 +25,7 @@ public class UserPrincipal {
     }
 
 
-    public static void setNome(String nome) {
-        UserPrincipal.nome = nome;
+    public static void setName(String name) {
+        UserPrincipal.name = name;
     }
 }

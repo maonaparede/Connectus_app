@@ -76,46 +76,4 @@ public class FirebaseGeoFire {
         }
     }
 
-     public static void getMapUsers(Double latitude, Double longitude){
-        GeoLocation location = new GeoLocation(latitude , longitude);
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("location");
-        GeoFire geoFire = new GeoFire(ref);
-
-        Double raio = 0.6;
-
-        GeoQuery query  = geoFire.queryAtLocation(location , raio);
-
-       query.addGeoQueryDataEventListener(new GeoQueryDataEventListener() {
-           @Override
-           public void onDataEntered(DataSnapshot dataSnapshot, GeoLocation location) {
-                String a = dataSnapshot.getKey();
-               Log.d("FirebaseLocation.class" , "onDataEntered" + a);
-           }
-
-           @Override
-           public void onDataExited(DataSnapshot dataSnapshot) {
-
-           }
-
-           @Override
-           public void onDataMoved(DataSnapshot dataSnapshot, GeoLocation location) {
-
-           }
-
-           @Override
-           public void onDataChanged(DataSnapshot dataSnapshot, GeoLocation location) {
-
-           }
-
-           @Override
-           public void onGeoQueryReady() {
-
-           }
-
-           @Override
-           public void onGeoQueryError(DatabaseError error) {
-
-           }
-       });
-    }
 }

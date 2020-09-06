@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
 
+import com.example.telas_background.dialog_toast.ConfirmationDialog;
 import com.example.telas_background.initialize.UserPrincipal;
 import com.example.telas_background.R;
 import com.example.telas_background.instanceClasses.ClassUserScreen;
@@ -34,7 +35,7 @@ import com.xwray.groupie.OnItemClickListener;
 
 import java.util.ArrayList;
 
-public class FragmentFriends extends Fragment {
+public class FragmentFriends extends Fragment{
 
     private RecyclerView recycler;
     private static GroupAdapter adapter;
@@ -55,7 +56,6 @@ public class FragmentFriends extends Fragment {
         super.onCreate(savedInstanceState);
 
         View root = inflater.inflate(R.layout.fragment_friends, container ,false);
-
 
         list = new ArrayList<Item_friend>();
 
@@ -95,55 +95,28 @@ public class FragmentFriends extends Fragment {
     }
 
     public static void fromItemFriend(Item item , final Integer position){
-
         Item_friend friend = (Item_friend) item;
 
                 MakeToast.makeToast(context , "Remover");
                 new DialogFriendRemove().createDialogOkCancel(context, friend.user.getId());
                 adapter.removeGroup(position);
                 adapter.notifyItemRemoved(position);
-
     }
 
 
     public void fromItemFriendtoPerfil(Item item , View view){
-
         Item_friend friend = (Item_friend) item;
-
                 MakeToast.makeToast(context , "Perfil");
                 Bundle bundle = new Bundle();
-
                 bundle.putString("user", friend.user.getId());
                 bundle.putInt("estado", 3);
 
                 Fragment fragment = new FragmentPerfil();
-
                 fragment.setArguments(bundle);
-
                 assert getFragmentManager() != null;
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
                 transaction.replace(R.id.nav_host_fragment , fragment);
-
                 transaction.commit();
-    }
-
-    private void getfFriends(){
-        FirebaseFirestore.getInstance().collection("amigo").
-                document(UserPrincipal.getId()).collection("amigo").get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>(){
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-
-                               addItemRecyclerView(document);
-                            }
-                        } else {
-                            Log.d("Friends ", "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
     }
 
     private void addItemRecyclerView(final QueryDocumentSnapshot docpath){
@@ -165,7 +138,6 @@ public class FragmentFriends extends Fragment {
     }
 
     private void filter(String text) {
-
         if (!text.isEmpty()) {
             ArrayList<Item_friend> filteredList = new ArrayList<>();
             for (Item_friend item : list) {
@@ -180,5 +152,23 @@ public class FragmentFriends extends Fragment {
 
     private void filterReset() {
         adapter.update(list);
+    }
+
+    private void getfFriends(){
+        FirebaseFirestore.getInstance().collection("amigo").
+                document(UserPrincipal.getId()).collection("amigo").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>(){
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                addItemRecyclerView(document);
+                            }
+                        } else {
+                            Log.d("Friends ", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
     }
 }

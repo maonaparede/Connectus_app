@@ -3,14 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    >
+    android:layout_height="wrap_content"
+    android:background="@color/cinza6e6e">
 
 
     <TextView
         android:id="@+id/item_contact_textview_name"
         android:layout_width="283dp"
         android:layout_height="35dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
         android:fontFamily="@font/changa_semibold"
         android:text="TextView"
         android:textSize="18sp"
@@ -22,12 +24,9 @@
         android:id="@+id/item_contact_textview_last_msg"
         android:layout_width="272dp"
         android:layout_height="17dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp"
         android:text="..."
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/item_contact_textview_name"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/item_contact_textview_name"
@@ -35,10 +34,25 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/item_contact_imageview_image"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/bgColor"
         android:layout_width="73dp"
         android:layout_height="73dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

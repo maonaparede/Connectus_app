@@ -196,7 +196,7 @@ public class FragmentPerfil extends Fragment {
             case 1:
                 buttonConnect.setVisibility(View.INVISIBLE);
                 FriendRequestFirebase.sendFriendRequest(idPerfil);
-                MakeToast.makeToast(context , "Teste");
+                MakeToast.makeToast(context , "Enviado");
                 break;
             default:
                 buttonConnect.setVisibility(View.INVISIBLE);
@@ -219,7 +219,16 @@ public class FragmentPerfil extends Fragment {
     }
 
 
+    private synchronized void removePost(String id){
 
+        for (Item_post item : arrayListPost) {
+            if (item.getIdPost().contains(id)){
+                arrayListPost.remove(item);
+                adapter.update(arrayListPost);
+            }
+
+        }
+    }
 
     private void getfPerfil(){
         FirebaseFirestore.getInstance().collection("user").document(idPerfil).get()
@@ -260,7 +269,6 @@ public class FragmentPerfil extends Fragment {
                 });
     }
 
-
     private void getFPostRealtime(){
         FirebaseFirestore.getInstance().collection("post").
                 document(idPerfil).collection("post")
@@ -298,14 +306,5 @@ public class FragmentPerfil extends Fragment {
                 });
     }
 
-    private synchronized void removePost(String id){
 
-        for (Item_post item : arrayListPost) {
-            if (item.getIdPost().contains(id)){
-                arrayListPost.remove(item);
-                adapter.update(arrayListPost);
-            }
-
-        }
-    }
 }

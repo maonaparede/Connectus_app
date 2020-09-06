@@ -18,7 +18,6 @@ public class Initialize {
 
     public Initialize Initialize(Context context1) {
 
-
         return this;
     }
 
@@ -64,7 +63,4 @@ public class Initialize {
                 });
     }
 
-    public void meetingListener(){
-
-    }
 }

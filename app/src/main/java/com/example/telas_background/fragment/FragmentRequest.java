@@ -1,5 +1,6 @@
 package com.example.telas_background.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,9 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,7 +24,9 @@ import com.example.telas_background.firebase.FriendRequestFirebase;
 import com.example.telas_background.firebase.MeetingFirebase;
 import com.example.telas_background.instanceClasses.ClassMeetingRequest;
 import com.example.telas_background.instanceClasses.ClassUserScreen;
+import com.example.telas_background.item.Item_friend;
 import com.example.telas_background.item.Item_friend_request;
+import com.example.telas_background.item.Item_home_meeting;
 import com.example.telas_background.item.Item_meeting_request;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,6 +41,7 @@ public class FragmentRequest extends Fragment {
     private RecyclerView requestRecycler;
     private static GroupAdapter requestAdapter;
     private static Context context;
+    private static Activity activity;
 
 
     @Override
@@ -54,6 +61,7 @@ public class FragmentRequest extends Fragment {
         requestRecycler.setLayoutManager(new LinearLayoutManager( context, LinearLayoutManager.VERTICAL , false));
         requestRecycler.setAdapter(requestAdapter);
 
+        activity = this.getActivity();
 
         getfMeetingRequest();
         getfFriendRequest();
@@ -79,21 +87,22 @@ public class FragmentRequest extends Fragment {
                 requestAdapter.notifyItemChanged(position);
                 break;
             default:
-                /*
-                MakeToast.makeToast(context , "Perfil");
-                Intent intent = new Intent(context, Perfil.class);
                 Bundle bundle = new Bundle();
 
                 bundle.putString("user", request.user.getId());
                 bundle.putInt("estado", 3);
 
-                intent.putExtras(bundle);
-                context.startActivity(intent);
-
-                 */
+                Fragment fragment = new FragmentPerfil();
+                fragment.setArguments(bundle);
+                assert ((FragmentActivity)activity).getFragmentManager() != null;
+                FragmentManager manager = ((FragmentActivity) activity).getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.nav_host_fragment , fragment);
+                transaction.commit();
                 break;
         }
     }
+
 
     public static void fromItemMeetingRequest(Item item , Integer state , final Integer position){
 
@@ -164,6 +173,5 @@ public class FragmentRequest extends Fragment {
                     }
                 });
     }
-
 
 }

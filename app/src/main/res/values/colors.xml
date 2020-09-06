@@ -12,4 +12,6 @@
     <color name="azulRoxeado">#7381F4</color>
     <color name="roxoClaro">#BD97E7</color>
     <color name="cinzaEscuro">#777</color>
+    <color name="cinza333">#333333</color>
+    <color name="cinza6e6e">#e6e6e6</color>
 </resources>

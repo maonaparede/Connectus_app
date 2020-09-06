@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/cinza6e6e"
+    >
 
     <ImageView
         android:id="@+id/item_meeting_request_imageview_image"
@@ -120,5 +122,14 @@
         app:layout_constraintStart_toEndOf="@+id/item_meeting_request_textview_local"
         app:layout_constraintTop_toBottomOf="@+id/item_meeting_request_textview_owner"
         app:srcCompat="@drawable/ic_access_time_black_24dp" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

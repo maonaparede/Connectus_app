@@ -53,10 +53,10 @@ import java.util.ArrayList;
 
 public class FragmentHome extends Fragment {
 
-    private RecyclerView encontrosRecycler;
-    private GroupAdapter encontrosAdapter;
-    private RecyclerView pessoasRecycler;
-    private GroupAdapter pessoasAdapter;
+    private RecyclerView meetingRecycler;
+    private GroupAdapter meetingAdapter;
+    private RecyclerView userRecycler;
+    private GroupAdapter userAdapter;
     private Button createMeeting;
     private TextView nearMeetingName;
     private TextView nearMeetingDay;
@@ -66,7 +66,7 @@ public class FragmentHome extends Fragment {
     private ArrayList<Item_home_meeting> meetingList;
     private Integer nearestMeeting = 30003030;
     private Integer state = 0;
-    private static Context context;
+    private Context context;
 
 
     @Override
@@ -85,16 +85,16 @@ public class FragmentHome extends Fragment {
         nearMeetingDay = root.findViewById(R.id.home_textview_next_meeting_day);
         nearMeetingImage = root.findViewById(R.id.home_imageview_nextmeeting);
         createMeeting = root.findViewById(R.id.home_button_create_meeting);
-        pessoasRecycler = root.findViewById(R.id.home_recyclerview_user);
-        encontrosRecycler = root.findViewById(R.id.home_recyclerview_meeting);
+        userRecycler = root.findViewById(R.id.home_recyclerview_user);
+        meetingRecycler = root.findViewById(R.id.home_recyclerview_meeting);
 
-        pessoasAdapter = new GroupAdapter();
-        encontrosAdapter = new GroupAdapter();
+        userAdapter = new GroupAdapter();
+        meetingAdapter = new GroupAdapter();
 
-        encontrosRecycler.setLayoutManager(new LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL , false));
-        pessoasRecycler.setLayoutManager(new LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL , false));
+        meetingRecycler.setLayoutManager(new LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL , false));
+        userRecycler.setLayoutManager(new LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL , false));
 
-        encontrosAdapter.setOnItemClickListener(new OnItemClickListener() {
+        meetingAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NonNull Item item, @NonNull View view) {
                 Log.d("encontro " , "boa");
@@ -102,14 +102,14 @@ public class FragmentHome extends Fragment {
             }
         });
 
-        pessoasRecycler.setAdapter(pessoasAdapter);
-        encontrosRecycler.setAdapter(encontrosAdapter);
+        userRecycler.setAdapter(userAdapter);
+        meetingRecycler.setAdapter(meetingAdapter);
 
 
         nearUsers = new ArrayList<Item_home_user>();
         meetingList = new ArrayList<Item_home_meeting>();
 
-        pessoasAdapter.setOnItemClickListener(new OnItemClickListener() {
+        userAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(@NonNull Item item, @NonNull View view) {
                 toPerfil(item);
@@ -226,7 +226,7 @@ public class FragmentHome extends Fragment {
 
                    verifyIfUserIsOwnerMeeting(item);
 
-                   encontrosAdapter.add(item);
+                   meetingAdapter.add(item);
                 }
             }
         }).addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -338,7 +338,7 @@ public class FragmentHome extends Fragment {
                             );
                             try{
                                 nearUsers.add(user);
-                                pessoasAdapter.update(nearUsers);
+                                userAdapter.update(nearUsers);
                             }catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -351,7 +351,7 @@ public class FragmentHome extends Fragment {
         for (Item_home_user item : nearUsers) {
             if (item.user.getId().contains(id)) {
                 nearUsers.remove(item);
-                pessoasAdapter.update(nearUsers);
+                userAdapter.update(nearUsers);
             }
         }
     }
@@ -361,7 +361,7 @@ public class FragmentHome extends Fragment {
             if (item.getOwnerId().contains(id)) {
                 meetingList.remove(item);
                 getNearestMeet();
-                encontrosAdapter.update(meetingList);
+                meetingAdapter.update(meetingList);
             }
         }
     }

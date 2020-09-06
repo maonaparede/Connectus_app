@@ -1,7 +1,6 @@
 package com.example.telas_background;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -13,17 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleObserver;
-import androidx.lifecycle.OnLifecycleEvent;
-import androidx.lifecycle.ProcessLifecycleOwner;
 
-import com.example.telas_background.dialog_toast.MakeDialogGeneric;
 import com.example.telas_background.initialize.Initialize;
 import com.example.telas_background.initialize.UserPrincipal;
-import com.example.telas_background.location.LocationStateControler;
-import com.example.telas_background.timer.Cronos;
-import com.example.telas_background.timer.CronosInterface;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -124,7 +115,7 @@ public class MainActivity extends AppCompatActivity{
                     shared.edit().putString("name" , name).apply();
                     shared.edit().putString("image" , image).apply();
                     UserPrincipal.setFoto(image);
-                    UserPrincipal.setNome(name);
+                    UserPrincipal.setName(name);
                 }
             }
         });

@@ -672,6 +672,8 @@ color cardview_dark_background
 color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
+color cinza333
+color cinza6e6e
 color cinzaEscuro
 color colorAccent
 color colorPrimary
@@ -1266,6 +1268,7 @@ id center_horizontal
 id center_vertical
 id chains
 id chat_edittext_msg
+id chat_imagebutton_back
 id chat_imagebutton_send
 id chat_imageview_user
 id chat_recyclerview
@@ -1278,6 +1281,7 @@ id clip_vertical
 id collapseActionView
 id constraintLayout
 id constraintLayout2
+id constraintLayout3
 id contact_recyclerview
 id contact_search
 id container
@@ -1311,6 +1315,11 @@ id dialog_ok_textview_title
 id dimensions
 id direct
 id disableHome
+id divider
+id divider2
+id divider3
+id divider4
+id divider5
 id drawer_layout
 id edit_query
 id end
@@ -1326,7 +1335,7 @@ id filled
 id fixed
 id forever
 id friends_recyclerview
-id friends_search
+id friends_searchview
 id ghost_view
 id gone
 id group_divider
@@ -1409,7 +1418,6 @@ id linearLayout4
 id linearLayout5
 id linearLayout6
 id linearLayout7
-id linearLayoutop
 id linearLayoutop1
 id listMode
 id list_item
@@ -1516,7 +1524,6 @@ id register_edittext_password_confirm
 id register_textview_connectus
 id register_textview_login
 id request_recyclerview
-id request_serch
 id right
 id right_icon
 id right_side

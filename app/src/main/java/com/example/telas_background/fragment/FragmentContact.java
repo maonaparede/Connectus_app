@@ -103,69 +103,6 @@ public class FragmentContact extends Fragment {
         return root;
     }
 
-
-    private void getfFriends(){
-        FirebaseFirestore.getInstance().collection("amigo").
-                document(UserPrincipal.getId()).collection("amigo").get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-
-                                    getfFriend(document);
-                            }
-                        } else {
-                            Log.d("Perfil ", "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
-    }
-
-    private void getfFriend(final QueryDocumentSnapshot docAmigo) {
-        FirebaseFirestore.getInstance().collection("user")
-                .document(docAmigo.get("id").toString()).get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-
-                if (documentSnapshot.exists()) {
-
-                    getfLastMsg( docAmigo.get("path").toString() , documentSnapshot);
-                }
-            }
-        });
-    }
-
-    private void getfLastMsg(final String path , final DocumentSnapshot document1){
-        FirebaseFirestore.getInstance().collection(path+"/mensagens")
-                .orderBy("tempo" , Query.Direction.DESCENDING).limit(1).get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful()) {
-
-                                String msg = null;
-
-                                for (QueryDocumentSnapshot document : task.getResult()){
-                                    if ( document.get("msg") != null){
-                                        msg = document.get("msg").toString();
-                                    }else{
-                                        msg = "...";
-                                    }
-                                }
-
-                                final ClassContact classUser = new ClassContact(document1.get("foto").toString(),
-                                        document1.get("id").toString(), document1.get("nome").toString() , path , msg);
-
-                                list.add(new Item_contact(classUser));
-                                adapter.add(new Item_contact(classUser));
-                            }
-                    }
-                });
-}
-
-
     //procurar user por nome
     private void filter(String text) {
 
@@ -183,6 +120,68 @@ public class FragmentContact extends Fragment {
 
     private void filterReset() {
         adapter.update(list);
+    }
+
+
+    private void getfFriends(){
+        FirebaseFirestore.getInstance().collection("amigo").
+                document(UserPrincipal.getId()).collection("amigo").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                getfFriend(document);
+                            }
+                        } else {
+                            Log.d("Perfil ", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
+
+    private void getfFriend(final QueryDocumentSnapshot docAmigo) {
+        FirebaseFirestore.getInstance().collection("user")
+                .document(docAmigo.get("id").toString()).get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                        if (documentSnapshot.exists()) {
+
+                            getfLastMsg( docAmigo.get("path").toString() , documentSnapshot);
+                        }
+                    }
+                });
+    }
+
+    private void getfLastMsg(final String path , final DocumentSnapshot document1){
+        FirebaseFirestore.getInstance().collection(path+"/mensagens")
+                .orderBy("tempo" , Query.Direction.DESCENDING).limit(1).get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+
+                            String msg = null;
+
+                            for (QueryDocumentSnapshot document : task.getResult()){
+                                if ( document.get("msg") != null){
+                                    msg = document.get("msg").toString();
+                                }else{
+                                    msg = "...";
+                                }
+                            }
+
+                            final ClassContact classUser = new ClassContact(document1.get("foto").toString(),
+                                    document1.get("id").toString(), document1.get("nome").toString() , path , msg);
+
+                            list.add(new Item_contact(classUser));
+                            adapter.add(new Item_contact(classUser));
+                        }
+                    }
+                });
     }
 
 }
