@@ -1,9 +1,10 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-48:12
-INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-48:12
-INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-48:12
-INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-48:12
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-56:12
+MERGED from [com.theartofdev.edmodo:android-image-cropper:2.8.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\e4646426cdddc65da733a3ef52a53a76\jetified-android-image-cropper-2.8.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\3b8a4cd57dcd7fb4105f916ddbf7b04c\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d5fde9b470ca241c13fa0641ca95ae4a\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.navigation:navigation-ui:2.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\07f8d18d25cc2c07a6a5ffa517a56bf1\navigation-ui-2.1.0\AndroidManifest.xml:17:1-24:12
@@ -15,13 +16,14 @@ MERGED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\jeffe\.grad
 MERGED from [com.google.firebase:firebase-functions:19.0.2] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\359da0bc30921c5b12eaeb1d874d59f0\jetified-firebase-functions-19.0.2\AndroidManifest.xml:2:1-24:12
 MERGED from [androidx.navigation:navigation-fragment:2.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\e76261ce6a7167d3416ae90c1aa6f5a4\navigation-fragment-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\b4e9d03a2bea87dc433f84524dc67ec6\lifecycle-extensions-2.1.0\AndroidManifest.xml:17:1-25:12
-MERGED from [com.firebase:geofire-android:3.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\4741ef7c15976c48983f38c118732af3\jetified-geofire-android-3.0.0\AndroidManifest.xml:2:1-13:12
+MERGED from [com.firebase:geofire-android:3.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\1f2405e016d6a22e685db5f4cb70be0e\jetified-geofire-android-3.0.0\AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\f8fab7b026da3565a28b6ce5f84e0386\jetified-firebase-database-19.3.0\AndroidManifest.xml:15:1-38:12
 MERGED from [com.xwray:groupie:2.3.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\25f2cdb5114bd1be6c5b20b20e0b9f3a\jetified-groupie-2.3.0\AndroidManifest.xml:2:1-14:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\8d8a8abf56b0acf243894e5c793a7480\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d3ce2a2852172f7c5fb22b1b3b437a64\jetified-picasso-2.71828\AndroidManifest.xml:2:1-14:12
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\b4405a8d369a6e839d2d3e94688a43f6\jetified-picasso-2.71828\AndroidManifest.xml:2:1-14:12
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\55cdd1cb5f873838de5123a4dae796cb\jetified-circleimageview-3.1.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\bf701184cb284afcaa68a6fadbfff89e\jetified-play-services-location-17.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\34d8e6fccc0ab5b895e5ef716d51459c\exifinterface-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\002708d22968cd54df02d5dfedd6cae2\jetified-firebase-auth-interop-19.0.0\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-database-collection:17.0.1] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\dbe13819e3ebf098a865ce8aedc31d6e\jetified-firebase-database-collection-17.0.1\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-iid:20.0.1] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\7bd17493ffe5030ca4506852734a59f3\jetified-firebase-iid-20.0.1\AndroidManifest.xml:17:1-47:12
@@ -62,7 +64,6 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.1.0] C:\Users\jeffe\.g
 MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\a8036b2d7daf51b21fe1ce4c1edd512b\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d831d74eee9f185c588b244b4025c98f\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\4585a9ad75e82c7c92523d92d109b415\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\34d8e6fccc0ab5b895e5ef716d51459c\exifinterface-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\324b5866ad2c13339651997b434b41f3\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\adb371d4d53f86eab98a28717d70cc7e\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\6435850e23f2d01013861f1c8dbdb3a0\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -70,22 +71,22 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\jeffe\.gradle\ca
 MERGED from [androidx.print:print:1.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d5fd7fbc692311a845217063332ce16c\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:protolite-well-known-types:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\dfa6e47a12f8d89f5b74073d97870744\jetified-protolite-well-known-types-17.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.21.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\6b65bcd5b224ba6a196b164e2f3c8f84\jetified-grpc-android-1.21.0\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-48:12
-INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-48:12
-INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-48:12
+INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-56:12
 	package
 		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:4:5-43
 		INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-48:12
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-56:12
 		INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-48:12
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:1-56:12
 		INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:2:11-69
@@ -97,8 +98,16 @@ uses-permission#android.permission.FOREGROUND_SERVICE
 ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:7:5-77
 	android:name
 		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:7:22-74
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:8:5-80
+	android:name
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:8:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:9:22-78
 application
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:9:5-46:19
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:11:5-54:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d5fde9b470ca241c13fa0641ca95ae4a\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d5fde9b470ca241c13fa0641ca95ae4a\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\19f5ab89877bc0776fed45e48f261ece\material-1.0.0\AndroidManifest.xml:22:5-20
@@ -117,8 +126,8 @@ MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\jeffe\.gradl
 MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\f8fab7b026da3565a28b6ce5f84e0386\jetified-firebase-database-19.3.0\AndroidManifest.xml:28:5-36:19
 MERGED from [com.xwray:groupie:2.3.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\25f2cdb5114bd1be6c5b20b20e0b9f3a\jetified-groupie-2.3.0\AndroidManifest.xml:11:5-12:19
 MERGED from [com.xwray:groupie:2.3.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\25f2cdb5114bd1be6c5b20b20e0b9f3a\jetified-groupie-2.3.0\AndroidManifest.xml:11:5-12:19
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d3ce2a2852172f7c5fb22b1b3b437a64\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d3ce2a2852172f7c5fb22b1b3b437a64\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\b4405a8d369a6e839d2d3e94688a43f6\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\b4405a8d369a6e839d2d3e94688a43f6\jetified-picasso-2.71828\AndroidManifest.xml:7:5-12:19
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\55cdd1cb5f873838de5123a4dae796cb\jetified-circleimageview-3.1.0\AndroidManifest.xml:9:5-20
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\55cdd1cb5f873838de5123a4dae796cb\jetified-circleimageview-3.1.0\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\bf701184cb284afcaa68a6fadbfff89e\jetified-play-services-location-17.0.0\AndroidManifest.xml:7:5-20
@@ -150,87 +159,95 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\je
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\6cdf211888e0a7ccbf81d39b63072413\core-1.1.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:16:9-35
 	android:label
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:12:9-41
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:14:9-41
 	android:roundIcon
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:13:9-54
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:15:9-54
 	android:icon
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:11:9-43
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:13:9-43
 	android:allowBackup
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:12:9-35
 	android:theme
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:15:9-52
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:17:9-52
 activity#com.example.telas_background.Post
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:16:9-18:56
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:18:9-20:56
 	android:theme
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:18:13-53
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:20:13-53
 	android:name
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:17:13-33
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:19:13-33
 activity#com.example.telas_background.FragmentHandler
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:19:9-21:52
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:21:9-23:52
 	android:screenOrientation
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:21:13-49
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:23:13-49
 	android:name
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:20:13-44
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:22:13-44
 activity#com.example.telas_background.Login
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:22:9-43
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:24:9-43
 	android:name
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:22:19-40
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:24:19-40
 activity#com.example.telas_background.MeetingEdit
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:23:9-49
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:25:9-49
 	android:name
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:23:19-46
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:25:19-46
 activity#com.example.telas_background.PostCreate
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:24:9-26:76
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:26:9-28:76
 	android:theme
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:26:13-73
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:28:13-73
 	android:name
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:25:13-39
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:27:13-39
 activity#com.example.telas_background.PerfilEdit
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:27:9-48
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:29:9-48
 	android:name
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:27:19-45
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:29:19-45
 activity#com.example.telas_background.Chat
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:28:9-42
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:30:9-42
 	android:name
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:28:19-39
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:30:19-39
 activity#com.example.telas_background.Register
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:29:9-46
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:31:9-46
 	android:name
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:29:19-43
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:31:19-43
+activity#com.theartofdev.edmodo.cropper.CropImageActivity
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:33:9-35:59
+	android:theme
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:35:13-56
+	android:name
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:34:13-76
 activity#com.example.telas_background.MainActivity
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:30:9-36:20
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:37:9-43:20
 	android:name
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:30:19-47
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:37:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:31:13-35:29
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:38:13-42:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:32:17-69
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:39:17-69
 	android:name
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:32:25-66
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:39:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:34:17-77
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:41:17-77
 	android:name
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:34:27-74
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:41:27-74
 service#com.example.telas_background.location.LocationService
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:38:9-41:40
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:46:9-49:40
 	android:enabled
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:40:13-35
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:48:13-35
 	android:exported
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:41:13-37
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:49:13-37
 	android:name
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:39:13-53
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:47:13-53
 meta-data#preloaded_fonts
-ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:43:9-45:57
+ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:51:9-53:57
 	android:resource
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:45:13-54
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:53:13-54
 	android:name
-		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:44:13-43
+		ADDED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml:52:13-43
 uses-sdk
 INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\jeffe\StudioProjects\Connectus_app\app\src\main\AndroidManifest.xml
+MERGED from [com.theartofdev.edmodo:android-image-cropper:2.8.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\e4646426cdddc65da733a3ef52a53a76\jetified-android-image-cropper-2.8.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.theartofdev.edmodo:android-image-cropper:2.8.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\e4646426cdddc65da733a3ef52a53a76\jetified-android-image-cropper-2.8.0\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\3b8a4cd57dcd7fb4105f916ddbf7b04c\multidex-2.0.0\AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\3b8a4cd57dcd7fb4105f916ddbf7b04c\multidex-2.0.0\AndroidManifest.xml:20:5-43
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d5fde9b470ca241c13fa0641ca95ae4a\constraintlayout-1.1.3\AndroidManifest.xml:5:5-7:41
@@ -253,20 +270,22 @@ MERGED from [androidx.navigation:navigation-fragment:2.1.0] C:\Users\jeffe\.grad
 MERGED from [androidx.navigation:navigation-fragment:2.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\e76261ce6a7167d3416ae90c1aa6f5a4\navigation-fragment-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\b4e9d03a2bea87dc433f84524dc67ec6\lifecycle-extensions-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\b4e9d03a2bea87dc433f84524dc67ec6\lifecycle-extensions-2.1.0\AndroidManifest.xml:20:5-44
-MERGED from [com.firebase:geofire-android:3.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\4741ef7c15976c48983f38c118732af3\jetified-geofire-android-3.0.0\AndroidManifest.xml:7:5-9:41
-MERGED from [com.firebase:geofire-android:3.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\4741ef7c15976c48983f38c118732af3\jetified-geofire-android-3.0.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.firebase:geofire-android:3.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\1f2405e016d6a22e685db5f4cb70be0e\jetified-geofire-android-3.0.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.firebase:geofire-android:3.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\1f2405e016d6a22e685db5f4cb70be0e\jetified-geofire-android-3.0.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\f8fab7b026da3565a28b6ce5f84e0386\jetified-firebase-database-19.3.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\f8fab7b026da3565a28b6ce5f84e0386\jetified-firebase-database-19.3.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.xwray:groupie:2.3.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\25f2cdb5114bd1be6c5b20b20e0b9f3a\jetified-groupie-2.3.0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.xwray:groupie:2.3.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\25f2cdb5114bd1be6c5b20b20e0b9f3a\jetified-groupie-2.3.0\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\8d8a8abf56b0acf243894e5c793a7480\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\8d8a8abf56b0acf243894e5c793a7480\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d3ce2a2852172f7c5fb22b1b3b437a64\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
-MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d3ce2a2852172f7c5fb22b1b3b437a64\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\b4405a8d369a6e839d2d3e94688a43f6\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\b4405a8d369a6e839d2d3e94688a43f6\jetified-picasso-2.71828\AndroidManifest.xml:5:5-44
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\55cdd1cb5f873838de5123a4dae796cb\jetified-circleimageview-3.1.0\AndroidManifest.xml:5:5-7:41
 MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\55cdd1cb5f873838de5123a4dae796cb\jetified-circleimageview-3.1.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\bf701184cb284afcaa68a6fadbfff89e\jetified-play-services-location-17.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\bf701184cb284afcaa68a6fadbfff89e\jetified-play-services-location-17.0.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\34d8e6fccc0ab5b895e5ef716d51459c\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\34d8e6fccc0ab5b895e5ef716d51459c\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\002708d22968cd54df02d5dfedd6cae2\jetified-firebase-auth-interop-19.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\002708d22968cd54df02d5dfedd6cae2\jetified-firebase-auth-interop-19.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-database-collection:17.0.1] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\dbe13819e3ebf098a865ce8aedc31d6e\jetified-firebase-database-collection-17.0.1\AndroidManifest.xml:5:5-7:41
@@ -347,8 +366,6 @@ MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\jeffe\.gradle\caches
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d831d74eee9f185c588b244b4025c98f\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\4585a9ad75e82c7c92523d92d109b415\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\4585a9ad75e82c7c92523d92d109b415\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\34d8e6fccc0ab5b895e5ef716d51459c\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.exifinterface:exifinterface:1.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\34d8e6fccc0ab5b895e5ef716d51459c\exifinterface-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\324b5866ad2c13339651997b434b41f3\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\324b5866ad2c13339651997b434b41f3\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\adb371d4d53f86eab98a28717d70cc7e\cardview-1.0.0\AndroidManifest.xml:20:5-44
@@ -435,8 +452,8 @@ MERGED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\jeffe\.grad
 MERGED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\18d992b63b25ac03e9a6a1ee16c47e8b\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:14:5-67
 MERGED from [com.google.firebase:firebase-functions:19.0.2] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\359da0bc30921c5b12eaeb1d874d59f0\jetified-firebase-functions-19.0.2\AndroidManifest.xml:12:5-67
 MERGED from [com.google.firebase:firebase-functions:19.0.2] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\359da0bc30921c5b12eaeb1d874d59f0\jetified-firebase-functions-19.0.2\AndroidManifest.xml:12:5-67
-MERGED from [com.firebase:geofire-android:3.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\4741ef7c15976c48983f38c118732af3\jetified-geofire-android-3.0.0\AndroidManifest.xml:11:5-67
-MERGED from [com.firebase:geofire-android:3.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\4741ef7c15976c48983f38c118732af3\jetified-geofire-android-3.0.0\AndroidManifest.xml:11:5-67
+MERGED from [com.firebase:geofire-android:3.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\1f2405e016d6a22e685db5f4cb70be0e\jetified-geofire-android-3.0.0\AndroidManifest.xml:11:5-67
+MERGED from [com.firebase:geofire-android:3.0.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\1f2405e016d6a22e685db5f4cb70be0e\jetified-geofire-android-3.0.0\AndroidManifest.xml:11:5-67
 MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\f8fab7b026da3565a28b6ce5f84e0386\jetified-firebase-database-19.3.0\AndroidManifest.xml:26:5-67
 MERGED from [com.google.firebase:firebase-database:19.3.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\f8fab7b026da3565a28b6ce5f84e0386\jetified-firebase-database-19.3.0\AndroidManifest.xml:26:5-67
 MERGED from [com.google.firebase:firebase-iid:20.0.1] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\7bd17493ffe5030ca4506852734a59f3\jetified-firebase-iid-20.0.1\AndroidManifest.xml:23:5-67
@@ -468,13 +485,13 @@ ADDED from [com.google.firebase:firebase-database:19.3.0] C:\Users\jeffe\.gradle
 	android:name
 		ADDED from [com.google.firebase:firebase-database:19.3.0] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\f8fab7b026da3565a28b6ce5f84e0386\jetified-firebase-database-19.3.0\AndroidManifest.xml:33:17-109
 provider#com.squareup.picasso.PicassoProvider
-ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d3ce2a2852172f7c5fb22b1b3b437a64\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
+ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\b4405a8d369a6e839d2d3e94688a43f6\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
 	android:authorities
-		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d3ce2a2852172f7c5fb22b1b3b437a64\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
+		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\b4405a8d369a6e839d2d3e94688a43f6\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
 	android:exported
-		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d3ce2a2852172f7c5fb22b1b3b437a64\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
+		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\b4405a8d369a6e839d2d3e94688a43f6\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
 	android:name
-		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\d3ce2a2852172f7c5fb22b1b3b437a64\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
+		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\b4405a8d369a6e839d2d3e94688a43f6\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
 uses-permission#android.permission.WAKE_LOCK
 ADDED from [com.google.firebase:firebase-iid:20.0.1] C:\Users\jeffe\.gradle\caches\transforms-2\files-2.1\7bd17493ffe5030ca4506852734a59f3\jetified-firebase-iid-20.0.1\AndroidManifest.xml:24:5-68
 	android:name

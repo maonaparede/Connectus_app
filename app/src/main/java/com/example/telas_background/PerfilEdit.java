@@ -21,6 +21,8 @@ import com.google.firebase.database.annotations.Nullable;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class PerfilEdit extends AppCompatActivity {
 
@@ -83,18 +85,24 @@ public class PerfilEdit extends AppCompatActivity {
 
     //abre a tela para escolher as imgs
     public void imagemClick(View view){
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        startActivityForResult(intent, 0);
+        CropImage.activity()
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .setAspectRatio(1,1)
+                .setCropShape(CropImageView.CropShape.OVAL)
+                .start(PerfilEdit.this); //Use CROP_IMAGE_ACTIVITY_REQUEST_CODE
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 0 && resultCode == RESULT_OK && data!= null && data.getData() != null) {
-            uri = data.getData();
-            Picasso.get().load(uri).into(imageView);
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
+                uri = result.getUri();
+                Picasso.get().load(uri).into(imageView);
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                Exception error = result.getError();
+            }
         }
     }
 

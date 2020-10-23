@@ -10,12 +10,14 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.example.telas_background.fragment.FragmentPerfil;
+
 import com.example.telas_background.instanceClasses.ClassPerfilPost;
 import com.example.telas_background.firebase.PostFirebase;
 import com.example.telas_background.dialog_toast.MakeToast;
 import com.google.firebase.database.annotations.Nullable;
 import com.squareup.picasso.Picasso;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 public class PostCreate extends AppCompatActivity {
 
@@ -35,19 +37,23 @@ public class PostCreate extends AppCompatActivity {
     }
 
     public void imagemClick(View view){
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/*");
-        startActivityForResult(intent, 0);
+        CropImage.activity()
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .setAspectRatio(1,1)
+                .start(PostCreate.this); //Use CROP_IMAGE_ACTIVITY_REQUEST_CODE
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 0 && resultCode == RESULT_OK && data!= null && data.getData() != null) {
-            uri = data.getData();
-
-            Picasso.get().load(uri).into(imageView);
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
+                uri = result.getUri();
+                Picasso.get().load(uri).into(imageView);
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                Exception error = result.getError();
+            }
         }
     }
 

@@ -32,7 +32,8 @@ public class Item_meeting_add_user extends Item<ViewHolder> implements View.OnCl
 
 
         ImageView imageView = viewHolder.itemView.findViewById(R.id.item_meeting_user_imageview_image);
-        Picasso.get().load(user.getImage()).into(imageView);
+        Picasso.get().load(user.getImage()).resize(512, 512)
+                .centerCrop().into(imageView);
 
         positionRequest = viewHolder.getAdapterPosition();
         item = viewHolder.getItem();

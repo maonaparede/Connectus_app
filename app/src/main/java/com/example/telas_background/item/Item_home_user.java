@@ -29,7 +29,8 @@ public class Item_home_user extends Item<ViewHolder> {
         item = viewHolder.getItem();
 
 
-        Picasso.get().load(user.getImage()).into(imageView);
+        Picasso.get().load(user.getImage()).resize(512, 512)
+                .centerCrop().into(imageView);
 
     }
 

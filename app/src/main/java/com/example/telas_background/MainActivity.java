@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void verifyPermission(){
+        //Verify location permission
         if(ContextCompat.checkSelfPermission(
                 getApplicationContext() , Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED){
@@ -55,7 +56,11 @@ public class MainActivity extends AppCompatActivity{
                     REQUEST_CODE_LOCATION_PERMISSION
             );
         }
-        verifyIsLogged();
+            ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+
+            verifyIsLogged();
+
     }
 
     private void verifyIsLogged(){

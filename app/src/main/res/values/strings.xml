@@ -6,6 +6,7 @@
     <string name="voce">Você</string>
     <string name="enviar_request_membro">Enviar Request do Encontro</string>
     <string name="campos_vazios">Não pode haver campos vazios!</string>
+    <string name="campos_data">Por Favor Selecione uma data!</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_perfil">Perfil</string>

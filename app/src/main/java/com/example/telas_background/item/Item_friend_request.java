@@ -32,7 +32,7 @@ public class Item_friend_request extends Item<ViewHolder> implements View.OnClic
         name.setText(user.getName());
 
         ImageView image = viewHolder.itemView.findViewById(R.id.item_friend_request_imageview_image);
-        Picasso.get().load(user.getImage()).into(image);
+        Picasso.get().load(user.getImage()).resize(512, 512).centerCrop().into(image);
 
         positionRequest = position;
         item = viewHolder.getItem();

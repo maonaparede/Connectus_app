@@ -70,7 +70,6 @@ public class PerfilCreateFirebase {
                     if (!task.isSuccessful()) {
                         throw task.getException();
                     }
-
                     // Continue with the task to get the download URL
                     return reference.getDownloadUrl();
                 }
@@ -81,7 +80,6 @@ public class PerfilCreateFirebase {
                         urlImage = task.getResult().toString();
                         createUserFirestore();
                     } else {
-                        // Handle failures
                         // ...
                     }
                 }

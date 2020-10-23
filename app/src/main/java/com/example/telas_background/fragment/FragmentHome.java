@@ -285,7 +285,7 @@ public class FragmentHome extends Fragment {
 
         Double raio = 0.6;
 
-        GeoQuery query  = geoFire.queryAtLocation(location , raio);
+        GeoQuery query = geoFire.queryAtLocation(location , raio);
 
         query.addGeoQueryDataEventListener(new GeoQueryDataEventListener() {
             @Override

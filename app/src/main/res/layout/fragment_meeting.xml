@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/meeting_imageview_image"
         android:layout_width="412dp"
-        android:layout_height="300dp"
+        android:layout_height="312dp"
         android:background="@drawable/linear_negative_background"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -147,32 +147,5 @@
         app:layout_constraintStart_toEndOf="@+id/meeting_imagebutton_hour"
         app:layout_constraintTop_toTopOf="@+id/meeting_imagebutton_hour"
         app:layout_constraintVertical_bias="0.0" />
-
-    <ImageButton
-        android:id="@+id/meeting_imagebutton_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toTopOf="@+id/meeting_textview_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/meeting_textview_day"
-        app:layout_constraintTop_toBottomOf="@+id/meeting_textview_title"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
-
-    <ImageButton
-        android:id="@+id/meeting_imagebutton_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:scaleX="-1"
-        app:layout_constraintBottom_toBottomOf="@+id/meeting_textview_day"
-        app:layout_constraintEnd_toStartOf="@+id/meeting_textview_day"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/meeting_textview_title"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -110,16 +110,10 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
         ref.child(UserPrincipal.getId()).onDisconnect().removeValue();
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    public void appGo(){
-        updateLocation = false;
-       cronos.pause();
-        LocationStateControler.stopLocationService(this);
-        FirebaseGeoFire.removeLocationServer();
-    }
+
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    public void appBack(){
+    public void appStart(){
         updateLocation = true;
        cronos.startOrPlay();
        LocationStateControler.startLocationService(this);
@@ -130,6 +124,7 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
         try {
             updateLocation = false;
             cronos.stop();
+            LocationStateControler.stopLocationService(this);
         } finally {
             FirebaseGeoFire.removeLocationServer();
         }
@@ -202,7 +197,7 @@ public class FragmentHandler extends AppCompatActivity implements CronosInterfac
         nameUser.setText(name);
         emailUser.setText(email);
         if(!image.isEmpty()) {
-            Picasso.get().load(image).into(imageUser);
+            Picasso.get().load(image).resize(256, 256).centerCrop().into(imageUser);
         }
     }
 

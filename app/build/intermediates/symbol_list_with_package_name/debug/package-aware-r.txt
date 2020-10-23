@@ -225,6 +225,38 @@ attr counterEnabled
 attr counterMaxLength
 attr counterOverflowTextAppearance
 attr counterTextAppearance
+attr cropAspectRatioX
+attr cropAspectRatioY
+attr cropAutoZoomEnabled
+attr cropBackgroundColor
+attr cropBorderCornerColor
+attr cropBorderCornerLength
+attr cropBorderCornerOffset
+attr cropBorderCornerThickness
+attr cropBorderLineColor
+attr cropBorderLineThickness
+attr cropFixAspectRatio
+attr cropFlipHorizontally
+attr cropFlipVertically
+attr cropGuidelines
+attr cropGuidelinesColor
+attr cropGuidelinesThickness
+attr cropInitialCropWindowPaddingRatio
+attr cropMaxCropResultHeightPX
+attr cropMaxCropResultWidthPX
+attr cropMaxZoom
+attr cropMinCropResultHeightPX
+attr cropMinCropResultWidthPX
+attr cropMinCropWindowHeight
+attr cropMinCropWindowWidth
+attr cropMultiTouchEnabled
+attr cropSaveBitmapToInstanceState
+attr cropScaleType
+attr cropShape
+attr cropShowCropOverlay
+attr cropShowProgressBar
+attr cropSnapRadius
+attr cropTouchRadius
 attr customNavigationLayout
 attr data
 attr dataPattern
@@ -1124,6 +1156,9 @@ drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
 drawable connect_us
 drawable connect_us_icon
+drawable crop_image_menu_flip
+drawable crop_image_menu_rotate_left
+drawable crop_image_menu_rotate_right
 drawable custom_button_linear
 drawable custom_button_linear_negative
 drawable custom_field_border
@@ -1193,7 +1228,10 @@ font rimouski_sb
 font russo_one
 id ALT
 id CTRL
+id CropOverlayView
+id CropProgressBar
 id FUNCTION
+id ImageView_image
 id META
 id SHIFT
 id SYM
@@ -1264,6 +1302,8 @@ id blocking
 id bottom
 id buttonPanel
 id center
+id centerCrop
+id centerInside
 id center_horizontal
 id center_vertical
 id chains
@@ -1288,6 +1328,13 @@ id container
 id content
 id contentPanel
 id coordinator
+id cropImageView
+id crop_image_menu_crop
+id crop_image_menu_flip
+id crop_image_menu_flip_horizontally
+id crop_image_menu_flip_vertically
+id crop_image_menu_rotate_left
+id crop_image_menu_rotate_right
 id custom
 id customPanel
 id dark
@@ -1332,6 +1379,7 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
+id fitCenter
 id fixed
 id forever
 id friends_recyclerview
@@ -1444,9 +1492,7 @@ id meeting_edit_textview_description
 id meeting_edit_textview_hour
 id meeting_edit_textview_local
 id meeting_imagebutton_hour
-id meeting_imagebutton_left
 id meeting_imagebutton_local
-id meeting_imagebutton_right
 id meeting_imageview_image
 id meeting_textview_day
 id meeting_textview_description
@@ -1480,7 +1526,9 @@ id notification_main_column
 id notification_main_column_container
 id off
 id on
+id onTouch
 id outline
+id oval
 id packed
 id parallax
 id parent
@@ -1516,6 +1564,7 @@ id progressBar
 id progress_circular
 id progress_horizontal
 id radio
+id rectangle
 id recyclerP
 id register_button_register
 id register_edittext_email
@@ -1687,6 +1736,8 @@ layout activity_perfil_edit
 layout activity_post
 layout activity_post_create
 layout activity_register
+layout crop_image_activity
+layout crop_image_view
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1742,6 +1793,7 @@ layout toolbar_content_main
 layout toolbar_custon
 layout toolbar_nav_header_main
 menu activity_main_drawer
+menu crop_image_menu
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
@@ -1776,6 +1828,7 @@ string abc_toolbar_collapse_description
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
+string campos_data
 string campos_vazios
 string character_counter_content_description
 string character_counter_pattern
@@ -1798,6 +1851,14 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string content_dialog_friend_remove
+string crop_image_activity_no_permissions
+string crop_image_activity_title
+string crop_image_menu_crop
+string crop_image_menu_flip
+string crop_image_menu_flip_horizontally
+string crop_image_menu_flip_vertically
+string crop_image_menu_rotate_left
+string crop_image_menu_rotate_right
 string default_web_client_id
 string enviar_request_membro
 string fab_transformation_scrim_behavior
@@ -1824,6 +1885,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string pick_image_intent_chooser_title
 string project_id
 string search_menu_title
 string status_bar_notification_info_overflow
@@ -2368,6 +2430,7 @@ styleable ConstraintLayout_placeholder content emptyVisibility
 styleable ConstraintSet android_orientation android_id android_visibility android_layout_width android_layout_height android_layout_marginLeft android_layout_marginTop android_layout_marginRight android_layout_marginBottom android_maxWidth android_maxHeight android_minWidth android_minHeight android_alpha android_transformPivotX android_transformPivotY android_translationX android_translationY android_scaleX android_scaleY android_rotation android_rotationX android_rotationY android_layout_marginStart android_layout_marginEnd android_translationZ android_elevation barrierAllowsGoneWidgets barrierDirection chainUseRtl constraint_referenced_ids layout_constrainedHeight layout_constrainedWidth layout_constraintBaseline_creator layout_constraintBaseline_toBaselineOf layout_constraintBottom_creator layout_constraintBottom_toBottomOf layout_constraintBottom_toTopOf layout_constraintCircle layout_constraintCircleAngle layout_constraintCircleRadius layout_constraintDimensionRatio layout_constraintEnd_toEndOf layout_constraintEnd_toStartOf layout_constraintGuide_begin layout_constraintGuide_end layout_constraintGuide_percent layout_constraintHeight_default layout_constraintHeight_max layout_constraintHeight_min layout_constraintHeight_percent layout_constraintHorizontal_bias layout_constraintHorizontal_chainStyle layout_constraintHorizontal_weight layout_constraintLeft_creator layout_constraintLeft_toLeftOf layout_constraintLeft_toRightOf layout_constraintRight_creator layout_constraintRight_toLeftOf layout_constraintRight_toRightOf layout_constraintStart_toEndOf layout_constraintStart_toStartOf layout_constraintTop_creator layout_constraintTop_toBottomOf layout_constraintTop_toTopOf layout_constraintVertical_bias layout_constraintVertical_chainStyle layout_constraintVertical_weight layout_constraintWidth_default layout_constraintWidth_max layout_constraintWidth_min layout_constraintWidth_percent layout_editor_absoluteX layout_editor_absoluteY layout_goneMarginBottom layout_goneMarginEnd layout_goneMarginLeft layout_goneMarginRight layout_goneMarginStart layout_goneMarginTop
 styleable CoordinatorLayout keylines statusBarBackground
 styleable CoordinatorLayout_Layout android_layout_gravity layout_anchor layout_anchorGravity layout_behavior layout_dodgeInsetEdges layout_insetEdge layout_keyline
+styleable CropImageView cropAspectRatioX cropAspectRatioY cropAutoZoomEnabled cropBackgroundColor cropBorderCornerColor cropBorderCornerLength cropBorderCornerOffset cropBorderCornerThickness cropBorderLineColor cropBorderLineThickness cropFixAspectRatio cropFlipHorizontally cropFlipVertically cropGuidelines cropGuidelinesColor cropGuidelinesThickness cropInitialCropWindowPaddingRatio cropMaxCropResultHeightPX cropMaxCropResultWidthPX cropMaxZoom cropMinCropResultHeightPX cropMinCropResultWidthPX cropMinCropWindowHeight cropMinCropWindowWidth cropMultiTouchEnabled cropSaveBitmapToInstanceState cropScaleType cropShape cropShowCropOverlay cropShowProgressBar cropSnapRadius cropTouchRadius
 styleable DesignTheme bottomSheetDialogTheme bottomSheetStyle
 styleable DialogFragmentNavigator android_name
 styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color drawableSize gapBetweenBars spinBars thickness

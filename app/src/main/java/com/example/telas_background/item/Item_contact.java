@@ -30,7 +30,8 @@ public class Item_contact extends Item<ViewHolder> {
         lastMsg.setText(contact.getLastMsg());
 
         ImageView image = viewHolder.itemView.findViewById(R.id.item_contact_imageview_image);
-        Picasso.get().load(contact.getImage()).into(image);
+        Picasso.get().load(contact.getImage()).resize(512, 512)
+                .centerCrop().into(image);
 
 
     }

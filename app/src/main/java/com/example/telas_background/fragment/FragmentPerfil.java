@@ -107,8 +107,12 @@ public class FragmentPerfil extends Fragment {
         recycler = root.findViewById(R.id.recyclerP);
         buttonConnect = root.findViewById(R.id.socializar_botao_perfil);
         adapter = new GroupAdapter();
+        adapter.setHasStableIds(true);
         recycler.setLayoutManager(new GridLayoutManager(context , 2));
         recycler.setAdapter(adapter);
+        recycler.setHasFixedSize(true);
+
+
 
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -241,7 +245,8 @@ public class FragmentPerfil extends Fragment {
                                     documentSnapshot.get("id").toString(), documentSnapshot.get("nome").toString());
 
                             if(classUser.getImage() != null){
-                                Picasso.get().load(classUser.getImage()).into(imagePerfil);
+                                Picasso.get().load(classUser.getImage()).resize(1024, 1024)
+                                        .centerCrop().into(imagePerfil);
                             }
                             name.setText(classUser.getName());
 

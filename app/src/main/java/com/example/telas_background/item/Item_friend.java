@@ -36,7 +36,8 @@ public class Item_friend extends Item<ViewHolder> implements View.OnClickListene
 
 
         ImageView image = viewHolder.itemView.findViewById(R.id.item_friend_imageview_image);
-        Picasso.get().load(user.getImage()).into(image);
+        Picasso.get().load(user.getImage()).resize(512, 512)
+                .centerCrop().into(image);
 
 
         Button deny = viewHolder.itemView.findViewById(R.id.item_friend_button_disconect);

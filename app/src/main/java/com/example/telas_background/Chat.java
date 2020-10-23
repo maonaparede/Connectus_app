@@ -62,7 +62,7 @@ public class Chat extends AppCompatActivity {
             pathUser = bundle.getString("path");
 
             if(!imageUser.isEmpty()) {
-                Picasso.get().load(imageUser).into(imageView);
+                Picasso.get().load(imageUser).resize(512, 512).centerCrop().into(imageView);
             }else{
                 Picasso.get().load(R.drawable.connect_us_icon).into(imageView);
             }
@@ -71,6 +71,7 @@ public class Chat extends AppCompatActivity {
 
         recycler = findViewById(R.id.chat_recyclerview);
         adapter = new GroupAdapter();
+        adapter.setHasStableIds(true);
         recycler.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         recycler.setAdapter(adapter);
 

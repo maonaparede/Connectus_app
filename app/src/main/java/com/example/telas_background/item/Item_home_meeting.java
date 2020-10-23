@@ -35,7 +35,7 @@ public class Item_home_meeting extends Item<ViewHolder> {
         TextView meetingName = viewHolder.itemView.findViewById(R.id.item_home_meeting_textview_title);
 
         if(!image.isEmpty()) {
-            Picasso.get().load(image).into(imageView);
+            Picasso.get().load(image).resize(400, 300).centerCrop().into(imageView);
         }
 
         this.position = viewHolder.getAdapterPosition();

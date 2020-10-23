@@ -28,7 +28,8 @@ public class Item_post extends Item<ViewHolder> {
     public void bind(@NonNull ViewHolder viewHolder, int position) {
 
         ImageView imagePost = viewHolder.itemView.findViewById(R.id.item_post_image_imageview);
-        Picasso.get().load(post.getImage()).into(imagePost);
+        Picasso.get().load(post.getImage()).resize(512, 512)
+                .centerCrop().into(imagePost);
 
     }
 

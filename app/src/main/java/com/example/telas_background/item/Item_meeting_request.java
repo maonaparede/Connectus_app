@@ -37,7 +37,7 @@ public class Item_meeting_request extends Item<ViewHolder> implements View.OnCli
 
         title.setText(request.getTitle());
         name.setText(request.getName());
-        Picasso.get().load(request.getImage()).into(imageView);
+        Picasso.get().load(request.getImage()).resize(512, 512).centerCrop().into(imageView);
         localDay.setText(request.getLocal() + " | " + request.getDay());
         hour.setText(request.getHour());
 
