@@ -19,7 +19,7 @@ Funções do BackEnd - https://github.com/maonaparede/ConnectUs-Typescrupt-Cloud
 Telas Do APP
 
 Home
-![Tela Home](https://drive.google.com/file/d/1ELTXHuYtrAjFpp43fgzS2tN87IOh5S51/view?usp=sharing)
+![Tela Home](https://photos.app.goo.gl/aaG1mcH2ngDbJ1Rb8)
 Perfil
 ![Tela Perfil](https://drive.google.com/file/d/1Yo6Em8Neup8GLXXy3rsenLY7frAhTXdR/view?usp=sharing)
 Post
